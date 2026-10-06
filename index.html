@@ -159,6 +159,7 @@ html.dark #wInput.half,html.dark #mxInput.half{border-color:#8a7434; background:
   white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
 .seg button.on{background:var(--accent); border-color:var(--accent); color:#fff}
 .optrow{display:flex; gap:8px; align-items:center}
+.dash{color:var(--muted); flex:none}
 .dd{position:relative; flex:1; min-width:0}
 .ddbtn{width:100%; display:flex; justify-content:space-between; align-items:center; gap:8px;
   border:1.5px solid var(--line); background:var(--card); color:var(--ink); border-radius:12px;
@@ -178,9 +179,17 @@ html.dark #wInput.half,html.dark #mxInput.half{border-color:#8a7434; background:
 .dash{color:var(--muted); flex:none}
 body{overflow-x:hidden}
 @media(max-width:560px){
-  .seg button{font-size:.84rem; padding:9px 4px}
-  .optrow{flex-wrap:nowrap}
-  #rbClear{width:100%}
+  /* Buch-Kacheln: exakt 2 pro Reihe, kein Overflow */
+  .books{display:grid; grid-template-columns:1fr 1fr; gap:10px}
+  .book{min-width:0}
+  /* Kapitel: 1 pro Reihe bei schmal, Titel sauber umbrechen */
+  .chapters{grid-template-columns:1fr}
+  /* Bereich: Von/Bis ÜBEREINANDER statt gequetscht nebeneinander */
+  .optrow{flex-wrap:wrap}
+  .dd{flex:1 1 100%; min-width:0}
+  .dash{display:none}
+  #rbClear{flex:none; padding:10px 14px}
+  .seg button{font-size:.84rem; padding:10px 4px}
 }
 </style>
 </head>
