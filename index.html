@@ -150,6 +150,37 @@ html.dark #wInput.half{border-color:#8a7434; background:#3a3320}
 .mnote{font-size:.8rem; color:var(--muted); margin-top:8px}
 .mdone{color:var(--good-ink); font-size:.85rem; margin-top:8px; min-height:1em}
 .hidden{display:none!important}
+/* Moderne Auswahl: Segmente + Custom-Dropdowns */
+.seg-label{font-size:.82rem; color:var(--muted); font-weight:700; margin:14px 0 6px; letter-spacing:.02em}
+.seg{display:flex; gap:6px}
+.seg button{flex:1; min-width:0; border:1.5px solid var(--line); background:var(--card); color:var(--ink);
+  border-radius:12px; padding:10px 6px; font-weight:700; font-size:.9rem; cursor:pointer;
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.seg button.on{background:var(--accent); border-color:var(--accent); color:#fff}
+.optrow{display:flex; gap:8px; align-items:center}
+.dd{position:relative; flex:1; min-width:0}
+.ddbtn{width:100%; display:flex; justify-content:space-between; align-items:center; gap:8px;
+  border:1.5px solid var(--line); background:var(--card); color:var(--ink); border-radius:12px;
+  padding:10px 12px; font-weight:600; font-size:.9rem; cursor:pointer}
+.ddbtn .lbl{overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+.ddbtn .chev{flex:none; color:var(--muted); font-size:.75rem; transition:transform .18s}
+.dd.open .chev{transform:rotate(180deg)}
+.ddmenu{display:none; position:absolute; top:calc(100% + 6px); left:0; right:0; z-index:80;
+  background:var(--card); border:1.5px solid var(--line); border-radius:12px; padding:6px;
+  max-height:240px; overflow:auto; box-shadow:0 8px 26px rgba(10,14,24,.16)}
+.dd.open .ddmenu{display:block}
+.dditem{display:block; width:100%; text-align:left; border:0; background:transparent; color:var(--ink);
+  border-radius:8px; padding:9px 10px; font-size:.88rem; cursor:pointer; overflow:hidden;
+  text-overflow:ellipsis; white-space:nowrap}
+.dditem:hover{background:var(--chip)}
+.dditem.on{background:var(--accent-soft); color:var(--accent); font-weight:700}
+.dash{color:var(--muted); flex:none}
+body{overflow-x:hidden}
+@media(max-width:560px){
+  .seg button{font-size:.84rem; padding:9px 4px}
+  .optrow{flex-wrap:nowrap}
+  #rbClear{width:100%}
+}
 </style>
 </head>
 <body>
@@ -170,26 +201,28 @@ html.dark #wInput.half{border-color:#8a7434; background:#3a3320}
     <div class="books" id="books"></div>
     <h2 id="chHead">Kapitel</h2>
     <div class="chapters" id="chapters"></div>
-    <div class="rangebox">
-      <span class="rb-label">Bereich</span>
-      <select id="fromSel" style="max-width:230px"></select>
-      <span style="color:var(--muted)">–</span>
-      <select id="toSel" style="max-width:230px"></select>
-      <button id="rbClear" class="back" style="padding:7px 10px">✕ Ganzes Kapitel</button>
+    <div class="rangebox" style="display:block">
+      <div class="seg-label">Bereich (optional)</div>
+      <div class="optrow">
+        <div class="dd" id="ddFrom"><button class="ddbtn" type="button"><span class="lbl">Von: Anfang</span><span class="chev">▼</span></button><div class="ddmenu"></div></div>
+        <span class="dash">–</span>
+        <div class="dd" id="ddTo"><button class="ddbtn" type="button"><span class="lbl">Bis: Ende</span><span class="chev">▼</span></button><div class="ddmenu"></div></div>
+        <button id="rbClear" class="back" style="padding:9px 12px; flex:none">✕</button>
+      </div>
     </div>
-    <div class="rangebox" style="margin-top:8px">
-      <span class="rb-label">Richtung</span>
-      <select id="dirSel">
-        <option value="both">Gemischt</option>
-        <option value="en2de">Englisch → Deutsch</option>
-        <option value="de2en">Deutsch → Englisch</option>
-      </select>
-      <span class="rb-label" style="margin-left:12px">Modus</span>
-      <select id="modeSel">
-        <option value="mc">Multiple Choice</option>
-        <option value="cards">Karteikarten</option>
-        <option value="write">Schreiben</option>
-      </select>
+    <div class="rangebox" style="margin-top:8px; display:block">
+      <div class="seg-label">Modus</div>
+      <div class="seg" id="modeSeg" style="margin-bottom:10px">
+        <button data-mv="mc" class="on">Multiple Choice</button>
+        <button data-mv="cards">Karteikarten</button>
+        <button data-mv="write">Schreiben</button>
+      </div>
+      <div class="seg-label">Richtung</div>
+      <div class="seg" id="dirSeg">
+        <button data-dv="both" class="on">Gemischt</button>
+        <button data-dv="en2de">EN → DE</button>
+        <button data-dv="de2en">DE → EN</button>
+      </div>
     </div>
     <button class="start" id="startBtn" disabled>Vokabeln üben</button>
   </section>
@@ -354,13 +387,49 @@ async function init(){
     if(i>=0){ const b=document.querySelectorAll('#qbox .choice')[i]; if(b&&!b.disabled) b.click(); }
   });
   show('viewHome','viewQuiz');
-  $('fromSel').addEventListener('change',applyRange);
-  $('toSel').addEventListener('change',applyRange);
-  $('dirSel').value=localStorage.getItem('vb_dir')||'both';
-  $('dirSel').addEventListener('change',()=>{
-    localStorage.setItem('vb_dir',$('dirSel').value);
-  });
-  $('rbClear').onclick=()=>{ $('fromSel').value=''; $('toSel').value=''; applyRange(); };
+  // --- Moderne Auswahl: Segmente (Modus/Richtung) + Custom-Dropdowns (Bereich) ---
+  const modeSeg=$('modeSeg'), dirSeg=$('dirSeg');
+  let vMode='mc', vDir=localStorage.getItem('vb_dir')||'both';
+  // versteckte Kompatibilitäts-Inputs: startQuiz/startCards/startWrite/dirsel lesen .value
+  const shim=(id,val)=>{ let el=$(id); if(!el){ el=document.createElement('input'); el.type='hidden'; el.id=id; document.body.appendChild(el);} el.value=val; };
+  shim('modeSel', vMode); shim('dirSel', vDir);
+  const syncSeg=(seg,val,attr,shimId)=>{ 
+    for(const b of seg.querySelectorAll('button')) b.classList.toggle('on', b.dataset[attr]===val);
+    shim(shimId, val);
+  };
+  syncSeg(modeSeg, vMode, 'mv', 'modeSel');
+  syncSeg(dirSeg, vDir, 'dv', 'dirSel');
+  modeSeg.onclick=e=>{ const b=e.target.closest('button'); if(!b) return; vMode=b.dataset.mv; syncSeg(modeSeg,vMode,'mv','modeSel'); };
+  dirSeg.onclick=e=>{ const b=e.target.closest('button'); if(!b) return; vDir=b.dataset.dv; syncSeg(dirSeg,vDir,'dv','dirSel'); localStorage.setItem('vb_dir',vDir); };
+  // Custom-Dropdown für Bereich — speist aus wordsCache und hält hidden fromSel/toSel shims
+  shim('fromSel',''); shim('toSel','');
+  const setupDD=(ddId, shimId, prefixLabel)=>{
+    const dd=$(ddId);
+    dd.querySelector('.ddbtn').onclick=e=>{ e.stopPropagation();
+      for(const o of document.querySelectorAll('.dd.open')) if(o!==dd) o.classList.remove('open');
+      dd.classList.toggle('open'); };
+    dd.querySelector('.ddmenu').onclick=e=>{
+      const it=e.target.closest('.dditem'); if(!it) return;
+      $(shimId).value=it.dataset.v;
+      dd.classList.remove('open'); paintDD(ddId,shimId,prefixLabel); applyRange();
+    };
+  };
+  window.paintDD=(ddId,shimId,prefixLabel)=>{
+    const dd=$(ddId), items=wordsCache.items||[], cur=$(shimId).value;
+    let head=prefixLabel==='Von'?'Von: Anfang':'Bis: Ende';
+    const mk=(v,l,onp)=>`<button class="dditem ${onp?'on':''}" data-v="${esc(String(v))}">${esc(l)}</button>`;
+    let html=mk('', head, !cur);
+    for(const it of items) html+=mk(it.gpos, it.label, String(it.gpos)===String(cur));
+    const menu=dd.querySelector('.ddmenu'); menu.innerHTML=html;
+    const selIt=cur? String(getLabel(items,cur)||('#'+cur)) : head;
+    dd.querySelector('.lbl').textContent=prefixLabel+': '+selIt;
+  };
+  window.getLabel=(items,v)=>{ const n=parseInt(v,10); const it=(items||[]).find(x=>x.gpos===n); return it?it.label:null; };
+  setupDD('ddFrom','fromSel','Von'); setupDD('ddTo','toSel','Bis');
+  document.addEventListener('click',()=>{ for(const o of document.querySelectorAll('.dd.open')) o.classList.remove('open'); });
+  $('fromSel').addEventListener('change',()=>{ paintDD('ddFrom','fromSel','Von'); applyRange(); });
+  $('toSel').addEventListener('change',()=>{ paintDD('ddTo','toSel','Bis'); applyRange(); });
+  $('rbClear').onclick=()=>{ $('fromSel').value=''; $('toSel').value=''; paintDD('ddFrom','fromSel','Von'); paintDD('ddTo','toSel','Bis'); applyRange(); };
   loadChapters();
 }
 const wordsCache = { key: '', items: [] };
@@ -380,9 +449,11 @@ function fillRangeUI(){
   const fs=$('fromSel'), ts=$('toSel');
   const pf=fs.value, pt=ts.value;
   const opts=wordsCache.items.map(it=>`<option value="${it.gpos}">${esc(it.label)}</option>`).join('');
-  fs.innerHTML='<option value="">Start — ganzes Kapitel</option>'+opts;
-  ts.innerHTML='<option value="">Ende — ganzes Kapitel</option>'+opts;
+  fs.innerHTML='<option value="">Anfang</option>'+opts;
+  ts.innerHTML='<option value="">Ende</option>'+opts;
   if(pf) fs.value=pf; if(pt) ts.value=pt;
+  // Custom-Dropdowns neu malen
+  if(window.paintDD){ paintDD('ddFrom','fromSel','Von'); paintDD('ddTo','toSel','Bis'); }
 }
 function applyRange(){
   const fs=$('fromSel'), ts=$('toSel');
