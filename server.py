@@ -283,6 +283,54 @@ def _make_quiz(book, kid, chapters, qtype, count, nonce, from_n=None, to_n=None)
     return _quiz_core(pool, dpool, kid, qtype, count, nonce)
 
 
+def _make_mixed_session(book, kid, chapters, qtype, count, nonce, from_n=None, to_n=None):
+    """Mixed-Test: eine gewichtete Auswahl wird zufällig auf MC / Schreiben / (später: Karte)
+    verteilt. Fragen und Schreib-Items teilen sich dieselbe Session — Antwort je Typ endpoint."""
+    pool = _pool(book, chapters, from_n, to_n)
+    if not pool:
+        return None
+    dpool = _pool(book, chapters)  # Distraktoren ungefiltert (wie _make_quiz)
+    picked = _weighted_pick(pool, kid, count)
+    rng = random.Random()
+    dirs = (['en2de', 'de2en'] if qtype == 'both' else [qtype] if qtype in ('en2de', 'de2en')
+            else ['en2de', 'de2en'])
+    now = time.time()
+    with _lock:
+        _gc_sessions(now)
+        _sessions[nonce] = {'created': now, 'questions': {}, 'written': {}}
+    kinds = (['mc', 'write', 'mc', 'cards'] * 4)[:len(picked)] if len(picked) >= 8 else ['mc', 'write', 'cards']
+    rng.shuffle(kinds)
+    while len(kinds) < len(picked):
+        kinds.append(rng.choice(['mc', 'write', 'cards']))
+    out = []
+    for i, (item, kind) in enumerate(zip(picked, kinds)):
+        d = dirs[i % len(dirs)]
+        if kind == 'mc':
+            q = _build_question(item, dpool, d, rng)
+            with _lock:
+                _sessions[nonce]['questions'][q['id'] + '|' + d] = q
+            out.append({'kind': 'mc', 'id': q['id'], 'direction': d, 'chapter': item['num'],
+                        'pos': item['pos'], 'prompt': q['prompt'], 'choices': q['choices']})
+        else:
+            if d == 'de2en':
+                prompt, answer = item['de'], item['en']
+            else:
+                prompt, answer = item['en'], item['de']
+            key = item['qid'] + '|' + d
+            with _lock:
+                if kind == 'write':
+                    _sessions[nonce]['written'][key] = {'answer': answer, 'qid': item['qid'],
+                                                        'direction': d, 'prompt': prompt}
+            if kind == 'write':
+                out.append({'kind': 'write', 'id': item['qid'], 'direction': d,
+                            'chapter': item['num'], 'pos': item['pos'], 'prompt': prompt})
+            else:
+                card = _card_for(item, d)
+                card['kind'] = 'cards'
+                out.append(card)
+    return out
+
+
 def _make_wrong_quiz(book, kid, nonce):
     """Wiederholungs-Quiz: die in der letzten Session falsch beantworteten Vokabeln."""
     sess = _sessions.get(nonce)
@@ -643,6 +691,13 @@ class Handler(BaseHTTPRequestHandler):
             return
         if not chapters:
             self._json({'error': 'Kein Kapitel gewählt'}, 400)
+            return
+        if qtype == 'mixed':
+            items = _make_mixed_session(book, kid, chapters, qtype, (q.get('count') or ['12'])[0], nonce, from_n, to_n)
+            if items is None:
+                self._json({'error': 'Keine Vokabeln in diesem Bereich'}, 404)
+                return
+            self._json({'book': book, 'kid': kid, 'kind': 'mixed', 'questions': items})
             return
         qs = _make_quiz(book, kid, chapters, qtype, (q.get('count') or ['12'])[0], nonce, from_n, to_n)
         if qs is None:
