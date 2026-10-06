@@ -162,6 +162,7 @@ def _trim_de(de):
         if looks_en:
             de = first
     de = de.split(' English:')[0]
+    de = de.split(' German:')[0]
     de = re.split(r'\sstress:\s|\sadj:\s|\snoun:\s|\sverb:\s|\sadv:\s|\sopp:\s|\s+:(?=\s)', de)[0]
     # 3) OCR-Leerzeichen kollabieren
     de = re.sub(r'\s{2,}', ' ', de).strip()
@@ -184,6 +185,10 @@ def _trim_de(de):
             de = de[:tail.start()].rstrip(' ;,-').rstrip()
     # 5) Worttrennungen, Apostroph-Beispiele, Klammerreste
     de = re.sub(r'(\w)- (?=\w)', r'\1', de)
+    # Apostroph-Formen mitten im Text (She's pointing ... / That's ...) = Satzrest
+    ap2 = re.search(r'\s(?:She’s|He’s|It’s|That’s|They’re|We’re|You’re|I’m|There’s|Don’t|doesn’t)\s+.*$', de)
+    if ap2 and len(de[:ap2.start()].strip().split()) >= 1 and not any(c in de[ap2.start():] for c in 'äöüßÄÖÜ'):
+        de = de[:ap2.start()].rstrip(' ,;.')
     ap = re.search(r'\s[A-Z][a-z]{1,8}’[a-z]+\s+(?=(?:\S+\s){3,})', de)
     if ap and not any(c in de[ap.start():] for c in 'äöüßÄÖÜ'):
         de = de[:ap.start()].rstrip(' ,;.')
@@ -235,6 +240,49 @@ def is_garbage(l):
     if re.fullmatch(r'[a-zɪʊʌɑɒɔæθðʃʒˌˈːə]+[a-z ]*', l.replace(' ', '')) and len(l) < 3:
         return True
     return False
+
+
+def _sanitize_pair(en, de):
+    """Letzte Reinigung je Paar: OCR-Restklassen säubern oder Entry verwerfen.
+    Rückgabe (en, de) oder None."""
+    en = re.sub(r'\s+', ' ', str(en or '')).strip()
+    de = str(de or '')
+    # Betonung:/Antonym-Icon(73)/£$-Anhänge
+    de = re.split(r'\sBetonung:\s|\s73\s|\s£.*$|\s\$\d.*$', de)[0]
+    # führende (bes. AE)/(AE)/(BE)-Marker
+    de = re.sub(r'^\(\s*(?:bes\.?\s+)?(?:AE|BE)\s*\)\s*', '', de)
+    # Worttrennung + Doppel-Leerzeichen
+    de = re.sub(r'(\w)- (?=\w)', r'\1', de)
+    de = re.sub(r'\s{2,}', ' ', de).strip()
+    # Wiederholung des en-Worts am de-Ende ('Schatten shadow')
+    if en.casefold() in ('shadow',):
+        pass
+    low, enlow = de.casefold(), en.casefold().strip('() .')
+    if enlow and low.endswith(' ' + enlow):
+        de = de[:len(low) - (len(enlow) + 1)].rstrip()
+    # angehängtes englisches Satzfragment: [A-Z]-Start + 2–6 reine ASCII-Wörter + Endpunkt
+    m = re.search(r'^(.*?\S)\s+((?:[A-Z][A-Za-z’\'-]*)(?:\s+[A-Za-z’\'£$.,()-]+){1,6}[.!?])$', de)
+    if m and not any(c in m.group(2) for c in 'äöüßÄÖÜ'):
+        de = m.group(1).rstrip()
+    # lowercase-Glue-Wörter am Ende ('please.', 'und so weiter'-Varianten bleiben)
+    m2 = re.search(r'^(.*?\S)\s+(?:please|Wait|Aha|sorry)\W*$', de, re.I)
+    if m2 and len(m2.group(1)) >= 3 and 'usw' not in (m2.group(1)[-10:].lower()):
+        de = m2.group(1).rstrip(' ,')
+    de = de.strip(' ,;')
+    # Verwerfen: smashed Compound ('leichte Nachmittagsoder'), leere Übersetzung,
+    # reine Marker-Übersetzung, en wie invertierter deutscher Satz, Seiten-/Header-Leichen
+    if not de or de in ('…', '(no pl)', 'pl', '(pl)', '-'):
+        return None
+    if re.search(r'(?:^|\s)[a-zäöüß]{8,}oder\b', de) or re.search(r'^[a-zäöüß]{8,}\.$', de):
+        return None
+    if re.match(r'^(?:Das |Der |Die |Ein |Eine |Ich |Wir |Sie |Er |Es |Am |Im |Mit |Für |In the first place|Er hat )', en) \
+       and len(en.split()) >= 4 and not re.search(r'\((?:to|pl|AE|BE|infml|no|fml|kort|brit)|\bpl\)', en):
+        return None
+    if re.match(r'^(?:p{1,3}\.\s?\d|pp?\.\s?\d|STEP \d|Part [AB]|Units? \d|Revision|Grammar|Practice|Skills|Dictionary|Irregular|Content|Writing)', en):
+        return None
+    if enlow in ('the tube',) and de == '(no pl)':
+        pass  # legitime Angabe, bleibt
+    return (en, de)
 
 
 def book_toc_titles(txt_path):
@@ -331,23 +379,25 @@ def parse_band(txt_path):
             added = False
             if im and len(im.group('ipa')) <= 30 and im.group('en'):
                 en = re.sub(r'\s+', ' ', im.group('en')).strip()
-                de = _trim_de(im.group('de'))
-                if en and de and _final_ok(en, de) and len(en.split()) <= 6 and len(de.split()) <= 8:
-                    ch['words'].append([en, de])
+                pair = _sanitize_pair(en, _trim_de(im.group('de')))
+                if pair and _final_ok(*pair) and len(pair[0].split()) <= 6 and len(pair[1].split()) <= 8:
+                    ch['words'].append(list(pair))
                     added = True
             if not added:
                 gm = GAP_RE.match(l)
                 if gm and len(gm.group('en')) <= 40:
                     en = re.sub(r'\s+', ' ', gm.group('en')).strip()
-                    de = _trim_de(re.sub(r'\s{2,}', ' ', gm.group('de')).strip())
-                    de_low = de.lower()
-                    looks_de = any(c in de for c in 'äöüßÄÖÜ') or de_low.startswith(('der ', 'die ', 'das ', 'ein ', 'eine ', 'ich ', 'jn', 'jm', 'etwas', 'vor ', '(zu)', 'wieder', 'auch', 'nicht', 'mehr', 'mit ', 'in ', 'an ', 'auf ', 'aus ', 'zu '))
-                    if looks_de and len(de) > 1 and _final_ok(en, de) and len(en.split()) <= 6 and len(de.split()) <= 8:
-                        ch['words'].append([en, de])
+                    pair = _sanitize_pair(en, _trim_de(re.sub(r'\s{2,}', ' ', gm.group('de')).strip()))
+                    if pair and _final_ok(*pair) and len(pair[0].split()) <= 6 and len(pair[1].split()) <= 8:
+                        ch['words'].append(list(pair))
                         added = True
             if not added and ch['words']:
                 last = ch['words'][-1]
                 cont = re.sub(r'\s+', ' ', l)
+                # Verwerfen: leading ')' nach '(' - Fragment wie '(= they are' + ')'
+                if ch['words'] and re.match(r'^\)\s*$|^$|^,?\s*(=\s*|~)', cont):
+                    skipped += 1
+                    continue
                 if len(cont) <= 60:
                     prev = last[1].rstrip()
                     if prev.endswith((',', '/', '-', '(')) or prev == '':

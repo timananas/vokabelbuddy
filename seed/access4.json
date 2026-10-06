@@ -7,7 +7,7 @@
    "words": [
     [
      "subway",
-     "(AE) U-Bahn"
+     "U-Bahn"
     ],
     [
      "central",
@@ -18,12 +18,24 @@
      "Allee, Boulevard"
     ],
     [
+     "statue",
+     "[ˈstætʃuː] Statue pronunciation: statue [ˈstætʃuː]"
+    ],
+    [
      "liberty",
      "Freiheit"
     ],
     [
      "metal",
      "Metall; Metall- Part A"
+    ],
+    [
+     "newspaper",
+     "[ˈnjuːspeɪpə]"
+    ],
+    [
+     "( kurz auch:",
+     "paper)"
     ],
     [
      "(to) crash",
@@ -46,12 +58,20 @@
      "Angriff"
     ],
     [
+     "sich in etwas eindrängen",
+     "The door was closed and we had to"
+    ],
+    [
      "control",
      "Kontrolle"
     ],
     [
      "target",
      "Ziel, Zielscheibe"
+    ],
+    [
+     "a",
+     "target"
     ],
     [
      "brave",
@@ -66,6 +86,10 @@
      "Geschoss, Etage, Stockwerk"
     ],
     [
+     "death",
+     "Tod"
+    ],
+    [
      "skyscraper",
      "Wolkenkratzer skyscrapers"
     ],
@@ -78,32 +102,68 @@
      "dick German dick"
     ],
     [
+     "1. fat",
+     "(person, animal)"
+    ],
+    [
+     "2. thick",
+     "(book, pullover, sauce, cloud, wall, …)"
+    ],
+    [
      "dust",
      "Staub"
     ],
     [
      "emergency",
-     "Notfall, (Not-, Rettungsdienste) , please?"
+     "Notfall"
     ],
     [
      "service",
-     "Dienst, Service"
+     "Dienst"
+    ],
+    [
+     "neighborhood",
+     "/ neighbourhood (BE)"
     ],
     [
      "as if",
      "als ob"
     ],
     [
+     "German",
+     "als ob"
+    ],
+    [
+     "2. as if",
+     "(a bit more formal than like )"
+    ],
+    [
      "(to) stick",
-     ", stuck, stuck"
+     "stuck, stuck"
+    ],
+    [
+     "bleiben; kleben",
+     "Why do bad songs always"
+    ],
+    [
+     "Stick",
+     "the picture onto the poster."
     ],
     [
      "mind",
      "Verstand, Sinn, Geist"
     ],
     [
+     "(to) be alive",
+     "leben, am Leben sein (to) be alive"
+    ],
+    [
      "image",
      "Bild, Abbild; Vorstellung"
+    ],
+    [
+     "head.",
+     "F l’image (f)"
     ],
     [
      "historic",
@@ -118,12 +178,24 @@
      "Schließfach, Spind"
     ],
     [
+     "backpack",
+     "[ˈbækpæk]"
+    ],
+    [
      "( BE auch: rucksack",
      ")"
     ],
     [
+     "(BE auch:",
+     "rucksacks )"
+    ],
+    [
      "shot",
-     "Aufnahme, Foto;"
+     "Aufnahme, Foto"
+    ],
+    [
+     "(Film)",
+     "Einstellung, Szene"
     ],
     [
      "block",
@@ -134,12 +206,28 @@
      "Jahrestag"
     ],
     [
+     "Vocabulary",
+     "Unit 1"
+    ],
+    [
+     "rose",
+     "[rəʊz]"
+    ],
+    [
      "(to) roar",
      "tosen, dröhnen"
     ],
     [
+     "foot",
+     "pl feet [fiːt] Fuß (Längenmaß; ca. 30cm) f"
+    ],
+    [
      "2.",
      "Fuß (Längenmaß)"
+    ],
+    [
+     "She’s over six",
+     "feet tall. (= over 1.83 metres)"
     ],
     [
      "(to) lean",
@@ -154,24 +242,36 @@
      "verhaften, festnehmen"
     ],
     [
+     "32-year-old man.",
+     "F arrêter qn."
+    ],
+    [
      "(to) bury",
      "begraben, beerdigen"
+    ],
+    [
+     "and was",
+     "buried there."
     ],
     [
      "Friedhof",
      "an area of land where people are buried"
     ],
     [
+     "It’s cold.",
+     "You’d"
+    ],
+    [
      "way",
      "Art und Weise"
     ],
     [
-     "fall",
-     "(AE)"
+     "etwas miteinander gemein haben",
+     "We’re"
     ],
     [
-     "leaf",
-     ","
+     "fall",
+     "[fɔːl]"
     ],
     [
      "colourful",
@@ -210,6 +310,10 @@
      "Vorschlag"
     ],
     [
+     "verb: (to)",
+     "suggest"
+    ],
+    [
      "move",
      "Zug (bei Brettspielen)"
     ],
@@ -234,12 +338,20 @@
      "(Bahn-)Gleis"
     ],
     [
+     "railway tracks",
+     "railroad tracks (AE)"
+    ],
+    [
      "railroad",
-     "(AE) ,"
+     "[ˈreɪlrəʊd]"
     ],
     [
      "railway",
-     "(BE)"
+     "[ˈreɪlweɪ]"
+    ],
+    [
+     "truck",
+     "[trʌk]"
     ],
     [
      "( BE auch: lorry",
@@ -254,8 +366,16 @@
      "Pute, Truthahn"
     ],
     [
+     "(to) tear",
+     "sth. down [ˌteə"
+    ],
+    [
      "ˈdaʊn] , tore",
-     ", torn [tɔːn]"
+     "torn [tɔːn]"
+    ],
+    [
+     "etwas abreißen",
+     "They started"
     ],
     [
      "if",
@@ -266,8 +386,28 @@
      "Platz, Raum"
     ],
     [
+     "the men",
+     "whose homes …"
+    ],
+    [
+     "die Männer, deren Wohnungen …",
+     "whose"
+    ],
+    [
+     "(to) protest",
+     "[prəˈtest]"
+    ],
+    [
      "(AE auch:",
      ")"
+    ],
+    [
+     "protestieren",
+     "English: (to) protest against sth. or"
+    ],
+    [
+     "protest",
+     "[ˈprəʊtest]"
     ],
     [
      "even though",
@@ -278,8 +418,12 @@
      "praktisch"
     ],
     [
-     "a",
-     "9,740-foot swimming pool ein 9.740 Fuß langes Schwimmbad"
+     "help, too?",
+     "F pratique"
+    ],
+    [
+     "a turkey",
+     "a frozen turkey"
     ],
     [
      "roller coaster",
@@ -314,12 +458,24 @@
      "Aufführung, Vorstellung, Auftritt"
     ],
     [
+     "awesome",
+     "[ˈɔːsəm]"
+    ],
+    [
+     "klasse, großartig",
+     "BE great, super, fantastic, cool"
+    ],
+    [
      "council",
      "Ausschuss; Rat"
     ],
     [
      "unfortunately",
      "leider, unglücklicherweise"
+    ],
+    [
+     "fortunately",
+     "(glücklicherweise)"
     ],
     [
      "type (of)",
@@ -338,12 +494,16 @@
      "einschließen; beinhalten"
     ],
     [
-     "(to) deal with sth.",
-     ", dealt, dealt [delt]"
+     "dealt, dealt",
+     "[delt]"
     ],
     [
      "immigrant",
      "Einwanderer/Einwanderin"
+    ],
+    [
+     "shrubs",
+     "lawn seeds"
     ]
    ]
   },
@@ -356,12 +516,28 @@
      "jn. erinnern"
     ],
     [
+     "Grandpa always says I",
+     "remind him of his sister."
+    ],
+    [
+     "Do you",
+     "remember her name?"
+    ],
+    [
+     "I mustn’t forget. Please",
+     "remind me."
+    ],
+    [
      "Mardi Gras",
      "Faschingsdienstag"
     ],
     [
      "brass band",
      "Blaskapelle"
+    ],
+    [
+     "a",
+     "brass band"
     ],
     [
      "(to) flood",
@@ -376,12 +552,28 @@
      "Hurrikan, Orkan"
     ],
     [
+     "alligator",
+     "[ˈælɪgeɪtə]"
+    ],
+    [
      "swamp",
      "Sumpf"
     ],
     [
+     "silent “ l ”:",
+     "palm tree [ˈpɑːm triː]"
+    ],
+    [
      "degree",
      "Grad"
+    ],
+    [
+     "Celsius (C)",
+     "[ˈselsiəs] Celsius"
+    ],
+    [
+     "Fahrenheit (F)",
+     "[ˈfærənhaɪt] Fahrenheit"
     ],
     [
      "palm tree",
@@ -392,12 +584,28 @@
      "(= kind of)"
     ],
     [
+     "irgendwie",
+     "This place looks kind of scary to me."
+    ],
+    [
+     "kind of +",
+     "noun"
+    ],
+    [
+     "Welche",
+     "Art von Musik …?"
+    ],
+    [
+     "kind of + adjective:",
+     "He looked kind of crazy ."
+    ],
+    [
      "tropical",
      "tropisch, Tropen-"
     ],
     [
      "downtown",
-     "(AE)"
+     "[ˈdaʊntaʊn]"
     ],
     [
      "head for sth.",
@@ -424,6 +632,26 @@
      "(infml)"
     ],
     [
+     "You say:",
+     "25 degrees Celsius / 77 degrees Fahrenheit"
+    ],
+    [
+     "You write:",
+     "25° C / 77° F"
+    ],
+    [
+     "Vocabulary",
+     "Unit 2"
+    ],
+    [
+     "(jm.) etwas empfehlen",
+     "I can"
+    ],
+    [
+     "cheap.",
+     "F recommander"
+    ],
+    [
      "stew",
      "Eintopf"
     ],
@@ -433,7 +661,11 @@
     ],
     [
      "shrimp",
-     ", pl shrimp or shrimps"
+     "[ʃrɪmp]"
+    ],
+    [
+     "pl",
+     "shrimp or shrimps"
     ],
     [
      "Thanksgiving",
@@ -444,8 +676,20 @@
      "(An-)Gewohnheit"
     ],
     [
+     "habit .",
+     "L habere (eine Gewohnheit haben)"
+    ],
+    [
      "advice (no pl)",
      "Rat, Ratschlag, Ratschläge"
+    ],
+    [
+     "She gave me",
+     "some /"
+    ],
+    [
+     "Never:",
+     "She gave me some advices/an advice."
     ],
     [
      "timeline",
@@ -504,12 +748,12 @@
      "braten (in der Pfanne)"
     ],
     [
-     "(to) roast",
-     "braten (im Backofen)"
+     "frying pan",
+     "saucepan oven"
     ],
     [
-     "frying pan",
-     "Bratpfanne"
+     "(to) roast",
+     "braten (im Backofen)"
     ],
     [
      "saucepan",
@@ -522,6 +766,10 @@
     [
      "vegetarian",
      "Vegetarier/in; vegetarisch"
+    ],
+    [
+     "bitter",
+     "[ˈbɪtə]"
     ],
     [
      "hot",
@@ -552,6 +800,10 @@
      "beans [ biːnz ]"
     ],
     [
+     "lentils",
+     "[ˈlentlz]"
+    ],
+    [
      "onions",
      "peppers"
     ],
@@ -560,8 +812,20 @@
      "parsley [ˈpɑːsli]"
     ],
     [
+     "Who is going to",
+     "cook/do"
+    ],
+    [
+     "light",
+     "green/blue/… hellgrün/-blau/… light green/blue/…"
+    ],
+    [
      "waiter",
-     "/ waitress [ˈweɪtrəs]"
+     "/"
+    ],
+    [
+     "waitress",
+     "[ˈweɪtrəs]"
     ],
     [
      "menu",
@@ -589,7 +853,15 @@
     ],
     [
      "closet",
-     "(bes. AE)"
+     "[ˈklɒzɪt]"
+    ],
+    [
+     "You",
+     "could have asked me."
+    ],
+    [
+     "They",
+     "must have been asleep."
     ],
     [
      "slavery",
@@ -609,7 +881,23 @@
     ],
     [
      "honey",
-     "Honig;"
+     "Honig"
+    ],
+    [
+     "Which T-shirt would you like? ~",
+     "The blue one . …"
+    ],
+    [
+     "jewellery",
+     "/ jewelry (AE)"
+    ],
+    [
+     "(no pl)",
+     "[ˈdʒuːəlri]"
+    ],
+    [
+     "Schmuck",
+     "rings, earrings, etc."
     ],
     [
      "pile",
@@ -620,16 +908,36 @@
      "Trennung"
     ],
     [
+     "Angst haben (vor etwas/jm.)",
+     "My mother is"
+    ],
+    [
      "civil rights (pl)",
      "Bürgerrechte"
     ],
     [
      "diner",
-     "(AE) (kleines, preiswertes) Restaurant"
+     "(kleines, preiswertes) Restaurant"
     ],
     [
      "counter",
-     "(AE)"
+     "[ˈkaʊntə]"
+    ],
+    [
+     "( kurz für:",
+     "countertop)"
+    ],
+    [
+     "Arbeitsplatte; Küchentheke",
+     "counter(top)"
+    ],
+    [
+     "movie theater",
+     "[ˈmuːvi θɪətə]"
+    ],
+    [
+     "Kino",
+     "BE cinema"
     ],
     [
      "movie",
@@ -637,15 +945,31 @@
     ],
     [
      "streetcar",
-     "(AE) /"
+     "/"
     ],
     [
      "tram",
-     "(BE)"
+     "[træm]"
+    ],
+    [
+     "Straßenbahn",
+     "a New Orleans"
+    ],
+    [
+     "Diskriminierung (von)",
+     "English: discrimination against women/foreigners"
     ],
     [
      "both … and …",
      "sowohl … als auch …"
+    ],
+    [
+     "sth./sb. )",
+     "[ˌstændˈʌp]"
+    ],
+    [
+     "Nelson Mandela",
+     "stood up against discrimination."
     ],
     [
      "(to) murder",
@@ -653,11 +977,23 @@
     ],
     [
      "courage",
-     "Mut, Courage"
+     "Mut"
+    ],
+    [
+     "Die Reflexivpronomen",
+     "myself, yourself, themselves usw. kennst du bereits."
+    ],
+    [
+     "generation",
+     "[ˌdʒenəˈreɪʃn]"
+    ],
+    [
+     "system",
+     "[ˈsɪstəm]"
     ],
     [
      "complete",
-     "vollständig, komplett adjective: complete"
+     "vollständig, komplett adjective:"
     ],
     [
      "adverb:",
@@ -665,7 +1001,11 @@
     ],
     [
      "(to) complete",
-     "abschließen, vollenden;"
+     "abschließen, vollenden"
+    ],
+    [
+     "Muttersprachler/in",
+     "L nasci (geboren werden)"
     ],
     [
      "pattern",
@@ -674,6 +1014,10 @@
     [
      "cook",
      "Koch, Köchin"
+    ],
+    [
+     "oval",
+     "[ˈəʊvl]"
     ],
     [
      "cranberry",
@@ -696,6 +1040,10 @@
      "ungeduldig"
     ],
     [
+     "patient",
+     "(geduldig)"
+    ],
+    [
      "leather",
      "Leder"
     ],
@@ -706,6 +1054,14 @@
     [
      "fairly",
      "ziemlich"
+    ],
+    [
+     "Come on, kids, play",
+     "fair !"
+    ],
+    [
+     "He plays chess",
+     "fairly well."
     ],
     [
      "(to) hunt",
@@ -725,11 +1081,35 @@
     ],
     [
      "(to) shoot",
-     ", shot, shot [ʃɒt]"
+     "shot"
+    ],
+    [
+     "shot",
+     "[ʃɒt]"
+    ],
+    [
+     "schießen; erschießen",
+     "She shot the thief in the leg."
+    ],
+    [
+     "John Lennon was",
+     "shot in 1980."
+    ],
+    [
+     "cranberries",
+     "sauce pumpkin pumpkin pie"
+    ],
+    [
+     "awfully",
+     "furchtbar, außerordentlich"
     ],
     [
      "cruel",
      "grausam"
+    ],
+    [
+     "cages.",
+     "F cruel, le"
     ],
     [
      "harmonica",
@@ -749,11 +1129,19 @@
     ],
     [
      "sub-heading",
-     "Zwischenüberschrift;"
+     "Zwischenüberschrift"
     ],
     [
      "graphics (pl)",
      "Grafiken"
+    ],
+    [
+     "I",
+     "totally disagree."
+    ],
+    [
+     "the",
+     "total number of students at this school"
     ],
     [
      "narrator",
@@ -768,6 +1156,10 @@
     [
      "desert",
      "Wüste"
+    ],
+    [
+     "le désert",
+     "L deserere (verlassen)"
     ],
     [
      "contrast",
@@ -786,16 +1178,28 @@
      "die Woche zuvor; in der Woche"
     ],
     [
+     "Last week was sunny.",
+     "The week"
+    ],
+    [
      "parking lot",
-     "(AE) ,"
+     "[ˈpɑːkɪŋ lɒt]"
     ],
     [
      "car park",
-     "(BE)"
+     "[ˈkɑː pɑːk]"
     ],
     [
      "a couple",
      "ein Paar; ein paar"
+    ],
+    [
+     "a young couple",
+     "a couple of sandwiches"
+    ],
+    [
+     "Vocabulary",
+     "Unit 3"
     ],
     [
      "foreign",
@@ -804,6 +1208,10 @@
     [
      "(to) stretch",
      "sich dehnen, sich strecken"
+    ],
+    [
+     "motel",
+     "[məʊˈtel]"
     ],
     [
      "(to) complain",
@@ -824,6 +1232,10 @@
     [
      "wildlife",
      "Tierwelt, frei lebende Tiere"
+    ],
+    [
+     "Mr.",
+     "Miller / Mrs. Miller"
     ],
     [
      "(to) arrange",
@@ -850,16 +1262,40 @@
      "einzeln, separat"
     ],
     [
+     "adverb:",
+     "separately – All the volunteers were"
+    ],
+    [
+     "interviewed",
+     "separately ."
+    ],
+    [
      "common",
      "häufig; weit verbreitet"
     ],
     [
+     "Olivia.",
+     "L communis, -e (allgemein)"
+    ],
+    [
+     "Mit",
+     "sorry kannst du …"
+    ],
+    [
      "– Oh,",
-     "das tut mir leid ."
+     "I’m"
+    ],
+    [
+     "–",
+     "Sorry?"
     ],
     [
      "prediction",
      "Vorhersage, Voraussage"
+    ],
+    [
+     "win?",
+     "L praedicere (vorhersagen)"
     ],
     [
      "(to) cycle",
@@ -874,16 +1310,32 @@
      "Dose German Dose"
     ],
     [
+     "1. tin",
+     "(BE; for food)"
+    ],
+    [
+     "2. can",
+     "(BE; for drink)"
+    ],
+    [
      "(to) squash sth.",
      "etwas zerdrücken, zerquetschen"
     ],
     [
      "trash can",
-     "(AE) ,"
+     "[ˈtræʃ kæn]"
     ],
     [
      "rubbish bin",
-     "(BE)"
+     "[ˈrʌbɪʃ bɪn]"
+    ],
+    [
+     "Mülltonne, Abfalleimer",
+     "a rubbish bin"
+    ],
+    [
+     "a",
+     "trash can"
     ],
     [
      "necessary",
@@ -891,7 +1343,7 @@
     ],
     [
      "depressing",
-     "deprimierend I’m sad because the news is so"
+     "deprimierend"
     ],
     [
      "lively",
@@ -926,6 +1378,10 @@
      "ihr ist schwindelig"
     ],
     [
+     "VIP",
+     "[ˌviːaɪ ˈpiː]"
+    ],
+    [
      "Prominente(r) pronunciation: VIP",
      "– not: [vɪp]"
     ],
@@ -951,7 +1407,7 @@
     ],
     [
      "grade",
-     "(AE)"
+     "[greɪd]"
     ],
     [
      "(to) tutor sb.",
@@ -959,7 +1415,7 @@
     ],
     [
      "(to) set sth. up, set, set",
-     "etwas errichten, aufbauen;"
+     "etwas errichten, aufbauen"
     ],
     [
      "take",
@@ -979,7 +1435,11 @@
     ],
     [
      "season",
-     "(bes. AE) Staffel (einer Fernsehserie)"
+     "Staffel (einer Fernsehserie)"
+    ],
+    [
+     "episode",
+     "[ˈepɪsəʊd] Episode Each season has 13"
     ],
     [
      "exotic",
@@ -1026,12 +1486,24 @@
      "Umwelt"
     ],
     [
+     "quote",
+     "[kwəʊt]"
+    ],
+    [
      "quotation",
      ")"
     ],
     [
+     "Ms",
+     "Miller"
+    ],
+    [
      "Frau Miller",
      "Viele Frauen möchten lieber mit Ms … angesprochen"
+    ],
+    [
+     "werden, weil am Wort",
+     "Ms nicht zu erkennen ist, ob"
     ],
     [
      "discovery",
@@ -1054,6 +1526,10 @@
      "Bleib(t) auf dem Laufenden!"
     ],
     [
+     "enttäuscht (von)",
+     "She was"
+    ],
+    [
      "reaction (to)",
      "Reaktion (auf)"
     ],
@@ -1062,20 +1538,36 @@
      "evakuieren"
     ],
     [
+     "the building.",
+     "F évacuer"
+    ],
+    [
      "resident",
      "Bewohner/in, Anwohner/in"
     ],
     [
      "power",
-     "Energie, Strom;"
+     "Energie, Strom"
+    ],
+    [
+     "from",
+     "the rest of the world for three months."
     ],
     [
      "burnt",
      "verbrannt"
     ],
     [
+     "mph",
+     "[ˌem piːˈeɪtʃ]"
+    ],
+    [
      "miles per hour",
      ")"
+    ],
+    [
+     "Meilen pro Stunde",
+     "55 mph"
     ],
     [
      "cause",
@@ -1086,8 +1578,16 @@
      "verursachen"
     ],
     [
+     "verb: (to)",
+     "cause –"
+    ],
+    [
+     "illegal",
+     "illegal, ungesetzlich legal"
+    ],
+    [
      "campfire",
-     "Lagerfeuer a campfire"
+     "Lagerfeuer a"
     ],
     [
      "(to) investigate",
@@ -1106,12 +1606,32 @@
      "Ich fühle mit … / Mein Mitgefühl gilt …"
     ],
     [
+     "goes out to",
+     "them and"
+    ],
+    [
      "drought",
      "Dürre, Trockenheit"
     ],
     [
      "frequent",
      "häufig"
+    ],
+    [
+     "more and more",
+     "frequent / beautiful"
+    ],
+    [
+     "immer häufiger / schöner",
+     "“You get"
+    ],
+    [
+     "My English is getting",
+     "better and better"
+    ],
+    [
+     "besser)",
+     "as"
     ],
     [
      "expert",
@@ -1134,6 +1654,10 @@
      "Genehmigung, Erlaubnis(schein)"
     ],
     [
+     "effect (on)",
+     "(Aus-)Wirkung (auf) cause"
+    ],
+    [
      "(to) compare",
      "vergleichen"
     ],
@@ -1142,12 +1666,20 @@
      "emotional; gefühlsbetont"
     ],
     [
+     "neutral",
+     "[ˈnjuːtrəl]"
+    ],
+    [
      "location",
      "Ort, Standort; Drehort"
     ],
     [
      "fame",
      "Ruhm"
+    ],
+    [
+     "synonym",
+     "[ˈsɪnənɪm]"
     ],
     [
      "antonym",
@@ -1168,6 +1700,10 @@
     [
      "outline",
      "Gliederung"
+    ],
+    [
+     "possible",
+     "möglich"
     ],
     [
      "(to) experience",
@@ -1208,8 +1744,24 @@
      "Skulptur"
     ],
     [
+     "reservation",
+     "[ˌrezəˈveɪʃn]"
+    ],
+    [
+     "( kurz auch:",
+     "rez )"
+    ],
+    [
+     "Reservat, Reservation",
+     "L servare (retten, bewahren)"
+    ],
+    [
      "prairie",
      "Prärie, Grasland"
+    ],
+    [
+     "region",
+     "[ˈriːdʒən]"
     ],
     [
      "(to) carve",
@@ -1217,11 +1769,31 @@
     ],
     [
      "bison",
-     ", Part A"
+     "[ˈbaɪsn] , pl bison Amerikanischer Bison a"
     ],
     [
      "(to) slap",
      "knallen, klatschen"
+    ],
+    [
+     "wheel",
+     "[wiːl]"
+    ],
+    [
+     "( kurz für:",
+     "steering wheel"
+    ],
+    [
+     "Lenkrad",
+     "wheel"
+    ],
+    [
+     "2.",
+     "(steering wheel) Lenkrad"
+    ],
+    [
+     "3.",
+     "wheels"
     ],
     [
      "(to) honk",
@@ -1230,6 +1802,10 @@
     [
      "coach",
      "Trainer/in"
+    ],
+    [
+     "rodeo",
+     "[ˈrəʊdiəʊ]"
     ],
     [
      "final",
@@ -1244,8 +1820,60 @@
      "Wunder in der Bedeutung „übernatür- liches Ereignis“ entspricht das englische miracle :"
     ],
     [
+     "It’s a",
+     "miracle she didn’t die in the car crash."
+    ],
+    [
+     "water fountain",
+     "/ drinking fountain (bes. BE)"
+    ],
+    [
      "(to) tuck",
      "stecken, klemmen"
+    ],
+    [
+     "1) (to)",
+     "keep behalten"
+    ],
+    [
+     "Butter should be",
+     "kept in a cool place."
+    ],
+    [
+     "Don’t eat all your biscuits now.",
+     "Keep some for later."
+    ],
+    [
+     "She put on some boots to",
+     "keep her feet warm ."
+    ],
+    [
+     "3) (to)",
+     "keep sth. up etwas aufrechterhalten"
+    ],
+    [
+     "Dad goes to evening classes to",
+     "keep up his English."
+    ],
+    [
+     "You’re doing good work.",
+     "Keep it up!"
+    ],
+    [
+     "5) (to)",
+     "keep (on) doing sth. etwas immer wieder/ immer weiter/ständig"
+    ],
+    [
+     "I tried to speak, but he",
+     "kept interrupting me."
+    ],
+    [
+     "Vocabulary",
+     "Unit 4"
+    ],
+    [
+     "jm. raten, etwas zu tun",
+     "The doctor"
     ],
     [
      "technique",
@@ -1285,19 +1913,27 @@
     ],
     [
      "(to) divide (into)",
-     "(sich) teilen (in), (sich) aufteilen (in)"
+     "(sich) teilen (in)"
     ],
     [
      "period",
-     "(bes. AE) Unterrichtsstunde, Schulstunde"
+     "Unterrichtsstunde, Schulstunde"
     ],
     [
      "register",
      "Klassenbuch; Register, Verzeichnis"
     ],
     [
+     "Führerschein, Fahrerlaubnis",
+     "L licet (es ist erlaubt)"
+    ],
+    [
      "basic",
-     "elementar, Grund- F la littérature L litterae f"
+     "elementar, Grund-"
+    ],
+    [
+     "literature",
+     "[ˈlɪtrətʃə] Literatur"
     ],
     [
      "social studies",
@@ -1305,7 +1941,7 @@
     ],
     [
      "assignment",
-     "(AE)"
+     "[əˈsaɪnmənt]"
     ],
     [
      "(to) pass",
@@ -1313,15 +1949,19 @@
     ],
     [
      "grade",
-     "(bes. AE)"
+     "[greɪd]"
     ],
     [
      "( BE auch : mark",
      ")"
     ],
     [
+     "(Schul-)Note, Zensur",
+     "grade"
+    ],
+    [
      "(to) fail",
-     "nicht bestehen (Test, Prüfung) ;"
+     "nicht bestehen (Test, Prüfung)"
     ],
     [
      "extra",
@@ -1341,7 +1981,7 @@
     ],
     [
      "(to) take care of sth.",
-     "sich (gut) um etwas kümmern;"
+     "sich (gut) um etwas kümmern"
     ],
     [
      "for this reason",
@@ -1349,7 +1989,19 @@
     ],
     [
      "(to) steal",
-     ", stole [stəʊl] , stolen [ˈstəʊlən]"
+     "stole [stəʊl]"
+    ],
+    [
+     "stolen",
+     "[ˈstəʊlən]"
+    ],
+    [
+     "stehlen",
+     "Where is your bike? –"
+    ],
+    [
+     "at any time",
+     "jederzeit, zu jeder Zeit"
     ],
     [
      "grounds (pl)",
@@ -1357,11 +2009,11 @@
     ],
     [
      "principal",
-     "(bes. AE)"
+     "[ˈprɪnsəpl]"
     ],
     [
      "position",
-     "Platz, Position"
+     "Platz"
     ],
     [
      "state",
@@ -1376,8 +2028,12 @@
      "Weizen"
     ],
     [
-     "(to) lend sb. sth.",
-     ", lent, lent [lent]"
+     "“Can I",
+     "borrow your MP3 player?”"
+    ],
+    [
+     "lent, lent",
+     "[lent]"
     ],
     [
      "helpful",
@@ -1390,6 +2046,10 @@
     [
      "(to) attract",
      "anziehen, anlocken"
+    ],
+    [
+     "verb: (to)",
+     "attract"
     ],
     [
      "more than in any other place",
@@ -1424,12 +2084,24 @@
      "äußerst, höchst"
     ],
     [
+     "adjective:",
+     "extreme (extrem) – adverb: extremely"
+    ],
+    [
      "offensive",
      "beleidigend, Anstoß erregend"
     ],
     [
      "(to) spray",
      "(be)sprühen, sprayen"
+    ],
+    [
+     "The walls were",
+     "sprayed"
+    ],
+    [
+     "with",
+     "graffiti . graffiti [grəˈfiːti] Graffiti"
     ],
     [
      "wonderful",
@@ -1440,12 +2112,28 @@
      "kaum"
     ],
     [
+     "They work",
+     "hard ."
+    ],
+    [
+     "Sie arbeiten",
+     "hart . Sie arbeiten kaum ."
+    ],
+    [
      "surprising",
      "überraschend"
     ],
     [
      "surprise",
      "Überraschung"
+    ],
+    [
+     "gewidmet sein",
+     "(einer Sache/Person) There is a monument that is"
+    ],
+    [
+     "granite",
+     "[ˈgrænɪt] Granit"
     ],
     [
      "(to) gaze",
@@ -1480,6 +2168,14 @@
      "Beleidigung (für)"
     ],
     [
+     "mind",
+     "[maɪnd]"
+    ],
+    [
+     "I’ve",
+     "changed my"
+    ],
+    [
      "suffix",
      "Suffix, Nachsilbe"
     ],
@@ -1494,6 +2190,18 @@
     [
      "concrete",
      "konkret"
+    ],
+    [
+     "I’ll find you,",
+     "wherever you are."
+    ],
+    [
+     "We will help you,",
+     "whatever happens."
+    ],
+    [
+     "Whoever",
+     "told you that was wrong."
     ],
     [
      "certain",
@@ -1521,11 +2229,43 @@
     ],
     [
      "das",
-     "ist der green -Laut,"
+     "ist der green -Laut"
     ],
     [
      "[i] happ y , monk ey",
-     "p ool, [ ɪ ] b i g, i n, e xpens i ve [d] d ad, win d ow, goo d"
+     "p ool"
+    ],
+    [
+     "[æ]",
+     "c"
+    ],
+    [
+     "ri v er,",
+     "v ery, se v en, ha ve"
+    ],
+    [
+     "tea ch er,",
+     "ch ild, wa tch"
+    ],
+    [
+     "G ermany,",
+     "j ob, pro j ect, oran ge"
+    ],
+    [
+     "th anks,",
+     "th ree, ba th room"
+    ],
+    [
+     "th e,",
+     "th is, fa th er, wi th"
+    ],
+    [
+     "h ere,",
+     "wh o, be h ind"
+    ],
+    [
+     "[ eɪ ] n a me,",
+     "eigh t, pl ay , gr ea t"
     ]
    ]
   }
