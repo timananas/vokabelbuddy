@@ -364,9 +364,8 @@ async function init(){
   $('themeBtn').onclick=()=>{ const dark=document.documentElement.classList.contains('dark');
     document.documentElement.classList.toggle('dark', !dark); themeApply(); };
   $('startBtn').onclick=startQuiz;
-  $('quitBtn').onclick=()=>{ mode='home'; $('cardbox').classList.add('hidden'); $('cardResult').classList.add('hidden');
-    $('writebox').classList.add('hidden'); $('writeResult').classList.add('hidden'); show('viewHome','viewQuiz'); loadChapters(); };
-  $('homeBtn').onclick=()=>{ mode='home'; show('viewHome','viewQuiz'); loadChapters(); };
+  $('quitBtn').onclick=goHome;
+  $('homeBtn').onclick=goHome;
   $('againBtn').onclick=()=>{ $('result').classList.add('hidden'); $('qbox').classList.remove('hidden'); startQuiz(); };
   $('retryWrongBtn').onclick=retryWrong;
   $('reportBtn').onclick=openReport;
@@ -844,6 +843,15 @@ if('serviceWorker' in navigator && (location.protocol==='https:' || ['localhost'
 }
 
 $('skipBtn').onclick=skipCurrent;
+// Zur Startseite — Auswahl (sel) bleibt erhalten, kein loadChapters-Reset
+function goHome(){
+  mode='home';
+  $('cardbox').classList.add('hidden'); $('cardResult').classList.add('hidden');
+  $('writebox').classList.add('hidden'); $('writeResult').classList.add('hidden');
+  $('result').classList.add('hidden'); $('qbox').classList.add('hidden');
+  if(window.ddFrom){ paintDD('ddFrom','fromSel','Von'); paintDD('ddTo','toSel','Bis'); }
+  show('viewHome','viewQuiz');
+}
 // ---------- Skip ----------
 function skipCurrent(){
   if(mode!=='quiz'||answered) return;
