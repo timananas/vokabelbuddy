@@ -428,6 +428,21 @@ def _stats():
         return st
 
 
+
+def _runs_rec():
+    st = _stats()
+    st.setdefault('runs', [])
+    return st['runs']
+
+
+def _runs_add(rec):
+    with _lock:
+        st = _stats()
+        st.setdefault('runs', [])
+        st['runs'].insert(0, rec)
+        st['runs'] = st['runs'][:300]  # letzte 300 Runden
+        _save_json(os.path.join(DATA_DIR, 'stats.json'), st)
+
 def _chapter_stats(st, kid):
     """Aggregat je 'book|chapter' -> {n, right, streak}."""
     agg = {}
@@ -950,6 +965,8 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
                 self.api_stats(q)
             elif r == '/api/report':
                 self.api_report(q)
+            elif r == '/api/history':
+                self.api_history(q)
             elif r == '/api/export':
                 self.api_export(q)
             elif r == '/api/words':
@@ -1180,6 +1197,28 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
                 u['totp_enabled'] = True
                 auth_save()
                 self._json({'ok': True, 'mfa': True})
+                return
+            if r == '/api/run':
+                # Rundenende melden {kid, book, chapters, mode, n, score, wrong:[{prompt,answer}]} — kid-Zwang
+                kid = _norm(body.get('kid'))
+                fkid = self._forced_kid(kid) if auth_has_password() else kid
+                if auth_has_password() and fkid is None:
+                    self._json({'error': 'Parameter fehlen'}, 400)
+                    return
+                kid = fkid
+                if not _kid_ok(kid):
+                    self._json({'error': 'kid unbekannt'}, 400)
+                    return
+                rec = {'kid': kid,
+                       'ts': datetime.now().strftime('%Y-%m-%d %H:%M'),
+                       'mode': _norm(body.get('mode')) or 'mc',
+                       'book': _norm(body.get('book')),
+                       'chapters': _norm(body.get('chapters')),
+                       'n': int(body.get('n') or 0),
+                       'score': float(body.get('score') or 0),
+                       'wrong': (body.get('wrong') or [])[:40]}
+                _runs_add(rec)
+                self._json({'ok': True})
                 return
             if r == '/api/account/password':
                 me = self._session_user()
@@ -1550,6 +1589,20 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
             self._json({'kid': kid, 'chapters': _chapter_stats(st, kid)})
             return
         self._json({'by_kid': {k['id']: _chapter_stats(st, k['id']) for k in KIDS}})
+
+    def api_history(self, q):
+        kid = (q.get('kid') or [''])[0]
+        limit = int((q.get('limit') or ['40'])[0] or 40)
+        limit = max(1, min(limit, 300))
+        fkid = self._forced_kid(kid) if auth_has_password() else kid
+        if auth_has_password() and fkid is None:
+            self._json({'error': 'Parameter fehlen'}, 400)
+            return
+        kid = fkid
+        runs = _stats().get('runs', [])
+        if kid:
+            runs = [r for r in runs if r.get('kid') == kid]
+        self._json({'kid': kid or None, 'runs': runs[:limit]})
 
     def api_export(self, q):
         book = (q.get('book') or [''])[0]
