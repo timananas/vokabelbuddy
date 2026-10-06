@@ -207,17 +207,34 @@ def _final_ok(en, de):
     """Letzte Gütefilter-Klasse: offensichtliche OCR-Leichen verwerfen."""
     if not en or not de:
         return False
+    en_t = en.strip(' .')
     if en in ('(to)', '…', 'English:', 'German:', 'F', 'L', 'F/L', 'AE', 'BE', 'AE/BE', 'e.g.', 'i.e.'):
         return False
     de_t = de.strip(' =–-')
-    if de_t and de_t.casefold() == en.casefold():
-        return False  # OCR-Wiederholung, keine Übersetzung
-    if de_t and de_t.casefold() in en.casefold() and not any(c in de_t for c in 'äöüßÄÖÜ'):
+    # OCR-Wiederholung ('minute = minute') — ABER Cognates mit gleicher Schreibung sind LEGAL
+    # (religion = Religion, chaos = Chaos): nur verwerfen bei reinem Kleinbuchstaben-Duplikat
+    if de_t and de_t.casefold() == en.casefold() and not any(c.isupper() for c in de):
         return False
-    # deutschlos + satzartig + kapitalisiert = Fragment
+    # Marker-EN ('pl', 'pp', 'AE', Grammar-Icons) sind keine Vokabel-EN-Seite
+    if en.casefold() in ('pl', 'pp', 'ae', 'be', 'infml', 'fml', 'no pl', 'pl.', 'e.g', 'ie', 'sb', 'sth'):
+        return False
+    if de_t.casefold() == en_t.casefold().replace('.', '').strip() and en != de and not de[:1].isupper():
+        return False
+    if de_t.casefold() in en.casefold() and not any(c in de_t for c in 'äöüßÄÖÜ') and not de[:1].isupper():
+        return False
+    # deutschlos + satzartig + kapitalisiert = Fragment — ABER legitime kurze deutsche
+    # Sätze ohne Umlaut ('Danke.', 'Geh nicht.', 'Viel Spass.', 'Gute Nacht.') NICHT werfen.
     if (not any(c in de for c in 'äöüßÄÖÜ') and len(de.split()) <= 2
             and de.endswith('.') and de[0:1].isupper()):
-        return False
+        de_words = re.findall(r'[A-Za-zÄÖÜäöüß’]+', de)
+        # verwerfen nur, wenn ein Wort Klar-ENGLISCH ist (EN-Stopwörter/typische Fragment-Wörter)
+        en_lex = ('the', 'and', 'please', 'wait', 'you', 'your', 'for', 'with', 'when', 'what',
+                  'how', 'can', 'she', 'he', 'they', 'we', 'it', 'this', 'that', 'there', 'here',
+                  'have', 'has', 'are', 'was', 'were', 'is', 'think', 'like', 'see', 'look',
+                  'listen', 'say', 'sorry', 'hello', 'bye', 'thanks', 'welcome', 'well', 'good', 'nice')
+        hits = [w for w in de_words if w.lower().strip('’.,') in en_lex]
+        if hits and not any(c in de for c in 'äöüßÄÖÜ'):
+            return False
     # Grammar-Box-Fragmente: 'In Great Britain the word ...'
     if en.startswith(('In ', 'At ', 'On ')) and not any(c in de for c in 'äöüßÄÖÜ'):
         return False
@@ -242,11 +259,73 @@ def is_garbage(l):
     return False
 
 
+def _en_plausible(en):
+    """Sehr leichter Test, ob das englische Feld nicht reiner Quatsch ist."""
+    en = (en or '').strip()
+    if not en:
+        return False
+    if any(c in en for c in 'äöüßÄÖÜ'):
+        return False
+    if re.match(r'^(?:Das |Der |Die |Ein |Eine |Ich |Wir |Sie |Er |Es |Am |Im |Mit |Für |Zuerst |Zuhause)', en):
+        return False
+    return True
+
+
+END_IPA_RE = re.compile(r'^\s*(?P<en>\S.*?)\s*\[(?P<ipa>[^\]]+)\]\s*[,;.:]?\s*$')
+
+
+DE_STOP = re.compile(
+    r'(^|\s|])(?:der|die|das|ein|eine|ich|du|er|wir|und|oder|mit|von|zum|zur|'
+    r'für|auf|aus|bei|nach|jn|jm|etwas|sich|nicht|auch|wieder|sind|ist|hast|habe|'
+    r'zu Hause|daheim|ihre|ihr|ihm|ihnen|uns|seine|seiner|dem|den|des|am|im)(\s|,|\.|$|/|:|\))')
+
+
+def _de_stopwords(seg_low):
+    return DE_STOP.search(seg_low or '')
+
+
+def _split_mixed_line(en, de):
+    """GAP-Zeilen mit Misch-Segmenten: 'Maya is' + 'at home .  daheim, zu Hause'
+    → en='Maya is at home.', de='daheim, zu Hause'. Segmente = ORIGINAL-Doppel-LZ-Gruppen;
+    alles bis zum ersten DE-Segment gehört zum EN. Ruft mit RAW-de (Doppel-LZ intakt) auf!"""
+    segs = re.split(r'\s{2,}', str(de or '').replace('\r', ''))
+    if len(segs) <= 1:
+        return en, re.sub(r'\s+', ' ', str(de or '')).strip()
+    first_de = None
+    for i, s in enumerate(segs):
+        sl = s.lower().strip()
+        has_uml = any(c in s for c in 'äöüßÄÖÜ')
+        is_de = has_uml or _de_stopwords(sl) is not None
+        if is_de:
+            first_de = i
+            break
+    if first_de is None or first_de == 0:
+        return en, re.sub(r'\s{2,}', ' ', de).strip()
+    en_new = en + ' ' + ' '.join(segs[:first_de])
+    de_new = ' '.join(segs[first_de:])
+    return re.sub(r'\s+', ' ', en_new).strip(), re.sub(r'\s{2,}', ' ', de_new).strip(' ,;')
+
+
+def _de_has_german(de):
+    """Deutsches Kennzeichen? Umlaut/ß, de-Stopwörter, oder typische de-Endung."""
+    if any(c in de for c in 'äöüßÄÖÜ'):
+        return True
+    dl = de.lower().strip()
+    if re.search(r'(?:^|[\s,./:!?\])])(?:der|die|das|ein|eine|ich|du|er|sie|es|wir|und|oder|mit|von|zum|zur|für|auf|aus|bei|nach|jn|jm|sich|nicht|auch|wieder|ist|sind|habe|hast|hat|zu|hause|daheim|um|im|an|als|wie|so|guten|gute|morgen|abend|nacht|danke|bitte|dank|ja|nein|hallo|tschüs|tschüss|viel|spass|spaß|okay|entschuldigung|mehr|man|manchmal|nur|noch|schon|immer|alle|alles|werden|wird|kann|kannst|muss|müssen|soll|will|möchte)(?:$|[\s,./:!?\)\]])', dl):
+        return True
+    words = dl.split()
+    if words and re.search(r'(?:ung|heit|keit|schaft|lich|isch|bar|chen|tum)(?:s)?$|^[a-zäöüß]+(?=n$)', words[-1]):
+        return True
+    return False
+
+
 def _sanitize_pair(en, de):
     """Letzte Reinigung je Paar: OCR-Restklassen säubern oder Entry verwerfen.
     Rückgabe (en, de) oder None."""
-    en = re.sub(r'\s+', ' ', str(en or '')).strip()
-    de = str(de or '')
+    # leading-private-use (\ue08e Bindebogen) und übrige Sonderzeichen aus EN entfernen
+    en = re.sub(r'[\ue000-\uf8ff]', '', str(en or '')).strip()
+    en = re.sub(r'\s+', ' ', en).strip()
+    de = str(de or '').replace('\ue08e', 'ˌ')
     # Betonung:/Antonym-Icon(73)/£$-Anhänge
     de = re.split(r'\sBetonung:\s|\s73\s|\s£.*$|\s\$\d.*$', de)[0]
     # führende (bes. AE)/(AE)/(BE)-Marker
@@ -269,8 +348,18 @@ def _sanitize_pair(en, de):
     if m2 and len(m2.group(1)) >= 3 and 'usw' not in (m2.group(1)[-10:].lower()):
         de = m2.group(1).rstrip(' ,')
     de = de.strip(' ,;')
+    # Satzförmige EN-Seite + nicht-deutsche DE-Seite = Beispielsatz-Leiche → verwerfen
+    en_sentence = (en.rstrip().endswith(('?', '!', '.')) and not en.rstrip().endswith('…')) \
+        or '. ' in en or len(en.split()) > 4
+    if en_sentence and not _de_has_german(de):
+        return None
     # Verwerfen: smashed Compound ('leichte Nachmittagsoder'), leere Übersetzung,
     # reine Marker-Übersetzung, en wie invertierter deutscher Satz, Seiten-/Header-Leichen
+    # plus: EN-Seite mit deutschem Satz/Fragment (invertierte Zeile), Seitenzahl-Zeilen
+    if re.fullmatch(r'\d+', en) or re.match(r'^\d+\s+hundred', en):
+        return None
+    if _de_has_german(en) and not _de_has_german(de):
+        return None
     if not de or de in ('…', '(no pl)', 'pl', '(pl)', '-'):
         return None
     if re.search(r'(?:^|\s)[a-zäöüß]{8,}oder\b', de) or re.search(r'^[a-zäöüß]{8,}\.$', de):
@@ -365,6 +454,14 @@ def parse_band(txt_path):
             l = clean_line(raw)
             if is_garbage(l) or re.fullmatch(r'\d{1,3}', l.strip()):
                 continue
+            # Nur-EN-Zeilen (Beispielsätze ohne deutsche Übersetzung) → verwerfen
+            um_pre = UNIT_RE.match(l)
+            if (not um_pre and not HERE_RE.match(l) and not IPA_RE.match(l)
+                    and not END_IPA_RE.match(l) and not _de_has_german(l)
+                    and re.search(r'[a-z]’?[a-z]*\s+[a-z]', l)
+                    and l.rstrip().endswith(('.', '!', '?', '…'))):
+                skipped += 1
+                continue
             um = UNIT_RE.match(l)
             hm = HERE_RE.match(l)
             if um and not IPA_RE.match(l):
@@ -379,20 +476,62 @@ def parse_band(txt_path):
             added = False
             if im and len(im.group('ipa')) <= 30 and im.group('en'):
                 en = re.sub(r'\s+', ' ', im.group('en')).strip()
-                pair = _sanitize_pair(en, _trim_de(im.group('de')))
+                # MEHRERE IPA-Gruppen ('[hæv], [həv]  haben'): de = Text nach der LETZTEN ]
+                de_raw = im.group('de')
+                if de_raw.startswith((']', ', [', '], [', ',  [')):
+                    all_ipa = re.findall(r'\[[^\]]+\]', l)
+                    last_close = l.rfind(']')
+                    en2 = re.sub(r'^(.*?\S)\s*\[[^\]]*\].*$', r'\1', l).strip()
+                    en = re.sub(r'\s+', ' ', en2).strip()
+                    de_raw = l[last_close + 1:]
+                pair = _sanitize_pair(en, _trim_de(de_raw))
                 if pair and _final_ok(*pair) and len(pair[0].split()) <= 6 and len(pair[1].split()) <= 8:
                     ch['words'].append(list(pair))
                     added = True
             if not added:
                 gm = GAP_RE.match(l)
                 if gm and len(gm.group('en')) <= 40:
-                    en = re.sub(r'\s+', ' ', gm.group('en')).strip()
-                    pair = _sanitize_pair(en, _trim_de(re.sub(r'\s{2,}', ' ', gm.group('de')).strip()))
-                    if pair and _final_ok(*pair) and len(pair[0].split()) <= 6 and len(pair[1].split()) <= 8:
-                        ch['words'].append(list(pair))
-                        added = True
+                    en0 = re.sub(r'\s+', ' ', gm.group('en')).strip()
+                    # GAP mit IPA im de-Feld = eigentlich END_IPA-Zeile (en brach auseinander)
+                    if re.search(r'\[[^\]]+\]\s*[,;.:]?\s*$', gm.group('de')):
+                        pass  # unten im END_IPA-Zweig behandeln
+                    else:
+                        en1, de1 = _split_mixed_line(en0, gm.group('de'))
+                        pair = _sanitize_pair(en1, _trim_de(de1))
+                        if pair and _final_ok(*pair) and len(pair[0].split()) <= 6 and len(pair[1].split()) <= 8:
+                            ch['words'].append(list(pair))
+                            added = True
+            if not added:
+                # ZEILENEND-IPA: 'phrase  [IPA]' OHNE de — Lösung auf der FOLGEZEILE
+                em = END_IPA_RE.match(l)
+                if em:
+                    en = re.sub(r'\s+', ' ', em.group('en')).strip()
+                    if en and _en_plausible(en):
+                        ch['words'].append([en, '\u0000PENDING\u0000'])
+                    continue
             if not added and ch['words']:
                 last = ch['words'][-1]
+                # PENDING-Entry: deutsche Folgzeile einsetzen
+                if last[1] == '\u0000PENDING\u0000':
+                    cont = clean_line(raw).strip()
+                    # IPA-Varianten/Verweiszeilen ('(= they are [..] )', '[dəʊnt]') überspringen
+                    # und PENDING für die echte deutsche Zeile offenhalten
+                    if re.search(r'\[[^\]]+\]', cont) or cont.startswith('(=') or cont.startswith('['):
+                        continue
+                    looks_de = (any(c in cont for c in 'äöüßÄÖÜ')
+                                or cont.startswith(('jn.', 'jm.', 'der ', 'die ', 'das ', 'ein ', 'eine ',
+                                                    '-', '(', 'sich', 'ihr ', 'ihre ', 'er ', 'es ', 'wir ',
+                                                    'mein ', 'meine ', 'dein ', 'deine ', '( to', '(to', 'wieder')))
+                    # Grammatik-Info-Zeilen ('pl trophies', 'pp 40/41', 'no pl') überspringen,
+                    # PENDING bleibt für die nächste Zeile offen
+                    if re.match(r'^(?:pl|pp?|no pl|AE|BE|infml|fml|pl\.)\b', cont) and not looks_de:
+                        continue
+                    if cont and not is_garbage(cont) and not re.fullmatch(r'\d{1,3}', cont) and looks_de:
+                        last[1] = cont
+                    else:
+                        last[1] = '\u0000DROP\u0000'  # keine deutsche Lösung gefunden
+                    continue
+                # normale Continuation
                 cont = re.sub(r'\s+', ' ', l)
                 # Verwerfen: leading ')' nach '(' - Fragment wie '(= they are' + ')'
                 if ch['words'] and re.match(r'^\)\s*$|^$|^,?\s*(=\s*|~)', cont):
@@ -405,6 +544,24 @@ def parse_band(txt_path):
             else:
                 pass
         # Ende Seite
+
+    # PENDING/DROP-Reste aufräumen + HARTE END FILTER: nie IPA/Brackets als Übersetzung
+    for ch in by_num.values():
+        w2 = []
+        for en, de in ch['words']:
+            if de == '\u0000PENDING\u0000':
+                de = ''  # nie gelöst
+            if not de or de == '\u0000DROP\u0000':
+                continue
+            # IPA im de-Feld = kaputtes Entry (Lautschrift ist KEINE Übersetzung)
+            if re.search(r'\[[^\]]+\]', de):
+                continue
+            # IPA im en-Feld (einige Konstrukt-Zeichen wie [ˌ]) — nur verwerfen bei reinem Bracket
+            if re.fullmatch(r'\[[^\]]*\]', en.strip()):
+                continue
+            if _final_ok(en, de):
+                w2.append([en, de])
+        ch['words'] = w2
 
     merged = [by_num[n] for n in sorted(order, key=lambda x: (x == 0, x))]
     # Dedup pro Kapitel (en casefold)
