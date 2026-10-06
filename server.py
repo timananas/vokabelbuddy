@@ -28,6 +28,10 @@ PORT = 8894
 BOOKS = [
     {'id': 'access1', 'name': 'Access 1', 'desc': 'Cornelsen · Klasse 5'},
     {'id': 'access2', 'name': 'Access 2', 'desc': 'Cornelsen · Klasse 6'},
+    {'id': 'access3', 'name': 'Access 3', 'desc': 'Cornelsen · Klasse 7'},
+    {'id': 'access4', 'name': 'Access 4', 'desc': 'Cornelsen · Klasse 8'},
+    {'id': 'access5', 'name': 'Access 5', 'desc': 'Cornelsen · Klasse 9'},
+    {'id': 'access6', 'name': 'Access 6', 'desc': 'Cornelsen · Klasse 10'},
 ]
 KIDS = [
     {'id': 'luis', 'name': 'Luis', 'color': '#5b8def'},

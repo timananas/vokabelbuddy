@@ -124,7 +124,7 @@ h2{font-size:1.05rem; margin:18px 0 10px}
   <div class="modal">
     <h3>Vokabeln verwalten</h3>
     <label>Buch</label>
-    <select id="mBook"><option value="access1">Access 1</option><option value="access2">Access 2</option></select>
+    <select id="mBook"></select>
     <label>Kapitelnummer</label>
     <input id="mNum" type="number" min="1" inputmode="numeric" placeholder="z.B. 1">
     <label>Titel (optional)</label>
@@ -288,7 +288,10 @@ function finishQuiz(){
 function openAdmin(){
   $('mDone').textContent='';
   $('mNum').value=''; $('mTitle').value=''; $('mWords').value='';
-  $('mBook').value=book;
+  const mb=$('mBook');
+  if(mb.options.length!==META.books.length)
+    mb.innerHTML=META.books.map(b=>`<option value="${esc(b.id)}">${esc(b.name)}</option>`).join('');
+  mb.value=book;
   $('adminOverlay').classList.remove('hidden');
 }
 $('mCancel').onclick=()=>$('adminOverlay').classList.add('hidden');
