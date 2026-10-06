@@ -1216,7 +1216,8 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
                        'chapters': _norm(body.get('chapters')),
                        'n': int(body.get('n') or 0),
                        'score': float(body.get('score') or 0),
-                       'wrong': (body.get('wrong') or [])[:40]}
+                       'wrong': (body.get('wrong') or [])[:40],
+                       'detail': (body.get('detail') or [])[:40]}
                 _runs_add(rec)
                 self._json({'ok': True})
                 return

@@ -177,8 +177,23 @@ html.dark #wInput.half,html.dark #mxInput.half{border-color:#8a7434; background:
 .rh-bars{height:6px; background:var(--chip); border-radius:99px; overflow:hidden; margin-top:6px}
 .rh-bars>div{height:100%; background:var(--accent)}
 .rh-bars.poor>div{background:#d9534f}
+.rh-toggle{margin-top:8px; border:1px solid var(--line); background:var(--chip); color:var(--ink);
+  border-radius:8px; padding:7px 12px; font-size:.82rem; font-weight:700; cursor:pointer}
+.rh-detail{margin-top:6px; display:flex; flex-direction:column; gap:4px}
 .rh-wrong{margin-top:8px; display:flex; flex-direction:column; gap:4px}
 .rh-wrong span{font-size:.82rem; color:var(--muted)}
+.detail-item{display:flex; gap:8px; align-items:center; border:1px solid var(--line);
+  background:var(--card); border-radius:10px; padding:8px 12px; font-size:.9rem}
+.detail-item .d-ico{flex:none; width:20px; text-align:center}
+.detail-item .d-prompt{flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis}
+.detail-item .d-given{flex:none; max-width:32%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; color:var(--ink)}
+.detail-item .d-arrow{flex:none; color:var(--muted)}
+.detail-item .d-answer{flex:none; max-width:36%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; text-align:right}
+.detail-item.v-right .d-ico{color:var(--good-ink); font-weight:800}
+.detail-item.v-half{background:var(--good)} .detail-item.v-half .d-ico{color:#a4761d}
+.detail-item.v-wrong{background:var(--bad)}
+.capsnote{color:var(--muted); font-style:italic; font-weight:400}
+html.dark .detail-item.v-wrong .d-answer, html.dark .detail-item.v-half .d-answer{color:var(--ink)}
 .hidden{display:none!important}
 /* Moderne Auswahl: Segmente + Custom-Dropdowns */
 .seg-label{font-size:.82rem; color:var(--muted); font-weight:700; margin:14px 0 6px; letter-spacing:.02em}
@@ -308,6 +323,7 @@ body{overflow-x:hidden}
           <button class="primary" id="cardHome">Fertig</button>
         </div>
         <div id="cardWrongList" class="wronglist"></div>
+        <div id="cardDetailList" class="wronglist"></div>
       </div>
     </div>
     <div id="writebox" class="hidden">
@@ -323,6 +339,7 @@ body{overflow-x:hidden}
           <button class="primary" id="wHome">Fertig</button>
         </div>
         <div id="wWrongList" class="wronglist"></div>
+        <div id="wDetailList" class="wronglist"></div>
       </div>
     </div>
     <div id="result" class="hidden">
@@ -333,6 +350,7 @@ body{overflow-x:hidden}
         <button id="homeBtn">Fertig</button>
       </div>
       <div id="wrongList" class="wronglist"></div>
+      <div id="detailList" class="wronglist"></div>
     </div>
   </section>
 </main>
@@ -591,7 +609,7 @@ function reportRun(mode, n){
     const chapts=[...sel].join(',');
     fetch('/api/run',{method:'POST',headers:{'Content-Type':'application/json'},
       body:JSON.stringify({kid, book, chapters:chapts, mode, n,
-        score:(window._lastHalf && window._lastHalf.length && mode==='write') ? score : score,
+        score:score, detail:(window._runDetail||[]).slice(0,40),
         wrong:(window._lastWrong||[]).slice(-40)})}).catch(()=>{});
   }catch(e){}
 }
@@ -858,6 +876,7 @@ async function mixedCardVerdict(knew, q){
   $('mxForgot').disabled=true; $('mxKnew').disabled=true;
   try{ await fetch('/api/card/answer',{method:'POST',headers:{'Content-Type':'application/json'},
     body:JSON.stringify({kid,nonce:window._nonce,qid:q.id,direction:q.direction,verdict:knew?'knew':'forgot'})}); }catch(e){}
+  (window._runDetail=window._runDetail||[]).push({prompt:q.front, given:knew?'✓ gewusst':'✗ nicht', answer:q.back, verdict:knew?'right':'wrong', caps:false});
   if(knew) score++;
   else window._lastWrong.push({qid:q.id, prompt:q.front, answer:q.back});
   window._mxAdvance(knew);
@@ -876,6 +895,8 @@ async function answer(i,btn,q){
   try{ r=await (await fetch('/api/answer',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)})).json(); }
   catch(e){ r={correct:false,answer:q.answer}; }
   const good=!!r.correct;
+  (window._runDetail=window._runDetail||[]).push({prompt:q.prompt, given:q.choices[i], answer:r.answer||'',
+    verdict: good?'right':'wrong', caps: good && String(q.choices[i]).trim() !== String(r.answer||'').trim()});
   if(good) score++;
   else {
     window._lastWrong.push({qid:q.id, prompt:q.prompt, answer:r.answer||q.answer});
@@ -899,7 +920,8 @@ function finishQuiz(){
   $('result').classList.remove('hidden'); $('qbox').classList.add('hidden');
   $('resScore').textContent=`${score} / ${n}`;
   $('resNote').textContent = pct>=90?'Super gemacht! 🎉':pct>=70?'Gut gemacht! 👍':'Weiter üben – du wirst immer besser! 💪';
-  // Zusammenfassung: falsche Vokabeln auflisten
+  // Zusammenfassung: ausführliche Ergebnissliste
+  renderDetailTable(window._runDetail||[]);
   const wl=$('wrongList');
   if(window._lastWrong && window._lastWrong.length){
     wl.innerHTML='<div class="wl-head">Diese solltest du nochmal ansehen:</div>'+
@@ -910,6 +932,24 @@ function finishQuiz(){
     wl.innerHTML='<div class="wl-head">Alles richtig — perfekt! 🎉</div>';
     $('retryWrongBtn').classList.add('hidden');
   }
+}
+// Ausführliche Liste: prompt | getippt | Lösung | verdict (+ Groß-/Kleinschreibung-Hinweis)
+function renderDetailTable(detail, hostEl){
+  const host = hostEl || $('detailList');
+  if(!host) return;
+  if(!detail || !detail.length){ host.innerHTML=''; return; }
+  const ICON={right:'✓', half:'🟡', wrong:'✗'};
+  host.innerHTML='<div class="wl-head">Deine Antworten im Detail:</div>'+
+    detail.map(d=>{
+      const caps = d.caps ? ` <span class="capsnote" title="Groß-/Kleinschreibung">— korrekte Schreibung: „${esc(d.answer)}“</span>` : '';
+      return `<div class="detail-item v-${d.verdict}">
+        <span class="d-ico">${ICON[d.verdict]||''}</span>
+        <span class="d-prompt"><b>${esc(d.prompt||'')}</b></span>
+        <span class="d-given">${esc(d.given||'—')}</span>
+        <span class="d-arrow">→</span>
+        <span class="d-answer">${esc(d.answer||'')}${caps}</span>
+      </div>`;
+    }).join('');
 }
 async function retryWrong(){
   if(!window._lastWrong||!window._lastWrong.length) return;
@@ -976,6 +1016,8 @@ async function checkWrite(){
       body:JSON.stringify({kid,nonce:window._nonce,key:it.id+'|'+it.direction,text})})).json();
   }catch(e){ r={correct:false,answer:it.prompt}; }
   const good=!!r.correct, half=!!r.half;
+  (window._runDetail=window._runDetail||[]).push({prompt:it.prompt, given:text, answer:r.answer||'',
+    verdict: good?'right':(half?'half':'wrong'), caps: !!r.caps_note});
   if(good) score++;
   else if(half){ score+=0.5; window._lastHalf=(window._lastHalf||[]).concat([{prompt:it.prompt, answer:r.answer||''}]); }
   else window._lastWrong.push({qid:it.id, prompt:it.prompt, answer:r.answer||''});
@@ -995,6 +1037,7 @@ async function checkWrite(){
 function writeFinish(){
   const items=window._wItems||[], n=items.length;
   reportRun('write', n);
+  renderDetailTable(window._runDetail||[], $('wDetailList'));
   $('pfill').style.width='100%';
   $('quizState').textContent=`${score} / ${n} richtig`;
   $('writeResult').classList.remove('hidden');
@@ -1073,6 +1116,8 @@ function renderCard(){
 async function cardVerdict(knew){
   if(answered) return; answered=true;
   const c=(window._cards||[])[qix];
+  (window._runDetail=window._runDetail||[]).push({prompt:c.front, given:knew?'✓ gewusst':'✗ nicht', answer:c.back,
+    verdict: knew?'right':'wrong', caps:false});
   if(!knew){
     window._lastWrongCards.push({qid:c.id, prompt:c.front, answer:c.back});
     window._lastWrong.push({qid:c.id, prompt:c.front, answer:c.back});
@@ -1085,6 +1130,7 @@ async function cardVerdict(knew){
 function cardFinish(){
   const cards=window._cards||[], n=cards.length;
   reportRun('cards', n);
+  renderDetailTable(window._runDetail||[], $('cardDetailList'));
   $('pfill').style.width='100%';
   $('quizState').textContent=`${score} / ${n} gewusst`;
   $('card').onclick=null;
@@ -1118,6 +1164,15 @@ async function cardRetryWrong(){
   renderCard();
 }
 
+document.addEventListener('click', e=>{
+  const t=e.target.closest('.rh-toggle'); if(!t) return;
+  const box=document.getElementById(t.dataset.tg);
+  if(!box) return;
+  box.classList.toggle('hidden');
+  const m=(t.textContent||'').match(/\((\d+)\)/);
+  const n=m?` (${m[1]})`:'';
+  t.textContent=(box.classList.contains('hidden')?'Details anzeigen':'Details verbergen')+n;
+});
 // ---------- Service Worker (nur Secure Context: HTTPS oder localhost) ----------
 if('serviceWorker' in navigator && (location.protocol==='https:' || ['localhost','127.0.0.1'].includes(location.hostname))){
   navigator.serviceWorker.register('/sw.js').catch(()=>{});
@@ -1176,10 +1231,21 @@ async function loadRunHistory(){
     const wrongs=(rn.wrong||[]);
     const wHtml=wrongs.length?`<div class="rh-wrong">${wrongs.map(w=>
       `<span>${esc(w.prompt||'')} — ${esc(w.answer||'')}</span>`).join('')}</div>`:'';
+    const dl=(rn.detail||[]);
+    const detId='rd'+Math.random().toString(36).slice(2,8);
+    const detHtml=dl.length?`<button class="rh-toggle" data-tg="${detId}">Details anzeigen (${dl.length})</button>
+      <div id="${detId}" class="rh-detail hidden">${dl.map(d=>{
+        const ICON={right:'✓', half:'🟡', wrong:'✗'};
+        const caps=d.caps?` <span class="capsnote">Schreibung: „${esc(d.answer)}“</span>`:'';
+        return `<div class="detail-item v-${d.verdict}"><span class="d-ico">${ICON[d.verdict]||''}</span>
+          <span class="d-prompt"><b>${esc(d.prompt||'')}</b></span>
+          <span class="d-given">${esc(d.given||'—')}</span><span class="d-arrow">→</span>
+          <span class="d-answer">${esc(d.answer||'')}${caps}</span></div>`;
+      }).join('')}</div>`:'';
     return `<div class="rh-item">
       <div class="rh-top"><b>${esc(rn.ts)} · ${esc((META.books.find(b=>b.id===rn.book)||{}).name||rn.book)}</b>
         <span class="rh-date">${MODE} · ${sc} / ${n} richtig (${pct}%)</span></div>
-      <div class="${barCls}"><div style="width:${pct}%"></div></div>${wHtml}</div>`;
+      <div class="${barCls}"><div style="width:${pct}%"></div></div>${wHtml}${detHtml}</div>`;
   }).join('');
 }
 async function openReport(){
