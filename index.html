@@ -92,6 +92,10 @@ h2{font-size:1.05rem; margin:18px 0 10px}
 .wfb{min-height:1.4em; margin-top:10px; font-size:.95rem; font-weight:700; text-align:center}
 .wfb.correct{color:var(--good-ink)}
 .wfb.incorrect{color:var(--bad-ink)}
+.wfb.half{color:#a4761d}
+#wInput.half{border-color:#d9b96a; background:#faf3dd}
+html.dark .wfb.half{color:#e0c069}
+html.dark #wInput.half{border-color:#8a7434; background:#3a3320}
 .choices{display:grid; grid-template-columns:1fr 1fr; gap:10px}
 @media(max-width:560px){.choices{grid-template-columns:1fr}}
 .choice{border:1.5px solid var(--line); background:var(--card); color:var(--ink); border-radius:12px;
@@ -598,11 +602,13 @@ async function checkWrite(){
     r=await (await fetch('/api/write/check',{method:'POST',headers:{'Content-Type':'application/json'},
       body:JSON.stringify({kid,nonce:window._nonce,key:it.id+'|'+it.direction,text})})).json();
   }catch(e){ r={correct:false,answer:it.prompt}; }
-  const good=!!r.correct;
-  if(good) score++; else window._lastWrong.push({qid:it.id, prompt:it.prompt, answer:r.answer||''});
-  $('wInput').className=good?'ok':'bad'; $('wInput').disabled=true;
-  $('wFeedback').className='wfb '+(good?'correct':'incorrect');
-  $('wFeedback').innerHTML=good?'✓ Richtig!':`✗ Richtig ist: <b>${esc(r.answer||'')}</b>`;
+  const good=!!r.correct, half=!!r.half;
+  if(good) score++;
+  else if(half){ score+=0.5; window._lastHalf=(window._lastHalf||[]).concat([{prompt:it.prompt, answer:r.answer||''}]); }
+  else window._lastWrong.push({qid:it.id, prompt:it.prompt, answer:r.answer||''});
+  $('wInput').className=good?'ok':(half?'half':'bad'); $('wInput').disabled=true;
+  $('wFeedback').className='wfb '+(good?'correct':(half?'half':'incorrect'));
+  $('wFeedback').innerHTML=good?'✓ Richtig!':(half?`🟡 Fast richtig (½) — ganz richtig: <b>${esc(r.answer||'')}</b>`:`✗ Richtig ist: <b>${esc(r.answer||'')}</b>`);
   $('wMeta').textContent=`Schreiben ${qix+1} / ${(window._wItems||[]).length} · ${score} richtig`;
   setTimeout(()=>{
     qix++;
