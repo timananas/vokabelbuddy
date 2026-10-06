@@ -32,8 +32,10 @@ body{margin:0; font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
 main{max-width:820px; margin:0 auto; padding:16px 14px 40px}
 h1{font-size:1.5rem; margin:6px 0 2px; display:flex; align-items:center; gap:10px}
 .sub{color:var(--muted); font-size:.85rem; margin:0 0 14px}
-.iconbtn{border:1px solid var(--line); background:var(--card); color:var(--ink); width:34px; height:34px;
-  border-radius:50%; font-size:1rem; cursor:pointer; display:grid; place-items:center; flex:none}
+.iconbtn{border:1px solid var(--line); background:var(--card); color:var(--muted); width:36px; height:36px;
+  border-radius:50%; font-size:1rem; cursor:pointer; display:grid; place-items:center; flex:none;
+  padding:0; line-height:1; filter:grayscale(1) opacity(.85); transition:filter .15s, border-color .15s, color .15s}
+.iconbtn:hover{filter:grayscale(1) opacity(1); color:var(--ink); border-color:var(--muted)}
 .row{display:flex; align-items:center; gap:8px; flex-wrap:wrap}
 .kids{gap:8px; margin:10px 0 14px}
 .kid{border:1.5px solid var(--line); background:var(--card); color:var(--ink); border-radius:999px;
@@ -133,8 +135,6 @@ html.dark #wInput.half,html.dark #mxInput.half{border-color:#8a7434; background:
 .rp-bar.mid>div{background:var(--accent)}
 .probs{display:flex; flex-direction:column; gap:4px; margin-top:4px}
 .probs .p{font-size:.88rem; padding:6px 10px; background:var(--bad); color:var(--bad-ink); border-radius:8px}
-.iconbtn{border:1px solid var(--line); background:var(--card); color:var(--ink); width:34px; height:34px;
-  border-radius:50%; font-size:1rem; cursor:pointer; display:grid; place-items:center; flex:none}
 /* Admin */
 .overlay{position:fixed; inset:0; background:rgba(10,14,24,.55); display:grid; place-items:center; padding:16px; z-index:50}
 .modal{background:var(--card); border-radius:14px; padding:18px; width:100%; max-width:480px; max-height:90vh; overflow:auto}
@@ -200,9 +200,15 @@ body{overflow-x:hidden}
   <div class="row" style="justify-content:space-between">
     <h1>📚 Vokabelbuddy</h1>
     <div style="display:flex; gap:8px">
-      <button class="iconbtn" id="themeBtn" title="Dark/Light umschalten">🌙</button>
-      <button class="iconbtn" id="reportBtn" title="Auswertung">📊</button>
-      <button class="iconbtn" id="adminBtn" title="Vokabeln verwalten">⚙️</button>
+      <button class="iconbtn" id="themeBtn" title="Dark/Light umschalten" aria-label="Dark/Light umschalten">
+        <svg class="ico-ink" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <button class="iconbtn" id="reportBtn" title="Auswertung" aria-label="Auswertung">
+        <svg class="ico-ink" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="20" x2="5" y2="12"/><line x1="12" y1="20" x2="12" y2="6"/><line x1="19" y1="20" x2="19" y2="10"/></svg>
+      </button>
+      <button class="iconbtn" id="adminBtn" title="Vokabeln verwalten" aria-label="Vokabeln verwalten">
+        <svg class="ico-ink" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h0a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51h0a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v0a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+      </button>
     </div>
   </div>
   <p class="sub" id="subtitle">Wähle, wer übt</p>
@@ -353,11 +359,18 @@ function themeApply(){
   const meta=document.querySelector('meta[name="theme-color"]');
   if(meta) meta.setAttribute('content', dark?'#141822':'#3a6df0');
   const btn=document.getElementById('themeBtn');
-  if(btn) btn.textContent = dark ? '☀️' : '🌙';
+  if(btn) themeSetIcon(dark);
+}
+function themeSetIcon(dark){
+  const btn=document.getElementById('themeBtn');
+  if(!btn) return;
+  // Monochrome SVGs — Sonne vs. Mond, currentColor-getrieben
+  const sun='<svg class="ico-ink" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.9" y1="4.9" x2="6.3" y2="6.3"/><line x1="17.7" y1="17.7" x2="19.1" y2="19.1"/><line x1="4.9" y1="19.1" x2="6.3" y2="17.7"/><line x1="17.7" y1="6.3" x2="19.1" y2="4.9"/></svg>';
+  const moon='<svg class="ico-ink" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+  btn.innerHTML = dark ? sun : moon;
 }
 function themeBtnLabel(){
-  const btn=document.getElementById('themeBtn');
-  if(btn) btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+  themeSetIcon(document.documentElement.classList.contains('dark'));
 }
 async function init(){
   try{ META=await (await fetch('/api/meta')).json(); }catch(e){
