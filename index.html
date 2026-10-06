@@ -406,6 +406,16 @@ body{overflow-x:hidden}
         <div class="mdone" id="mfaNote"></div>
       </div>
     </div>
+    <div id="adminOnlyZone" class="hidden" style="border-top:1px solid var(--line); margin-top:12px; padding-top:12px">
+      <div style="font-weight:800; font-size:.95rem">Eltern-Accounts</div>
+      <div id="parentList" style="display:flex; flex-direction:column; gap:6px; margin-top:8px"></div>
+      <div style="display:flex; gap:8px; margin-top:10px">
+        <input id="paUser" type="text" placeholder="Neuer Eltern-Benutzer" autocapitalize="none" style="flex:1">
+        <input id="paPw" type="text" placeholder="Kennwort" autocomplete="off" style="flex:1">
+        <button class="msave" id="paAdd" style="width:auto; padding:10px 14px">Anlegen</button>
+      </div>
+      <div class="mdone" id="paNote"></div>
+    </div>
     <div class="mrow" style="margin-top:14px">
       <button class="logoutbtn" id="logoutBtn">Abmelden</button>
     </div>
@@ -491,13 +501,13 @@ async function init(){
     const db=(META.default_book||{})[kid];
     if(db&&META.books.some(b=>b.id===db)){ book=db; localStorage.setItem('vb_book',book); }
   }
-  $('subtitle').textContent = (ME && ME.user) ? `Angemeldet: ${ME.user}${ME.role==='kid'?'':' (Admin)'}` : 'Wähle, wer übt';
+  $('subtitle').textContent = (ME && ME.user) ? `Angemeldet: ${ME.user}${ME.role==='admin'?' (Admin-Account)':(ME.role==='parent'?' (Eltern-Account)':'')}` : 'Wähle, wer übt';
   drawKids(); drawBooks();
   themeBtnLabel();
   $('adminBtn').onclick=openAdmin;
 $('logoutBtn').onclick=()=>{ location.href='/logout'; };
-  // Kinder: Zahnrad weg, stattdessen Logout-Icon
-  if(ME && ME.role==='kid'){
+  // Kinder + Eltern: Zahnrad weg; Logout-Icon statt Namenschip
+  if(ME && (ME.role==='kid' || ME.role==='parent')){
     $('adminBtn').classList.add('gone');
     $('kidLogoutBtn').style.display='grid';
     $('kidLogoutBtn').onclick=()=>{ location.href='/logout'; };
@@ -613,6 +623,48 @@ function reportRun(mode, n){
   }catch(e){}
 }
 // ---------- Konto (Kennwort + MFA) ----------
+function renderParents(parents){
+  const host=$('parentList'); if(!host) return;
+  if(!parents.length){ host.innerHTML='<div class="sub" style="margin:0">Noch keine Eltern-Accounts.</div>'; return; }
+  host.innerHTML=parents.map(p=>`
+    <div class="detail-item" style="display:flex; gap:10px; align-items:center">
+      <span style="font-weight:800; min-width:110px">${esc(p.user)}</span>
+      <span style="flex:1; display:flex; gap:6px; flex-wrap:wrap">
+        ${['luis','carlotta'].map(kid=>`<button class="kid pchk ${p.kids.includes(kid)?'on':''}" data-pa="${esc(p.user)}" data-kid="${kid}"
+          style="padding:4px 12px; font-size:.8rem">${esc((META.kids.find(x=>x.id===kid)||{}).name||kid)}</button>`).join('')}
+      </span>
+    </div>`).join('');
+}
+function loadParents(){
+  if(!ME || ME.role!=='admin') return;
+  $('adminOnlyZone').classList.remove('hidden');
+  try{
+    fetch('/api/auth/parents').then(r=>r.json()).then(j=>renderParents(j.parents||[])).catch(()=>{});
+  }catch(e){}
+  $('paAdd').onclick=async()=>{
+    $('paNote').textContent='…';
+    try{
+      const r=await (await fetch('/api/parent/create',{method:'POST',headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({user:$('paUser').value.trim(), password:$('paPw').value, kids:[]})})).json();
+      if(r.ok){ $('paNote').textContent=`✅ ${r.user} angelegt`; $('paUser').value=$('paPw').value=''; loadParents(); }
+      else $('paNote').textContent=r.error||'Fehler';
+    }catch(e){ $('paNote').textContent='Server nicht erreichbar'; }
+  };
+}
+document.addEventListener('click', async e=>{
+  const b=e.target.closest('.pchk'); if(!b) return;
+  const pa=b.dataset.pa, kid=b.dataset.kid;
+  // aktuelle kids des parents aus DOM lesen:
+  const kids=[...document.querySelectorAll(`.pchk[data-pa="${pa}"]`)].filter(x=>!x.classList.contains(b)||!b.contains(x)&&x!==b? x.classList.contains('on')&&x!==b : x.classList.contains('on')).map(x=>x.dataset.kid);
+  let target;
+  if(b.classList.contains('on')){ b.classList.remove('on'); target=kids.filter(k=>k!==kid); }
+  else { b.classList.add('on'); target=[...new Set([...kids, kid])]; }
+  try{
+    const r=await (await fetch('/api/parent/kids',{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({user:pa, kids:target})})).json();
+    if(!r.ok){ b.classList.toggle('on'); $('paNote').textContent=r.error||'Fehler'; }
+  }catch(e){ b.classList.toggle('on'); $('paNote').textContent='Offline'; }
+});
 async function loadAccount(){
   if(!('acSave' in {})) {}
   const note=$('acNote'); note.textContent='';
@@ -673,6 +725,7 @@ function drawKids(){
   if(ME && ME.role==='kid'){ host.classList.add('gone'); }
   for(const k of META.kids){
     if(ME && ME.role==='kid' && k.id!==ME.kid) continue;  // Kind sieht nur sich
+    if(ME && ME.role==='parent' && !(ME.kids||[]).includes(k.id)) continue;  // Eltern: nur zugewiesene
     const b=document.createElement('button');
     b.className='kid'+(k.id===kid?' on':'');
     b.textContent=k.name;
@@ -1276,6 +1329,7 @@ async function openAdmin(){
   $('mDone').textContent='';
   $('mNum').value=''; $('mTitle').value=''; $('mWords').value='';
   loadAccount();
+  loadParents();
   const mb=$('mBook');
   if(mb.options.length!==META.books.length)
     mb.innerHTML=META.books.map(b=>`<option value="${esc(b.id)}">${esc(b.name)}</option>`).join('');

@@ -218,8 +218,8 @@ class _AuthGateMixin:
 
 
     def _forced_kid(self, asked):
-        """Eingeloggter User erzwingt das Kid: Kinder-User IMMER eigenes Kid,
-        Admin darf freiwählen. None + 401/403-Antwort bei Konflikt."""
+        """Eingeloggter User erzwingt das Kid: Kinder IMMER eigenes, Eltern NUR zugewiesene,
+        Admin frei. None + 401/403-Antwort bei Konflikt."""
         me = self._session_user()
         if not me:
             self._json({'auth': True}, 401)
@@ -229,10 +229,18 @@ class _AuthGateMixin:
                 self._json({'error': 'Nur dein eigener Lernstand zählt'}, 403)
                 return None
             return me['id']
-        # admin: freie Wahl; ohne Angabe kein Kontext (Endpoints verlangen kid)
+        if me['role'] == 'parent':
+            allowed = AUTH_MEM['users'].get(me['id'], {}).get('kids') or []
+            if asked and asked in allowed:
+                return asked
+            if asked:
+                self._json({'error': 'Dieses Kind ist dir nicht zugewiesen'}, 403)
+                return None
+            return None
+        # admin: freie Wahl
         if asked and _kid_ok(asked):
             return asked
-        return None  # Antwort ohne kid (Caller entscheidet)
+        return None
 
     def _auth_gate(self, r):
         """False = bereits geantwortet (Login-Seite/401), True = weiter."""
@@ -937,7 +945,9 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
                 if me:
                     u = AUTH_MEM['users'].get(me['id'], {})
                     self._json({'auth': True, 'user': me['id'], 'role': me['role'],
-                                'kid': me['kid'], 'mfa': bool(u.get('totp_enabled'))})
+                                'kid': me['kid'], 'mfa': bool(u.get('totp_enabled')),
+                                'kids': (u.get('kids') or []) if me['role']=='parent' else
+                                        ([k['id'] for k in KIDS] if me['role']=='admin' else [])})
                 else:
                     self._json({'auth': True}, 401)
                 return
@@ -966,6 +976,8 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
                 self.api_stats(q)
             elif r == '/api/report':
                 self.api_report(q)
+            elif r == '/api/auth/parents':
+                self.api_auth_parents(q)
             elif r == '/api/history':
                 self.api_history(q)
             elif r == '/api/export':
@@ -1226,6 +1238,45 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
                        'detail': (body.get('detail') or [])[:40]}
                 _runs_add(rec)
                 self._json({'ok': True})
+                return
+            if r == '/api/parent/kids':
+                me = self._session_user()
+                if not me or me.get('role') != 'admin':
+                    self._json({'error': 'Nur der Admin kann zuweisen'}, 403)
+                    return
+                puser = _norm(body.get('user'))
+                kids = body.get('kids') or []
+                if puser not in AUTH_MEM['users'] or AUTH_MEM['users'][puser].get('role') != 'parent':
+                    self._json({'error': 'Eltern-Account unbekannt'}, 400)
+                    return
+                kids = [k for k in kids if _kid_ok(k)]
+                AUTH_MEM['users'][puser]['kids'] = kids
+                auth_save()
+                self._json({'ok': True, 'user': puser, 'kids': kids})
+                return
+            if r == '/api/parent/create':
+                me = self._session_user()
+                if not me or me.get('role') != 'admin':
+                    self._json({'error': 'Nur der Admin kann Accounts anlegen'}, 403)
+                    return
+                puser = _norm(body.get('user')).lower()
+                pw = _norm(body.get('password'))
+                kids = [k for k in (body.get('kids') or []) if _kid_ok(k)]
+                if not re.fullmatch(r'[a-z0-9_]{3,20}', puser or ''):
+                    self._json({'error': 'Eltern-Benutzername: 3–20 Zeichen (a–z 0–9 _)'}, 400)
+                    return
+                if len(pw) < 4:
+                    self._json({'error': 'Kennwort: mindestens 4 Zeichen'}, 400)
+                    return
+                if puser in AUTH_MEM['users']:
+                    self._json({'error': 'Diesen Benutzer gibt es schon'}, 400)
+                    return
+                salt = list(os.urandom(16))
+                AUTH_MEM['users'][puser] = {'password_hash': _pbkdf2(pw, salt), 'salt': salt,
+                                            'role': 'parent', 'kids': kids,
+                                            'totp_secret': None, 'totp_enabled': False}
+                auth_save()
+                self._json({'ok': True, 'user': puser, 'kids': kids})
                 return
             if r == '/api/account/password':
                 me = self._session_user()
@@ -1597,6 +1648,15 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
             return
         self._json({'by_kid': {k['id']: _chapter_stats(st, k['id']) for k in KIDS}})
 
+    def api_auth_parents(self, q):
+        me = self._session_user() if auth_has_password() else {'role':'admin'}
+        if not me or me.get('role') != 'admin':
+            self._json({'error': 'Nur der Admin'}, 403)
+            return
+        out = [{'user': uid, 'kids': (u.get('kids') or [])}
+               for uid, u in AUTH_MEM['users'].items() if u.get('role') == 'parent']
+        self._json({'parents': out})
+
     def api_history(self, q):
         kid = (q.get('kid') or [''])[0]
         limit = int((q.get('limit') or ['40'])[0] or 40)
@@ -1709,7 +1769,7 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
     def api_chapter_save(self, body):
         me = self._session_user() if auth_has_password() else {'role': 'admin'}
         if me and me.get('role') != 'admin':
-            self._json({'error': 'Nur Eltern dürfen Kapitel ändern'}, 403)
+            self._json({'error': 'Nur der Admin darf Kapitel ändern'}, 403)
             return
         book = _norm(body.get('book'))
         if book not in _book_ids():
