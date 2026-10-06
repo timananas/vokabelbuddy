@@ -36,8 +36,8 @@ BOOKS = [
 KIDS = [
     {'id': 'luis', 'name': 'Luis', 'color': '#5b8def'},
     {'id': 'carlotta', 'name': 'Carlotta', 'color': '#3fb27f'},
-    {'id': 'antonia', 'name': 'Antonia', 'color': '#d98f3a'},
 ]
+DEFAULT_BOOKS = {'luis': 'access2', 'carlotta': 'access1'}
 
 _lock = threading.RLock()
 _sessions = {}  # nonce -> {'created': ts, 'questions': {f'{qid}|{direction}': question}}
@@ -333,7 +333,8 @@ class Handler(BaseHTTPRequestHandler):
             if r == '/api/health':
                 self._json({'ok': True, 'version': VERSION})
             elif r == '/api/meta':
-                self._json({'version': VERSION, 'books': BOOKS, 'kids': KIDS})
+                self._json({'version': VERSION, 'books': BOOKS, 'kids': KIDS,
+                            'default_book': DEFAULT_BOOKS})
             elif r == '/api/chapters':
                 self.api_chapters(q)
             elif r == '/api/quiz':
