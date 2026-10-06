@@ -238,6 +238,9 @@ class _AuthGateMixin:
         """False = bereits geantwortet (Login-Seite/401), True = weiter."""
         if not auth_has_password():
             return True  # Setup-Modus offen
+        # Statische Branding-Assets IMMER frei (Login-Seite braucht sie!)
+        if r.startswith('/assets/') or r.startswith('/favicon') or r in ('/manifest.json', '/sw.js'):
+            return True
         pub = PUBLIC_GET if self.command in ('GET', 'HEAD') else PUBLIC_POST
         if r in pub:
             return True
@@ -281,6 +284,7 @@ _AUTH_CSS = ('body{font-family:Nunito,system-ui,sans-serif;background:#0B1B30;co
              'font-size:.86rem;color:#8FA6C4;margin-top:10px}')
 _AUTH_WRAP = ('<!DOCTYPE html><html lang="de"><head><meta charset="utf-8">'
               '<meta name="viewport" content="width=device-width, initial-scale=1">'
+              '<link rel="icon" type="image/png" sizes="32x32" href="/assets/mascot-32.png">'
               '<title>{t}</title><style>' + _AUTH_CSS + '</style></head><body>'
               '<div class="card"><div class="brandline">'
               '<img class="bl-logo" src="/assets/mascot.png" alt="">'
@@ -874,7 +878,10 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
              '/favicon.ico': 'image/x-icon', '/favicon-32.png': 'image/png', '/favicon-16.png': 'image/png'}
         a = {'.png': 'image/png', '.svg': 'image/svg+xml', '.ico': 'image/x-icon'}
         if path in m:
-            p = os.path.join(ROOT, os.path.basename(path))
+            base = os.path.basename(path)
+            p = os.path.join(ROOT, base)
+            if not os.path.exists(p):
+                p = os.path.join(ROOT, 'assets', base)  # favicons liegen im assets/
             if os.path.exists(p):
                 self._send(200, open(p, 'rb').read(), m[path])
                 return True
