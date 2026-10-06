@@ -198,6 +198,7 @@ html.dark #wInput.half{border-color:#8a7434; background:#3a3320}
     <div class="top">
       <button class="back" id="quitBtn">← Aufhören</button>
       <span class="sub" id="quizState" style="margin:0"></span>
+      <button class="back" id="skipBtn" style="padding:8px 14px" title="Frage überspringen">Skip →</button>
     </div>
     <div class="pbar"><div id="pfill"></div></div>
     <div id="vbRange" class="range-pill"></div>
@@ -454,7 +455,9 @@ async function startQuiz(){
   mode='quiz'; show('viewQuiz','viewHome');
   $('result').classList.add('hidden'); $('qbox').classList.remove('hidden');
   $('cardbox').classList.add('hidden'); $('cardResult').classList.add('hidden');
-  window._lastWrong=[]; window._isCards=false;
+  $('writebox').classList.add('hidden'); $('writeResult').classList.add('hidden');
+  window._lastWrong=[]; window._isCards=false; window._skipped=[];
+  $('skipBtn').classList.remove('hidden');
   score=0; qix=0; answered=false;
   if(($('modeSel')||{}).value==='cards'){ return startCards(); }
   if(($('modeSel')||{}).value==='write'){ return startWrite(); }
@@ -484,6 +487,7 @@ function renderQ(){
   const q=quiz.questions[qix], n=quiz.questions.length;
   $('quizState').textContent=`Frage ${qix+1} / ${n} · ${score} richtig`;
   $('pfill').style.width=`${(qix/n)*100}%`;
+  $('skipBtn').classList.remove('hidden');
   const dir=q.direction==='de2en'?'Wie sagt man das auf <b>Englisch</b>?':'Was heißt das auf <b>Deutsch</b>?';
   const byk=(META.kids.find(k=>k.id===kid)||{name:''}).name;
   $('qbox').innerHTML=`
@@ -523,6 +527,7 @@ function finishQuiz(){
   const n=quiz.questions.length, pct=Math.round(100*score/n);
   $('pfill').style.width='100%';
   $('quizState').textContent=`${score} / ${n} richtig`;
+  $('skipBtn').classList.add('hidden');
   $('result').classList.remove('hidden'); $('qbox').classList.add('hidden');
   $('resScore').textContent=`${score} / ${n}`;
   $('resNote').textContent = pct>=90?'Super gemacht! 🎉':pct>=70?'Gut gemacht! 👍':'Weiter üben – du wirst immer besser! 💪';
@@ -609,6 +614,9 @@ async function checkWrite(){
   $('wInput').className=good?'ok':(half?'half':'bad'); $('wInput').disabled=true;
   $('wFeedback').className='wfb '+(good?'correct':(half?'half':'incorrect'));
   $('wFeedback').innerHTML=good?'✓ Richtig!':(half?`🟡 Fast richtig (½) — ganz richtig: <b>${esc(r.answer||'')}</b>`:`✗ Richtig ist: <b>${esc(r.answer||'')}</b>`);
+  if(r.caps_note){
+    $('wFeedback').innerHTML += ` <span style="font-weight:600; opacity:.8">— Achtung: korrekte Schreibung ist „${esc(r.caps_note)}“</span>`;
+  }
   $('wMeta').textContent=`Schreiben ${qix+1} / ${(window._wItems||[]).length} · ${score} richtig`;
   setTimeout(()=>{
     qix++;
@@ -739,6 +747,24 @@ if('serviceWorker' in navigator && (location.protocol==='https:' || ['localhost'
   navigator.serviceWorker.register('/sw.js').catch(()=>{});
 }
 
+$('skipBtn').onclick=skipCurrent;
+// ---------- Skip ----------
+function skipCurrent(){
+  if(mode!=='quiz'||answered) return;
+  const q=quiz.questions[qix];
+  if(!window._skipped) window._skipped=[];
+  window._skipped.push(q);
+  // NUR überspringen: keine Antwort, keine Statistik; letzte Frage -> geskippte anhängen
+  const n=(quiz.questions||[]).length;
+  if(qix+1>=n){
+    if(window._skipped.length){
+      quiz.questions=quiz.questions.concat(window._skipped);
+      window._skipped=[];
+    } else { finishQuiz(); return; }
+  }
+  qix++;
+  renderQ();
+}
 // ---------- Auswertung ----------
 async function openReport(){
   $('rpTitle').textContent='Auswertung – '+((META.kids.find(k=>k.id===kid)||{}).name||'');
@@ -767,7 +793,6 @@ $('rpClose').onclick=()=>$('reportOverlay').classList.add('hidden');
 function openAdmin(){
   $('mDone').textContent='';
   $('mNum').value=''; $('mTitle').value=''; $('mWords').value='';
-  $('mFrom').value=''; $('mTo').value='';
   const mb=$('mBook');
   if(mb.options.length!==META.books.length)
     mb.innerHTML=META.books.map(b=>`<option value="${esc(b.id)}">${esc(b.name)}</option>`).join('');
