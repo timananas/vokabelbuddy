@@ -84,18 +84,19 @@ h2{font-size:1.05rem; margin:18px 0 10px}
 .chint{color:var(--muted); font-size:.8rem; position:absolute; bottom:10px}
 /* Schreib-Modus */
 .wq{max-width:520px; margin:0 auto}
-#wInput{width:100%; border:2px solid var(--line); background:var(--card); color:var(--ink);
-  border-radius:12px; padding:14px; font-size:1.15rem; text-align:center; margin-top:8px}
-#wInput:focus{outline:none; border-color:var(--accent)}
-#wInput.ok{border-color:#2f9e4f; background:var(--good)}
-#wInput.bad{border-color:#d9534f; background:var(--bad)}
+#wInput,#mxInput{width:100%; border:2px solid var(--line); background:var(--card); color:var(--ink);
+  border-radius:12px; padding:14px; font-size:1.15rem; text-align:center; margin-top:8px;
+  transition:border-color .15s, background .15s}
+#wInput:focus,#mxInput:focus{outline:none; border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-soft)}
+#wInput.ok,#mxInput.ok{border-color:#2f9e4f; background:var(--good)}
+#wInput.bad,#mxInput.bad{border-color:#d9534f; background:var(--bad)}
 .wfb{min-height:1.4em; margin-top:10px; font-size:.95rem; font-weight:700; text-align:center}
 .wfb.correct{color:var(--good-ink)}
 .wfb.incorrect{color:var(--bad-ink)}
 .wfb.half{color:#a4761d}
-#wInput.half{border-color:#d9b96a; background:#faf3dd}
+#wInput.half,#mxInput.half{border-color:#d9b96a; background:#faf3dd}
 html.dark .wfb.half{color:#e0c069}
-html.dark #wInput.half{border-color:#8a7434; background:#3a3320}
+html.dark #wInput.half,html.dark #mxInput.half{border-color:#8a7434; background:#3a3320}
 .choices{display:grid; grid-template-columns:1fr 1fr; gap:10px}
 @media(max-width:560px){.choices{grid-template-columns:1fr}}
 .choice{border:1.5px solid var(--line); background:var(--card); color:var(--ink); border-radius:12px;
@@ -601,7 +602,7 @@ function renderQ(){
       <div class="qword">${esc(q.prompt)}</div>
       <div class="qhint">${q.direction==='de2en'?'Schreib das auf <b>Englisch</b>':'Schreib das auf <b>Deutsch</b>'}</div>
       <div class="wq"><input id="mxInput" type="text" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="Antwort eintippen…">
-      <button id="mxCheck" class="start" style="margin-top:10px; padding:12px">Prüfen</button>
+      <button id="mxCheck" class="start" style="margin-top:10px; padding:12px; font-size:1rem">Prüfen (Enter)</button>
       <div id="mxFB" class="wfb"></div></div>`;
     const inp=$('mxInput'); inp.focus();
     const doCheck=async()=>{
