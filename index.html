@@ -636,6 +636,9 @@ function renderQ(){
     };
     $('mxCheck').onclick=doCheck;
     inp.onkeydown=e=>{ if(e.key==='Enter') doCheck(); };
+    window._mxAdvance=(adv)=>{
+      setTimeout(()=>{ window._quizAdvance && window._quizAdvance(); }, adv?600:1600);
+    };
     return;
   }
   if(q.kind==='cards'){
@@ -677,9 +680,12 @@ async function mixedCardVerdict(knew, q){
   else window._lastWrong.push({qid:q.id, prompt:q.front, answer:q.back});
   window._mxAdvance(knew);
 }
+// Globale Mixed-Advance-Helfer (einmal definiert — Branch-Refactors können sie nicht verlieren)
+window._mxAdvance=(adv)=>{
+  setTimeout(()=>{ window._quizAdvance && window._quizAdvance(); }, adv?600:1600);
+};
 function advanceAfter(_adv){
-  // Fortschritt nach einer beantworteten Frage (MC/Write/Karte) — gemeinsam mit answer()
-  window._quizAdvance && window._quizAdvance();
+  _mxAdvance(_adv);
 }
 async function answer(i,btn,q){
   if(answered) return; answered=true;
