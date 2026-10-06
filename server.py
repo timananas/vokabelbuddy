@@ -60,8 +60,7 @@ SESSION_TTL = 12 * 3600
 TRUST_TTL = 30 * 86400
 MFA_PENDING_TTL = 300
 LOGIN_FAILS = {}  # ip -> [timestamps]
-AUTH_MEM = {'password_hash': None, 'salt': None, 'totp_secret': None, 'totp_enabled': False,
-            'trusted': {}, 'sessions': {}, 'mfa_pending': {}}
+AUTH_MEM = {'users': {}, 'trusted': {}, 'sessions': {}, 'mfa_pending': {}}
 
 
 def _b64(s):
@@ -72,25 +71,29 @@ def _pbkdf2(password, salt):
     return hashlib.pbkdf2_hmac('sha256', password.encode(), bytes(salt), 200_000).hex()
 
 
+DEFAULT_USERS = {'luis': {'pw': 'luis', 'role': 'kid'}, 'carlotta': {'pw': 'carlotta', 'role': 'kid'}}
+
+
+def _user_entry(pw, role):
+    salt = list(os.urandom(16))
+    return {'password_hash': _pbkdf2(pw, salt), 'salt': salt, 'role': role,
+            'totp_secret': None, 'totp_enabled': False}
+
+
 def auth_load():
     try:
         with open(AUTH_PATH, 'r') as f:
             d = json.load(f)
-        AUTH_MEM['password_hash'] = d.get('password_hash')
-        AUTH_MEM['salt'] = d.get('salt')
-        AUTH_MEM['totp_secret'] = d.get('totp_secret')
-        AUTH_MEM['totp_enabled'] = bool(d.get('totp_enabled'))
+        AUTH_MEM['users'] = d.get('users') or {}
         AUTH_MEM['trusted'] = {str(k): v for k, v in (d.get('trusted') or {}).items()
                                if float(v) > time.time()}
     except Exception:
-        AUTH_MEM.update({'password_hash': None, 'salt': None, 'totp_secret': None,
-                         'totp_enabled': False, 'trusted': {}})
+        AUTH_MEM.update({'users': {}, 'trusted': {}})
 
 
 def auth_save():
     with _lock:
-        d = {'password_hash': AUTH_MEM['password_hash'], 'salt': AUTH_MEM['salt'],
-             'totp_secret': AUTH_MEM['totp_secret'], 'totp_enabled': AUTH_MEM['totp_enabled'],
+        d = {'users': AUTH_MEM['users'],
              'trusted': {k: v for k, v in AUTH_MEM['trusted'].items() if float(v) > time.time()}}
         tmp = AUTH_PATH + '.tmp'
         with open(tmp, 'w') as f:
@@ -103,7 +106,32 @@ def auth_save():
 
 
 def auth_has_password():
-    return bool(AUTH_MEM.get('password_hash'))
+    # Setup fertig, sobald mind. EIN Admin-User existiert
+    return any(u.get('role') == 'admin' for u in AUTH_MEM.get('users', {}).values())
+
+
+def _session_user(self):
+    """Eingeloggter User {id, role, kid} ODER None."""
+    ck = self._cookies()
+    sess = ck.get(SESSION_COOKIE)
+    sessions = AUTH_MEM.setdefault('sessions', {})
+    entry = sessions.get(sess) if sess else None
+    if not entry or time.time() > entry.get('exp', 0):
+        return None
+    uid = entry.get('user')
+    u = AUTH_MEM['users'].get(uid, {})
+    return {'id': uid, 'role': u.get('role'), 'kid': uid if u.get('role') == 'kid' else None}
+
+
+def _ensure_default_users():
+    """luis/carlotta einmalig anlegen (Passwort = Username), nur wenn sie fehlen."""
+    ch = False
+    for uid, spec in DEFAULT_USERS.items():
+        if uid not in AUTH_MEM['users']:
+            AUTH_MEM['users'][uid] = _user_entry(spec['pw'], spec['role'])
+            ch = True
+    if ch:
+        auth_save()
 
 
 def _totp_now(secret, t=None):
@@ -161,17 +189,11 @@ class _AuthGateMixin:
                 out[k.strip()] = v.strip()
         return out
 
+    def _session_user(self):
+        return _mod_session_user(self)
+
     def _is_authed(self):
-        ck = self._cookies()
-        sess = ck.get(SESSION_COOKIE)
-        sessions = AUTH_MEM.setdefault('sessions', {})
-        if sess and sess in sessions and time.time() < sessions[sess]['exp']:
-            return True
-        # Trust-Cookie (Gerät vertraut) genügt — Session still ausstellen
-        if sess and _check_trust_token(ck.get(TRUST_COOKIE)):
-            sessions[sess] = {'exp': time.time() + SESSION_TTL}
-            return True
-        return False
+        return self._session_user() is not None
 
     def _auth_redirect(self, to):
         self.send_response(303)
@@ -193,6 +215,24 @@ class _AuthGateMixin:
 
     def _record_fail(self, ip):
         LOGIN_FAILS.setdefault(ip, []).append(time.time())
+
+
+    def _forced_kid(self, asked):
+        """Eingeloggter User erzwingt das Kid: Kinder-User IMMER eigenes Kid,
+        Admin darf freiwählen. None + 401/403-Antwort bei Konflikt."""
+        me = self._session_user()
+        if not me:
+            self._json({'auth': True}, 401)
+            return None
+        if me['role'] == 'kid':
+            if asked and asked != me['id']:
+                self._json({'error': 'Nur dein eigener Lernstand zählt'}, 403)
+                return None
+            return me['id']
+        # admin: freie Wahl; ohne Angabe kein Kontext (Endpoints verlangen kid)
+        if asked and _kid_ok(asked):
+            return asked
+        return None  # Antwort ohne kid (Caller entscheidet)
 
     def _auth_gate(self, r):
         """False = bereits geantwortet (Login-Seite/401), True = weiter."""
@@ -243,21 +283,24 @@ _AUTH_WRAP = ('<!DOCTYPE html><html lang="de"><head><meta charset="utf-8">'
 
 def _setup_html(msg=''):
     warn = f'<p class="msg">{msg}</p>' if msg else ''
-    body = ('<h1>📚 Vokabelbuddy – Kennwort festlegen</h1>'
+    body = ('<h1>📚 Vokabelbuddy – Einrichtung</h1>'
             '<form method="POST" action="/setup">' + warn +
-            '<input type="password" name="password" placeholder="Kennwort (mind. 8 Zeichen)" autofocus>'
-            '<input type="password" name="password2" placeholder="Kennwort wiederholen">'
-            '<button>Kennwort speichern</button>'
-            '<p class="hint" style="color:#8d94a8;font-size:.83rem">Schützt den Trainer '
-            'und die Auswertung im Heimnetz.</p></form>')
+            '<input type="text" name="admin_user" placeholder="Eltern-Benutzer (z.B. tim)" autocapitalize="none" autocomplete="username">'
+            '<input type="password" name="password" placeholder="Eltern-Kennwort (mind. 8 Zeichen)">'
+            '<button>Kennwörter speichern & starten</button>'
+            '<p class="hint" style="color:#8d94a8;font-size:.83rem">Für Luis und Carlotta werden '
+            'automatisch Benutzer «luis» / «carlotta» mit entsprechendem Kennwort angelegt '
+            '(du kannst sie später ändern).</p></form>')
     return _AUTH_WRAP.replace('{t}', 'Vokabelbuddy – Einrichtung').replace('{b}', body)
 
 
-def _login_html(msg=''):
+def _login_html(msg='', pre_user=''):
     warn = f'<p class="msg">{msg}</p>' if msg else ''
+    pre = f' value="{pre_user}"' if pre_user else ''
     body = ('<h1>📚 Vokabelbuddy</h1>'
             '<form method="POST" action="/login">' + warn +
-            '<input type="password" name="password" placeholder="Kennwort" autofocus>'
+            f'<input type="text" name="username" placeholder="Benutzername (z.B. luis)"{pre} autocapitalize="none" autofocus>'
+            '<input type="password" name="password" placeholder="Kennwort">'
             '<label class="chk"><input type="checkbox" name="trust" value="1" checked> '
             'Diesem Gerät 30 Tage vertrauen</label>'
             '<button>Anmelden</button></form>')
@@ -771,6 +814,9 @@ def _make_write_session(book, kid, chapters, qtype, count, nonce, from_n=None, t
     return items
 
 
+_mod_session_user = _session_user  # Modulfunktion für das Mixin
+
+
 class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
     protocol_version = 'HTTP/1.1'
 
@@ -850,12 +896,14 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
                 _page(self, _setup_html())
                 return
             if r == '/auth/state':
-                sess = self._cookies().get(SESSION_COOKIE)
-                AUTH_MEM.setdefault('sessions', {})
                 if auth_has_password() is False:
                     self._json({'auth': False, 'setup': True})
-                elif self._is_authed():
-                    self._json({'auth': True, 'mfa': AUTH_MEM.get('totp_enabled', False)})
+                    return
+                me = self._session_user()
+                if me:
+                    u = AUTH_MEM['users'].get(me['id'], {})
+                    self._json({'auth': True, 'user': me['id'], 'role': me['role'],
+                                'kid': me['kid'], 'mfa': bool(u.get('totp_enabled'))})
                 else:
                     self._json({'auth': True}, 401)
                 return
@@ -902,22 +950,23 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
                     return
                 _page(self, _mfa_html())
             elif r == '/mfa/setup':
-                if not self._is_authed():
+                me = self._session_user()
+                if not me:
                     self._auth_redirect('/login')
                     return
-                if AUTH_MEM.get('totp_enabled'):
+                u = AUTH_MEM['users'].setdefault(me['id'], {})
+                if u.get('totp_enabled'):
                     _page(self, _AUTH_WRAP.replace('{t}', 'MFA').replace('{b}', '<h1>🔐 Zwei-Faktor ist aktiv</h1>'))
                     return
-                old_secret = AUTH_MEM.get('totp_secret')
-                # b32-kompatiblen Secret erzeugen (A–Z2–7) — invalide Alt-Secrets ersetzen
+                old_secret = u.get('totp_secret')
                 def _valid_b32(s):
                     return bool(s) and re.fullmatch(r'[A-Z2-7]+', s or '') and len(s) >= 16 and (len(s) % 8) not in (1, 3, 6)
                 if not _valid_b32(old_secret):
                     secret = base64.b32encode(os.urandom(10)).decode().rstrip('=')
                 else:
                     secret = old_secret
-                AUTH_MEM['totp_secret'] = secret
-                AUTH_MEM['totp_enabled'] = False
+                u['totp_secret'] = secret
+                u['totp_enabled'] = False
                 auth_save()
                 _page(self, _mfa_setup_html(secret))
             elif r == '/logout':
@@ -943,12 +992,26 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
                 pass
 
     def api_mfa_confirm(self, body):
+        ck = self._cookies()
+        pend_tok = ck.get(MFA_COOKIE) if False else None  # confirm läuft im SETZEN-Kontext (session)
+        me = self._session_user()
         code = _norm(body.get('code'))
-        secret = AUTH_MEM.get('totp_secret')
+        # Setup-Kontext: user, dessen Secret gerade PENDING ist (totp_enabled False + Secret frisch)
+        cand = None
+        if me:
+            cand = me['id']
+        else:
+            # nach Login ohne MFA: session existiert bereits (me da) — sonst abbrechen
+            pass
+        if not cand:
+            self._auth_redirect('/login')
+            return
+        u = AUTH_MEM['users'].get(cand, {})
+        secret = u.get('totp_secret')
         if not secret or not totp_verify(secret, code):
             _page(self, _mfa_setup_html(secret or '?', 'Code falsch – nochmal versuchen'))
             return
-        AUTH_MEM['totp_enabled'] = True
+        u['totp_enabled'] = True
         auth_save()
         _page(self, _AUTH_WRAP.replace('{t}', 'MFA aktiv').replace('{b}', '<h1>✅ Zwei-Faktor ist aktiv</h1>'
                '<p style="color:#8d94a8">Ab dem nächsten Login zusätzlich zum Kennwort nötig.</p>'))
@@ -966,14 +1029,33 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
                 if auth_has_password():
                     self._auth_redirect('/login')
                     return
+                auser = _norm(body.get('admin_user')).lower()
                 pw1 = _norm(body.get('password'))
-                pw2 = _norm(body.get('password2'))
+                if not re.fullmatch(r'[a-z0-9_]{3,20}', auser or ''):
+                    _page(self, _setup_html('Benutzername: 3–20 Zeichen, a–z/0–9/_'))
+                    return
+                if auser in ('luis', 'carlotta'):
+                    _page(self, _setup_html('Diesen Namen nutzt bereits ein Kind – wähle einen anderen.'))
+                    return
                 if len(pw1) < 8:
                     _page(self, _setup_html('Kennwort zu kurz – mindestens 8 Zeichen.'))
                     return
-                if pw1 != pw2:
-                    _page(self, _setup_html('Kennwörter stimmen nicht überein.'))
-                    return
+                with _lock:
+                    _ensure_default_users()
+                    AUTH_MEM['users'][auser] = _user_entry(pw1, 'admin')
+                    auth_save()
+                sess = _new_token()
+                AUTH_MEM.setdefault('sessions', {})[sess] = {'exp': time.time() + SESSION_TTL, 'user': auser}
+                trust = _new_token()
+                AUTH_MEM.setdefault('trusted', {})[trust] = time.time() + TRUST_TTL
+                auth_save()
+                self.send_response(303)
+                self.send_header('Location', '/')
+                self.send_header('Set-Cookie', _set_cookie(SESSION_COOKIE, sess, SESSION_TTL))
+                self.send_header('Set-Cookie', _set_cookie(TRUST_COOKIE, trust, TRUST_TTL))
+                self.send_header('Content-Length', '0')
+                self.end_headers()
+                return
                 salt = list(os.urandom(16))
                 AUTH_MEM['password_hash'] = _pbkdf2(pw1, salt)
                 AUTH_MEM['salt'] = salt
@@ -995,17 +1077,19 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
                 if not auth_has_password():
                     self._auth_redirect('/setup')
                     return
+                auser = _norm(body.get('username')).lower()
                 pw = _norm(body.get('password'))
-                okpw = AUTH_MEM.get('password_hash') == _pbkdf2(pw, AUTH_MEM.get('salt') or [0]*16)
+                u = AUTH_MEM['users'].get(auser)
+                okpw = bool(u) and u.get('password_hash') == _pbkdf2(pw, u.get('salt') or [0]*16)
                 if not okpw:
                     self._record_fail(ip)
-                    _page(self, _login_html('Kennwort falsch.'))
+                    _page(self, _login_html('Benutzername oder Kennwort falsch.', pre_user=auser))
                     return
                 LOGIN_FAILS[ip] = []
-                if AUTH_MEM.get('totp_enabled'):
+                if u.get('totp_enabled'):
                     pend_tok = _new_token()
                     AUTH_MEM.setdefault('mfa_pending', {})[pend_tok] = {
-                        'ts': time.time(),
+                        'ts': time.time(), 'user': auser,
                         'trust': bool(_norm(body.get('trust')))}
                     _gc_mfa_pending()
                     self.send_response(303)
@@ -1015,7 +1099,7 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
                     self.end_headers()
                     return
                 sess = _new_token()
-                AUTH_MEM.setdefault('sessions', {})[sess] = {'exp': time.time() + SESSION_TTL}
+                AUTH_MEM.setdefault('sessions', {})[sess] = {'exp': time.time() + SESSION_TTL, 'user': auser}
                 _gc_sessions_auth()
                 headers = [('Set-Cookie', _set_cookie(SESSION_COOKIE, sess, SESSION_TTL))]
                 if _norm(body.get('trust')):
@@ -1038,13 +1122,15 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
                 if not entry or time.time() - entry['ts'] > MFA_PENDING_TTL:
                     _page(self, _login_html('Sitzung abgelaufen – bitte erneut anmelden.'))
                     return
-                if not totp_verify(AUTH_MEM.get('totp_secret'), _norm(body.get('code'))):
+                auser = entry.get('user')
+                u = AUTH_MEM['users'].get(auser, {})
+                if not totp_verify(u.get('totp_secret'), _norm(body.get('code'))):
                     self._record_fail(ip)
                     _page(self, _mfa_html('Code falsch – nochmal versuchen.'))
                     return
                 pend.pop(tok, None)
                 sess = _new_token()
-                AUTH_MEM.setdefault('sessions', {})[sess] = {'exp': time.time() + SESSION_TTL}
+                AUTH_MEM.setdefault('sessions', {})[sess] = {'exp': time.time() + SESSION_TTL, 'user': auser}
                 _gc_sessions_auth()
                 headers = [('Set-Cookie', _set_cookie(SESSION_COOKIE, sess, SESSION_TTL)),
                            ('Set-Cookie', _set_cookie(MFA_COOKIE, '', 0))]
@@ -1064,11 +1150,13 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
                 self.api_mfa_confirm(body)
                 return
             if r == '/mfa/disable':
-                if not self._is_authed():
+                me = self._session_user()
+                if not me:
                     self._json({'error': 'nicht angemeldet'}, 401)
                     return
-                AUTH_MEM['totp_enabled'] = False
-                AUTH_MEM['totp_secret'] = None
+                u = AUTH_MEM['users'].setdefault(me['id'], {})
+                u['totp_enabled'] = False
+                u['totp_secret'] = None
                 auth_save()
                 self._json({'ok': True, 'mfa': False})
                 return
@@ -1079,15 +1167,15 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
                 self._json({'auth': True}, 401)
                 return
             if r == '/api/answer':
-                self.api_answer(parse_qs(u.query), self._body())
+                self.api_answer(parse_qs(u.query), body)
             elif r == '/api/quiz/wrong':
-                self.api_quiz_wrong(self._body())
+                self.api_quiz_wrong(body)
             elif r == '/api/card/answer':
-                self.api_card_answer(self._body())
+                self.api_card_answer(body)
             elif r == '/api/write/check':
-                self.api_write_check(self._body())
+                self.api_write_check(body)
             elif r == '/api/chapter/save':
-                self.api_chapter_save(self._body())
+                self.api_chapter_save(body)
             elif self._static():
                 pass
             else:
@@ -1106,6 +1194,11 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
     def api_chapters(self, q):
         book = (q.get('book') or [''])[0]
         kid = (q.get('kid') or [''])[0]
+        fkid = self._forced_kid(kid) if auth_has_password() else kid
+        if auth_has_password() and fkid is None:
+            self._json({'error': 'Parameter fehlen'}, 400)
+            return
+        kid = fkid
         if book not in _book_ids() or not _kid_ok(kid):
             self._json({'error': 'book/kid unbekannt'}, 400)
             return
@@ -1127,6 +1220,11 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
     def api_quiz(self, q):
         book = (q.get('book') or [''])[0]
         kid = (q.get('kid') or [''])[0]
+        fkid = self._forced_kid(kid) if auth_has_password() else kid
+        if auth_has_password() and fkid is None:
+            self._json({'error': 'Parameter fehlen'}, 400)
+            return
+        kid = fkid
         nonce = (q.get('nonce') or [''])[0]
         chapters = {c for c in ((q.get('chapters') or [''])[0].split(',')) if c}
         qtype = (q.get('type') or ['both'])[0]
@@ -1163,6 +1261,11 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
             return str(v if v not in (None, '') else (q.get(k) or [''])[0])
 
         kid = pick('kid')
+        fkid = self._forced_kid(kid) if auth_has_password() else kid
+        if auth_has_password() and fkid is None:
+            self._json({'error': 'Parameter fehlen'}, 400)
+            return
+        kid = fkid
         qid = pick('qid')
         direction = pick('direction') or 'en2de'
         nonce = pick('nonce')
@@ -1193,6 +1296,11 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
         """Schreib-Session starten (gleiche Parameter wie /api/quiz, GET)."""
         book = (q.get('book') or [''])[0]
         kid = (q.get('kid') or [''])[0]
+        fkid = self._forced_kid(kid) if auth_has_password() else kid
+        if auth_has_password() and fkid is None:
+            self._json({'error': 'Parameter fehlen'}, 400)
+            return
+        kid = fkid
         nonce = (q.get('nonce') or [''])[0]
         chapters = {c for c in ((q.get('chapters') or [''])[0].split(',')) if c}
         qtype = (q.get('type') or ['both'])[0]
@@ -1218,6 +1326,11 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
         kid = _norm(body.get('kid'))
         nonce = _norm(body.get('nonce'))
         key = _norm(body.get('key'))
+        fkid = self._forced_kid(kid) if auth_has_password() else kid
+        if auth_has_password() and fkid is None:
+            self._json({'error': 'Parameter fehlen'}, 400)
+            return
+        kid = fkid
         text = _norm(body.get('text'))
         if not _kid_ok(kid) or not (6 <= len(nonce) <= 64) or not key:
             self._json({'error': 'Parameter fehlen'}, 400)
@@ -1303,6 +1416,11 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
         """Selbstbewertung einer Karteikarte ('knew' | 'forgot')."""
         kid = _norm(body.get('kid'))
         card_id = _norm(body.get('qid'))
+        fkid = self._forced_kid(kid) if auth_has_password() else kid
+        if auth_has_password() and fkid is None:
+            self._json({'error': 'Parameter fehlen'}, 400)
+            return
+        kid = fkid
         verdict = _norm(body.get('verdict'))
         direction = _norm(body.get('direction')) or 'en2de'
         nonce = _norm(body.get('nonce'))
@@ -1324,6 +1442,11 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
     def api_quiz_wrong(self, body):
         book = _norm(body.get('book'))
         kid = _norm(body.get('kid'))
+        fkid = self._forced_kid(kid) if auth_has_password() else kid
+        if auth_has_password() and fkid is None:
+            self._json({'error': 'Parameter fehlen'}, 400)
+            return
+        kid = fkid
         nonce = _norm(body.get('nonce'))
         if book not in _book_ids() or not _kid_ok(kid) or not (6 <= len(nonce) <= 64):
             self._json({'error': 'Parameter fehlen'}, 400)
@@ -1336,6 +1459,11 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
 
     def api_stats(self, q):
         kid = (q.get('kid') or [''])[0]
+        fkid = self._forced_kid(kid) if auth_has_password() else kid
+        if auth_has_password() and fkid is None:
+            self._json({'error': 'Parameter fehlen'}, 400)
+            return
+        kid = fkid
         st = _stats()
         if kid:
             if not _kid_ok(kid):
@@ -1361,6 +1489,11 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
     def api_report(self, q):
         """Auswertung pro Kind: Gesamtzahlen je Kapitel + Problemwörter (Streak 0, ≥2 Versuche)."""
         kid = (q.get('kid') or [''])[0]
+        fkid = self._forced_kid(kid) if auth_has_password() else kid
+        if auth_has_password() and fkid is None:
+            self._json({'error': 'Parameter fehlen'}, 400)
+            return
+        kid = fkid
         if not _kid_ok(kid):
             self._json({'error': 'kid unbekannt'}, 400)
             return
@@ -1436,6 +1569,10 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
         self._json({'book': book, 'chapters': out_l})
 
     def api_chapter_save(self, body):
+        me = self._session_user() if auth_has_password() else {'role': 'admin'}
+        if me and me.get('role') != 'admin':
+            self._json({'error': 'Nur Eltern dürfen Kapitel ändern'}, 403)
+            return
         book = _norm(body.get('book'))
         if book not in _book_ids():
             self._json({'error': 'book unbekannt'}, 400)

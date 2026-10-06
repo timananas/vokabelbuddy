@@ -362,6 +362,7 @@ window.fetch = function(...args){
 
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 let META=null, book=localStorage.getItem('vb_book')||'access1', kid=localStorage.getItem('vb_kid')||'';
+let ME=null; // {user, role, kid} vom Server (Auth) — Kids-Pflichtkontext
 let chapters=[], sel=new Set(), mode='home'; // home|quiz
 let quiz=null, qix=0, score=0, answered=false;
 
@@ -394,6 +395,13 @@ function themeBtnLabel(){
   themeSetIcon(document.documentElement.classList.contains('dark'));
 }
 async function init(){
+  try{
+    const ar = await (await fetch('/auth/state')).json();
+    if(ar.setup){ location.href='/setup'; return; }
+    if(!ar.auth){ location.href='/login'; return; }
+    ME = ar;
+    if(ar.kid){ kid = ar.kid; localStorage.setItem('vb_kid', ar.kid); }
+  }catch(e){}
   try{ META=await (await fetch('/api/meta')).json(); }catch(e){
     $('subtitle').textContent='Server nicht erreichbar'; return;
   }
@@ -404,7 +412,7 @@ async function init(){
     const db=(META.default_book||{})[kid];
     if(db&&META.books.some(b=>b.id===db)){ book=db; localStorage.setItem('vb_book',book); }
   }
-  $('subtitle').textContent = 'Wähle, wer übt';
+  $('subtitle').textContent = (ME && ME.user) ? `Angemeldet: ${ME.user}${ME.role==='kid'?'':' (Admin)'}` : 'Wähle, wer übt';
   drawKids(); drawBooks();
   themeBtnLabel();
   $('adminBtn').onclick=openAdmin;
@@ -509,17 +517,21 @@ function applyRange(){
 }
 function show(a,b){ $(b).classList.add('hidden'); $(a).classList.remove('hidden'); }
 function drawKids(){
-  $('kids').innerHTML='';
+  const host=$('kids'); host.innerHTML='';
   for(const k of META.kids){
+    if(ME && ME.role==='kid' && k.id!==ME.kid) continue;  // Kind sieht nur sich
     const b=document.createElement('button');
     b.className='kid'+(k.id===kid?' on':'');
     b.textContent=k.name;
     if(k.id===kid) b.style.background=k.color;
-    b.onclick=()=>{ kid=k.id; localStorage.setItem('vb_kid',kid);
+    b.onclick=()=>{
+      if(ME && ME.role==='kid') return;  // Kinder sind fix
+      kid=k.id; localStorage.setItem('vb_kid',kid);
       const db=(META.default_book||{})[kid];
       if(db&&META.books.some(x=>x.id===db)){ book=db; localStorage.setItem('vb_book',book); }
-      drawKids(); drawBooks(); loadChapters(); };
-    $('kids').appendChild(b);
+      drawKids(); drawBooks(); loadChapters();
+    };
+    host.appendChild(b);
   }
 }
 function drawBooks(){
