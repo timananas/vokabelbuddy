@@ -7,7 +7,8 @@ RUN apk add --no-cache tzdata && \
     addgroup -S fh && adduser -S fh -G fh
 
 WORKDIR /app
-COPY server.py index.html /app/
+COPY server.py index.html manifest.json sw.js /app/
+COPY assets /app/assets
 COPY seed /app/seed
 RUN mkdir -p /app/data && chown -R fh:fh /app
 

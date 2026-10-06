@@ -349,6 +349,25 @@ class Handler(BaseHTTPRequestHandler):
             else:
                 self._send(200, b'<h1>Vokabelbuddy</h1><p>index.html fehlt</p>', 'text/html; charset=utf-8')
             return True
+        # PWA: Manifest, SW, Assets (weißliste, sandboxed auf ROOT)
+        m = {'/manifest.json': 'application/manifest+json', '/sw.js': 'application/javascript'}
+        a = {'.png': 'image/png', '.svg': 'image/svg+xml', '.ico': 'image/x-icon'}
+        if path in m:
+            p = os.path.join(ROOT, os.path.basename(path))
+            if os.path.exists(p):
+                self._send(200, open(p, 'rb').read(), m[path])
+                return True
+            self._send(404, b'{}')
+            return True
+        if path.startswith('/assets/'):
+            base = os.path.basename(path)  # basename! kein Pfad-Traversal
+            p = os.path.join(ROOT, 'assets', base)
+            ext = os.path.splitext(base)[1].lower()
+            if os.path.exists(p) and ext in a:
+                self._send(200, open(p, 'rb').read(), a[ext])
+                return True
+            self._send(404, b'{}')
+            return True
         return False
 
     def do_HEAD(self):
