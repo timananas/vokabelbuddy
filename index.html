@@ -43,7 +43,6 @@ h1{font-size:1.5rem; margin:6px 0 2px; display:flex; align-items:center; gap:10p
 .brandlogo{width:44px; height:44px; object-fit:contain; flex:none}
 .brandlogo.gone{display:none}
 .brandmark{height:30px; width:auto}
-html.dark .brandmark{content:url('/assets/logo-white.svg')}
 .iconbtn{border:1px solid var(--line); background:var(--card); color:var(--muted); width:36px; height:36px;
   border-radius:50%; font-size:1rem; cursor:pointer; display:grid; place-items:center; flex:none;
   padding:0; line-height:1; filter:grayscale(1) opacity(.85); transition:filter .15s, border-color .15s, color .15s}
@@ -401,6 +400,9 @@ function themeApply(){
   // theme-color im Standalone/PWA-Fall mitziehen
   const meta=document.querySelector('meta[name="theme-color"]');
   if(meta) meta.setAttribute('content', dark?'#0B1B30':'#2E8BFF');
+  // Brandmark: dunkle Variante im Darkmode
+  const bm=document.querySelector('.brandmark');
+  if(bm) bm.src = dark ? '/assets/logo-white.svg' : '/assets/vokabelbuddy-wordmark.svg';
   const btn=document.getElementById('themeBtn');
   if(btn) themeSetIcon(dark);
 }
