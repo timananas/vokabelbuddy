@@ -203,6 +203,38 @@ def _build_question(item, dpool, direction, rng):
     }
 
 
+def _weighted_pick(pool, kid, count):
+    """Gewichtete Auswahl (nie gesehen zuerst) — geteilt von MC-Quiz und Karteikarten."""
+    st = _stats()
+    seen_map = st['kid_seen'].get(kid, {})
+    rng = random.Random()
+
+    def weight_of(entry):
+        n = int(entry.get('n', 0) or 0)
+        s = int(entry.get('s', 0) or 0)
+        streak = int(entry.get('streak', 0) or 0)
+        if n == 0:
+            return 3
+        if s == 0 or streak < 3:
+            return 2
+        return 1
+
+    scored = [(weight_of(seen_map.get(it['qid'], {})), rng.random(), it) for it in pool]
+    scored.sort(key=lambda t: (-t[0], t[1]))
+    count = max(1, min(int(count or 12), 30, len(scored)))
+    return [it for _w, _r, it in scored[:count]]
+
+
+def _card_for(item, direction):
+    """Karteikarte: front = Anzeige-Seite, back = Lösung (durch Umdrehen sichtbar)."""
+    en, de = item['en'], item['de']
+    if direction == 'de2en':
+        return {'id': item['qid'], 'direction': 'de2en', 'chapter': item['num'],
+                'pos': item['pos'], 'front': de, 'back': en}
+    return {'id': item['qid'], 'direction': 'en2de', 'chapter': item['num'],
+            'pos': item['pos'], 'front': en, 'back': de}
+
+
 def _quiz_core(pool, dpool, kid, qtype, count, nonce):
     """Gemeinsame Quiz-Erzeugung: Gewichtung, Session, Fragen bauen."""
     if not pool:
@@ -387,6 +419,8 @@ class Handler(BaseHTTPRequestHandler):
                 self.api_chapters(q)
             elif r == '/api/quiz':
                 self.api_quiz(q)
+            elif r == '/api/cards':
+                self.api_cards(q)
             elif r == '/api/answer':
                 self.api_answer(q, {})
             elif r == '/api/stats':
@@ -419,6 +453,8 @@ class Handler(BaseHTTPRequestHandler):
                 self.api_answer(parse_qs(u.query), self._body())
             elif r == '/api/quiz/wrong':
                 self.api_quiz_wrong(self._body())
+            elif r == '/api/card/answer':
+                self.api_card_answer(self._body())
             elif r == '/api/chapter/save':
                 self.api_chapter_save(self._body())
             elif self._static():
@@ -514,6 +550,66 @@ class Handler(BaseHTTPRequestHandler):
                 wrongs.append(entry)
         _record(kid, qid, correct)
         self._json({'correct': correct, 'answer': question['answer'], 'ok': True})
+
+    def api_cards(self, q):
+        """Karteikarten-Stapel (gleiche Auswahl-Parameter wie /api/quiz)."""
+        book = (q.get('book') or [''])[0]
+        kid = (q.get('kid') or [''])[0]
+        nonce = (q.get('nonce') or [''])[0]
+        chapters = {c for c in ((q.get('chapters') or [''])[0].split(',')) if c}
+        qtype = (q.get('type') or ['both'])[0]
+        from_n = to_n = None
+        try:
+            from_n = int((q.get('from') or [''])[0] or 0) or None
+            to_n = int((q.get('to') or [''])[0] or 0) or None
+        except ValueError:
+            pass
+        if from_n and to_n and from_n > to_n:
+            from_n, to_n = to_n, from_n
+        if book not in _book_ids() or not _kid_ok(kid) or not (6 <= len(nonce) <= 64) or not chapters:
+            self._json({'error': 'Parameter fehlen'}, 400)
+            return
+        pool = _pool(book, chapters, from_n, to_n)
+        if not pool:
+            self._json({'error': 'Keine Vokabeln in diesem Bereich'}, 404)
+            return
+        picked = _weighted_pick(pool, kid, (q.get('count') or ['12'])[0])
+        rng = random.Random()
+        dirs = (['en2de', 'de2en'] if qtype == 'both'
+                else [qtype] if qtype in ('en2de', 'de2en')
+                else ['en2de', 'de2en'])
+        now = time.time()
+        with _lock:
+            _gc_sessions(now)
+            _sessions[nonce] = {'created': now, 'questions': {}}
+        cards = []
+        for i, item in enumerate(picked):
+            d = dirs[i % len(dirs)]
+            card = _card_for(item, d)
+            cards.append(card)
+        self._json({'book': book, 'kid': kid, 'mode': 'cards', 'kind': qtype, 'cards': cards})
+
+    def api_card_answer(self, body):
+        """Selbstbewertung einer Karteikarte ('knew' | 'forgot')."""
+        kid = _norm(body.get('kid'))
+        card_id = _norm(body.get('qid'))
+        verdict = _norm(body.get('verdict'))
+        direction = _norm(body.get('direction')) or 'en2de'
+        nonce = _norm(body.get('nonce'))
+        if not _kid_ok(kid) or not card_id or not (6 <= len(nonce) <= 64):
+            self._json({'error': 'Parameter fehlen'}, 400)
+            return
+        correct = verdict == 'knew'
+        _record(kid, card_id, correct)
+        if not correct:
+            sess = _sessions.get(nonce)
+            if sess is not None:
+                wrongs = sess.setdefault('wrong', [])
+                if not any(w.get('qid') == card_id for w in wrongs):
+                    p = card_id.split('|')
+                    wrongs.append({'qid': card_id, 'prompt': p[2] if len(p) > 2 else card_id,
+                                   'answer': '', 'direction': direction})
+        self._json({'ok': True})
 
     def api_quiz_wrong(self, body):
         book = _norm(body.get('book'))

@@ -71,6 +71,17 @@ h2{font-size:1.05rem; margin:18px 0 10px}
 .qmeta{color:var(--muted); font-size:.8rem; margin-bottom:6px}
 .qword{font-size:1.7rem; font-weight:800; margin:4px 0 4px; text-align:center}
 .qhint{text-align:center; color:var(--muted); font-size:.85rem; margin-bottom:18px}
+/* Karteikarten */
+.card3d{max-width:420px; margin:8px auto 16px; perspective:1200px}
+.card-inner{position:relative; width:100%; height:220px; transform-style:preserve-3d; transition:transform .45s}
+.card3d.flipped .card-inner{transform:rotateY(180deg)}
+.cface{position:absolute; inset:0; backface-visibility:hidden; -webkit-backface-visibility:hidden;
+  border:1.5px solid var(--line); border-radius:16px; background:var(--card);
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; padding:16px; text-align:center}
+.cface.back{transform:rotateY(180deg); background:var(--accent-soft); border-color:var(--accent)}
+.cword{font-size:1.8rem; font-weight:800}
+.cmeta{color:var(--muted); font-size:.8rem; position:absolute; top:10px; left:14px}
+.chint{color:var(--muted); font-size:.8rem; position:absolute; bottom:10px}
 .choices{display:grid; grid-template-columns:1fr 1fr; gap:10px}
 @media(max-width:560px){.choices{grid-template-columns:1fr}}
 .choice{border:1.5px solid var(--line); background:var(--card); color:var(--ink); border-radius:12px;
@@ -159,6 +170,11 @@ h2{font-size:1.05rem; margin:18px 0 10px}
         <option value="en2de">Englisch → Deutsch</option>
         <option value="de2en">Deutsch → Englisch</option>
       </select>
+      <span class="rb-label" style="margin-left:12px">Modus</span>
+      <select id="modeSel">
+        <option value="mc">Multiple Choice</option>
+        <option value="cards">Karteikarten</option>
+      </select>
     </div>
     <button class="start" id="startBtn" disabled>Vokabeln üben</button>
   </section>
@@ -171,6 +187,29 @@ h2{font-size:1.05rem; margin:18px 0 10px}
     <div class="pbar"><div id="pfill"></div></div>
     <div id="vbRange" class="range-pill"></div>
     <div id="qbox"></div>
+    <div id="cardbox" class="hidden">
+      <div id="card" class="card3d">
+        <div class="card-inner">
+          <div class="cface front"><div class="cmeta" id="cardMeta"></div><div class="cword" id="cardFront"></div><div class="chint">Antippen zum Umdrehen</div></div>
+          <div class="cface back"><div class="cmeta" id="cardBackMeta">Lösung</div><div class="cword" id="cardBack"></div></div>
+        </div>
+      </div>
+      <div id="cardVerdicts" class="hidden">
+        <div class="res-actions">
+          <button id="cardForgot" style="border-color:#d9534f; color:#b3312f">✗ Wusste ich nicht</button>
+          <button id="cardKnew" class="primary" style="border-color:#2f9e4f">✓ Gewusst</button>
+        </div>
+      </div>
+      <div id="cardResult" class="hidden">
+        <div class="res-big"><div class="score" id="cardScore"></div><div class="res-note" id="cardNote"></div></div>
+        <div class="res-actions">
+          <button id="cardAgain">Nochmal</button>
+          <button id="cardRetryWrong" style="border-color:#d9534f; color:#b3312f">Falsche wiederholen</button>
+          <button class="primary" id="cardHome">Fertig</button>
+        </div>
+        <div id="cardWrongList" class="wronglist"></div>
+      </div>
+    </div>
     <div id="result" class="hidden">
       <div class="res-big"><div class="score" id="resScore"></div><div class="res-note" id="resNote"></div></div>
       <div class="res-actions">
@@ -261,11 +300,16 @@ async function init(){
   $('themeBtn').onclick=()=>{ const dark=document.documentElement.classList.contains('dark');
     document.documentElement.classList.toggle('dark', !dark); themeApply(); };
   $('startBtn').onclick=startQuiz;
-  $('quitBtn').onclick=()=>{ mode='home'; show('viewHome','viewQuiz'); loadChapters(); };
+  $('quitBtn').onclick=()=>{ mode='home'; $('cardbox').classList.add('hidden'); $('cardResult').classList.add('hidden'); show('viewHome','viewQuiz'); loadChapters(); };
   $('homeBtn').onclick=()=>{ mode='home'; show('viewHome','viewQuiz'); loadChapters(); };
   $('againBtn').onclick=()=>{ $('result').classList.add('hidden'); $('qbox').classList.remove('hidden'); startQuiz(); };
   $('retryWrongBtn').onclick=retryWrong;
   $('reportBtn').onclick=openReport;
+  $('cardKnew').onclick=()=>cardVerdict(true);
+  $('cardForgot').onclick=()=>cardVerdict(false);
+  $('cardAgain').onclick=()=>{ $('cardResult').classList.add('hidden'); startCards(); };
+  $('cardRetryWrong').onclick=cardRetryWrong;
+  $('cardHome').onclick=()=>{ mode='home'; show('viewHome','viewQuiz'); loadChapters(); };
   document.addEventListener('keydown',e=>{
     if(mode!=='quiz'||answered) return;
     const i='1234'.indexOf(e.key);
@@ -372,7 +416,10 @@ async function startQuiz(){
   if(!kid||!sel.size) return;
   mode='quiz'; show('viewQuiz','viewHome');
   $('result').classList.add('hidden'); $('qbox').classList.remove('hidden');
+  $('cardbox').classList.add('hidden'); $('cardResult').classList.add('hidden');
+  window._lastWrong=[]; window._isCards=false;
   score=0; qix=0; answered=false;
+  if(($('modeSel')||{}).value==='cards'){ return startCards(); }
   const fl=$('fromSel'), tl=$('toSel');
   const flTxt=(fl.value&&fl.selectedOptions[0])?fl.selectedOptions[0].textContent.replace(/^#\d+ · /,''):'';
   const tlTxt=(tl.value&&tl.selectedOptions[0])?tl.selectedOptions[0].textContent.replace(/^#\d+ · /,''):'';
@@ -464,6 +511,97 @@ async function retryWrong(){
     $('wrongList').innerHTML='';
     renderQ();
   }catch(e){ $('resNote').textContent='Server nicht erreichbar.'; }
+}
+
+// ---------- Karteikarten ----------
+async function startCards(){
+  window._isCards=true;
+  $('qbox').classList.add('hidden');
+  $('cardbox').classList.remove('hidden');
+  $('cardResult').classList.add('hidden');
+  score=0; qix=0; answered=false;
+  const fl=$('fromSel'), tl=$('toSel');
+  const flTxt=(fl.value&&fl.selectedOptions[0])?fl.selectedOptions[0].textContent.replace(/^#\d+ · /,''):'';
+  const tlTxt=(tl.value&&tl.selectedOptions[0])?tl.selectedOptions[0].textContent.replace(/^#\d+ · /,''):'';
+  $('vbRange').textContent=(fl.value||tl.value)?'Bereich: '+((fl.value&&flTxt)||'Anfang')+' – '+((tl.value&&tlTxt)||'Ende'):'';
+  $('vbRange').classList.toggle('on', !!$('vbRange').textContent);
+  const nonce=Date.now().toString(36)+Math.random().toString(36).slice(2)+performance.now().toString(36).replace(/[^a-z0-9]/g,'');
+  window._nonce=nonce;
+  const fromv=parseInt(fl.value,10)||0, tov=parseInt(tl.value,10)||0;
+  const qs=(fromv>0?`&from=${fromv}`:'')+(tov>0?`&to=${tov}`:'')+
+    `&type=${encodeURIComponent($('dirSel').value||'both')}`;
+  const u=`/api/cards?book=${encodeURIComponent(book)}&kid=${encodeURIComponent(kid)}`+
+    `&chapters=${[...sel].map(s=>encodeURIComponent(s)).join(',')}&count=12&nonce=${encodeURIComponent(nonce)}${qs}`;
+  try{ const r=await (await fetch(u)).json();
+    if(r.error||!(r.cards||[]).length){ $('cardFront').textContent='—'; $('cardMeta').textContent=r.error||'Keine Karten.'; return; }
+    window._cards=r.cards;
+  }catch(e){ $('cardMeta').textContent='Server nicht erreichbar.'; return; }
+  window._lastWrong=[]; window._lastWrongCards=[];
+  renderCard();
+}
+function renderCard(){
+  const cards=window._cards||[];
+  if(qix>=cards.length){ cardFinish(); return; }
+  const c=cards[qix];
+  answered=false;
+  $('card').classList.remove('flipped');
+  $('cardFront').textContent=c.front;
+  $('cardBack').textContent=c.back;
+  $('cardMeta').textContent=`Karte ${qix+1} / ${cards.length} · Ch. ${c.chapter}`;
+  $('cardBackMeta').textContent='Lösung';
+  $('pfill').style.width=`${(qix/cards.length)*100}%`;
+  $('quizState').textContent=`Karte ${qix+1} / ${cards.length} · ${score} gewusst`;
+  $('cardVerdicts').classList.add('hidden');
+  $('card').onclick=()=>{
+    if(answered) return;
+    $('card').classList.add('flipped');
+    $('cardVerdicts').classList.remove('hidden');
+  };
+}
+async function cardVerdict(knew){
+  if(answered) return; answered=true;
+  const c=(window._cards||[])[qix];
+  if(!knew){
+    window._lastWrongCards.push({qid:c.id, prompt:c.front, answer:c.back});
+    window._lastWrong.push({qid:c.id, prompt:c.front, answer:c.back});
+  } else score++;
+  try{ await fetch('/api/card/answer',{method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({kid,qid:c.id,direction:c.direction,nonce:window._nonce,verdict:knew?'knew':'forgot'})}); }catch(e){}
+  qix++;
+  setTimeout(()=>{ if(qix<(window._cards||[]).length){ renderCard(); } else { cardFinish(); } }, 250);
+}
+function cardFinish(){
+  const cards=window._cards||[], n=cards.length;
+  $('pfill').style.width='100%';
+  $('quizState').textContent=`${score} / ${n} gewusst`;
+  $('card').onclick=null;
+  $('cardVerdicts').classList.add('hidden');
+  $('cardbox').classList.add('hidden');
+  $('cardResult').classList.remove('hidden');
+  $('cardScore').textContent=`${score} / ${n}`;
+  const pct=n?Math.round(100*score/n):0;
+  $('cardNote').textContent = pct>=90?'Super gemacht! 🎉':pct>=70?'Gut gemacht! 👍':'Weiter üben – du wirst immer besser! 💪';
+  const wl=$('cardWrongList'), btn=$('cardRetryWrong');
+  if(window._lastWrongCards && window._lastWrongCards.length){
+    wl.innerHTML='<div class="wl-head">Diese solltest du nochmal ansehen:</div>'+
+      window._lastWrongCards.map(w=>`<div class="wl-item"><b>${esc(w.prompt)}</b><span>${esc(w.answer)}</span></div>`).join('');
+    btn.classList.remove('hidden'); btn.textContent=`Falsche wiederholen (${window._lastWrongCards.length})`;
+  } else {
+    wl.innerHTML='<div class="wl-head">Alles gewusst — perfekt! 🎉</div>';
+    btn.classList.add('hidden');
+  }
+}
+async function cardRetryWrong(){
+  if(!window._lastWrongCards||!window._lastWrongCards.length) return;
+  // Neue Kartenrunde mit den falschen: Fronten/Backs aus der Fehlliste
+  window._cards=window._lastWrongCards.map(w=>({
+    id:w.qid, front:w.prompt, back:w.answer, chapter:(w.qid.split('|')[1]||''), direction:'en2de'
+  }));
+  qix=0; score=0; answered=false;
+  $('cardResult').classList.add('hidden');
+  $('cardbox').classList.remove('hidden');
+  window._lastWrong=[]; window._lastWrongCards=[];
+  renderCard();
 }
 
 // ---------- Service Worker (nur Secure Context: HTTPS oder localhost) ----------
