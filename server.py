@@ -280,15 +280,18 @@ _AUTH_CSS = ('body{font-family:Nunito,system-ui,sans-serif;background:#0B1B30;co
              'border:1.5px solid #1E4478;background:#0B1B30;color:#EAF2FD;font-size:1rem;margin:6px 0}'
              'button{width:100%;padding:11px;border:0;border-radius:9px;background:#2E8BFF;'
              'color:#fff;font-weight:800;cursor:pointer;margin-top:8px}'
-             '.msg{color:#F2A49E;font-size:.9rem}.chk{display:flex;gap:8px;align-items:center;'
-             'font-size:.86rem;color:#8FA6C4;margin-top:10px}'
-             '.bigbrand{display:flex;justify-content:center;margin:2px 0 22px}'
-             '.biglogo{height:72px;width:auto;object-fit:contain;filter:drop-shadow(0 6px 16px rgba(4,12,24,.5))}')
+             '.msg{color:#F2A49E;font-size:.9rem;width:100%;text-align:center}'
+             '.chk{display:flex;gap:8px;align-items:center;justify-content:center;'
+             'font-size:.82rem;color:#8FA6C4;margin-top:2px;white-space:nowrap}'
+             '.chk input{width:auto;margin:0;accent-color:#2E8BFF}'
+             'form{width:100%}'
+             '.bigbrand{display:flex;justify-content:center;margin:6px 0 20px}'
+             '.biglogo{max-width:88%;width:auto;max-height:64px;object-fit:contain;filter:drop-shadow(0 6px 16px rgba(4,12,24,.5))}')
 _AUTH_WRAP = ('<!DOCTYPE html><html lang="de"><head><meta charset="utf-8">'
               '<meta name="viewport" content="width=device-width, initial-scale=1">'
               '<link rel="icon" type="image/png" sizes="32x32" href="/assets/mascot-32.png">'
               '<title>{t}</title><style>' + _AUTH_CSS + '</style></head><body>'
-              '<div class="card">{b}</div></body></html>')
+              '<div class="authcol"><div class="card">{b}</div></div></body></html>')
 
 
 def _setup_html(msg=''):
