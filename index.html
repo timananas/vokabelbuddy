@@ -44,6 +44,7 @@ h1{font-size:1.5rem; margin:6px 0 2px; display:flex; align-items:center; gap:10p
 .brandlogo{width:44px; height:44px; object-fit:contain; flex:none;
   background:#FFFFFF; border-radius:10px; padding:3px; box-sizing:border-box;
   box-shadow:0 1px 4px rgba(10,20,40,.12)}
+.gone{display:none!important}
 .brandlogo.gone{display:none}
 .brandmark{height:30px; width:auto}
 html.dark .brandlogo{background:#EAF2FD; box-shadow:0 1px 6px rgba(0,0,0,.4)}
@@ -218,7 +219,6 @@ body{overflow-x:hidden}
   <div class="row" style="justify-content:space-between">
     <div class="brandhead">
       <img class="brandlogo" src="/assets/mascot.png" alt="VokabelBuddy" onerror="this.classList.add('gone')">
-      <img class="brandmark" src="/assets/vokabelbuddy-wordmark.svg" alt="VokabelBuddy">
     </div>
     <div style="display:flex; gap:8px">
       <button class="iconbtn" id="themeBtn" title="Dark/Light umschalten" aria-label="Dark/Light umschalten">
@@ -226,6 +226,9 @@ body{overflow-x:hidden}
       </button>
       <button class="iconbtn" id="reportBtn" title="Auswertung" aria-label="Auswertung">
         <svg class="ico-ink" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="20" x2="5" y2="12"/><line x1="12" y1="20" x2="12" y2="6"/><line x1="19" y1="20" x2="19" y2="10"/></svg>
+      </button>
+      <button class="iconbtn" id="kidLogoutBtn" title="Abmelden" aria-label="Abmelden" style="display:none">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
       </button>
       <button class="iconbtn" id="adminBtn" title="Vokabeln verwalten" aria-label="Vokabeln verwalten">
         <svg class="ico-ink" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h0a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51h0a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v0a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
@@ -354,8 +357,32 @@ body{overflow-x:hidden}
       <button class="mcancel" id="mCancel">Abbrechen</button>
       <button class="msave" id="mSave">Speichern</button>
     </div>
-    <div class="mrow" style="margin-top:12px; border-top:1px solid var(--line); padding-top:12px">
-      <button class="logoutbtn" id="logoutBtn">Abmelden ${' '}</button>
+    <div class="mrow" style="margin-top:12px; border-top:1px solid var(--line); padding-top:12px; flex-direction:column; align-items:stretch">
+      <div class="acct-head" style="font-weight:800; font-size:.95rem">Konto</div>
+      <div id="pwForm" style="display:grid; gap:8px; margin-top:4px">
+        <input id="acCur" type="password" placeholder="Aktuelles Kennwort" autocomplete="current-password">
+        <input id="acNew" type="password" placeholder="Neues Kennwort (mind. 6 Z.)" autocomplete="new-password">
+        <input id="acNew2" type="password" placeholder="Neues Kennwort wiederholen" autocomplete="new-password">
+        <button class="msave" id="acSave" style="margin-top:2px">Kennwort ändern</button>
+        <div class="mdone" id="acNote"></div>
+      </div>
+      <div style="border-top:1px solid var(--line); margin-top:10px; padding-top:10px">
+        <div style="font-weight:800; font-size:.95rem">Zwei-Faktor (MFA)</div>
+        <div id="mfaState" style="font-size:.88rem; color:var(--muted); margin:6px 0">—</div>
+        <div id="mfaSecretBox" class="hidden" style="background:var(--bg); border:1px solid var(--line); border-radius:9px; padding:10px; font-family:ui-monospace,Menlo,monospace; font-size:.9rem; text-align:center; letter-spacing:.08em; margin-bottom:6px"></div>
+        <div style="display:flex; gap:8px">
+          <input id="mfaCode" type="text" inputmode="numeric" maxlength="6" placeholder="6-stelliger Code" class="hidden" style="flex:1; text-align:center; letter-spacing:.2em">
+          <button class="msave hidden" id="mfaConfirm" style="flex:none; width:auto; padding:10px 14px">Bestätigen</button>
+        </div>
+        <div style="display:flex; gap:8px; margin-top:8px">
+          <button class="mcancel" id="mfaBtnStart" style="flex:1">MFA einrichten</button>
+          <button class="mdel hidden" id="mfaBtnOff" style="flex:1">MFA deaktivieren</button>
+        </div>
+        <div class="mdone" id="mfaNote"></div>
+      </div>
+    </div>
+    <div class="mrow" style="margin-top:14px">
+      <button class="logoutbtn" id="logoutBtn">Abmelden</button>
     </div>
   </div>
 </div>
@@ -404,9 +431,7 @@ function themeApply(){
   // theme-color im Standalone/PWA-Fall mitziehen
   const meta=document.querySelector('meta[name="theme-color"]');
   if(meta) meta.setAttribute('content', dark?'#0B1B30':'#2E8BFF');
-  // Brandmark: dunkle Variante im Darkmode
-  const bm=document.querySelector('.brandmark');
-  if(bm) bm.src = dark ? '/assets/logo-white.svg' : '/assets/vokabelbuddy-wordmark.svg';
+  // Brandmark: dunkle Variante im Darkmode (nur noch im Admin-Modal-Title? — brandmark weg)
   const btn=document.getElementById('themeBtn');
   if(btn) themeSetIcon(dark);
 }
@@ -444,8 +469,12 @@ async function init(){
   themeBtnLabel();
   $('adminBtn').onclick=openAdmin;
 $('logoutBtn').onclick=()=>{ location.href='/logout'; };
-  // Kinder: Zahnrad (Vokabel-Verwaltung) verstecken
-  if(ME && ME.role==='kid' && $('adminBtn')) $('adminBtn').classList.add('gone');
+  // Kinder: Zahnrad weg, stattdessen Logout-Icon
+  if(ME && ME.role==='kid'){
+    $('adminBtn').classList.add('gone');
+    $('kidLogoutBtn').style.display='grid';
+    $('kidLogoutBtn').onclick=()=>{ location.href='/logout'; };
+  }
   $('themeBtn').onclick=()=>{ const dark=document.documentElement.classList.contains('dark');
     document.documentElement.classList.toggle('dark', !dark); themeApply(); };
   $('startBtn').onclick=startQuiz;
@@ -505,8 +534,8 @@ $('logoutBtn').onclick=()=>{ location.href='/logout'; };
     let html=mk('', head, !cur);
     for(const it of items) html+=mk(it.gpos, it.label, String(it.gpos)===String(cur));
     const menu=dd.querySelector('.ddmenu'); menu.innerHTML=html;
-    const selIt=cur? String(getLabel(items,cur)||('#'+cur)) : head;
-    dd.querySelector('.lbl').textContent=prefixLabel+': '+selIt;
+    const selIt=cur? String(getLabel(items,cur)||('#'+cur)) : '';
+    dd.querySelector('.lbl').textContent = cur ? (prefixLabel+': '+selIt) : head;
   };
   window.getLabel=(items,v)=>{ const n=parseInt(v,10); const it=(items||[]).find(x=>x.gpos===n); return it?it.label:null; };
   setupDD('ddFrom','fromSel','Von'); setupDD('ddTo','toSel','Bis');
@@ -546,6 +575,62 @@ function applyRange(){
   localStorage.setItem('vb_from', fs.value||''); localStorage.setItem('vb_to', ts.value||'');
 }
 function show(a,b){ $(b).classList.add('hidden'); $(a).classList.remove('hidden'); }
+// ---------- Konto (Kennwort + MFA) ----------
+async function loadAccount(){
+  if(!('acSave' in {})) {}
+  const note=$('acNote'); note.textContent='';
+  try{
+    const r=await (await fetch('/api/account/status')).json();
+    if(r.error){ return; }
+    paintMfa(r.mfa, r.secret);
+  }catch(e){}
+}
+function paintMfa(on, secret){
+  $('mfaState').textContent = on ? '✅ Zwei-Faktor ist aktiv.' : 'Noch nicht aktiv — mit „MFA einrichten“ starten.';
+  $('mfaBtnStart').classList.toggle('hidden', !!on);
+  $('mfaBtnOff').classList.toggle('hidden', !on);
+  $('mfaSecretBox').classList.add('hidden');
+  $('mfaCode').classList.add('hidden');
+  $('mfaConfirm').classList.add('hidden');
+  $('mfaNote').textContent='';
+  if(!on && secret){ $('mfaSecretBox').textContent=secret; $('mfaSecretBox').classList.remove('hidden'); }
+}
+$('acSave').onclick=async()=>{
+  $('acNote').textContent='…';
+  try{
+    const r=await (await fetch('/api/account/password',{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({current:$('acCur').value, new:$('acNew').value, new2:$('acNew2').value})})).json();
+    $('acNote').textContent = r.ok ? '✅ Kennwort geändert.' : (r.error||'Fehler');
+    if(r.ok){ $('acCur').value=$('acNew').value=$('acNew2').value=''; }
+  }catch(e){ $('acNote').textContent='Server nicht erreichbar'; }
+};
+$('mfaBtnStart').onclick=async()=>{
+  try{
+    const r=await (await fetch('/mfa/start',{method:'POST'})).json();
+    if(r.secret){ paintMfa(false, r.secret); $('mfaNote').textContent='Schlüssel in die Authenticator-App eintragen, dann Code.'; }
+    else $('mfaNote').textContent=r.error||'Fehler';
+  }catch(e){ $('mfaNote').textContent='Server nicht erreichbar'; }
+};
+$('mfaConfirm').onclick=async()=>{
+  try{
+    const r=await (await fetch('/mfa/confirm-json',{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({code:$('mfaCode').value})})).json();
+    if(r.ok){ paintMfa(true, null); $('mfaNote').textContent='✅ Zwei-Faktor aktiv.'; }
+    else { $('mfaNote').textContent=r.error||'Code falsch'; $('mfaCode').value=''; }
+  }catch(e){ $('mfaNote').textContent='Server nicht erreichbar'; }
+};
+$('mfaBtnOff').onclick=async()=>{
+  try{
+    const r=await (await fetch('/mfa/disable',{method:'POST'})).json();
+    if(r.ok){ paintMfa(false, null); $('mfaNote').textContent='Zwei-Faktor deaktiviert.'; }
+  }catch(e){}
+};
+// mfaCode: bei 6 Ziffern auto-confirm
+document.getElementById('mfaCode').addEventListener('input',e=>{
+  if(e.target.value.replace(/\D/g,'').length===6) $('mfaConfirm').click();
+});
+const _mfaConfirmToggle=()=>{ $('mfaCode').classList.remove('hidden'); $('mfaConfirm').classList.remove('hidden'); };
+const _mfaBtnStartWrap=$('mfaBtnStart').onclick;  // kein noop
 function drawKids(){
   const host=$('kids'); host.innerHTML='';
   if(ME && ME.role==='kid'){ host.classList.add('gone'); }
@@ -1078,9 +1163,10 @@ async function openReport(){
 $('rpClose').onclick=()=>$('reportOverlay').classList.add('hidden');
 
 // ---------- Admin ----------
-function openAdmin(){
+async function openAdmin(){
   $('mDone').textContent='';
   $('mNum').value=''; $('mTitle').value=''; $('mWords').value='';
+  loadAccount();
   const mb=$('mBook');
   if(mb.options.length!==META.books.length)
     mb.innerHTML=META.books.map(b=>`<option value="${esc(b.id)}">${esc(b.name)}</option>`).join('');

@@ -281,20 +281,20 @@ _AUTH_CSS = ('body{font-family:Nunito,system-ui,sans-serif;background:#0B1B30;co
              'button{width:100%;padding:11px;border:0;border-radius:9px;background:#2E8BFF;'
              'color:#fff;font-weight:800;cursor:pointer;margin-top:8px}'
              '.msg{color:#F2A49E;font-size:.9rem}.chk{display:flex;gap:8px;align-items:center;'
-             'font-size:.86rem;color:#8FA6C4;margin-top:10px}')
+             'font-size:.86rem;color:#8FA6C4;margin-top:10px}'
+             '.bigbrand{display:flex;flex-direction:column;align-items:center;gap:8px;margin:2px 0 18px}'
+             '.biglogo{width:86px;height:86px;object-fit:contain;filter:drop-shadow(0 6px 14px rgba(4,12,24,.5))}'
+             '.bigmark{height:34px}')
 _AUTH_WRAP = ('<!DOCTYPE html><html lang="de"><head><meta charset="utf-8">'
               '<meta name="viewport" content="width=device-width, initial-scale=1">'
               '<link rel="icon" type="image/png" sizes="32x32" href="/assets/mascot-32.png">'
               '<title>{t}</title><style>' + _AUTH_CSS + '</style></head><body>'
-              '<div class="card"><div class="brandline">'
-              '<img class="bl-logo" src="/assets/mascot.png" alt="">'
-              '<img class="bl-mark" src="/assets/logo-white.svg" alt="VokabelBuddy">'
-              '</div>{b}</div></body></html>')
+              '<div class="card">{b}</div></body></html>')
 
 
 def _setup_html(msg=''):
     warn = f'<p class="msg">{msg}</p>' if msg else ''
-    body = ('<h1>📚 Vokabelbuddy – Einrichtung</h1>'
+    body = ('<h1>VokabelBuddy – Einrichtung</h1>'
             '<form method="POST" action="/setup">' + warn +
             '<input type="text" name="admin_user" placeholder="Eltern-Benutzer (z.B. tim)" autocapitalize="none" autocomplete="username">'
             '<input type="password" name="password" placeholder="Eltern-Kennwort (mind. 8 Zeichen)">'
@@ -308,19 +308,22 @@ def _setup_html(msg=''):
 def _login_html(msg='', pre_user=''):
     warn = f'<p class="msg">{msg}</p>' if msg else ''
     pre = f' value="{pre_user}"' if pre_user else ''
-    body = ('<h1>📚 Vokabelbuddy</h1>'
+    body = ('<div class="bigbrand">'
+            '<img class="biglogo" src="/assets/mascot.png" alt="">'
+            '<img class="bigmark" src="/assets/logo-white.svg" alt="VokabelBuddy">'
+            '</div>'
             '<form method="POST" action="/login">' + warn +
             f'<input type="text" name="username" placeholder="Benutzername (z.B. luis)"{pre} autocapitalize="none" autofocus>'
             '<input type="password" name="password" placeholder="Kennwort">'
             '<label class="chk"><input type="checkbox" name="trust" value="1" checked> '
             'Diesem Gerät 30 Tage vertrauen</label>'
             '<button>Anmelden</button></form>')
-    return _AUTH_WRAP.replace('{t}', 'Vokabelbuddy – Login').replace('{b}', body)
+    return _AUTH_WRAP.replace('{t}', 'VokabelBuddy – Anmelden').replace('{b}', body)
 
 
 def _mfa_html(msg=''):
     warn = f'<p class="msg">{msg}</p>' if msg else ''
-    body = ('<h1>🔐 Prüfcode eingeben</h1>'
+    body = ('<h1>Prüfcode eingeben</h1>'
             '<form method="POST" action="/mfa">' + warn +
             '<input type="text" name="code" inputmode="numeric" pattern="[0-9]*" '
             'autocomplete="one-time-code" autofocus maxlength="6" '
@@ -331,7 +334,7 @@ def _mfa_html(msg=''):
 
 def _mfa_setup_html(secret, msg=''):
     warn = f'<p class="msg">{msg}</p>' if msg else ''
-    body = ('<h1>🔐 Zwei-Faktor einrichten</h1>'
+    body = ('<h1>Zwei-Faktor einrichten</h1>'
             '<p style="color:#8d94a8;font-size:.86rem">Diesen Schlüssel in deiner '
             'Authenticator-App eintragen („Anderes Konto“ bzw. „+“):</p>'
             f'<p style="font-family:monospace;font-size:1.15rem;letter-spacing:.12em;'
@@ -971,7 +974,7 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
                     return
                 u = AUTH_MEM['users'].setdefault(me['id'], {})
                 if u.get('totp_enabled'):
-                    _page(self, _AUTH_WRAP.replace('{t}', 'MFA').replace('{b}', '<h1>🔐 Zwei-Faktor ist aktiv</h1>'))
+                    _page(self, _AUTH_WRAP.replace('{t}', 'MFA').replace('{b}', '<h1>Zwei-Faktor ist aktiv</h1>'))
                     return
                 old_secret = u.get('totp_secret')
                 def _valid_b32(s):
@@ -1163,6 +1166,66 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
                 return
             if r == '/mfa/confirm':
                 self.api_mfa_confirm(body)
+                return
+            if r == '/mfa/confirm-json':
+                me = self._session_user()
+                if not me:
+                    self._json({'error': 'nicht angemeldet'}, 401)
+                    return
+                u = AUTH_MEM['users'].setdefault(me['id'], {})
+                secret = u.get('totp_secret')
+                if not secret or not totp_verify(secret, _norm(body.get('code'))):
+                    self._json({'error': 'Code falsch'}, 400)
+                    return
+                u['totp_enabled'] = True
+                auth_save()
+                self._json({'ok': True, 'mfa': True})
+                return
+            if r == '/api/account/password':
+                me = self._session_user()
+                if not me:
+                    self._json({'error': 'nicht angemeldet'}, 401)
+                    return
+                cur = _norm(body.get('current'))
+                n1 = _norm(body.get('new'))
+                n2 = _norm(body.get('new2'))
+                u = AUTH_MEM['users'].get(me['id'], {})
+                if u.get('password_hash') != _pbkdf2(cur, u.get('salt') or [0]*16):
+                    self._json({'error': 'Aktuelles Kennwort ist falsch'}, 403)
+                    return
+                if len(n1) < 4:
+                    self._json({'error': 'Neues Kennwort: mindestens 4 Zeichen'}, 400)
+                    return
+                if n1 != n2:
+                    self._json({'error': 'Neue Kennwörter stimmen nicht überein'}, 400)
+                    return
+                u['salt'] = list(os.urandom(16))
+                u['password_hash'] = _pbkdf2(n1, u['salt'])
+                auth_save()
+                self._json({'ok': True})
+                return
+            if r == '/api/account/status':
+                me = self._session_user()
+                if not me:
+                    self._json({'auth': True}, 401)
+                    return
+                u = AUTH_MEM['users'].get(me['id'], {})
+                # secret nur zeigen, wenn MFA im EINRICHTUNGS-Zustand (aktiv aber nicht bestätigt)
+                reveal = bool(u.get('totp_secret')) and not bool(u.get('totp_enabled'))
+                self._json({'user': me['id'], 'mfa': bool(u.get('totp_enabled')),
+                            'secret': u.get('totp_secret') if reveal else None})
+                return
+            if r == '/mfa/start':
+                me = self._session_user()
+                if not me:
+                    self._json({'error': 'nicht angemeldet'}, 401)
+                    return
+                u = AUTH_MEM['users'].setdefault(me['id'], {})
+                secret = base64.b32encode(os.urandom(10)).decode().rstrip('=')
+                u['totp_secret'] = secret
+                u['totp_enabled'] = False
+                auth_save()
+                self._json({'ok': True, 'secret': secret})
                 return
             if r == '/mfa/disable':
                 me = self._session_user()
