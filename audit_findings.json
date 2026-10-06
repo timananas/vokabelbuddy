@@ -1,0 +1,2011 @@
+[
+ {
+  "band": 1,
+  "unit": 1,
+  "en": "her best friend",
+  "de": "ihr bester Freund/ ihre beste Freundin",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 1,
+  "unit": 1,
+  "en": "You’re late.",
+  "de": "Du bist spät dran./ Du bist zu spät. Wait for me, please.",
+  "flags": [
+   "zu-lang-de"
+  ]
+ },
+ {
+  "band": 1,
+  "unit": 1,
+  "en": "Let’s go home .",
+  "de": "nach Hause gehen",
+  "flags": [
+   "header-oder-instr"
+  ]
+ },
+ {
+  "band": 1,
+  "unit": 1,
+  "en": "on the way to …",
+  "de": "auf dem Weg zu/nach …",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 1,
+  "unit": 1,
+  "en": "It’s time",
+  "de": "to go now. zu gehen",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 1,
+  "unit": 1,
+  "en": "It’s nice",
+  "de": "to see you. zu sehen",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 1,
+  "unit": 1,
+  "en": "telephone",
+  "de": "( kurz auch: phone)",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 1,
+  "unit": 1,
+  "en": "(to) answer",
+  "de": "antworten; beantworten (to) ask",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 1,
+  "unit": 1,
+  "en": "Are there any …?",
+  "de": "Gibt es (irgendwelche) …?",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 1,
+  "unit": 1,
+  "en": "this",
+  "de": "place/break/subject dieser Ort/diese Pause/ dieses Fach",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 1,
+  "unit": 1,
+  "en": "There aren’t any …",
+  "de": "Es gibt/sind keine ...",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 1,
+  "unit": 2,
+  "en": "he doesn’t have time",
+  "de": "er hat keine Zeit",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 1,
+  "unit": 2,
+  "en": "Well, …",
+  "de": "Nun, …/Also, …/Na ja, …",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 1,
+  "unit": 2,
+  "en": "What’s for lunch ?",
+  "de": "Was gibt es zum Mittagessen?",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 1,
+  "unit": 2,
+  "en": "down",
+  "de": "hinunter, herunter; nach unten",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 1,
+  "unit": 3,
+  "en": "(to) join a club",
+  "de": "in einen Klub eintreten",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 1,
+  "unit": 3,
+  "en": "(to) edit",
+  "de": "bearbeiten; schneiden (Film, Video)",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 1,
+  "unit": 3,
+  "en": "(nie",
+  "de": "– manchmal – immer)",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 1,
+  "unit": 3,
+  "en": "What’s the matter?",
+  "de": "Was ist denn?/Was ist los?",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 1,
+  "unit": 3,
+  "en": "What’s she like?",
+  "de": "Wie ist sie?/Wie ist sie so?",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 1,
+  "unit": 3,
+  "en": "Find someone who …",
+  "de": "Finde jemanden, der …",
+  "flags": [
+   "header-oder-instr"
+  ]
+ },
+ {
+  "band": 1,
+  "unit": 3,
+  "en": "How are you?",
+  "de": "Wie geht’s?/ Wie geht es dir/euch/Ihnen?",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 1,
+  "unit": 3,
+  "en": "Listen to me.",
+  "de": "Hör(t) mir zu, bitte.",
+  "flags": [
+   "header-oder-instr"
+  ]
+ },
+ {
+  "band": 1,
+  "unit": 3,
+  "en": "Listen to the song.",
+  "de": "Hör dir/Hört euch",
+  "flags": [
+   "header-oder-instr"
+  ]
+ },
+ {
+  "band": 1,
+  "unit": 3,
+  "en": "(to) be thirsty",
+  "de": "durstig sein, Durst haben",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 1,
+  "unit": 3,
+  "en": "pound (£)",
+  "de": "Pfund (britische Währung)",
+  "flags": [
+   "fremdzeichen-im-en"
+  ]
+ },
+ {
+  "band": 1,
+  "unit": 3,
+  "en": "one pound/a pound",
+  "de": "£1",
+  "flags": [
+   "preis-rest"
+  ]
+ },
+ {
+  "band": 1,
+  "unit": 3,
+  "en": "five pounds",
+  "de": "£5",
+  "flags": [
+   "preis-rest"
+  ]
+ },
+ {
+  "band": 1,
+  "unit": 3,
+  "en": "two pounds fifty",
+  "de": "£2.50",
+  "flags": [
+   "preis-rest"
+  ]
+ },
+ {
+  "band": 1,
+  "unit": 3,
+  "en": "The camera is £165.",
+  "de": "Die Kamera kostet …",
+  "flags": [
+   "fremdzeichen-im-en"
+  ]
+ },
+ {
+  "band": 1,
+  "unit": 3,
+  "en": "The DVDs are £12.95.",
+  "de": "Die DVDs kosten …",
+  "flags": [
+   "fremdzeichen-im-en"
+  ]
+ },
+ {
+  "band": 1,
+  "unit": 3,
+  "en": "in 1580",
+  "de": "im Jahr 1580",
+  "flags": [
+   "jahr-rest"
+  ]
+ },
+ {
+  "band": 1,
+  "unit": 4,
+  "en": "Oh, it’s you.",
+  "de": "Ach, du bist es.",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 1,
+  "unit": 4,
+  "en": "Mobiltelefon, Handy „Handy“",
+  "de": "klingt zwar englisch, ist es aber nicht. Auf",
+  "flags": [
+   "fremdzeichen-im-en",
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 1,
+  "unit": 4,
+  "en": "Englisch heißt es immer mobile",
+  "de": "oder mobile phone .",
+  "flags": [
+   "umlaut-im-en",
+   "fremdzeichen-im-en",
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 1,
+  "unit": 4,
+  "en": "(to) be over",
+  "de": "vorbei sein, zu Ende sein",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 1,
+  "unit": 4,
+  "en": "someone",
+  "de": "is wrong jemand irrt sich; jemand hat",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 1,
+  "unit": 4,
+  "en": "What’s",
+  "de": "your poster about? Wovon handelt dein Poster?/ Worum geht es bei deinem Poster?",
+  "flags": [
+   "de-ohne-deutsch",
+   "zu-lang-de"
+  ]
+ },
+ {
+  "band": 1,
+  "unit": 4,
+  "en": "(to) point to sth.",
+  "de": "auf etwas zeigen, deuten",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 1,
+  "unit": 4,
+  "en": "(to) go by car/bus/…",
+  "de": "mit dem Auto/Bus/… fahren",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 1,
+  "unit": 4,
+  "en": "like that/like this",
+  "de": "so (auf diese Weise)",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 2,
+  "unit": 1,
+  "en": "phone call",
+  "de": "( kurz auch: call )",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 2,
+  "unit": 1,
+  "en": "(to) be out",
+  "de": "nicht zu Hause sein, nicht da sein",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 2,
+  "unit": 1,
+  "en": "at first",
+  "de": "zuerst, anfangs, am Anfang",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 2,
+  "unit": 1,
+  "en": "shopping mall",
+  "de": "( kurz auch: mall)",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 2,
+  "unit": 1,
+  "en": "paragraph",
+  "de": "Absatz (in einem Text)",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 2,
+  "unit": 1,
+  "en": "tea",
+  "de": "leichte Nachmittagsoder",
+  "flags": [
+   "smashed"
+  ]
+ },
+ {
+  "band": 2,
+  "unit": 1,
+  "en": "In Großbritannien wird das Wort tea",
+  "de": "auch für eine",
+  "flags": [
+   "umlaut-im-en",
+   "fremdzeichen-im-en"
+  ]
+ },
+ {
+  "band": 2,
+  "unit": 1,
+  "en": "text message",
+  "de": "( kurz auch: text)",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 2,
+  "unit": 1,
+  "en": "(to) be allowed to do sth.",
+  "de": "etwas tun dürfen Are you allowed to watch TV on Sunday mornings?",
+  "flags": [
+   "zu-lang-de"
+  ]
+ },
+ {
+  "band": 2,
+  "unit": 1,
+  "en": "(to) be/feel bored",
+  "de": "gelangweilt sein, sich langweilen",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 2,
+  "unit": 1,
+  "en": "(to) look forward to sth.",
+  "de": "sich auf etwas freuen",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 2,
+  "unit": 1,
+  "en": "I think you ’re right .",
+  "de": "… du hast Recht.",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 2,
+  "unit": 2,
+  "en": "(to) turn sth. off",
+  "de": "etwas ausschalten (to) turn sth. on",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 2,
+  "unit": 2,
+  "en": "my own film/room/…",
+  "de": "mein eigener Film/mein eigenes",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 2,
+  "unit": 2,
+  "en": "(to) queue",
+  "de": "Schlange stehen, sich anstellen",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 2,
+  "unit": 2,
+  "en": "You should …",
+  "de": "Du solltest …/Ihr solltet …",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 2,
+  "unit": 2,
+  "en": "tall",
+  "de": "benutzt man, wenn es um die Größe",
+  "flags": [
+   "dublette-diff-de:groß (Person)"
+  ]
+ },
+ {
+  "band": 2,
+  "unit": 2,
+  "en": "von Gebäuden, Bäumen u.Ä. geht.",
+  "de": "a very big man a tall man",
+  "flags": [
+   "umlaut-im-en",
+   "fremdzeichen-im-en",
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 2,
+  "unit": 2,
+  "en": "(the) earth",
+  "de": "( oft auch: Earth)",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 2,
+  "unit": 2,
+  "en": "(to) make sure that …",
+  "de": "sich vergewissern, dass …",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 2,
+  "unit": 2,
+  "en": "I think this village is",
+  "de": "the most beautiful place in",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 2,
+  "unit": 3,
+  "en": "Anyway, …",
+  "de": "Jedenfalls, …/Wie dem auch sei",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 2,
+  "unit": 3,
+  "en": "Excuse me, …",
+  "de": "Entschuldigung, …/ Entschuldigen Sie, …",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 2,
+  "unit": 3,
+  "en": "Have you got …?",
+  "de": "Haben Sie …?/Hast du …?/ German “haben”",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 2,
+  "unit": 3,
+  "en": "Vorsicht im",
+  "de": "simple past ! Nicht had got",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 2,
+  "unit": 3,
+  "en": "(to) know about sth.",
+  "de": "sich mit etwas auskennen",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 2,
+  "unit": 3,
+  "en": "(to) scan a text",
+  "de": "einen Text schnell nach bestimmten",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 2,
+  "unit": 3,
+  "en": "price",
+  "de": "(Kauf-)Preis (den man bezahlt)",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 2,
+  "unit": 3,
+  "en": "as kung fu master",
+  "de": "als Kung Fu-Master as …",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 2,
+  "unit": 3,
+  "en": "up and down",
+  "de": "auf und ab; rauf und runter",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 2,
+  "unit": 3,
+  "en": "Sam often has to",
+  "de": "look after his little sister after",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 2,
+  "unit": 3,
+  "en": "(to) worry (about)",
+  "de": "sich Sorgen machen (wegen, um)",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 2,
+  "unit": 3,
+  "en": "German : Lass uns",
+  "de": "nach hinten gehen/ hinten sitzen.",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 2,
+  "unit": 3,
+  "en": "Who did you dance with?",
+  "de": "Mit wem hast du getanzt? Who …?",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 2,
+  "unit": 3,
+  "en": "Who danced with you?",
+  "de": "Wer hat mit dir getanzt?",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 2,
+  "unit": 3,
+  "en": "close (to)",
+  "de": "nah, dicht (bei, an)",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 2,
+  "unit": 3,
+  "en": "I’m",
+  "de": "interested in history. interessiert an",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 2,
+  "unit": 3,
+  "en": "shore",
+  "de": "Ufer (eines Sees) , Strand",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 2,
+  "unit": 4,
+  "en": "at the bottom (of)",
+  "de": "unten, am unteren Ende (von)",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 2,
+  "unit": 4,
+  "en": "told",
+  "de": "3. Form (Partizip Perfekt) von „tell”",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 2,
+  "unit": 4,
+  "en": "made",
+  "de": "Partizip Perfekt von „make”",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 2,
+  "unit": 4,
+  "en": "(to) be hungry",
+  "de": "hungrig sein, Hunger haben",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 2,
+  "unit": 4,
+  "en": "Have you … yet?",
+  "de": "Hast du schon …?",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 2,
+  "unit": 4,
+  "en": "no sign of …",
+  "de": "keine Spur von …",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 2,
+  "unit": 4,
+  "en": "across the moor/the street",
+  "de": "(quer) über das Moor/die Straße He ran across the road in front of a very fast car.",
+  "flags": [
+   "zu-lang-de"
+  ]
+ },
+ {
+  "band": 2,
+  "unit": 5,
+  "en": "grown",
+  "de": "(to) grow = 1. wachsen; 2. anbauen, anpflanzen",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 2,
+  "unit": 5,
+  "en": "(to) appear",
+  "de": "erscheinen, auftauchen (to) appear",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 2,
+  "unit": 5,
+  "en": "flown",
+  "de": "(to) take notes (sich) Notizen machen (beim Lesen",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 2,
+  "unit": 5,
+  "en": "take notes",
+  "de": "verwendet man, wenn man sich beim",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 2,
+  "unit": 5,
+  "en": "make notes",
+  "de": "sagt man, wenn man sich eigene",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 2,
+  "unit": 5,
+  "en": "each",
+  "de": "jeder, jede, jedes (einzelne)",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 2,
+  "unit": 5,
+  "en": "„werden“ sind (to) become",
+  "de": "und (to) get . cold/windy/dark/…",
+  "flags": [
+   "fremdzeichen-im-en",
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 2,
+  "unit": 5,
+  "en": "heavy rain",
+  "de": "starker Regen, heftiger Regen",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 2,
+  "unit": 5,
+  "en": "(to) bow",
+  "de": "sich verbeugen, sich verneigen",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 3,
+  "unit": 1,
+  "en": "post",
+  "de": "Posting (auf Blog) , Blog-Eintrag",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 3,
+  "unit": 1,
+  "en": "at one time",
+  "de": "zur selben Zeit, gleichzeitig",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 3,
+  "unit": 1,
+  "en": "No way!",
+  "de": "Auf keinen Fall!/ Kommt nicht in Frage!",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 3,
+  "unit": 1,
+  "en": "It was a pity that …",
+  "de": "Es war schade, dass …",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 3,
+  "unit": 1,
+  "en": "held, held",
+  "de": "sich an etwas festhalten She held onto the table and tried to stand up.",
+  "flags": [
+   "de-ohne-deutsch",
+   "zu-lang-de"
+  ]
+ },
+ {
+  "band": 3,
+  "unit": 1,
+  "en": "(to) scan sth. (for sth. )",
+  "de": "etwas (nach etwas) absuchen",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 3,
+  "unit": 2,
+  "en": "tonight",
+  "de": "heute Nacht, heute Abend",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 3,
+  "unit": 2,
+  "en": "altogether",
+  "de": "insgesamt, alles in allem",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 3,
+  "unit": 2,
+  "en": "(to) wonder",
+  "de": "sich fragen, gern wissen wollen",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 3,
+  "unit": 2,
+  "en": "(to) pretend",
+  "de": "so tun, als ob",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 3,
+  "unit": 2,
+  "en": "(to) seem (to be/do)",
+  "de": "(zu sein/zu tun) scheinen",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 3,
+  "unit": 2,
+  "en": "Mum says I",
+  "de": "spend too much time in front of my",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 3,
+  "unit": 2,
+  "en": "(to) be able to do sth.",
+  "de": "etwas tun können; fähig sein/ in der Lage sein, etwas zu tun",
+  "flags": [
+   "zu-lang-de"
+  ]
+ },
+ {
+  "band": 3,
+  "unit": 2,
+  "en": "how to do sth.",
+  "de": "wie man etwas macht/ machen kann/machen soll",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 3,
+  "unit": 2,
+  "en": "(to) behave",
+  "de": "sich verhalten, sich benehmen",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 3,
+  "unit": 3,
+  "en": "factual",
+  "de": "sachlich, Sach-; faktisch; den",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 3,
+  "unit": 3,
+  "en": "it was no different",
+  "de": "es war nicht anders",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 3,
+  "unit": 4,
+  "en": "euro (€)",
+  "de": "Euro",
+  "flags": [
+   "fremdzeichen-im-en"
+  ]
+ },
+ {
+  "band": 3,
+  "unit": 4,
+  "en": "What else can you do?",
+  "de": "Was kannst du (sonst) noch tun?",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 3,
+  "unit": 4,
+  "en": "(to) unpack",
+  "de": "auspacken (to) pack (packen, einpacken)",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 3,
+  "unit": 4,
+  "en": "From the plane, the buildings",
+  "de": "below were so small.",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 3,
+  "unit": 4,
+  "en": "tide",
+  "de": "Gezeiten, Ebbe und Flut",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 3,
+  "unit": 4,
+  "en": "The tide",
+  "de": "is out. (Es ist Ebbe.)",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 3,
+  "unit": 5,
+  "en": "(to) relax",
+  "de": "sich entspannen, sich ausruhen",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 3,
+  "unit": 5,
+  "en": "Portemonnaie, Geldbörse",
+  "de": "Normalerweise spricht man bei Frauen von purse",
+  "flags": [
+   "umlaut-im-en",
+   "fremdzeichen-im-en",
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 3,
+  "unit": 5,
+  "en": "burst, burst",
+  "de": "in Tränen ausbrechen When I saw that the dog was dead, I immediately",
+  "flags": [
+   "zu-lang-de"
+  ]
+ },
+ {
+  "band": 3,
+  "unit": 5,
+  "en": "memorial",
+  "de": "Denkmal; Gedenk- F le mémorial L memoria (Erinnerung)",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 3,
+  "unit": 5,
+  "en": "in second place",
+  "de": "auf dem zweiten Platz; an zweiter",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 1,
+  "en": "newspaper",
+  "de": "( kurz auch: paper)",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 1,
+  "en": "(to) lean",
+  "de": "sich lehnen; sich beugen",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 1,
+  "en": "Friedhof",
+  "de": "an area of land",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 1,
+  "en": "(to) be keen on sth .",
+  "de": "wild auf etwas sein",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 2,
+  "en": "Welche",
+  "de": "Art von Musik …?",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 2,
+  "en": "head for sth.",
+  "de": "auf etwas zusteuern/zugehen/ zufahren",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 2,
+  "en": "(to) boil",
+  "de": "kochen; zum Kochen bringen",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 2,
+  "en": "both … and …",
+  "de": "sowohl … als auch …",
+  "flags": [
+   "klammer-rest",
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 2,
+  "en": "Muttersprachler/in",
+  "de": "L nasci (geboren werden)",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 3,
+  "en": "le désert",
+  "de": "L deserere (verlassen)",
+  "flags": [
+   "fremdzeichen-im-en"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 3,
+  "en": "(to) stretch",
+  "de": "sich dehnen, sich strecken",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 3,
+  "en": "(to) complain",
+  "de": "sich beschweren, sich beklagen",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 3,
+  "en": "(to) cycle",
+  "de": "Rad fahren, mit dem Rad fahren",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 3,
+  "en": "(to) be about to do sth.",
+  "de": "im Begriff sein, etwas zu tun",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 3,
+  "en": "take",
+  "de": "Einstellung, Take (beim Film)",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 3,
+  "en": "(to) go viral",
+  "de": "sich wie ein Virus ausbreiten / sich wie ein Lauffeuer verbreiten",
+  "flags": [
+   "zu-lang-de"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 3,
+  "en": "werden, weil am Wort Ms",
+  "de": "nicht zu erkennen ist, ob",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 3,
+  "en": "Stay posted.",
+  "de": "Bleib(t) auf dem Laufenden!",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 3,
+  "en": "(to) be cut off from sth.",
+  "de": "von etwas abgeschnitten/ abgetrennt sein",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 4,
+  "en": "reservation",
+  "de": "( kurz auch: rez )",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 4,
+  "en": "Führerschein, Fahrerlaubnis L licet",
+  "de": "(es ist erlaubt)",
+  "flags": [
+   "umlaut-im-en",
+   "fremdzeichen-im-en"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 4,
+  "en": "(to) attend a course",
+  "de": "einen Kurs besuchen, an einem",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 4,
+  "en": "at any time",
+  "de": "jederzeit, zu jeder Zeit",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 4,
+  "en": "more than in any other place",
+  "de": "mehr als an jedem anderen Ort",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 4,
+  "en": "Sie arbeiten",
+  "de": "hart . Sie arbeiten kaum .",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 5,
+  "unit": 1,
+  "en": "(to) settle",
+  "de": "sich niederlassen, sich ansiedeln",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 5,
+  "unit": 1,
+  "en": "in progress",
+  "de": "im Gange, im Verlauf",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 5,
+  "unit": 1,
+  "en": "(to) tend to be/do sth.",
+  "de": "dazu neigen etwas zu tun/sein",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 5,
+  "unit": 1,
+  "en": "You'll get that book in",
+  "de": "any bookshop. in jedem (beliebigen) Buchladen",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 5,
+  "unit": 1,
+  "en": "(to) oppose sth.",
+  "de": "etwas ablehnen, gegen etwas sein",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 5,
+  "unit": 1,
+  "en": "fed, fed",
+  "de": "sich ernähren von (to) feed = 1. füttern; 2. sich ernähren",
+  "flags": [
+   "zu-lang-de"
+  ]
+ },
+ {
+  "band": 5,
+  "unit": 1,
+  "en": "crocodile",
+  "de": "( infml auch: croc)",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 5,
+  "unit": 1,
+  "en": "(to) have a point",
+  "de": "nicht ganz Unrecht haben",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 5,
+  "unit": 1,
+  "en": "(to) camp (out)",
+  "de": "zelten, im Freien kampieren",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 5,
+  "unit": 1,
+  "en": "female",
+  "de": "weiblich; weibliche Person; Weibchen",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 5,
+  "unit": 1,
+  "en": "recently",
+  "de": "vor Kurzem, neulich; in letzter Zeit",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 5,
+  "unit": 1,
+  "en": "Lage versetzen",
+  "de": "(, etwas zu tun)",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 5,
+  "unit": 1,
+  "en": "outspoken",
+  "de": "direkt, geradeheraus, offen und",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 5,
+  "unit": 2,
+  "en": "certainly",
+  "de": "sicher(lich), auf jeden Fall",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 5,
+  "unit": 2,
+  "en": "educational",
+  "de": "lehrreich, informativ; Bildungs- There were children with different ~ backgrounds at",
+  "flags": [
+   "de-ohne-deutsch",
+   "zu-lang-de"
+  ]
+ },
+ {
+  "band": 5,
+  "unit": 2,
+  "en": "(to) troll",
+  "de": "sachlich falsche Dinge im Internet",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 5,
+  "unit": 2,
+  "en": "(to) chill",
+  "de": "(infml) sich entspannen, chillen",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 5,
+  "unit": 2,
+  "en": "about sth. )",
+  "de": "verärgert (über jn./etwas), irritiert She was ~ with him because he was late again.",
+  "flags": [
+   "zu-lang-de"
+  ]
+ },
+ {
+  "band": 5,
+  "unit": 2,
+  "en": "face-to-face",
+  "de": "von Angesicht zu Angesicht",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 5,
+  "unit": 3,
+  "en": "academic",
+  "de": "wissenschaftlich, akademisch academic credits",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 5,
+  "unit": 3,
+  "en": "in order to do sth.",
+  "de": "um etwas zu tun",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 5,
+  "unit": 3,
+  "en": "High School Diploma",
+  "de": "Schulabschluss in den USA",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 5,
+  "unit": 3,
+  "en": "(to) focus on",
+  "de": "fokussieren auf, abzielen auf",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 5,
+  "unit": 3,
+  "en": "schwingen",
+  "de": "The sofa was so high that she could",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 5,
+  "unit": 3,
+  "en": "(to) achieve",
+  "de": "erreichen (Ziel), erzielen (Resultat)",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 5,
+  "unit": 3,
+  "en": "(to) involve",
+  "de": "bestehen aus, beinhalten, mit sich",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 5,
+  "unit": 3,
+  "en": "abhalten",
+  "de": "(Veranstaltung) (to) hold a meeting/a competition/an interview",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 5,
+  "unit": 3,
+  "en": "(to) handle sth.",
+  "de": "etwas handhaben, mit etwas",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 5,
+  "unit": 3,
+  "en": "berücksichtigen",
+  "de": "I hope the company will consider my application.",
+  "flags": [
+   "umlaut-im-en",
+   "fremdzeichen-im-en",
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 5,
+  "unit": 3,
+  "en": "(to) deserve",
+  "de": "verdienen (zu Recht bekommen)",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 5,
+  "unit": 3,
+  "en": "reference (to)",
+  "de": "Verweis (auf), Bezug (auf)",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 5,
+  "unit": 4,
+  "en": "M¯aori",
+  "de": "Maori",
+  "flags": [
+   "fremdzeichen-im-en"
+  ]
+ },
+ {
+  "band": 5,
+  "unit": 4,
+  "en": "(to) power",
+  "de": "antreiben, betreiben, mit Energie",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 5,
+  "unit": 4,
+  "en": "seatbelt",
+  "de": "( auch: seat belt )",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 5,
+  "unit": 4,
+  "en": "brief",
+  "de": "kurz (gefasst), knapp, von kurzer",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 5,
+  "unit": 4,
+  "en": "(to) gather",
+  "de": "(sich) versammeln (to) come together; (to) bring together",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 5,
+  "unit": 4,
+  "en": "rather ~",
+  "de": "heard.",
+  "flags": [
+   "fremdzeichen-im-en"
+  ]
+ },
+ {
+  "band": 5,
+  "unit": 4,
+  "en": "(… könnten sich als",
+  "de": "nützlich erweisen)",
+  "flags": [
+   "umlaut-im-en",
+   "fremdzeichen-im-en"
+  ]
+ },
+ {
+  "band": 5,
+  "unit": 4,
+  "en": "faraway",
+  "de": "fern, abgelegen, entlegen faraway countries",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 6,
+  "unit": 1,
+  "en": "blazer",
+  "de": "Sakko, Blazer (sportliches Jackett)",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 6,
+  "unit": 1,
+  "en": "(to) realize sth.",
+  "de": "etwas erkennen; sich einer Sache",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 6,
+  "unit": 1,
+  "en": "(to) format",
+  "de": "formatieren (Text am Computer)",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 6,
+  "unit": 1,
+  "en": "neither",
+  "de": "… nor … weder … noch …",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 6,
+  "unit": 1,
+  "en": "(to) restate sth.",
+  "de": "etwas wiederholen, etwas noch",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 6,
+  "unit": 1,
+  "en": "(to) call for sth.",
+  "de": "etwas verlangen, etwas fordern",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 6,
+  "unit": 1,
+  "en": "factual",
+  "de": "sachlich; faktisch; den Tatsachen",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 6,
+  "unit": 1,
+  "en": "(to) acquire",
+  "de": "erwerben, in den Besitz gelangen",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 6,
+  "unit": 2,
+  "en": "(to) affect",
+  "de": "betreffen, sich auswirken auf",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 6,
+  "unit": 2,
+  "en": "(to) refuse",
+  "de": "sich weigern, ablehnen (to) refuse",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 6,
+  "unit": 2,
+  "en": "(to) succeed",
+  "de": "Erfolg haben (to) succeed in doing sth.",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 6,
+  "unit": 2,
+  "en": "literally",
+  "de": "im wahrsten Sinne des Wortes",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 6,
+  "unit": 2,
+  "en": "(to) embrace",
+  "de": "annehmen, mit offenen Armen",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 6,
+  "unit": 2,
+  "en": "(to) be present",
+  "de": "vorhanden sein; anwesend sein",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 6,
+  "unit": 2,
+  "en": "(to) rise up, rose, risen",
+  "de": "sich erheben, aufstehen (to) rise up",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 6,
+  "unit": 2,
+  "en": "Säulen, Türme, …); 2.",
+  "de": "sich erheben, aufstehen",
+  "flags": [
+   "umlaut-im-en",
+   "fremdzeichen-im-en"
+  ]
+ },
+ {
+  "band": 6,
+  "unit": 2,
+  "en": "(to) make a difference",
+  "de": "etwas bewirken, etwas bewegen",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 6,
+  "unit": 2,
+  "en": "release",
+  "de": "1. abgeben, freisetzen / Austritt",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 6,
+  "unit": 3,
+  "en": "~ intelligence (AI)",
+  "de": "künstliche Intelligenz",
+  "flags": [
+   "fremdzeichen-im-en"
+  ]
+ },
+ {
+  "band": 6,
+  "unit": 3,
+  "en": "wahrscheinlich etwas tun (werden)",
+  "de": "I would take an umbrella. It’ s",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 6,
+  "unit": 3,
+  "en": "(to) generate",
+  "de": "generieren, erzeugen (to) produce (especially energy, electricity, etc.)",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 6,
+  "unit": 3,
+  "en": "morality",
+  "de": "Moral, Anstand, gute Sitten",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 6,
+  "unit": 3,
+  "en": "(to) last",
+  "de": "(an)dauern; halten (to) take – (to) last",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 6,
+  "unit": 3,
+  "en": "It usually",
+  "de": "takes 15 minutes to get home",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 6,
+  "unit": 3,
+  "en": "but this evening it",
+  "de": "took (us) an hour.",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 6,
+  "unit": 3,
+  "en": "(Kreditkarte u.Ä.)",
+  "de": "durchziehen",
+  "flags": [
+   "umlaut-im-en",
+   "fremdzeichen-im-en"
+  ]
+ },
+ {
+  "band": 6,
+  "unit": 3,
+  "en": "attachment",
+  "de": "Anhang (einer E-Mail) (to) add/send/download/delete an",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 6,
+  "unit": 3,
+  "en": "(to) rely on sth.",
+  "de": "auf etwas angewiesen sein",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 6,
+  "unit": 3,
+  "en": "for sale",
+  "de": "zum Verkauf, zu verkaufen",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 6,
+  "unit": 3,
+  "en": "Let me",
+  "de": "put it (in) a different way",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 6,
+  "unit": 3,
+  "en": "(to) glance (at)",
+  "de": "einen (kurzen) Blick werfen (auf)",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 6,
+  "unit": 3,
+  "en": "(to) view oneself as sth.",
+  "de": "sich als jd./etwas betrachten",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 6,
+  "unit": 3,
+  "en": "Betonung auf der 1. Silbe: aspect",
+  "de": "(to) take sides Partei ergreifen As a moderator, you shouldn’t ~ sides in a",
+  "flags": [
+   "de-ohne-deutsch",
+   "zu-lang-de"
+  ]
+ },
+ {
+  "band": 6,
+  "unit": 3,
+  "en": "(to) rank sth.",
+  "de": "etwas einstufen, etwas anordnen",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ }
+]
