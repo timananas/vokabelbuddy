@@ -407,7 +407,11 @@ def _book_ids():
 
 
 def _kid_ok(kid):
-    return any(k['id'] == kid for k in KIDS)
+    if any(k['id'] == kid for k in KIDS):
+        return True
+    # Zusätzliche Kinder-Accounts (auth-users mit role kid) zählen als gültig
+    u = AUTH_MEM.get('users', {}).get(kid or '')
+    return bool(u) and u.get('role') == 'kid'
 
 
 def _qdata(book):
@@ -960,7 +964,10 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
             if r == '/api/health':
                 self._json({'ok': True, 'version': VERSION})
             elif r == '/api/meta':
-                self._json({'version': VERSION, 'books': BOOKS, 'kids': KIDS,
+                extra_kids = [{'id': uid, 'name': uid.capitalize(), 'color': '#a78bfa'}
+                              for uid, u in AUTH_MEM.get('users', {}).items()
+                              if u.get('role') == 'kid' and not any(k['id'] == uid for k in KIDS)]
+                self._json({'version': VERSION, 'books': BOOKS, 'kids': KIDS + extra_kids,
                             'default_book': DEFAULT_BOOKS})
             elif r == '/api/chapters':
                 self.api_chapters(q)
@@ -1253,6 +1260,54 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
                 AUTH_MEM['users'][puser]['kids'] = kids
                 auth_save()
                 self._json({'ok': True, 'user': puser, 'kids': kids})
+                return
+            if r == '/api/child/create':
+                me = self._session_user()
+                if not me or me.get('role') != 'admin':
+                    self._json({'error': 'Nur der Admin kann Kinder anlegen'}, 403)
+                    return
+                cuser = _norm(body.get('user')).lower()
+                pw = _norm(body.get('password'))
+                book = _norm(body.get('book'))
+                if not re.fullmatch(r'[a-z0-9_]{3,20}', cuser or ''):
+                    self._json({'error': 'Kinder-Benutzername: 3–20 Zeichen (a–z 0–9 _)'}, 400)
+                    return
+                if len(pw) < 4:
+                    self._json({'error': 'Kennwort: mindestens 4 Zeichen'}, 400)
+                    return
+                if cuser in AUTH_MEM['users']:
+                    self._json({'error': 'Diesen Benutzer gibt es schon'}, 400)
+                    return
+                if book and book not in _book_ids():
+                    book = ''
+                salt = list(os.urandom(16))
+                AUTH_MEM['users'][cuser] = {'password_hash': _pbkdf2(pw, salt), 'salt': salt,
+                                            'role': 'kid', 'book': book,
+                                            'totp_secret': None, 'totp_enabled': False}
+                if book: DEFAULT_BOOKS[cuser] = book
+                # neue Kids in das Frontend-KIDS-Array (Basis-Anzeige, Farb-Auto):
+                auth_save()
+                self._json({'ok': True, 'user': cuser, 'book': book})
+                return
+            if r == '/api/child/delete':
+                me = self._session_user()
+                if not me or me.get('role') != 'admin':
+                    self._json({'error': 'Nur der Admin'}, 403)
+                    return
+                cuser = _norm(body.get('user'))
+                if cuser in (k['id'] for k in KIDS):
+                    self._json({'error': 'Die Stammkinder (luis/carlotta) bleiben'}, 400)
+                    return
+                if cuser not in AUTH_MEM['users'] or AUTH_MEM['users'][cuser].get('role') != 'kid':
+                    self._json({'error': 'Kinder-Account unbekannt'}, 400)
+                    return
+                # erst aus Eltern-Zuweisungen raus:
+                for u in AUTH_MEM['users'].values():
+                    if isinstance(u.get('kids'), list) and cuser in u['kids']:
+                        u['kids'] = [x for x in u['kids'] if x != cuser]
+                AUTH_MEM['users'].pop(cuser, None)
+                auth_save()
+                self._json({'ok': True})
                 return
             if r == '/api/parent/create':
                 me = self._session_user()
@@ -1655,7 +1710,11 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
             return
         out = [{'user': uid, 'kids': (u.get('kids') or [])}
                for uid, u in AUTH_MEM['users'].items() if u.get('role') == 'parent']
-        self._json({'parents': out})
+        kids_out = [{'user': uid, 'book': (u.get('book') or '')}
+                    for uid, u in AUTH_MEM['users'].items()
+                    if u.get('role') == 'kid' and not any(k['id'] == uid for k in KIDS)]
+        base_kids = [{'user': k['id'], 'book': ''} for k in KIDS]
+        self._json({'parents': out, 'kids': base_kids + kids_out})
 
     def api_history(self, q):
         kid = (q.get('kid') or [''])[0]

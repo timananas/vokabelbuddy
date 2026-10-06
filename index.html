@@ -416,6 +416,16 @@ body{overflow-x:hidden}
       </div>
       <div class="mdone" id="paNote"></div>
     </div>
+    <div id="adminKidsZone" class="hidden" style="border-top:1px solid var(--line); margin-top:12px; padding-top:12px">
+      <div style="font-weight:800; font-size:.95rem">Kinder-Accounts</div>
+      <div id="kidList" style="display:flex; flex-direction:column; gap:6px; margin-top:8px"></div>
+      <div style="display:flex; gap:8px; margin-top:10px">
+        <input id="kcUser" type="text" placeholder="Neuer Kinder-Benutzer" autocapitalize="none" style="flex:1">
+        <input id="kcPw" type="text" placeholder="Kennwort" autocomplete="off" style="flex:1">
+        <button class="msave" id="kcAdd" style="width:auto; padding:10px 14px">Anlegen</button>
+      </div>
+      <div class="mdone" id="kcNote"></div>
+    </div>
     <div class="mrow" style="margin-top:14px">
       <button class="logoutbtn" id="logoutBtn">Abmelden</button>
     </div>
@@ -635,12 +645,35 @@ function renderParents(parents){
       </span>
     </div>`).join('');
 }
+function renderKidAccounts(kids){
+  const host=$('kidList'); if(!host) return;
+  const extras = kids.filter(k=>!['luis','carlotta'].includes(k.user));
+  if(!extras.length){ host.innerHTML='<div class="sub" style="margin:0">Nur luis + carlotta (Stammkinder). Weitere unten anlegen.</div>'; return; }
+  host.innerHTML=extras.map(k=>`
+    <div class="detail-item" style="display:flex; gap:10px; align-items:center">
+      <span style="font-weight:800; min-width:110px">${esc(k.user)}</span>
+      <button class="kid pchk delkid" data-kc="${esc(k.user)}" style="padding:4px 12px; font-size:.8rem">löschen</button>
+    </div>`).join('');
+}
 function loadParents(){
   if(!ME || ME.role!=='admin') return;
   $('adminOnlyZone').classList.remove('hidden');
+  $('adminKidsZone').classList.remove('hidden');
   try{
-    fetch('/api/auth/parents').then(r=>r.json()).then(j=>renderParents(j.parents||[])).catch(()=>{});
+    fetch('/api/auth/parents').then(r=>r.json()).then(j=>{
+      renderParents(j.parents||[]);
+      renderKidAccounts(j.kids||[]);
+    }).catch(()=>{});
   }catch(e){}
+  $('kcAdd').onclick=async()=>{
+    $('kcNote').textContent='…';
+    try{
+      const r=await (await fetch('/api/child/create',{method:'POST',headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({user:$('kcUser').value.trim(), password:$('kcPw').value, book:''})})).json();
+      if(r.ok){ $('kcNote').textContent=`✅ ${r.user} angelegt`; $('kcUser').value=$('kcPw').value=''; loadParents(); }
+      else $('kcNote').textContent=r.error||'Fehler';
+    }catch(e){ $('kcNote').textContent='Server nicht erreichbar'; }
+  };
   $('paAdd').onclick=async()=>{
     $('paNote').textContent='…';
     try{
@@ -652,6 +685,15 @@ function loadParents(){
   };
 }
 document.addEventListener('click', async e=>{
+  const dk=e.target.closest('.delkid');
+  if(dk){ const cu=dk.dataset.kc;
+    try{
+      const r=await (await fetch('/api/child/delete',{method:'POST',headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({user:cu})})).json();
+      if(r.ok){ $('kcNote').textContent=`${cu} gelöscht`; loadParents(); }
+      else $('kcNote').textContent=r.error||'Fehler';
+    }catch(e){ $('kcNote').textContent='Offline'; }
+    return; }
   const b=e.target.closest('.pchk'); if(!b) return;
   const pa=b.dataset.pa, kid=b.dataset.kid;
   // aktuelle kids des parents SOHNE den geklickten chip aus DOM lesen:
