@@ -19,10 +19,10 @@
   --accent:#3a6df0; --accent-soft:#e8eefe; --good:#e2f3e6; --good-ink:#1e7a35;
   --bad:#fbe4e4; --bad-ink:#b3312f; --chip:#f2f4fa;
 }
-@media (prefers-color-scheme: dark){
-  :root{ --bg:#141822; --card:#1d2331; --ink:#e8ebf4; --muted:#8d94a8; --line:#2b3345;
-    --accent:#6b93f5; --accent-soft:#252f4a; --good:#1f3325; --good-ink:#7ed097;
-    --bad:#3a2224; --bad-ink:#ef9f9e; --chip:#232a3b; }
+html.dark{
+  --bg:#141822; --card:#1d2331; --ink:#e8ebf4; --muted:#8d94a8; --line:#2b3345;
+  --accent:#6b93f5; --accent-soft:#252f4a; --good:#1f3325; --good-ink:#7ed097;
+  --bad:#3a2224; --bad-ink:#ef9f9e; --chip:#232a3b;
 }
 *{box-sizing:border-box; -webkit-tap-highlight-color:transparent}
 body{margin:0; font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif; background:var(--bg); color:var(--ink)}
@@ -132,6 +132,7 @@ h2{font-size:1.05rem; margin:18px 0 10px}
   <div class="row" style="justify-content:space-between">
     <h1>📚 Vokabelbuddy</h1>
     <div style="display:flex; gap:8px">
+      <button class="iconbtn" id="themeBtn" title="Dark/Light umschalten">🌙</button>
       <button class="iconbtn" id="reportBtn" title="Auswertung">📊</button>
       <button class="iconbtn" id="adminBtn" title="Vokabeln verwalten">⚙️</button>
     </div>
@@ -222,6 +223,26 @@ let chapters=[], sel=new Set(), mode='home'; // home|quiz
 let quiz=null, qix=0, score=0, answered=false;
 
 init();
+// Theme früh anwenden (vor dem ersten Rendern)
+(function(){
+  const saved=localStorage.getItem('vb_theme');
+  const dark = saved ? saved==='dark' : (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches);
+  document.documentElement.classList.toggle('dark', dark);
+})();
+function themeApply(){
+  const dark=document.documentElement.classList.contains('dark');
+  document.documentElement.classList.toggle('dark', dark);
+  localStorage.setItem('vb_theme', dark?'dark':'light');
+  // theme-color im Standalone/PWA-Fall mitziehen
+  const meta=document.querySelector('meta[name="theme-color"]');
+  if(meta) meta.setAttribute('content', dark?'#141822':'#3a6df0');
+  const btn=document.getElementById('themeBtn');
+  if(btn) btn.textContent = dark ? '☀️' : '🌙';
+}
+function themeBtnLabel(){
+  const btn=document.getElementById('themeBtn');
+  if(btn) btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+}
 async function init(){
   try{ META=await (await fetch('/api/meta')).json(); }catch(e){
     $('subtitle').textContent='Server nicht erreichbar'; return;
@@ -235,7 +256,10 @@ async function init(){
   }
   $('subtitle').textContent = 'Wähle, wer übt';
   drawKids(); drawBooks();
+  themeBtnLabel();
   $('adminBtn').onclick=openAdmin;
+  $('themeBtn').onclick=()=>{ const dark=document.documentElement.classList.contains('dark');
+    document.documentElement.classList.toggle('dark', !dark); themeApply(); };
   $('startBtn').onclick=startQuiz;
   $('quitBtn').onclick=()=>{ mode='home'; show('viewHome','viewQuiz'); loadChapters(); };
   $('homeBtn').onclick=()=>{ mode='home'; show('viewHome','viewQuiz'); loadChapters(); };
