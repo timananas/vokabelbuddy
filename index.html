@@ -82,6 +82,16 @@ h2{font-size:1.05rem; margin:18px 0 10px}
 .cword{font-size:1.8rem; font-weight:800}
 .cmeta{color:var(--muted); font-size:.8rem; position:absolute; top:10px; left:14px}
 .chint{color:var(--muted); font-size:.8rem; position:absolute; bottom:10px}
+/* Schreib-Modus */
+.wq{max-width:520px; margin:0 auto}
+#wInput{width:100%; border:2px solid var(--line); background:var(--card); color:var(--ink);
+  border-radius:12px; padding:14px; font-size:1.15rem; text-align:center; margin-top:8px}
+#wInput:focus{outline:none; border-color:var(--accent)}
+#wInput.ok{border-color:#2f9e4f; background:var(--good)}
+#wInput.bad{border-color:#d9534f; background:var(--bad)}
+.wfb{min-height:1.4em; margin-top:10px; font-size:.95rem; font-weight:700; text-align:center}
+.wfb.correct{color:var(--good-ink)}
+.wfb.incorrect{color:var(--bad-ink)}
 .choices{display:grid; grid-template-columns:1fr 1fr; gap:10px}
 @media(max-width:560px){.choices{grid-template-columns:1fr}}
 .choice{border:1.5px solid var(--line); background:var(--card); color:var(--ink); border-radius:12px;
@@ -174,6 +184,7 @@ h2{font-size:1.05rem; margin:18px 0 10px}
       <select id="modeSel">
         <option value="mc">Multiple Choice</option>
         <option value="cards">Karteikarten</option>
+        <option value="write">Schreiben</option>
       </select>
     </div>
     <button class="start" id="startBtn" disabled>Vokabeln üben</button>
@@ -208,6 +219,21 @@ h2{font-size:1.05rem; margin:18px 0 10px}
           <button class="primary" id="cardHome">Fertig</button>
         </div>
         <div id="cardWrongList" class="wronglist"></div>
+      </div>
+    </div>
+    <div id="writebox" class="hidden">
+      <div class="wq"><div class="qmeta" id="wMeta"></div><div class="qword" id="wPrompt"></div><div class="qhint" id="wHint"></div>
+      <input id="wInput" type="text" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="Antwort eintippen…">
+      <button id="wCheck" class="start" style="margin-top:10px; padding:12px">Prüfen</button>
+      <div id="wFeedback" class="wfb"></div></div>
+      <div id="writeResult" class="hidden">
+        <div class="res-big"><div class="score" id="wScore"></div><div class="res-note" id="wNote"></div></div>
+        <div class="res-actions">
+          <button id="wAgain">Nochmal</button>
+          <button id="wRetryWrong" style="border-color:#d9534f; color:#b3312f">Falsche wiederholen</button>
+          <button class="primary" id="wHome">Fertig</button>
+        </div>
+        <div id="wWrongList" class="wronglist"></div>
       </div>
     </div>
     <div id="result" class="hidden">
@@ -300,7 +326,8 @@ async function init(){
   $('themeBtn').onclick=()=>{ const dark=document.documentElement.classList.contains('dark');
     document.documentElement.classList.toggle('dark', !dark); themeApply(); };
   $('startBtn').onclick=startQuiz;
-  $('quitBtn').onclick=()=>{ mode='home'; $('cardbox').classList.add('hidden'); $('cardResult').classList.add('hidden'); show('viewHome','viewQuiz'); loadChapters(); };
+  $('quitBtn').onclick=()=>{ mode='home'; $('cardbox').classList.add('hidden'); $('cardResult').classList.add('hidden');
+    $('writebox').classList.add('hidden'); $('writeResult').classList.add('hidden'); show('viewHome','viewQuiz'); loadChapters(); };
   $('homeBtn').onclick=()=>{ mode='home'; show('viewHome','viewQuiz'); loadChapters(); };
   $('againBtn').onclick=()=>{ $('result').classList.add('hidden'); $('qbox').classList.remove('hidden'); startQuiz(); };
   $('retryWrongBtn').onclick=retryWrong;
@@ -310,6 +337,12 @@ async function init(){
   $('cardAgain').onclick=()=>{ $('cardResult').classList.add('hidden'); startCards(); };
   $('cardRetryWrong').onclick=cardRetryWrong;
   $('cardHome').onclick=()=>{ mode='home'; show('viewHome','viewQuiz'); loadChapters(); };
+  // Schreib-Modus
+  $('wCheck').onclick=checkWrite;
+  $('wInput').addEventListener('keydown',e=>{ if(e.key==='Enter'&&!answered) checkWrite(); });
+  $('wAgain').onclick=()=>{ $('writeResult').classList.add('hidden'); document.querySelector('#writebox .wq').classList.remove('hidden'); startWrite(); };
+  $('wRetryWrong').onclick=writeRetryWrong;
+  $('wHome').onclick=()=>{ mode='home'; $('writebox').classList.add('hidden'); show('viewHome','viewQuiz'); loadChapters(); };
   document.addEventListener('keydown',e=>{
     if(mode!=='quiz'||answered) return;
     const i='1234'.indexOf(e.key);
@@ -420,6 +453,7 @@ async function startQuiz(){
   window._lastWrong=[]; window._isCards=false;
   score=0; qix=0; answered=false;
   if(($('modeSel')||{}).value==='cards'){ return startCards(); }
+  if(($('modeSel')||{}).value==='write'){ return startWrite(); }
   const fl=$('fromSel'), tl=$('toSel');
   const flTxt=(fl.value&&fl.selectedOptions[0])?fl.selectedOptions[0].textContent.replace(/^#\d+ · /,''):'';
   const tlTxt=(tl.value&&tl.selectedOptions[0])?tl.selectedOptions[0].textContent.replace(/^#\d+ · /,''):'';
@@ -513,7 +547,97 @@ async function retryWrong(){
   }catch(e){ $('resNote').textContent='Server nicht erreichbar.'; }
 }
 
-// ---------- Karteikarten ----------
+// ---------- Schreib-Modus ----------
+async function startWrite(){
+  window._isCards=false;
+  $('qbox').classList.add('hidden');
+  $('cardbox').classList.add('hidden');
+  $('writebox').classList.remove('hidden');
+  $('writeResult').classList.add('hidden');
+  $('wFeedback').textContent=''; $('wFeedback').className='wfb';
+  score=0; qix=0; answered=false;
+  const fl=$('fromSel'), tl=$('toSel');
+  const flTxt=(fl.value&&fl.selectedOptions[0])?fl.selectedOptions[0].textContent.replace(/^#\d+ · /,''):'';
+  const tlTxt=(tl.value&&tl.selectedOptions[0])?tl.selectedOptions[0].textContent.replace(/^#\d+ · /,''):'';
+  $('vbRange').textContent=(fl.value||tl.value)?'Bereich: '+((fl.value&&flTxt)||'Anfang')+' – '+((tl.value&&tlTxt)||'Ende'):'';
+  $('vbRange').classList.toggle('on', !!$('vbRange').textContent);
+  window._lastWrong=[];
+  const nonce=Date.now().toString(36)+Math.random().toString(36).slice(2)+performance.now().toString(36).replace(/[^a-z0-9]/g,'');
+  window._nonce=nonce;
+  const fromv=parseInt(fl.value,10)||0, tov=parseInt(tl.value,10)||0;
+  const qs=(fromv>0?`&from=${fromv}`:'')+(tov>0?`&to=${tov}`:'')+
+    `&type=${encodeURIComponent($('dirSel').value||'both')}`;
+  const u=`/api/write?book=${encodeURIComponent(book)}&kid=${encodeURIComponent(kid)}`+
+    `&chapters=${[...sel].map(s=>encodeURIComponent(s)).join(',')}&count=12&nonce=${encodeURIComponent(nonce)}${qs}`;
+  try{
+    const r=await (await fetch(u)).json();
+    if(r.error||!(r.items||[]).length){ $('wPrompt').textContent='—'; $('wMeta').textContent=r.error||'Keine Vokabeln.'; return; }
+    window._wItems=r.items;
+  }catch(e){ $('wMeta').textContent='Server nicht erreichbar.'; return; }
+  renderWrite();
+}
+function renderWrite(){
+  const items=window._wItems||[];
+  if(qix>=items.length){ writeFinish(); return; }
+  const it=items[qix];
+  answered=false;
+  $('wInput').value=''; $('wInput').className=''; $('wInput').disabled=false;
+  $('wFeedback').textContent=''; $('wFeedback').className='wfb';
+  $('wPrompt').textContent=it.prompt;
+  $('wMeta').textContent=`Schreiben ${qix+1} / ${items.length} · Ch. ${it.chapter} · ${score} richtig`;
+  $('wHint').innerHTML=it.direction==='de2en'?'Wie sagt man das auf <b>Englisch</b>?':'Was heißt das auf <b>Deutsch</b>?';
+  $('pfill').style.width=`${(qix/items.length)*100}%`;
+  setTimeout(()=>$('wInput').focus(), 60);
+}
+async function checkWrite(){
+  if(answered) return; answered=true;
+  const it=(window._wItems||[])[qix];
+  const text=$('wInput').value.trim();
+  let r;
+  try{
+    r=await (await fetch('/api/write/check',{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({kid,nonce:window._nonce,key:it.id+'|'+it.direction,text})})).json();
+  }catch(e){ r={correct:false,answer:it.prompt}; }
+  const good=!!r.correct;
+  if(good) score++; else window._lastWrong.push({qid:it.id, prompt:it.prompt, answer:r.answer||''});
+  $('wInput').className=good?'ok':'bad'; $('wInput').disabled=true;
+  $('wFeedback').className='wfb '+(good?'correct':'incorrect');
+  $('wFeedback').innerHTML=good?'✓ Richtig!':`✗ Richtig ist: <b>${esc(r.answer||'')}</b>`;
+  $('wMeta').textContent=`Schreiben ${qix+1} / ${(window._wItems||[]).length} · ${score} richtig`;
+  setTimeout(()=>{
+    qix++;
+    if(qix<(window._wItems||[]).length) renderWrite();
+    else writeFinish();
+  }, good?900:2200);
+}
+function writeFinish(){
+  const items=window._wItems||[], n=items.length;
+  $('pfill').style.width='100%';
+  $('quizState').textContent=`${score} / ${n} richtig`;
+  $('writeResult').classList.remove('hidden');
+  document.querySelector('#writebox .wq').classList.add('hidden');
+  $('wScore').textContent=`${score} / ${n}`;
+  const pct=n?Math.round(100*score/n):0;
+  $('wNote').textContent = pct>=90?'Super gemacht! 🎉':pct>=70?'Gut gemacht! 👍':'Weiter üben – du wirst immer besser! 💪';
+  const wl=$('wWrongList'), btn=$('wRetryWrong');
+  if(window._lastWrong && window._lastWrong.length){
+    wl.innerHTML='<div class="wl-head">Diese solltest du nochmal schreiben:</div>'+
+      window._lastWrong.map(w=>`<div class="wl-item"><b>${esc(w.prompt)}</b><span>${esc(w.answer)}</span></div>`).join('');
+    btn.classList.remove('hidden'); btn.textContent=`Falsche wiederholen (${window._lastWrong.length})`;
+  } else {
+    wl.innerHTML='<div class="wl-head">Alles richtig — perfekt! 🎉</div>';
+    btn.classList.add('hidden');
+  }
+}
+async function writeRetryWrong(){
+  if(!window._lastWrong||!window._lastWrong.length) return;
+  // Retry als Schreib-Runde über die gleichen IDs (neue write-Session mit Kapiteln der Fehlwörter)
+  const chapters=[...new Set(window._lastWrong.map(w=>String(w.qid).split('|')[1]))];
+  if(!chapters.length) return;
+  sel.clear(); chapters.forEach(c=>sel.add(c));
+  window._lastWrong=[];
+  await startWrite();
+}
 async function startCards(){
   window._isCards=true;
   $('qbox').classList.add('hidden');

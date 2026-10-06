@@ -13,6 +13,7 @@ import io
 import json
 import os
 import random
+import re
 import threading
 import time
 from datetime import datetime
@@ -336,6 +337,91 @@ def _parse_pairs(lines):
     return out, errors
 
 
+def _norm_text(s):
+    """Text-Normalisierung für die Schreibprüfung: lowercase, Umlaut-Translit, Layout-Müll weg."""
+    s = str(s or '').casefold().strip()
+    s = s.replace('ä', 'ae').replace('ö', 'oe').replace('ü', 'ue').replace('ß', 'ss')
+    s = re.sub(r'^\(to\)\s*', '', s)
+    s = re.sub(r'\((?:pl|no pl|AE|BE|infml|fml|usw)\)', '', s)
+    s = re.sub(r'[.,;:!?…]+$', '', s).strip()
+    s = re.sub(r'\s+', ' ', s)
+    return s
+
+
+def _levenshtein(a, b):
+    if abs(len(a) - len(b)) > 2:
+        return 3
+    prev = list(range(len(b) + 1))
+    for i, ca in enumerate(a, 1):
+        cur = [i]
+        for j, cb in enumerate(b, 1):
+            cur.append(min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + (ca != cb)))
+        prev = cur
+    return prev[-1]
+
+
+def _alternatives(answer):
+    """Übersetzung in acceptable Varianten splitten ('a, b / c; d')."""
+    parts = re.split(r'\s*[/;]\s*|\s*,\s*', str(answer or ''))
+    out = [(_norm_text(p)) for p in parts]
+    out = [p for p in out if p]
+    if not out:
+        n = _norm_text(answer)
+        if n:
+            out = [n]
+    return out
+
+
+def _written_ok(answer, text):
+    t = _norm_text(text)
+    if not t:
+        return False
+    for alt in _alternatives(answer):
+        if t == alt:
+            return True
+        # kurze Wörter: exakt; längere: 1 Tippfehler erlaubt
+        if len(alt) >= 5 and _levenshtein(t, alt) <= 1:
+            return True
+        # Wortkette: exakt gleiche Wortzahl ODER Einzelsatz-Beginn reicht nicht —
+        # Mehrwortlösungen nur exakt (oder Lev1 je Gesamtwort, oben abgedeckt)
+        alt_words, t_words = alt.split(), t.split()
+        if len(alt_words) == len(t_words) == 2 and all(
+                a == b or (min(len(a), len(b)) >= 5 and _levenshtein(a, b) <= 1)
+                for a, b in zip(alt_words, t_words)):
+            return True
+    return False
+
+
+def _make_write_session(book, kid, chapters, qtype, count, nonce, from_n=None, to_n=None):
+    """Schreib-Session: Items mit Lösung serverseitig, Frontend bekommt nur prompt+id."""
+    pool = _pool(book, chapters, from_n, to_n)
+    if not pool:
+        return None
+    picked = _weighted_pick(pool, kid, count)
+    rng = random.Random()
+    dirs = (['en2de', 'de2en'] if qtype == 'both'
+            else [qtype] if qtype in ('en2de', 'de2en')
+            else ['en2de', 'de2en'])
+    now = time.time()
+    with _lock:
+        _gc_sessions(now)
+        _sessions[nonce] = {'created': now, 'questions': {}, 'written': {}}
+    items = []
+    for i, it in enumerate(picked):
+        d = dirs[i % len(dirs)]
+        if d == 'de2en':
+            prompt, answer = it['de'], it['en']
+        else:
+            prompt, answer = it['en'], it['de']
+        key = it['qid'] + '|' + d
+        with _lock:
+            _sessions[nonce]['written'][key] = {'answer': answer, 'qid': it['qid'],
+                                                'direction': d, 'prompt': prompt}
+        items.append({'id': it['qid'], 'direction': d, 'chapter': it['num'],
+                      'pos': it['pos'], 'prompt': prompt})
+    return items
+
+
 class Handler(BaseHTTPRequestHandler):
     protocol_version = 'HTTP/1.1'
 
@@ -419,6 +505,8 @@ class Handler(BaseHTTPRequestHandler):
                 self.api_chapters(q)
             elif r == '/api/quiz':
                 self.api_quiz(q)
+            elif r == '/api/write':
+                self.api_write(q)
             elif r == '/api/cards':
                 self.api_cards(q)
             elif r == '/api/answer':
@@ -455,6 +543,8 @@ class Handler(BaseHTTPRequestHandler):
                 self.api_quiz_wrong(self._body())
             elif r == '/api/card/answer':
                 self.api_card_answer(self._body())
+            elif r == '/api/write/check':
+                self.api_write_check(self._body())
             elif r == '/api/chapter/save':
                 self.api_chapter_save(self._body())
             elif self._static():
@@ -550,6 +640,53 @@ class Handler(BaseHTTPRequestHandler):
                 wrongs.append(entry)
         _record(kid, qid, correct)
         self._json({'correct': correct, 'answer': question['answer'], 'ok': True})
+
+    def api_write(self, q):
+        """Schreib-Session starten (gleiche Parameter wie /api/quiz, GET)."""
+        book = (q.get('book') or [''])[0]
+        kid = (q.get('kid') or [''])[0]
+        nonce = (q.get('nonce') or [''])[0]
+        chapters = {c for c in ((q.get('chapters') or [''])[0].split(',')) if c}
+        qtype = (q.get('type') or ['both'])[0]
+        from_n = to_n = None
+        try:
+            from_n = int((q.get('from') or [''])[0] or 0) or None
+            to_n = int((q.get('to') or [''])[0] or 0) or None
+        except ValueError:
+            pass
+        if from_n and to_n and from_n > to_n:
+            from_n, to_n = to_n, from_n
+        if book not in _book_ids() or not _kid_ok(kid) or not (6 <= len(nonce) <= 64) or not chapters:
+            self._json({'error': 'Parameter fehlen'}, 400)
+            return
+        items = _make_write_session(book, kid, chapters, qtype, (q.get('count') or ['12'])[0], nonce, from_n, to_n)
+        if items is None:
+            self._json({'error': 'Keine Vokabeln in diesem Bereich'}, 404)
+            return
+        self._json({'book': book, 'kid': kid, 'mode': 'write', 'items': items})
+
+    def api_write_check(self, body):
+        """Antwort im Schreibmodus prüfen {kid,nonce,key,text}."""
+        kid = _norm(body.get('kid'))
+        nonce = _norm(body.get('nonce'))
+        key = _norm(body.get('key'))
+        text = _norm(body.get('text'))
+        if not _kid_ok(kid) or not (6 <= len(nonce) <= 64) or not key:
+            self._json({'error': 'Parameter fehlen'}, 400)
+            return
+        sess = _sessions.get(nonce)
+        entry = sess.get('written', {}).get(key) if sess else None
+        if entry is None:
+            self._json({'error': 'Schreib-Sitzung abgelaufen – bitte neu starten'}, 404)
+            return
+        correct = _written_ok(entry['answer'], text)
+        if not correct:
+            wrongs = sess.setdefault('wrong', [])
+            if not any(w.get('qid') == entry['qid'] for w in wrongs):
+                wrongs.append({'qid': entry['qid'], 'prompt': entry.get('prompt', ''),
+                               'answer': entry['answer'], 'direction': entry['direction']})
+        _record(kid, entry['qid'], correct)
+        self._json({'correct': correct, 'answer': entry['answer'], 'ok': True})
 
     def api_cards(self, q):
         """Karteikarten-Stapel (gleiche Auswahl-Parameter wie /api/quiz)."""
