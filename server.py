@@ -203,16 +203,13 @@ def _build_question(item, dpool, direction, rng):
     }
 
 
-def _make_quiz(book, kid, chapters, qtype, count, nonce, from_n=None, to_n=None):
-    pool = _pool(book, chapters, from_n, to_n)
+def _quiz_core(pool, dpool, kid, qtype, count, nonce):
+    """Gemeinsame Quiz-Erzeugung: Gewichtung, Session, Fragen bauen."""
     if not pool:
         return None
-    # Distraktor-Pool: die KAPITEL ungefiltert (auch bei Bereich 1–1 volle 4 Optionen)
-    dpool = _pool(book, chapters)
     st = _stats()
     seen_map = st['kid_seen'].get(kid, {})
     rng = random.Random()
-
     now = time.time()
     with _lock:
         _gc_sessions(now)
@@ -234,7 +231,6 @@ def _make_quiz(book, kid, chapters, qtype, count, nonce, from_n=None, to_n=None)
     dirs = (['en2de', 'de2en'] if qtype == 'both'
             else [qtype] if qtype in ('en2de', 'de2en')
             else ['en2de', 'de2en'])
-
     out = []
     for i, (_w, _r, item) in enumerate(scored[:count]):
         d = dirs[i % len(dirs)]
@@ -243,6 +239,39 @@ def _make_quiz(book, kid, chapters, qtype, count, nonce, from_n=None, to_n=None)
             _sessions[nonce]['questions'][q['id'] + '|' + d] = q
         out.append({k: q[k] for k in ('id', 'direction', 'chapter', 'pos', 'prompt', 'choices')})
     return out
+
+
+def _make_quiz(book, kid, chapters, qtype, count, nonce, from_n=None, to_n=None):
+    pool = _pool(book, chapters, from_n, to_n)
+    if not pool:
+        return None
+    # Distraktor-Pool: die KAPITEL ungefiltert (auch bei Bereich 1–1 volle 4 Optionen)
+    dpool = _pool(book, chapters)
+    return _quiz_core(pool, dpool, kid, qtype, count, nonce)
+
+
+def _make_wrong_quiz(book, kid, nonce):
+    """Wiederholungs-Quiz: die in der letzten Session falsch beantworteten Vokabeln."""
+    sess = _sessions.get(nonce)
+    wrongs = list(sess.get('wrong', [])) if sess else []
+    if not wrongs:
+        return None
+    by_ch = {}
+    chapters = set()
+    for w in wrongs:
+        p = str(w.get('qid', '')).split('|')
+        if len(p) < 3:
+            continue
+        chapters.add(p[1])
+    if not chapters:
+        return None
+    pool_all = _pool(book, chapters)
+    by_qid = {it['qid']: it for it in pool_all}
+    pool = [by_qid[w['qid']] for w in wrongs if w.get('qid') in by_qid]
+    if not pool:
+        return None
+    dpool = _pool(book, chapters)
+    return _quiz_core(pool, dpool, kid, 'both', len(pool), nonce)
 
 
 def _record(kid, qid, correct):
@@ -343,6 +372,8 @@ class Handler(BaseHTTPRequestHandler):
                 self.api_answer(q, {})
             elif r == '/api/stats':
                 self.api_stats(q)
+            elif r == '/api/report':
+                self.api_report(q)
             elif r == '/api/export':
                 self.api_export(q)
             elif r == '/api/words':
@@ -367,6 +398,8 @@ class Handler(BaseHTTPRequestHandler):
         try:
             if r == '/api/answer':
                 self.api_answer(parse_qs(u.query), self._body())
+            elif r == '/api/quiz/wrong':
+                self.api_quiz_wrong(self._body())
             elif r == '/api/chapter/save':
                 self.api_chapter_save(self._body())
             elif self._static():
@@ -454,8 +487,27 @@ class Handler(BaseHTTPRequestHandler):
         except (TypeError, ValueError):
             idx = -1
         correct = 0 <= idx < len(question['choices']) and question['choices'][idx] == question['answer']
+        if not correct and sess is not None:
+            entry = {'qid': qid, 'prompt': question['prompt'], 'answer': question['answer'],
+                     'direction': direction}
+            wrongs = sess.setdefault('wrong', [])
+            if not any(w.get('qid') == qid for w in wrongs):
+                wrongs.append(entry)
         _record(kid, qid, correct)
         self._json({'correct': correct, 'answer': question['answer'], 'ok': True})
+
+    def api_quiz_wrong(self, body):
+        book = _norm(body.get('book'))
+        kid = _norm(body.get('kid'))
+        nonce = _norm(body.get('nonce'))
+        if book not in _book_ids() or not _kid_ok(kid) or not (6 <= len(nonce) <= 64):
+            self._json({'error': 'Parameter fehlen'}, 400)
+            return
+        qs = _make_wrong_quiz(book, kid, nonce)
+        if qs is None:
+            self._json({'error': 'Keine falschen Vokabeln in dieser Runde'}, 404)
+            return
+        self._json({'book': book, 'kid': kid, 'kind': 'wrong', 'questions': qs})
 
     def api_stats(self, q):
         kid = (q.get('kid') or [''])[0]
@@ -480,6 +532,59 @@ class Handler(BaseHTTPRequestHandler):
         self.send_header('Content-Length', str(len(body)))
         self.end_headers()
         self.wfile.write(body)
+
+    def api_report(self, q):
+        """Auswertung pro Kind: Gesamtzahlen je Kapitel + Problemwörter (Streak 0, ≥2 Versuche)."""
+        kid = (q.get('kid') or [''])[0]
+        if not _kid_ok(kid):
+            self._json({'error': 'kid unbekannt'}, 400)
+            return
+        book = (q.get('book') or [''])[0]
+        st = _stats()
+        agg = _chapter_stats(st, kid)
+        seen = st['kid_seen'].get(kid, {})
+
+        # Problemwörter: zuletzt falsch oder nie richtig bei mind. 2 Versuchen
+        problems = []
+        # Index über alle Bücher/Chapters für en/de-Auflösung
+        words_by_qid = {}
+        books = [book] if book in _book_ids() else [b['id'] for b in BOOKS]
+        for b in books:
+            for ch in _qdata(b)['chapters']:
+                chnum = str(ch.get('num'))
+                for pos, w in enumerate(ch.get('words') or [], 1):
+                    if isinstance(w, (list, tuple)) and len(w) >= 2 and _norm(w[0]) and _norm(w[1]):
+                        qid = f'{b}|{chnum}|{_norm(w[0]).casefold()}'
+                        words_by_qid.setdefault(qid, {'en': _norm(w[0]), 'de': _norm(w[1]),
+                                                      'chapter': chnum, 'pos': pos, 'book': b})
+        for qid, s in seen.items():
+            n = int(s.get('n', 0) or 0)
+            right = int(s.get('s', 0) or 0)
+            streak = int(s.get('streak', 0) or 0)
+            if n >= 2 and (streak == 0 or right == 0):
+                info = words_by_qid.get(qid)
+                if info:
+                    problems.append({'qid': qid, 'en': info['en'], 'de': info['de'],
+                                     'chapter': info['chapter'], 'n': n, 'right': right,
+                                     'pct': round(100 * right / n), 'last': s.get('last', '')})
+        problems.sort(key=lambda p: (p['pct'], -p['n'], p['en']))
+
+        by_chapter = []
+        data = _qdata(books[0]) if len(books) == 1 else None
+        for akey, a in sorted(agg.items(), key=lambda kv: kv[0]):
+            bp, cn = akey.split('|', 1)
+            if len(books) > 1 and bp not in books:
+                continue
+            total = 0
+            if data and cn:
+                for ch in data['chapters']:
+                    if str(ch.get('num')) == cn:
+                        total = len(ch.get('words') or [])
+                        break
+            by_chapter.append({'chapter': cn, 'n': a['n'], 'right': a['right'],
+                               'pct': round(100 * a['right'] / a['n']) if a['n'] else 0,
+                               'streak': a['streak'], 'total': total})
+        self._json({'kid': kid, 'chapters': by_chapter, 'problems': problems[:60]})
 
     def api_words(self, q):
         """Wortlisten je Kapitel mit Positions-Index (Sichtprüfung/Tests)."""

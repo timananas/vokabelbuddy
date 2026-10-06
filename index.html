@@ -76,6 +76,25 @@ h2{font-size:1.05rem; margin:18px 0 10px}
 .res-actions button{flex:1; border:1px solid var(--line); background:var(--card); color:var(--ink);
   border-radius:12px; padding:13px; font-weight:700; cursor:pointer; font-size:.95rem}
 .res-actions .primary{background:var(--accent); border-color:var(--accent); color:#fff}
+.wronglist{margin-top:14px; display:flex; flex-direction:column; gap:6px}
+.wronglist .wl-head{font-size:.85rem; font-weight:700; color:var(--muted); margin-bottom:2px}
+.wl-item{display:flex; justify-content:space-between; gap:10px; border:1px solid var(--line);
+  background:var(--card); border-radius:10px; padding:8px 12px; font-size:.9rem}
+.wl-item b{font-weight:700}
+.wl-item span{color:var(--muted); text-align:right}
+/* Auswertung */
+.report{background:var(--card); border:1.5px solid var(--line); border-radius:12px; padding:14px; margin-top:12px}
+.report h3{margin:0 0 10px; font-size:1rem}
+.rp-line{display:flex; justify-content:space-between; align-items:center; gap:10px; padding:7px 0; border-bottom:1px solid var(--line); font-size:.92rem}
+.rp-line:last-child{border-bottom:0}
+.rp-bar{height:6px; background:var(--chip); border-radius:99px; overflow:hidden; flex:1; max-width:180px}
+.rp-bar>div{height:100%; background:var(--accent)}
+.rp-bar.poor>div{background:#d9534f}
+.rp-bar.mid>div{background:var(--accent)}
+.probs{display:flex; flex-direction:column; gap:4px; margin-top:4px}
+.probs .p{font-size:.88rem; padding:6px 10px; background:var(--bad); color:var(--bad-ink); border-radius:8px}
+.iconbtn{border:1px solid var(--line); background:var(--card); color:var(--ink); width:34px; height:34px;
+  border-radius:50%; font-size:1rem; cursor:pointer; display:grid; place-items:center; flex:none}
 /* Admin */
 .overlay{position:fixed; inset:0; background:rgba(10,14,24,.55); display:grid; place-items:center; padding:16px; z-index:50}
 .modal{background:var(--card); border-radius:14px; padding:18px; width:100%; max-width:480px; max-height:90vh; overflow:auto}
@@ -100,7 +119,10 @@ h2{font-size:1.05rem; margin:18px 0 10px}
 <main>
   <div class="row" style="justify-content:space-between">
     <h1>📚 Vokabelbuddy</h1>
-    <button class="iconbtn" id="adminBtn" title="Vokabeln verwalten">⚙️</button>
+    <div style="display:flex; gap:8px">
+      <button class="iconbtn" id="reportBtn" title="Auswertung">📊</button>
+      <button class="iconbtn" id="adminBtn" title="Vokabeln verwalten">⚙️</button>
+    </div>
   </div>
   <p class="sub" id="subtitle">Wähle, wer übt</p>
   <div class="row kids" id="kids"></div>
@@ -117,6 +139,14 @@ h2{font-size:1.05rem; margin:18px 0 10px}
       <select id="toSel" style="max-width:230px"></select>
       <button id="rbClear" class="back" style="padding:7px 10px">✕ Ganzes Kapitel</button>
     </div>
+    <div class="rangebox" style="margin-top:8px">
+      <span class="rb-label">Richtung</span>
+      <select id="dirSel">
+        <option value="both">Gemischt</option>
+        <option value="en2de">Englisch → Deutsch</option>
+        <option value="de2en">Deutsch → Englisch</option>
+      </select>
+    </div>
     <button class="start" id="startBtn" disabled>Vokabeln üben</button>
   </section>
 
@@ -132,11 +162,23 @@ h2{font-size:1.05rem; margin:18px 0 10px}
       <div class="res-big"><div class="score" id="resScore"></div><div class="res-note" id="resNote"></div></div>
       <div class="res-actions">
         <button id="againBtn">Nochmal üben</button>
-        <button class="primary" id="homeBtn">Fertig</button>
+        <button class="primary" id="retryWrongBtn">Falsche wiederholen</button>
+        <button id="homeBtn">Fertig</button>
       </div>
+      <div id="wrongList" class="wronglist"></div>
     </div>
   </section>
 </main>
+
+<div class="overlay hidden" id="reportOverlay">
+  <div class="modal">
+    <h3 id="rpTitle">Auswertung</h3>
+    <div id="rpBody"></div>
+    <div class="mrow">
+      <button class="mcancel" id="rpClose">Schließen</button>
+    </div>
+  </div>
+</div>
 
 <div class="overlay hidden" id="adminOverlay">
   <div class="modal">
@@ -185,7 +227,9 @@ async function init(){
   $('startBtn').onclick=startQuiz;
   $('quitBtn').onclick=()=>{ mode='home'; show('viewHome','viewQuiz'); loadChapters(); };
   $('homeBtn').onclick=()=>{ mode='home'; show('viewHome','viewQuiz'); loadChapters(); };
-  $('againBtn').onclick=()=>{ $('result').classList.add('hidden'); $('qbox').classList.remove('hidden'); runQuiz(); };
+  $('againBtn').onclick=()=>{ $('result').classList.add('hidden'); $('qbox').classList.remove('hidden'); startQuiz(); };
+  $('retryWrongBtn').onclick=retryWrong;
+  $('reportBtn').onclick=openReport;
   document.addEventListener('keydown',e=>{
     if(mode!=='quiz'||answered) return;
     const i='1234'.indexOf(e.key);
@@ -194,6 +238,10 @@ async function init(){
   show('viewHome','viewQuiz');
   $('fromSel').addEventListener('change',applyRange);
   $('toSel').addEventListener('change',applyRange);
+  $('dirSel').value=localStorage.getItem('vb_dir')||'both';
+  $('dirSel').addEventListener('change',()=>{
+    localStorage.setItem('vb_dir',$('dirSel').value);
+  });
   $('rbClear').onclick=()=>{ $('fromSel').value=''; $('toSel').value=''; applyRange(); };
   loadChapters();
 }
@@ -294,12 +342,14 @@ async function startQuiz(){
   const tlTxt=(tl.value&&tl.selectedOptions[0])?tl.selectedOptions[0].textContent.replace(/^#\d+ · /,''):'';
   $('vbRange').textContent=(fl.value||tl.value)?'Bereich: '+((fl.value&&flTxt)||'Anfang')+' – '+((tl.value&&tlTxt)||'Ende'):'';
   $('vbRange').classList.toggle('on', !!$('vbRange').textContent);
+  window._lastWrong=[];
   // crypto.randomUUID gibt es nur in Secure Contexts (HTTPS/localhost) – im LAN-HTTP fehlt es!
   const nonce=Date.now().toString(36)+Math.random().toString(36).slice(2)+performance.now().toString(36).replace(/[^a-z0-9]/g,'');
   const fromv=parseInt($('fromSel').value,10)||0, tov=parseInt($('toSel').value,10)||0;
-  const qs=(fromv>0?`&from=${fromv}`:'')+(tov>0?`&to=${tov}`:'');
+  const qs=(fromv>0?`&from=${fromv}`:'')+(tov>0?`&to=${tov}`:'')+
+    `&type=${encodeURIComponent($('dirSel').value||'both')}`;
   const u=`/api/quiz?book=${encodeURIComponent(book)}&kid=${encodeURIComponent(kid)}`+
-    `&chapters=${[...sel].map(s=>encodeURIComponent(s)).join(',')}&type=both&count=12&nonce=${encodeURIComponent(nonce)}${qs}`;
+    `&chapters=${[...sel].map(s=>encodeURIComponent(s)).join(',')}&count=12&nonce=${encodeURIComponent(nonce)}${qs}`;
   try{ quiz=await (await fetch(u)).json(); }
   catch(e){ $('qbox').innerHTML='<p class="sub">Server nicht erreichbar.</p>'; return; }
   if(quiz.error||!(quiz.questions||[]).length){
@@ -332,6 +382,10 @@ async function answer(i,btn,q){
   catch(e){ r={correct:false,answer:q.answer}; }
   const good=!!r.correct;
   if(good) score++;
+  else {
+    window._lastWrong.push({qid:q.id, prompt:q.prompt, answer:r.answer||q.answer});
+    if(!window._nonceRetry) window._lastWrong=window._lastWrong.slice(-20);
+  }
   for(const b of document.querySelectorAll('#qbox .choice')){
     b.disabled=true;
     if(parseInt(b.dataset.i,10)===i) b.classList.add(good?'ok':'bad');
@@ -351,7 +405,54 @@ function finishQuiz(){
   $('result').classList.remove('hidden'); $('qbox').classList.add('hidden');
   $('resScore').textContent=`${score} / ${n}`;
   $('resNote').textContent = pct>=90?'Super gemacht! 🎉':pct>=70?'Gut gemacht! 👍':'Weiter üben – du wirst immer besser! 💪';
+  // Zusammenfassung: falsche Vokabeln auflisten
+  const wl=$('wrongList');
+  if(window._lastWrong && window._lastWrong.length){
+    wl.innerHTML='<div class="wl-head">Diese solltest du nochmal ansehen:</div>'+
+      window._lastWrong.map(w=>`<div class="wl-item"><b>${esc(w.prompt)}</b><span>${esc(w.answer)}</span></div>`).join('');
+    $('retryWrongBtn').classList.remove('hidden');
+    $('retryWrongBtn').textContent=`Falsche wiederholen (${window._lastWrong.length})`;
+  } else {
+    wl.innerHTML='<div class="wl-head">Alles richtig — perfekt! 🎉</div>';
+    $('retryWrongBtn').classList.add('hidden');
+  }
 }
+async function retryWrong(){
+  if(!window._lastWrong||!window._lastWrong.length) return;
+  try{
+    const r=await (await fetch('/api/quiz/wrong',{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({book,kid,nonce:window._nonce})})).json();
+    if(r.error||!(r.questions||[]).length){ $('resNote').textContent=r.error||'Keine falschen mehr offen.'; return; }
+    quiz=r; window._lastWrong=[]; score=0; qix=0; answered=false;
+    $('result').classList.add('hidden'); $('qbox').classList.remove('hidden');
+    $('wrongList').innerHTML='';
+    renderQ();
+  }catch(e){ $('resNote').textContent='Server nicht erreichbar.'; }
+}
+
+// ---------- Auswertung ----------
+async function openReport(){
+  $('rpTitle').textContent='Auswertung – '+((META.kids.find(k=>k.id===kid)||{}).name||'');
+  $('rpBody').innerHTML='<p class="sub" style="margin:0">Lade …</p>';
+  $('reportOverlay').classList.remove('hidden');
+  try{
+    const r=await (await fetch(`/api/report?kid=${encodeURIComponent(kid)}&book=${encodeURIComponent(book)}`)).json();
+    if(r.error){ $('rpBody').innerHTML=`<p class="sub" style="margin:0">${esc(r.error)}</p>`; return; }
+    const ch=(r.chapters||[]).map(c=>{
+      const cls=c.pct<60?'poor':(c.pct<85?'mid':'');
+      return `<div class="rp-line"><span><b>Unit ${esc(c.chapter)}</b>${c.total?` <small style="color:var(--muted)">(${esc(c.total)} Vokabeln)</small>`:''}</span>
+        <div class="rp-bar ${cls}"><div style="width:${c.pct}%"></div></div>
+        <span style="min-width:86px; text-align:right">${c.pct}% · ${c.n}× </span></div>`;
+    }).join('');
+    const pr=(r.problems||[]).map(p=>`<div class="p"><b>${esc(p.en)}</b> = ${esc(p.de)} <small>(${p.pct}% von ${p.n} Versuchen, U${esc(p.chapter)})</small></div>`).join('');
+    $('rpBody').innerHTML=
+      (ch?`<h3 style="margin:14px 0 6px">Kapitel-Quote</h3>${ch}`:'<p class="sub" style="margin:8px 0">Noch nichts geübt.</p>')+
+      (pr?`<h3 style="margin:14px 0 6px">Problemwörter</h3><div class="probs">${pr}</div>`:'');
+  }catch(e){
+    $('rpBody').innerHTML='<p class="sub" style="margin:0">Server nicht erreichbar.</p>';
+  }
+}
+$('rpClose').onclick=()=>$('reportOverlay').classList.add('hidden');
 
 // ---------- Admin ----------
 function openAdmin(){
