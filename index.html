@@ -339,6 +339,27 @@ body{overflow-x:hidden}
 <script>
 'use strict';
 const $=id=>document.getElementById(id);
+// ---- AUTH: 401 -> Login; Setup-Fall -> Setup-Seite ----
+window._authChecked = false;
+(async function(){
+  try{
+    const r = await fetch('/api/meta');
+    if(r.status===401){ location.href='/login'; return; }
+    const m = await r.json();
+    // meta liefert NUR wenn auth ok — kein auth-Feld nötig
+  }catch(e){ /* Server nicht erreichbar — init() zeigt es */ }
+  window._authChecked = true;
+})();
+const _origFetch = window.fetch;
+window.fetch = function(...args){
+  const p = _origFetch.apply(this, args);
+  return p.then(resp => {
+    if(resp.status===401) { location.href='/login'; }
+    else if(resp.status===403){ /* kein Login-Zwang */ }
+    return resp;
+  });
+};
+
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 let META=null, book=localStorage.getItem('vb_book')||'access1', kid=localStorage.getItem('vb_kid')||'';
 let chapters=[], sel=new Set(), mode='home'; // home|quiz

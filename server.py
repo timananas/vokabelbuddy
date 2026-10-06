@@ -9,16 +9,21 @@ Session-Cache (nonce -> Fragen mit Lösungen, TTL 2h) – Lösungen liegen nie
 im ausgelieferten Quiz.
 """
 import csv
+import base64
+import hashlib
+import hmac
 import io
 import json
 import os
 import random
 import re
+import secrets
+import struct
 import threading
 import time
 from datetime import datetime
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
-from urllib.parse import parse_qs, urlparse
+from urllib.parse import parse_qs, urlparse, urlunparse
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = '/app/data' if os.path.isdir('/app/data') else os.path.join(ROOT, 'data')
@@ -45,6 +50,261 @@ _sessions = {}  # nonce -> {'created': ts, 'questions': {f'{qid}|{direction}': q
 
 SESSION_TTL_S = 2 * 3600
 MAX_SESSIONS = 500
+
+# ----------------- AUTH (Passwort + TOTP, Planbrett-Muster) -----------------
+AUTH_PATH = os.path.join(DATA_DIR, 'auth.json')
+SESSION_COOKIE = 'vb_sess'
+TRUST_COOKIE = 'vb_trust'
+MFA_COOKIE = 'vb_mfa'
+SESSION_TTL = 12 * 3600
+TRUST_TTL = 30 * 86400
+MFA_PENDING_TTL = 300
+LOGIN_FAILS = {}  # ip -> [timestamps]
+AUTH_MEM = {'password_hash': None, 'salt': None, 'totp_secret': None, 'totp_enabled': False,
+            'trusted': {}, 'sessions': {}, 'mfa_pending': {}}
+
+
+def _b64(s):
+    return base64.urlsafe_b64encode(s).decode().rstrip('=')
+
+
+def _pbkdf2(password, salt):
+    return hashlib.pbkdf2_hmac('sha256', password.encode(), bytes(salt), 200_000).hex()
+
+
+def auth_load():
+    try:
+        with open(AUTH_PATH, 'r') as f:
+            d = json.load(f)
+        AUTH_MEM['password_hash'] = d.get('password_hash')
+        AUTH_MEM['salt'] = d.get('salt')
+        AUTH_MEM['totp_secret'] = d.get('totp_secret')
+        AUTH_MEM['totp_enabled'] = bool(d.get('totp_enabled'))
+        AUTH_MEM['trusted'] = {str(k): v for k, v in (d.get('trusted') or {}).items()
+                               if float(v) > time.time()}
+    except Exception:
+        AUTH_MEM.update({'password_hash': None, 'salt': None, 'totp_secret': None,
+                         'totp_enabled': False, 'trusted': {}})
+
+
+def auth_save():
+    with _lock:
+        d = {'password_hash': AUTH_MEM['password_hash'], 'salt': AUTH_MEM['salt'],
+             'totp_secret': AUTH_MEM['totp_secret'], 'totp_enabled': AUTH_MEM['totp_enabled'],
+             'trusted': {k: v for k, v in AUTH_MEM['trusted'].items() if float(v) > time.time()}}
+        tmp = AUTH_PATH + '.tmp'
+        with open(tmp, 'w') as f:
+            json.dump(d, f)
+        os.replace(tmp, AUTH_PATH)
+        try:
+            os.chmod(AUTH_PATH, 0o600)
+        except OSError:
+            pass
+
+
+def auth_has_password():
+    return bool(AUTH_MEM.get('password_hash'))
+
+
+def _totp_now(secret, t=None):
+    """RFC 6238 (8 digits, Planbrett-kompatibel)"""
+    t = int(t if t is not None else time.time()) // 30
+    key = base64.b32decode(secret + '=' * ((8 - len(secret) % 8) % 8), casefold=True)
+    msg = struct.pack('>Q', t)
+    dig = hmac.new(key, msg, hashlib.sha1).digest()
+    o = dig[19] & 0x0f
+    code = (struct.unpack('>I', dig[o:o + 4])[0] & 0x7fffffff) % 1_000_000_00
+    return f'{code:08d}'
+
+
+def totp_verify(secret, code):
+    if not secret or not code:
+        return False
+    code = re.sub(r'[^0-9]', '', str(code))
+    t = time.time()
+    return any(_totp_now(secret, t + off) == code for off in (-30, 0, 30))
+
+
+def _check_trust_token(tok):
+    if not tok:
+        return False
+    exp = AUTH_MEM['trusted'].get(tok)
+    if not exp or float(exp) < time.time():
+        return False
+    return True
+
+
+def _new_token():
+    return secrets.token_urlsafe(32)
+
+
+def _set_cookie(name, value, max_age, path='/'):
+    parts = [f'{name}={value}', 'Path=' + path, f'Max-Age={max_age}',
+             'HttpOnly', 'SameSite=Lax']
+    return '; '.join(parts)
+
+
+# ----------------- AUTH: Seiten + Gate -----------------
+PUBLIC_GET = {'/api/health', '/login', '/mfa', '/setup', '/auth/state'}
+PUBLIC_POST = {'/login', '/mfa', '/setup'}
+
+
+class _AuthGateMixin:
+    """Mixin in Handler: Cookies + Gate-Entscheidung."""
+
+    def _cookies(self):
+        raw = self.headers.get('Cookie') or ''
+        out = {}
+        for part in raw.split(';'):
+            if '=' in part:
+                k, v = part.split('=', 1)
+                out[k.strip()] = v.strip()
+        return out
+
+    def _is_authed(self):
+        ck = self._cookies()
+        sess = ck.get(SESSION_COOKIE)
+        sessions = AUTH_MEM.setdefault('sessions', {})
+        if sess and sess in sessions and time.time() < sessions[sess]['exp']:
+            return True
+        # Trust-Cookie (Gerät vertraut) genügt — Session still ausstellen
+        if sess and _check_trust_token(ck.get(TRUST_COOKIE)):
+            sessions[sess] = {'exp': time.time() + SESSION_TTL}
+            return True
+        return False
+
+    def _auth_redirect(self, to):
+        self.send_response(303)
+        self.send_header('Location', to)
+        self.send_header('Content-Length', '0')
+        self.end_headers()
+
+    def _client_ip(self):
+        try:
+            return self.client_address[0]
+        except Exception:
+            return '?'
+
+    def _rate_limited(self, ip):
+        now = time.time()
+        fails = [t for t in LOGIN_FAILS.get(ip, []) if now - t < 900]
+        LOGIN_FAILS[ip] = fails
+        return len(fails) >= 5
+
+    def _record_fail(self, ip):
+        LOGIN_FAILS.setdefault(ip, []).append(time.time())
+
+    def _auth_gate(self, r):
+        """False = bereits geantwortet (Login-Seite/401), True = weiter."""
+        if not auth_has_password():
+            return True  # Setup-Modus offen
+        pub = PUBLIC_GET if self.command in ('GET', 'HEAD') else PUBLIC_POST
+        if r in pub:
+            return True
+        if self._is_authed():
+            return True
+        if r.startswith('/api/'):
+            self._json({'auth': True}, 401)
+            return False
+        self._auth_redirect('/login')
+        return False
+
+
+def _page(self, body, code=200, extra_headers=None):
+    self.send_response(code)
+    self.send_header('Content-Type', 'text/html; charset=utf-8')
+    self.send_header('Content-Length', str(len(body)))
+    self.send_header('Cache-Control', 'no-store')
+    self.send_header('X-Content-Type-Options', 'nosniff')
+    for k, v in (extra_headers or []):
+        self.send_header(k, v)
+    self.end_headers()
+    if self.command != 'HEAD':
+        if isinstance(body, str):
+            body = body.encode('utf-8')
+        self.wfile.write(body)
+
+
+_AUTH_CSS = ('body{font-family:system-ui,sans-serif;background:#141822;color:#e8ebf4;'
+             'display:grid;place-items:center;min-height:100vh;margin:0}'
+             '.card{background:#1d2331;border-radius:14px;padding:24px;width:min(340px,90vw)}'
+             'h1{font-size:1.2rem;margin:0 0 14px}'
+             'input{width:100%;box-sizing:border-box;padding:11px;border-radius:9px;'
+             'border:1.5px solid #2b3345;background:#141822;color:#e8ebf4;font-size:1rem;margin:6px 0}'
+             'button{width:100%;padding:11px;border:0;border-radius:9px;background:#3a6df0;'
+             'color:#fff;font-weight:700;cursor:pointer;margin-top:8px}'
+             '.msg{color:#ef9f9e;font-size:.9rem}.chk{display:flex;gap:8px;align-items:center;'
+             'font-size:.86rem;color:#8d94a8;margin-top:10px}')
+_AUTH_WRAP = ('<!DOCTYPE html><html lang="de"><head><meta charset="utf-8">'
+              '<meta name="viewport" content="width=device-width, initial-scale=1">'
+              '<title>{t}</title><style>' + _AUTH_CSS + '</style></head><body>'
+              '<div class="card">{b}</div></body></html>')
+
+
+def _setup_html(msg=''):
+    warn = f'<p class="msg">{msg}</p>' if msg else ''
+    body = ('<h1>📚 Vokabelbuddy – Kennwort festlegen</h1>'
+            '<form method="POST" action="/setup">' + warn +
+            '<input type="password" name="password" placeholder="Kennwort (mind. 8 Zeichen)" autofocus>'
+            '<input type="password" name="password2" placeholder="Kennwort wiederholen">'
+            '<button>Kennwort speichern</button>'
+            '<p class="hint" style="color:#8d94a8;font-size:.83rem">Schützt den Trainer '
+            'und die Auswertung im Heimnetz.</p></form>')
+    return _AUTH_WRAP.replace('{t}', 'Vokabelbuddy – Einrichtung').replace('{b}', body)
+
+
+def _login_html(msg=''):
+    warn = f'<p class="msg">{msg}</p>' if msg else ''
+    body = ('<h1>📚 Vokabelbuddy</h1>'
+            '<form method="POST" action="/login">' + warn +
+            '<input type="password" name="password" placeholder="Kennwort" autofocus>'
+            '<label class="chk"><input type="checkbox" name="trust" value="1" checked> '
+            'Diesem Gerät 30 Tage vertrauen</label>'
+            '<button>Anmelden</button></form>')
+    return _AUTH_WRAP.replace('{t}', 'Vokabelbuddy – Login').replace('{b}', body)
+
+
+def _mfa_html(msg=''):
+    warn = f'<p class="msg">{msg}</p>' if msg else ''
+    body = ('<h1>🔐 Prüfcode eingeben</h1>'
+            '<form method="POST" action="/mfa">' + warn +
+            '<input type="text" name="code" inputmode="numeric" pattern="[0-9]*" '
+            'autocomplete="one-time-code" autofocus maxlength="6" '
+            'style="font-size:1.2rem;letter-spacing:.35em;text-align:center">'
+            '<button>Weiter</button></form>')
+    return _AUTH_WRAP.replace('{t}', 'Vokabelbuddy – Code').replace('{b}', body)
+
+
+def _mfa_setup_html(secret, msg=''):
+    warn = f'<p class="msg">{msg}</p>' if msg else ''
+    body = ('<h1>🔐 Zwei-Faktor einrichten</h1>'
+            '<p style="color:#8d94a8;font-size:.86rem">Diesen Schlüssel in deiner '
+            'Authenticator-App eintragen („Anderes Konto“ bzw. „+“):</p>'
+            f'<p style="font-family:monospace;font-size:1.15rem;letter-spacing:.12em;'
+            f'background:#141822;padding:10px;border-radius:9px;text-align:center">{secret}</p>'
+            '<form method="POST" action="/mfa/confirm">' + warn +
+            '<input type="text" name="code" inputmode="numeric" pattern="[0-9]*" '
+            'maxlength="6" placeholder="6-stelliger Code aus der App" '
+            'style="text-align:center;letter-spacing:.2em">'
+            '<button>Bestätigen & aktivieren</button></form>')
+    return _AUTH_WRAP.replace('{t}', 'Vokabelbuddy – MFA').replace('{b}', body)
+
+
+def _gc_mfa_pending():
+    now = time.time()
+    pend = AUTH_MEM.get('mfa_pending', {})
+    for k in [k for k, v in pend.items() if now - v.get('ts', 0) > MFA_PENDING_TTL]:
+        pend.pop(k, None)
+
+
+def _gc_sessions_auth():
+    now = time.time()
+    sessions = AUTH_MEM.get('sessions', {})
+    for k in [k for k, v in sessions.items() if time.time() > v['exp']]:
+        sessions.pop(k, None)
+
+
+auth_load()
 
 
 def _gc_sessions(now):
@@ -511,7 +771,7 @@ def _make_write_session(book, kid, chapters, qtype, count, nonce, from_n=None, t
     return items
 
 
-class Handler(BaseHTTPRequestHandler):
+class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
     protocol_version = 'HTTP/1.1'
 
     def log_message(self, fmt, *args):
@@ -585,6 +845,26 @@ class Handler(BaseHTTPRequestHandler):
         q = parse_qs(u.query)
         r = u.path
         try:
+            # ---- AUTH-GATE ----
+            if r == '/setup' and not auth_has_password():
+                _page(self, _setup_html())
+                return
+            if r == '/auth/state':
+                sess = self._cookies().get(SESSION_COOKIE)
+                AUTH_MEM.setdefault('sessions', {})
+                if auth_has_password() is False:
+                    self._json({'auth': False, 'setup': True})
+                elif self._is_authed():
+                    self._json({'auth': True, 'mfa': AUTH_MEM.get('totp_enabled', False)})
+                else:
+                    self._json({'auth': True}, 401)
+                return
+            if not self._auth_gate(r):
+                return
+            if auth_has_password() is False:
+                # Setup-Modus: App nur als Hinweisseite
+                self._auth_redirect('/setup')
+                return
             if r == '/api/health':
                 self._json({'ok': True, 'version': VERSION})
             elif r == '/api/meta':
@@ -608,6 +888,46 @@ class Handler(BaseHTTPRequestHandler):
                 self.api_export(q)
             elif r == '/api/words':
                 self.api_words(q)
+            elif r == '/login':
+                if self._is_authed():
+                    self._auth_redirect('/')
+                    return
+                _page(self, _login_html())
+            elif r == '/mfa':
+                ck = self._cookies()
+                pend = AUTH_MEM.get('mfa_pending', {})
+                tok = ck.get(MFA_COOKIE)
+                if not tok or tok not in pend or time.time() - pend[tok]['ts'] > MFA_PENDING_TTL:
+                    self._auth_redirect('/login')
+                    return
+                _page(self, _mfa_html())
+            elif r == '/mfa/setup':
+                if not self._is_authed():
+                    self._auth_redirect('/login')
+                    return
+                if AUTH_MEM.get('totp_enabled'):
+                    _page(self, _AUTH_WRAP.replace('{t}', 'MFA').replace('{b}', '<h1>🔐 Zwei-Faktor ist aktiv</h1>'))
+                    return
+                old_secret = AUTH_MEM.get('totp_secret')
+                # b32-kompatiblen Secret erzeugen (A–Z2–7) — invalide Alt-Secrets ersetzen
+                def _valid_b32(s):
+                    return bool(s) and re.fullmatch(r'[A-Z2-7]+', s or '') and len(s) >= 16 and (len(s) % 8) not in (1, 3, 6)
+                if not _valid_b32(old_secret):
+                    secret = base64.b32encode(os.urandom(10)).decode().rstrip('=')
+                else:
+                    secret = old_secret
+                AUTH_MEM['totp_secret'] = secret
+                AUTH_MEM['totp_enabled'] = False
+                auth_save()
+                _page(self, _mfa_setup_html(secret))
+            elif r == '/logout':
+                ck = self._cookies()
+                sess = ck.get(SESSION_COOKIE)
+                if sess:
+                    AUTH_MEM.get('sessions', {}).pop(sess, None)
+                headers = [('Set-Cookie', _set_cookie(SESSION_COOKIE, '', 0)),
+                           ('Set-Cookie', _set_cookie(TRUST_COOKIE, '', 0))]
+                _page(self, _AUTH_WRAP.replace('{t}', 'Abgemeldet').replace('{b}', '<h1>Abgemeldet</h1><p style="color:#8d94a8">Du kannst die Seite schließen.</p>'), extra_headers=headers)
             elif self._static():
                 pass
             else:
@@ -622,10 +942,142 @@ class Handler(BaseHTTPRequestHandler):
             except Exception:
                 pass
 
+    def api_mfa_confirm(self, body):
+        code = _norm(body.get('code'))
+        secret = AUTH_MEM.get('totp_secret')
+        if not secret or not totp_verify(secret, code):
+            _page(self, _mfa_setup_html(secret or '?', 'Code falsch – nochmal versuchen'))
+            return
+        AUTH_MEM['totp_enabled'] = True
+        auth_save()
+        _page(self, _AUTH_WRAP.replace('{t}', 'MFA aktiv').replace('{b}', '<h1>✅ Zwei-Faktor ist aktiv</h1>'
+               '<p style="color:#8d94a8">Ab dem nächsten Login zusätzlich zum Kennwort nötig.</p>'))
+
     def do_POST(self):
         u = urlparse(self.path)
         r = u.path
         try:
+            ip = self._client_ip()
+            if self._rate_limited(ip) and r not in ('/logout',):
+                _page(self, _login_html('Zu viele Versuche – bitte 15 Minuten warten.'))
+                return
+            body = self._body()
+            if r == '/setup':
+                if auth_has_password():
+                    self._auth_redirect('/login')
+                    return
+                pw1 = _norm(body.get('password'))
+                pw2 = _norm(body.get('password2'))
+                if len(pw1) < 8:
+                    _page(self, _setup_html('Kennwort zu kurz – mindestens 8 Zeichen.'))
+                    return
+                if pw1 != pw2:
+                    _page(self, _setup_html('Kennwörter stimmen nicht überein.'))
+                    return
+                salt = list(os.urandom(16))
+                AUTH_MEM['password_hash'] = _pbkdf2(pw1, salt)
+                AUTH_MEM['salt'] = salt
+                auth_save()
+                # direkt Session ausstellen:
+                tok = _new_token()
+                AUTH_MEM.setdefault('sessions', {})[tok] = {'exp': time.time() + SESSION_TTL}
+                trust = _new_token()
+                AUTH_MEM.setdefault('trusted', {})[trust] = time.time() + TRUST_TTL
+                auth_save()
+                self.send_response(303)
+                self.send_header('Location', '/')
+                self.send_header('Set-Cookie', _set_cookie(SESSION_COOKIE, tok, SESSION_TTL))
+                self.send_header('Set-Cookie', _set_cookie(TRUST_COOKIE, trust, TRUST_TTL))
+                self.send_header('Content-Length', '0')
+                self.end_headers()
+                return
+            if r == '/login':
+                if not auth_has_password():
+                    self._auth_redirect('/setup')
+                    return
+                pw = _norm(body.get('password'))
+                okpw = AUTH_MEM.get('password_hash') == _pbkdf2(pw, AUTH_MEM.get('salt') or [0]*16)
+                if not okpw:
+                    self._record_fail(ip)
+                    _page(self, _login_html('Kennwort falsch.'))
+                    return
+                LOGIN_FAILS[ip] = []
+                if AUTH_MEM.get('totp_enabled'):
+                    pend_tok = _new_token()
+                    AUTH_MEM.setdefault('mfa_pending', {})[pend_tok] = {
+                        'ts': time.time(),
+                        'trust': bool(_norm(body.get('trust')))}
+                    _gc_mfa_pending()
+                    self.send_response(303)
+                    self.send_header('Location', '/mfa')
+                    self.send_header('Set-Cookie', _set_cookie(MFA_COOKIE, pend_tok, MFA_PENDING_TTL))
+                    self.send_header('Content-Length', '0')
+                    self.end_headers()
+                    return
+                sess = _new_token()
+                AUTH_MEM.setdefault('sessions', {})[sess] = {'exp': time.time() + SESSION_TTL}
+                _gc_sessions_auth()
+                headers = [('Set-Cookie', _set_cookie(SESSION_COOKIE, sess, SESSION_TTL))]
+                if _norm(body.get('trust')):
+                    trust = _new_token()
+                    AUTH_MEM.setdefault('trusted', {})[trust] = time.time() + TRUST_TTL
+                    auth_save()
+                    headers.append(('Set-Cookie', _set_cookie(TRUST_COOKIE, trust, TRUST_TTL)))
+                self.send_response(303)
+                self.send_header('Location', '/')
+                for k, v in headers:
+                    self.send_header(k, v)
+                self.send_header('Content-Length', '0')
+                self.end_headers()
+                return
+            if r == '/mfa':
+                ck = self._cookies()
+                tok = ck.get(MFA_COOKIE)
+                pend = AUTH_MEM.get('mfa_pending', {})
+                entry = pend.get(tok) if tok else None
+                if not entry or time.time() - entry['ts'] > MFA_PENDING_TTL:
+                    _page(self, _login_html('Sitzung abgelaufen – bitte erneut anmelden.'))
+                    return
+                if not totp_verify(AUTH_MEM.get('totp_secret'), _norm(body.get('code'))):
+                    self._record_fail(ip)
+                    _page(self, _mfa_html('Code falsch – nochmal versuchen.'))
+                    return
+                pend.pop(tok, None)
+                sess = _new_token()
+                AUTH_MEM.setdefault('sessions', {})[sess] = {'exp': time.time() + SESSION_TTL}
+                _gc_sessions_auth()
+                headers = [('Set-Cookie', _set_cookie(SESSION_COOKIE, sess, SESSION_TTL)),
+                           ('Set-Cookie', _set_cookie(MFA_COOKIE, '', 0))]
+                if entry.get('trust'):
+                    trust = _new_token()
+                    AUTH_MEM.setdefault('trusted', {})[trust] = time.time() + TRUST_TTL
+                    auth_save()
+                    headers.append(('Set-Cookie', _set_cookie(TRUST_COOKIE, trust, TRUST_TTL)))
+                self.send_response(303)
+                self.send_header('Location', '/')
+                for k, v in headers:
+                    self.send_header(k, v)
+                self.send_header('Content-Length', '0')
+                self.end_headers()
+                return
+            if r == '/mfa/confirm':
+                self.api_mfa_confirm(body)
+                return
+            if r == '/mfa/disable':
+                if not self._is_authed():
+                    self._json({'error': 'nicht angemeldet'}, 401)
+                    return
+                AUTH_MEM['totp_enabled'] = False
+                AUTH_MEM['totp_secret'] = None
+                auth_save()
+                self._json({'ok': True, 'mfa': False})
+                return
+            # ---- AUTH-GATE für alle anderen POST ----
+            if not self._auth_gate(r):
+                return
+            if auth_has_password() is False:
+                self._json({'auth': True}, 401)
+                return
             if r == '/api/answer':
                 self.api_answer(parse_qs(u.query), self._body())
             elif r == '/api/quiz/wrong':
