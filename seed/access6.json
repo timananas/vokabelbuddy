@@ -19,7 +19,7 @@
     ],
     [
      "(to) be dressed",
-     "angezogen sein (to) be dressed angezogen sein"
+     "angezogen sein"
     ],
     [
      "(to) get dressed",
@@ -95,7 +95,7 @@
     ],
     [
      "alarm",
-     "( kurz für: alarm clock )"
+     "Alarm (kurz für: alarm clock)"
     ],
     [
      "(to) wink (at sb. )",
@@ -163,7 +163,7 @@
     ],
     [
      "(to) realize sth.",
-     "etwas erkennen; sich einer Sache"
+     "etwas erkennen; sich einer Sache bewusst werden"
     ],
     [
      "imagery",
@@ -227,19 +227,19 @@
     ],
     [
      "absolutely thrilled",
-     "völlig begeistert particularly beautiful besonders schön"
+     "völlig begeistert"
     ],
     [
      "completely normal",
-     "völlig normal, ganz normal terribly tired schrecklich müde"
+     "völlig normal, ganz normal"
     ],
     [
-     "especially helpful besonders hilfreich totally wrong",
+     "totally wrong",
      "völlig falsch"
     ],
     [
      "extremely hot",
-     "äußerst heiß very confused sehr"
+     "äußerst heiß"
     ],
     [
      "(to) modify",
@@ -291,7 +291,7 @@
     ],
     [
      "untidy",
-     "unordentlich, unsauber tidy"
+     "unordentlich, unsauber"
     ],
     [
      "legible",
@@ -327,11 +327,7 @@
     ],
     [
      "(to) have sb. do sth.",
-     "jn. etwas tun lassen; veranlassen"
-    ],
-    [
-     "veranlassen, dass jemand etwas tut",
-     "Wir haben einen"
+     "jn. etwas tun lassen; veranlassen, dass jemand etwas tut"
     ],
     [
      "husband",
@@ -375,7 +371,7 @@
     ],
     [
      "(to) restate sth.",
-     "etwas wiederholen, etwas noch"
+     "etwas wiederholen, etwas noch einmal (anders) sagen"
     ],
     [
      "(to) call for sth.",
@@ -411,7 +407,7 @@
     ],
     [
      "unequal",
-     "ungleich equal"
+     "ungleich"
     ],
     [
      "persuasion",
@@ -431,7 +427,7 @@
     ],
     [
      "factual",
-     "sachlich; faktisch; den Tatsachen"
+     "sachlich; faktisch; den Tatsachen entsprechend"
     ],
     [
      "expressive",
@@ -458,8 +454,8 @@
      "Zelle"
     ],
     [
-     "blood",
-     "cells"
+     "blood cell",
+     "Blutzelle"
     ],
     [
      "genetics",
@@ -571,7 +567,7 @@
     ],
     [
      "accurate",
-     "genau, präzise precise"
+     "genau, präzise"
     ],
     [
      "method",
@@ -591,7 +587,7 @@
     ],
     [
      "topping",
-     "Überzug, Belag; Soße with a cheese"
+     "Überzug, Belag; Soße"
     ],
     [
      "unethical",
@@ -611,7 +607,7 @@
     ],
     [
      "power line",
-     "Überlandleitung power lines"
+     "Überlandleitung"
     ],
     [
      "(to) repair",
@@ -628,6 +624,26 @@
     [
      "single",
      "einzige(r,s)"
+    ],
+    [
+     "particularly beautiful",
+     "besonders schön"
+    ],
+    [
+     "terribly tired",
+     "schrecklich müde"
+    ],
+    [
+     "especially helpful",
+     "besonders hilfreich"
+    ],
+    [
+     "very confused",
+     "sehr verwirrt"
+    ],
+    [
+     "equal",
+     "gleich"
     ]
    ]
   },
@@ -676,10 +692,6 @@
      "Flüssigkeit"
     ],
     [
-     "a red",
-     "liquid"
-    ],
-    [
      "manners (pl)",
      "Manieren"
     ],
@@ -709,7 +721,7 @@
     ],
     [
      "post",
-     "Pfosten"
+     "Post; Pfosten"
     ],
     [
      "turtle",
@@ -729,15 +741,11 @@
     ],
     [
      "(to) refuse",
-     "sich weigern, ablehnen (to) refuse"
+     "sich weigern, ablehnen"
     ],
     [
      "mattress",
      "Matratze"
-    ],
-    [
-     "some",
-     "mattresses"
     ],
     [
      "(to) reach for sth.",
@@ -749,7 +757,7 @@
     ],
     [
      "narrative",
-     "Erzählung, Geschichte first-person"
+     "Erzählung, Geschichte"
     ],
     [
      "prose",
@@ -765,7 +773,7 @@
     ],
     [
      "(to) succeed",
-     "Erfolg haben (to) succeed in doing sth."
+     "Erfolg haben"
     ],
     [
      "observation",
@@ -781,7 +789,7 @@
     ],
     [
      "reflection",
-     "reflexion"
+     "Reflexion, Nachdenken"
     ],
     [
      "review",
@@ -813,15 +821,11 @@
     ],
     [
      "(to) breastfeed",
-     "-fed, -fed"
+     "stillen (ein Kind)"
     ],
     [
      "eventually",
      "schließlich, letzten Endes"
-    ],
-    [
-     "English",
-     "perhaps"
     ],
     [
      "literally",
@@ -880,8 +884,8 @@
      "Gattung"
     ],
     [
-     "semi- circle",
-     "semifinal"
+     "semi-circle",
+     "Halbkreis"
     ],
     [
      "intended",
@@ -889,7 +893,7 @@
     ],
     [
      "powerful",
-     "mächtig, kräftig, stark a"
+     "mächtig, kräftig, stark"
     ],
     [
      "lover",
@@ -929,7 +933,7 @@
     ],
     [
      "lifelike",
-     "lebensecht, realistisch a"
+     "lebensecht, realistisch"
     ],
     [
      "gripping",
@@ -953,7 +957,7 @@
     ],
     [
      "(to) embrace",
-     "annehmen, mit offenen Armen"
+     "(jn.) mit offenen Armen aufnehmen; annehmen"
     ],
     [
      "derogatory",
@@ -980,10 +984,6 @@
      "installieren, einrichten"
     ],
     [
-     "against",
-     "sth. )"
-    ],
-    [
      "collective",
      "gemeinschaftlich, vereint"
     ],
@@ -996,8 +996,8 @@
      "Flashmob"
     ],
     [
-     "(to) rise up, rose, risen",
-     "sich erheben, aufstehen (to) rise up"
+     "(to) rise up (rose, -en)",
+     "sich erheben, aufstehen"
     ],
     [
      "(to) make a difference",
@@ -1020,10 +1020,6 @@
      "Ziel"
     ],
     [
-     "particularly",
-     "or in particular"
-    ],
-    [
      "option",
      "Option, (Wahl-)Möglichkeit"
     ],
@@ -1037,7 +1033,7 @@
     ],
     [
      "exercise (no pl)",
-     "Bewegung, (körperliches) Training 1. exercise (no pl)"
+     "Bewegung, (körperliches) Training"
     ],
     [
      "refine",
@@ -1057,7 +1053,7 @@
     ],
     [
      "statistic",
-     "statistische Tatsache, statistische"
+     "statistische Tatsache, statistische Angabe"
     ],
     [
      "statistics (pl)",
@@ -1065,7 +1061,7 @@
     ],
     [
      "release",
-     "1. abgeben, freisetzen / Austritt"
+     "abgeben, freisetzen; Austritt"
     ],
     [
      "bang",
@@ -1107,10 +1103,10 @@
     ],
     [
      "artificial",
-     "künstlich, Kunstreal"
+     "künstlich, Kunst-"
     ],
     [
-     "~ intelligence (AI)",
+     "artificial intelligence (AI)",
      "künstliche Intelligenz"
     ],
     [
@@ -1134,8 +1130,8 @@
      "übertreiben"
     ],
     [
-     "wahrscheinlich etwas tun (werden)",
-     "I would take an umbrella. It’ s"
+     "(to) be likely (to do sth.)",
+     "wahrscheinlich etwas tun (werden)"
     ],
     [
      "electricity",
@@ -1199,7 +1195,7 @@
     ],
     [
      "(to) alter",
-     "verändern, abändern (to) change sth."
+     "verändern, abändern"
     ],
     [
      "current",
@@ -1211,7 +1207,7 @@
     ],
     [
      "(to) generate",
-     "generieren, erzeugen (to) produce (especially energy, electricity, etc.)"
+     "generieren, erzeugen"
     ],
     [
      "toxic",
@@ -1231,7 +1227,7 @@
     ],
     [
      "sense",
-     "Sinn, Gefühl, Bewusstsein"
+     "Sinn, Gefühl"
     ],
     [
      "collection",
@@ -1267,7 +1263,7 @@
     ],
     [
      "sceptical",
-     "skeptisch I’m"
+     "skeptisch"
     ],
     [
      "regulation",
@@ -1283,7 +1279,7 @@
     ],
     [
      "(to) stem from sth.",
-     "von etwas herrühren; etwas"
+     "von etwas herrühren; auf etwas zurückgehen"
     ],
     [
      "potential",
@@ -1295,11 +1291,7 @@
     ],
     [
      "(to) last",
-     "(an)dauern; halten (to) take – (to) last"
-    ],
-    [
-     "but this evening it",
-     "took (us) an hour."
+     "(an)dauern; halten"
     ],
     [
      "strike",
@@ -1330,10 +1322,6 @@
      "(am Touchscreen) wischen"
     ],
     [
-     "some",
-     "buttons"
-    ],
-    [
      "menu",
      "(Computer) Menü"
     ],
@@ -1350,8 +1338,8 @@
      "(Computer) Speicher"
     ],
     [
-     "(to) run",
-     "ran, run ausführen (Computerprogramm)"
+     "(to) run (ran, run)",
+     "ausführen (Computerprogramm); rennen"
     ],
     [
      "(to) browse",
@@ -1367,7 +1355,7 @@
     ],
     [
      "attachment",
-     "Anhang (einer E-Mail) (to) add/send/download/delete an"
+     "Anhang (einer E-Mail)"
     ],
     [
      "crop",
@@ -1422,8 +1410,8 @@
      "Lebensraum"
     ],
     [
-     "(to) shrink",
-     "shrank"
+     "(to) shrink (shrank, shrunk)",
+     "schrumpfen"
     ],
     [
      "worrying",
@@ -1431,7 +1419,7 @@
     ],
     [
      "(to) ensure",
-     "gewährleisten, sicherstellen (to) make sure"
+     "gewährleisten, sicherstellen"
     ],
     [
      "survival",
@@ -1447,7 +1435,7 @@
     ],
     [
      "generation",
-     "Erzeugung"
+     "Generation; Erzeugung"
     ],
     [
      "pilot",
@@ -1507,7 +1495,7 @@
     ],
     [
      "clerk",
-     "Büro-)Angestellte(r"
+     "(Büro-)Angestellte(r)"
     ],
     [
      "for sale",
@@ -1531,7 +1519,7 @@
     ],
     [
      "smart",
-     "schlau, intelligent clever"
+     "schlau, intelligent"
     ],
     [
      "ratio",
@@ -1551,11 +1539,11 @@
     ],
     [
      "(to) put sth. (+ adv)",
-     "etwas (auf eine bestimmte Art)"
+     "etwas (auf eine bestimmte Weise) ausdrücken"
     ],
     [
-     "Let me",
-     "put it (in) a different way"
+     "(to) put it (in) a different way",
+     "es anders ausdrücken, anders formulieren"
     ],
     [
      "charming",
@@ -1570,16 +1558,12 @@
      "etwas gerade rücken, biegen"
     ],
     [
-     "(to) straighten",
-     "the chairs (gerade rücken)"
-    ],
-    [
      "nuclear",
-     "Kern-"
+     "Kern-, Atom-"
     ],
     [
      "anywhere",
-     "überall, überallhin"
+     "irgendwo(hin)"
     ],
     [
      "somewhere",
@@ -1643,19 +1627,19 @@
     ],
     [
      "beneath",
-     "unterhalb (von) under"
+     "unterhalb (von)"
     ],
     [
      "addicted (to)",
      "süchtig (nach), abhängig (von)"
     ],
     [
-     "terrible.",
-     "Sucht nach, Abhängigkeit von"
+     "addiction (to sth.)",
+     "Sucht (nach), Abhängigkeit (von)"
     ],
     [
-     "einfach, klar",
-     "(ausgedrückt) not complicated"
+     "(to) put it simply",
+     "einfach, klar (ausgedrückt)"
     ],
     [
      "inner",
@@ -1690,8 +1674,8 @@
      "stilistisch"
     ],
     [
-     "( (Haare)",
-     "stylen; (Kleidung) schneiden)"
+     "(to) style",
+     "(Haare) stylen; (Kleidung) schneiden"
     ],
     [
      "completion",
@@ -1707,7 +1691,7 @@
     ],
     [
      "despite",
-     "trotz, obwohl"
+     "trotz (+ Nominalgruppe)"
     ],
     [
      "(to) view oneself as sth.",

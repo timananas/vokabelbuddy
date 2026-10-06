@@ -1,0 +1,335 @@
+[
+  {
+    "type": "B1",
+    "chapter": 1,
+    "pos": 26,
+    "en": "she",
+    "de": "– her name",
+    "issue": "Spaltenbruch: de ist EN-Rest '– her name', keine echte Übersetzung (she = sie; 'her name = ihr Name' wäre eigenes Paar)",
+    "fix": "she = sie"
+  },
+  {
+    "type": "B1",
+    "chapter": 1,
+    "pos": 34,
+    "en": "You’re late.",
+    "de": "Du bist spät dran./ Du bist zu spät. Wait for me, please.",
+    "issue": "angehängter EN-Satz 'Wait for me, please.' im de-Feld (OCR-Spaltenbruch)",
+    "fix": "You’re late. = Du bist spät dran./Du bist zu spät."
+  },
+  {
+    "type": "B1",
+    "chapter": 1,
+    "pos": 39,
+    "en": "Let’s go home .",
+    "de": "nach Hause gehen",
+    "issue": "halbes Paar: en ist ganzer Satz, de nur Infinitiv 'nach Hause gehen'; zudem Leerzeichen vor Punkt",
+    "fix": "Let’s go home. = Lass uns nach Hause gehen./Gehen wir nach Hause!"
+  },
+  {
+    "type": "B1",
+    "chapter": 1,
+    "pos": 43,
+    "en": "Bye.",
+    "de": "Tschüs. Hello.",
+    "issue": "EN-Rest 'Hello.' im de-Feld (Antonym-/Spaltenartefakt)",
+    "fix": "Bye. = Tschüs."
+  },
+  {
+    "type": "B1",
+    "chapter": 1,
+    "pos": 57,
+    "en": "short",
+    "de": "kurz long",
+    "issue": "angehängtes EN-Antonym 'long' im de-Feld (Antonym-Icon-Artefakt)",
+    "fix": "short = kurz"
+  },
+  {
+    "type": "B1",
+    "chapter": 1,
+    "pos": 66,
+    "en": "telephone",
+    "de": "phone",
+    "issue": "de ist EN-Wort ('phone'), Übersetzung fehlt komplett",
+    "fix": "telephone = Telefon"
+  },
+  {
+    "type": "B1",
+    "chapter": 1,
+    "pos": 74,
+    "en": "(to) answer",
+    "de": "antworten; beantworten (to) ask",
+    "issue": "angehängter EN-Rest '(to) ask' im de-Feld (OCR-Spaltenbruch)",
+    "fix": "(to) answer = antworten; beantworten"
+  },
+  {
+    "type": "B1",
+    "chapter": 1,
+    "pos": 84,
+    "en": "quarter past",
+    "de": "ten",
+    "issue": "zerbrochene Uhren-Phrase: de ist EN-Rest ('ten'); korrekt wäre 'quarter past ten = Viertel nach zehn'",
+    "fix": "quarter past ten = Viertel nach zehn"
+  },
+  {
+    "type": "B1",
+    "chapter": 1,
+    "pos": 85,
+    "en": "half past",
+    "de": "ten",
+    "issue": "zerbrochene Uhren-Phrase: de ist EN-Rest ('ten'); korrekt wäre 'half past ten = halb elf'",
+    "fix": "half past ten = halb elf"
+  },
+  {
+    "type": "B1",
+    "chapter": 1,
+    "pos": 86,
+    "en": "quarter to",
+    "de": "eleven",
+    "issue": "zerbrochene Uhren-Phrase: de ist EN-Rest ('eleven'); korrekt wäre 'quarter to eleven = Viertel vor elf'",
+    "fix": "quarter to eleven = Viertel vor elf"
+  },
+  {
+    "type": "B1",
+    "chapter": 1,
+    "pos": 93,
+    "en": "ICT 1",
+    "de": "Informationsund",
+    "issue": "OCR-Bruch: Ziffer '1' an en geklebt, de = verschmiertes 'Informationsund' (Zeilenumbruch nach 'Informations-'); Übersetzung unvollständig",
+    "fix": "ICT = Informations- und Kommunikationstechnologie"
+  },
+  {
+    "type": "B1",
+    "chapter": 1,
+    "pos": 104,
+    "en": "3 March",
+    "de": "März",
+    "issue": "unvollständiger Datumseintrag: de 'März' ohne den Tag",
+    "fix": "3 March = der 3. März"
+  },
+  {
+    "type": "B1",
+    "chapter": 1,
+    "pos": 117,
+    "en": "this",
+    "de": "place/break/subject dieser Ort/diese Pause/ dieses Fach",
+    "issue": "Spaltenbruch: EN-Wörter ('place/break/subject') mit deutschen Entsprechungen im de-Feld vermengt (eigentlich 3 Paare)",
+    "fix": "this = dieser/diese/dieses"
+  },
+  {
+    "type": "B1",
+    "chapter": 1,
+    "pos": 133,
+    "en": "corner shop",
+    "de": "Laden",
+    "issue": "ungenau: ein corner shop ist der kleine Laden an der Ecke (Tante-Emma-Laden), nicht irgendein Laden",
+    "fix": "corner shop = Tante-Emma-Laden"
+  },
+  {
+    "type": "B1",
+    "chapter": 2,
+    "pos": 25,
+    "en": "small",
+    "de": "klein big",
+    "issue": "angehängtes EN-Antonym 'big' im de-Feld (Antonym-Icon-Artefakt)",
+    "fix": "small = klein"
+  },
+  {
+    "type": "B1",
+    "chapter": 2,
+    "pos": 28,
+    "en": "(to) have breakfast",
+    "de": "frühstücken Silky’s breakfast",
+    "issue": "angehängter EN-Rest 'Silky’s breakfast' im de-Feld (OCR)",
+    "fix": "(to) have breakfast = frühstücken"
+  },
+  {
+    "type": "B1",
+    "chapter": 2,
+    "pos": 35,
+    "en": "(to) text a friend",
+    "de": "einem Freund/einer Freundin eine",
+    "issue": "abgebrochene Übersetzung (Objekt/Verb fehlen: '… eine Nachricht (schreiben)')",
+    "fix": "(to) text a friend = jm. eine Nachricht schreiben"
+  },
+  {
+    "type": "B1",
+    "chapter": 2,
+    "pos": 41,
+    "en": "paper",
+    "de": "Zeitung",
+    "issue": "Bedeutung verdreht: paper = Papier; 'Zeitung' gilt nur für '(the) paper(s)' – Kap. 4 hat korrekt 'paper = Papier'",
+    "fix": "paper = Papier"
+  },
+  {
+    "type": "B1",
+    "chapter": 2,
+    "pos": 43,
+    "en": "at night",
+    "de": "nachts, in der Nacht in the morning/afternoon/evening",
+    "issue": "angehängte EN-Kreuzverweis-Reste 'in the morning/afternoon/evening' im de-Feld",
+    "fix": "at night = nachts, in der Nacht"
+  },
+  {
+    "type": "B1",
+    "chapter": 2,
+    "pos": 48,
+    "en": "on the floor . floor",
+    "de": "Fußboden",
+    "issue": "en OCR-Bruch ('. floor' doppelt/an klebt); de müsste die Präposition mit abbilden",
+    "fix": "on the floor = auf dem (Fuß-)Boden"
+  },
+  {
+    "type": "B1",
+    "chapter": 2,
+    "pos": 49,
+    "en": "trophy",
+    "de": "Pokal; Trophäe trophies",
+    "issue": "angehängter EN-Plural-Rest 'trophies' im de-Feld",
+    "fix": "trophy = Pokal; Trophäe"
+  },
+  {
+    "type": "B1",
+    "chapter": 2,
+    "pos": 87,
+    "en": "hot cold cold",
+    "de": "kalt",
+    "issue": "en-Feld mit verdoppelten Antonym-Artefakten; gemeint ist 'cold' ('hot = heiß' steht korrekt daneben)",
+    "fix": "cold = kalt"
+  },
+  {
+    "type": "B1",
+    "chapter": 2,
+    "pos": 90,
+    "en": "cream",
+    "de": "jam",
+    "issue": "de ist EN-Wort (invertiert aus 'cream / jam'-Spaltenbruch); 'jam = Marmelade' steht korrekt daneben, cream = Sahne/Rahm",
+    "fix": "cream = Sahne, Rahm"
+  },
+  {
+    "type": "B1",
+    "chapter": 2,
+    "pos": 109,
+    "en": "Can you",
+    "de": "jump",
+    "issue": "Satz zweigeteilt, de ist EN-Wort; kein Wortpaar ('(to) jump = springen' existiert bereits)",
+    "fix": "DELETE"
+  },
+  {
+    "type": "B1",
+    "chapter": 3,
+    "pos": 8,
+    "en": "story",
+    "de": "Geschichte, Erzählung one story – two, three, four stories",
+    "issue": "angehängter EN-Rest 'one story – two, three, four stories' (Irregular-plural-Vermerk) im de-Feld",
+    "fix": "story = Geschichte, Erzählung"
+  },
+  {
+    "type": "B1",
+    "chapter": 3,
+    "pos": 12,
+    "en": "Ihre gesamte",
+    "de": "Kleidung ist rot.",
+    "issue": "deutscher Satzfragment als en (Spaltenbruch aus Grammatikkasten zu 'all'); kein Wortpaar",
+    "fix": "DELETE"
+  },
+  {
+    "type": "B1",
+    "chapter": 3,
+    "pos": 13,
+    "en": "Meine",
+    "de": "Jeans ist blau.",
+    "issue": "Satzfragment-Bruch ('Jeans ist blau.' gehört zu 'Meine Jeans ist blau.'); kein Wortpaar",
+    "fix": "DELETE"
+  },
+  {
+    "type": "B1",
+    "chapter": 3,
+    "pos": 35,
+    "en": "(nie",
+    "de": "– manchmal – immer)",
+    "issue": "Fragment der Häufigkeitsskala '(never – sometimes – always)' aus dem Grammatikkasten; kein Wortpaar",
+    "fix": "DELETE"
+  },
+  {
+    "type": "B1",
+    "chapter": 3,
+    "pos": 36,
+    "en": "(to) have to go/work/…",
+    "de": "gehen/arbeiten/… müssen Look, it’s late.",
+    "issue": "angehängter EN-Satz 'Look, it’s late.' im de-Feld (OCR)",
+    "fix": "(to) have to go/work/… = gehen/arbeiten/… müssen"
+  },
+  {
+    "type": "B1",
+    "chapter": 3,
+    "pos": 69,
+    "en": "Listen to the song.",
+    "de": "Hör dir/Hört euch",
+    "issue": "abgebrochene Übersetzung (Objekt fehlt: '… das Lied an.')",
+    "fix": "Listen to the song. = Hör dir/Hört euch das Lied an."
+  },
+  {
+    "type": "B1",
+    "chapter": 4,
+    "pos": 9,
+    "en": "coin",
+    "de": "Münze some coins",
+    "issue": "angehängter EN-Rest 'some coins' im de-Feld (Spaltenbruch)",
+    "fix": "coin = Münze"
+  },
+  {
+    "type": "B1",
+    "chapter": 4,
+    "pos": 31,
+    "en": "Mobiltelefon, Handy „Handy“",
+    "de": "klingt zwar englisch, ist es aber nicht. Auf",
+    "issue": "invertiert/zerbrochen: deutscher false-friend-Kastentext im en-Feld ('Handy' klingt zwar englisch…), Fortsetzung im de; eigentlich fehlender Eintrag 'mobile phone'",
+    "fix": "mobile phone = Mobiltelefon, Handy"
+  },
+  {
+    "type": "B1",
+    "chapter": 4,
+    "pos": 50,
+    "en": "(to) buy",
+    "de": "kaufen (to) buy",
+    "issue": "angehängter EN-Rest '(to) buy' im de-Feld (OCR)",
+    "fix": "(to) buy = kaufen"
+  },
+  {
+    "type": "B1",
+    "chapter": 4,
+    "pos": 53,
+    "en": "someone",
+    "de": "is wrong jemand irrt sich; jemand hat",
+    "issue": "zerbrochene Phrase 'Someone is wrong = Jemand irrt sich'; de enthält EN-Rest 'is wrong'; Grundpaar: someone = jemand",
+    "fix": "someone = jemand"
+  },
+  {
+    "type": "B1",
+    "chapter": 4,
+    "pos": 69,
+    "en": "What’s",
+    "de": "your poster about? Wovon handelt dein Poster?/ Worum geht es bei deinem Poster?",
+    "issue": "Satz zweigeteilt (Spaltenbruch): de beginnt mit EN-Rest 'your poster about?'",
+    "fix": "What’s your poster about? = Wovon handelt dein Poster? Worum geht es bei deinem Poster?"
+  },
+  {
+    "type": "B1",
+    "chapter": 4,
+    "pos": 74,
+    "en": "after",
+    "de": "nachdem before",
+    "issue": "angehängtes EN-Antonym 'before' im de-Feld",
+    "fix": "after = nachdem"
+  },
+  {
+    "type": "B1",
+    "chapter": 4,
+    "pos": 114,
+    "en": "niemand",
+    "de": "everyone",
+    "issue": "invertiert: deutsches Wort im en-Feld, EN-Wort als de; everyone = alle, jeder (niemand = nobody/no one)",
+    "fix": "everyone = alle, jeder"
+  }
+]

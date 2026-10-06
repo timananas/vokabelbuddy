@@ -1,0 +1,623 @@
+[
+ {
+  "type": "B6",
+  "chapter": 1,
+  "pos": 4,
+  "en": "(to) be dressed",
+  "de": "angezogen sein (to) be dressed angezogen sein",
+  "issue": "OCR-Duplikat: EN-Wort+DE am DE-Ende wiederholt",
+  "fix": "(to) be dressed = angezogen sein"
+ },
+ {
+  "type": "B6",
+  "chapter": 1,
+  "pos": 23,
+  "en": "alarm",
+  "de": "( kurz für: alarm clock )",
+  "issue": "Klammer-only-Lösung, keine Übersetzung (Junk-Klasse)",
+  "fix": "alarm = Alarm (kurz für: alarm clock)"
+ },
+ {
+  "type": "B6",
+  "chapter": 1,
+  "pos": 40,
+  "en": "(to) realize sth.",
+  "de": "etwas erkennen; sich einer Sache",
+  "issue": "DE abgebrochen (Zweispalten-Layout-Split), Rest fehlt",
+  "fix": "(to) realize sth. = etwas erkennen; sich einer Sache bewusst werden"
+ },
+ {
+  "type": "B6",
+  "chapter": 1,
+  "pos": 56,
+  "en": "absolutely thrilled",
+  "de": "völlig begeistert particularly beautiful besonders schön",
+  "issue": "OCR-Spaltensplit: DE-Feld schluckt nächstes Paar 'particularly beautiful'",
+  "fix": "absolutely thrilled = völlig begeistert"
+ },
+ {
+  "type": "B6",
+  "chapter": 1,
+  "pos": 56,
+  "en": "particularly beautiful",
+  "de": "besonders schön",
+  "issue": "fehlendes Begleitpaar (in pos-56-DE gerutscht), rekonstruiert",
+  "fix": "particularly beautiful = besonders schön"
+ },
+ {
+  "type": "B6",
+  "chapter": 1,
+  "pos": 57,
+  "en": "completely normal",
+  "de": "völlig normal, ganz normal terribly tired schrecklich müde",
+  "issue": "OCR-Spaltensplit: DE-Feld schluckt nächstes Paar 'terribly tired'",
+  "fix": "completely normal = völlig normal, ganz normal"
+ },
+ {
+  "type": "B6",
+  "chapter": 1,
+  "pos": 57,
+  "en": "terribly tired",
+  "de": "schrecklich müde",
+  "issue": "fehlendes Begleitpaar (in pos-57-DE gerutscht), rekonstruiert",
+  "fix": "terribly tired = schrecklich müde"
+ },
+ {
+  "type": "B6",
+  "chapter": 1,
+  "pos": 58,
+  "en": "especially helpful besonders hilfreich totally wrong",
+  "de": "völlig falsch",
+  "issue": "OCR: EN-Feld enthält 2 Entries; DE passt nur zu 'totally wrong'",
+  "fix": "totally wrong = völlig falsch"
+ },
+ {
+  "type": "B6",
+  "chapter": 1,
+  "pos": 58,
+  "en": "especially helpful",
+  "de": "besonders hilfreich",
+  "issue": "fehlendes Begleitpaar (in pos-58-EN verschmolzen), rekonstruiert",
+  "fix": "especially helpful = besonders hilfreich"
+ },
+ {
+  "type": "B6",
+  "chapter": 1,
+  "pos": 59,
+  "en": "extremely hot",
+  "de": "äußerst heiß very confused sehr",
+  "issue": "OCR-Spaltensplit: DE-Feld schluckt nächstes Paar 'very confused' (DE unvollständig)",
+  "fix": "extremely hot = äußerst heiß"
+ },
+ {
+  "type": "B6",
+  "chapter": 1,
+  "pos": 59,
+  "en": "very confused",
+  "de": "sehr verwirrt",
+  "issue": "fehlendes Begleitpaar (in pos-59-DE gerutscht), 'verwirrt' rekonstruiert",
+  "fix": "very confused = sehr verwirrt"
+ },
+ {
+  "type": "B6",
+  "chapter": 1,
+  "pos": 72,
+  "en": "untidy",
+  "de": "unordentlich, unsauber tidy",
+  "issue": "OCR-Rest: EN-Wort 'tidy' hängt am DE-Ende (Gegenstück 'tidy = ordentlich' fehlt im Seed)",
+  "fix": "untidy = unordentlich, unsauber"
+ },
+ {
+  "type": "B6",
+  "chapter": 1,
+  "pos": 81,
+  "en": "(to) have sb. do sth.",
+  "de": "jn. etwas tun lassen; veranlassen",
+  "issue": "DE abgebrochen; Fortsetzung steht fälschlich als eigenes Entry (pos 82)",
+  "fix": "(to) have sb. do sth. = jn. etwas tun lassen; veranlassen, dass jemand etwas tut"
+ },
+ {
+  "type": "B6",
+  "chapter": 1,
+  "pos": 82,
+  "en": "veranlassen, dass jemand etwas tut",
+  "de": "Wir haben einen",
+  "issue": "Invertierter Bruch: EN-Feld ist DE-Fortsetzung von pos 81, DE ist Satzfragment",
+  "fix": "DELETE"
+ },
+ {
+  "type": "B6",
+  "chapter": 1,
+  "pos": 93,
+  "en": "(to) restate sth.",
+  "de": "etwas wiederholen, etwas noch",
+  "issue": "DE abgebrochen (mitten im Satz), Rest fehlt",
+  "fix": "(to) restate sth. = etwas wiederholen, etwas noch einmal (anders) sagen"
+ },
+ {
+  "type": "B6",
+  "chapter": 1,
+  "pos": 102,
+  "en": "unequal",
+  "de": "ungleich equal",
+  "issue": "OCR-Rest: EN-Wort 'equal' hängt am DE-Ende (Gegenstück fehlt im Seed)",
+  "fix": "unequal = ungleich"
+ },
+ {
+  "type": "B6",
+  "chapter": 1,
+  "pos": 102,
+  "en": "equal",
+  "de": "gleich",
+  "issue": "fehlendes Begleitpaar (in pos-102-DE gerutscht), rekonstruiert",
+  "fix": "equal = gleich"
+ },
+ {
+  "type": "B6",
+  "chapter": 1,
+  "pos": 107,
+  "en": "factual",
+  "de": "sachlich; faktisch; den Tatsachen",
+  "issue": "DE abgebrochen ('entsprechend' fehlt)",
+  "fix": "factual = sachlich; faktisch; den Tatsachen entsprechend"
+ },
+ {
+  "type": "B6",
+  "chapter": 1,
+  "pos": 114,
+  "en": "blood",
+  "de": "cells",
+  "issue": "OCR-Split: war wohl 'blood cell = Blutzelle'; Fragment als Paar sinnlos",
+  "fix": "blood cell = Blutzelle"
+ },
+ {
+  "type": "B6",
+  "chapter": 1,
+  "pos": 142,
+  "en": "accurate",
+  "de": "genau, präzise precise",
+  "issue": "OCR-Rest: EN-Wort 'precise' hängt am DE-Ende",
+  "fix": "accurate = genau, präzise"
+ },
+ {
+  "type": "B6",
+  "chapter": 1,
+  "pos": 147,
+  "en": "topping",
+  "de": "Überzug, Belag; Soße with a cheese",
+  "issue": "OCR-Rest: englisches Beispiel-Fragment 'with a cheese' im DE-Feld",
+  "fix": "topping = Überzug, Belag; Soße"
+ },
+ {
+  "type": "B6",
+  "chapter": 1,
+  "pos": 152,
+  "en": "power line",
+  "de": "Überlandleitung power lines",
+  "issue": "OCR-Rest: EN-Plural 'power lines' hängt am DE-Ende",
+  "fix": "power line = Überlandleitung"
+ },
+ {
+  "type": "B6",
+  "chapter": 2,
+  "pos": 11,
+  "en": "a red",
+  "de": "liquid",
+  "issue": "OCR-Split-Fragment (Beispiel 'a red liquid'), kein sinnvolles Paar; 'liquid = Flüssigkeit' existiert separat",
+  "fix": "DELETE"
+ },
+ {
+  "type": "B6",
+  "chapter": 2,
+  "pos": 19,
+  "en": "post",
+  "de": "Pfosten",
+  "issue": "DE unvollständig: Hauptbedeutung 'Post' fehlt, nur Nebenbedeutung 'Pfosten'",
+  "fix": "post = Post; Pfosten"
+ },
+ {
+  "type": "B6",
+  "chapter": 2,
+  "pos": 24,
+  "en": "(to) refuse",
+  "de": "sich weigern, ablehnen (to) refuse",
+  "issue": "OCR-Rest: EN-Wort hängt am DE-Ende",
+  "fix": "(to) refuse = sich weigern, ablehnen"
+ },
+ {
+  "type": "B6",
+  "chapter": 2,
+  "pos": 26,
+  "en": "some",
+  "de": "mattresses",
+  "issue": "OCR-Split-Fragment (Beispiel 'some mattresses'), kein Paar",
+  "fix": "DELETE"
+ },
+ {
+  "type": "B6",
+  "chapter": 2,
+  "pos": 29,
+  "en": "narrative",
+  "de": "Erzählung, Geschichte first-person",
+  "issue": "OCR-Rest: 'first-person' im DE-Feld (vom Entry 'first-person narrative = Ich-Erzählung')",
+  "fix": "narrative = Erzählung, Geschichte"
+ },
+ {
+  "type": "B6",
+  "chapter": 2,
+  "pos": 33,
+  "en": "(to) succeed",
+  "de": "Erfolg haben (to) succeed in doing sth.",
+  "issue": "OCR-Rest: EN-Kollokation '(to) succeed in doing sth.' im DE-Feld",
+  "fix": "(to) succeed = Erfolg haben"
+ },
+ {
+  "type": "B6",
+  "chapter": 2,
+  "pos": 37,
+  "en": "reflection",
+  "de": "reflexion",
+  "issue": "DE ist kein deutsches Wort (falschgeschriebenes Englisch) — korrekte Antwort 'Reflexion' würde durchfallen",
+  "fix": "reflection = Reflexion, Nachdenken"
+ },
+ {
+  "type": "B6",
+  "chapter": 2,
+  "pos": 45,
+  "en": "(to) breastfeed",
+  "de": "-fed, -fed",
+  "issue": "DE ist Past-Forms-Leiche, Übersetzung fehlt komplett",
+  "fix": "(to) breastfeed = stillen (ein Kind)"
+ },
+ {
+  "type": "B6",
+  "chapter": 2,
+  "pos": 47,
+  "en": "English",
+  "de": "perhaps",
+  "issue": "Invertierter Bruch, kein Paar ('perhaps' als DE sinnlos; 'perhaps = vielleicht' fehlt im Seed)",
+  "fix": "DELETE"
+ },
+ {
+  "type": "B6",
+  "chapter": 2,
+  "pos": 62,
+  "en": "semi- circle",
+  "de": "semifinal",
+  "issue": "FALSCHE Bedeutung: 'semifinal' gehört nicht zu 'semi-circle'; EN mit OCR-Leerzeichen-Bug",
+  "fix": "semi-circle = Halbkreis"
+ },
+ {
+  "type": "B6",
+  "chapter": 2,
+  "pos": 64,
+  "en": "powerful",
+  "de": "mächtig, kräftig, stark a",
+  "issue": "OCR-Rest: einzeln hängendes 'a' am DE-Ende",
+  "fix": "powerful = mächtig, kräftig, stark"
+ },
+ {
+  "type": "B6",
+  "chapter": 2,
+  "pos": 74,
+  "en": "lifelike",
+  "de": "lebensecht, realistisch a",
+  "issue": "OCR-Rest: einzeln hängendes 'a' am DE-Ende",
+  "fix": "lifelike = lebensecht, realistisch"
+ },
+ {
+  "type": "B6",
+  "chapter": 2,
+  "pos": 80,
+  "en": "(to) embrace",
+  "de": "annehmen, mit offenen Armen",
+  "issue": "DE-Bruchstück: 'mit offenen Armen aufnehmen' zerrissen",
+  "fix": "(to) embrace = (jn.) mit offenen Armen aufnehmen; annehmen"
+ },
+ {
+  "type": "B6",
+  "chapter": 2,
+  "pos": 87,
+  "en": "against",
+  "de": "sth. )",
+  "issue": "OCR-Split-Leiche (Klammer-Rest eines '(to) … against sth.'-Eintrags), kein Paar",
+  "fix": "DELETE"
+ },
+ {
+  "type": "B6",
+  "chapter": 2,
+  "pos": 91,
+  "en": "(to) rise up, rose, risen",
+  "de": "sich erheben, aufstehen (to) rise up",
+  "issue": "OCR-Rest: EN-Wort '(to) rise up' hängt am DE-Ende",
+  "fix": "(to) rise up (rose, -en) = sich erheben, aufstehen"
+ },
+ {
+  "type": "B6",
+  "chapter": 2,
+  "pos": 97,
+  "en": "particularly",
+  "de": "or in particular",
+  "issue": "DE-Feld ist EN-Text; zudem Duplikat zu U1 pos 55 (= besonders; vor etwas)",
+  "fix": "DELETE"
+ },
+ {
+  "type": "B6",
+  "chapter": 2,
+  "pos": 101,
+  "en": "exercise (no pl)",
+  "de": "Bewegung, (körperliches) Training 1. exercise (no pl)",
+  "issue": "OCR-Rest: Listennummer + Entry-Wiederholung am DE-Ende",
+  "fix": "exercise (no pl) = Bewegung, (körperliches) Training"
+ },
+ {
+  "type": "B6",
+  "chapter": 2,
+  "pos": 106,
+  "en": "statistic",
+  "de": "statistische Tatsache, statistische",
+  "issue": "DE abgebrochen ('Angabe' fehlt)",
+  "fix": "statistic = statistische Tatsache, statistische Angabe"
+ },
+ {
+  "type": "B6",
+  "chapter": 2,
+  "pos": 108,
+  "en": "release",
+  "de": "1. abgeben, freisetzen / Austritt",
+  "issue": "OCR-Rest: Listennummer '1.' vor der Übersetzung",
+  "fix": "release = abgeben, freisetzen; Austritt"
+ },
+ {
+  "type": "B6",
+  "chapter": 3,
+  "pos": 7,
+  "en": "artificial",
+  "de": "künstlich, Kunstreal",
+  "issue": "DE-Bruchstück 'Kunstreal' ist kein deutsches Wort (OCR-Zerhackt)",
+  "fix": "artificial = künstlich, Kunst-"
+ },
+ {
+  "type": "B6",
+  "chapter": 3,
+  "pos": 8,
+  "en": "~ intelligence (AI)",
+  "de": "künstliche Intelligenz",
+  "issue": "Tilde-Konvention (~ artificial) ohne 'artificial' unverständlich als Quiz-Prompt",
+  "fix": "artificial intelligence (AI) = künstliche Intelligenz"
+ },
+ {
+  "type": "B6",
+  "chapter": 3,
+  "pos": 14,
+  "en": "wahrscheinlich etwas tun (werden)",
+  "de": "I would take an umbrella. It’ s",
+  "issue": "Invertiert: EN-Feld ist Deutsche Übersetzung, DE-Feld Beispielsatz-Rest; Headword gerutscht",
+  "fix": "(to) be likely (to do sth.) = wahrscheinlich etwas tun (werden)"
+ },
+ {
+  "type": "B6",
+  "chapter": 3,
+  "pos": 30,
+  "en": "(to) alter",
+  "de": "verändern, abändern (to) change sth.",
+  "issue": "OCR-Rest: EN-Crossref '(to) change sth.' im DE-Feld",
+  "fix": "(to) alter = verändern, abändern"
+ },
+ {
+  "type": "B6",
+  "chapter": 3,
+  "pos": 33,
+  "en": "(to) generate",
+  "de": "generieren, erzeugen (to) produce (especially energy, electricity, etc.)",
+  "issue": "OCR-Rest: lange EN-Klammer-Crossref im DE-Feld",
+  "fix": "(to) generate = generieren, erzeugen"
+ },
+ {
+  "type": "B6",
+  "chapter": 3,
+  "pos": 38,
+  "en": "sense",
+  "de": "Sinn, Gefühl, Bewusstsein",
+  "issue": "'Bewusstsein' unplausibel für 'sense' — OCR-Verschmierung",
+  "fix": "sense = Sinn, Gefühl"
+ },
+ {
+  "type": "B6",
+  "chapter": 3,
+  "pos": 47,
+  "en": "sceptical",
+  "de": "skeptisch I’m",
+  "issue": "OCR-Rest: Beispielsatz-Anfang (\"I'm …\") im DE-Feld",
+  "fix": "sceptical = skeptisch"
+ },
+ {
+  "type": "B6",
+  "chapter": 3,
+  "pos": 51,
+  "en": "(to) stem from sth.",
+  "de": "von etwas herrühren; etwas",
+  "issue": "DE abgebrochen (zweite Bedeutungsangabe unvollständig)",
+  "fix": "(to) stem from sth. = von etwas herrühren; auf etwas zurückgehen"
+ },
+ {
+  "type": "B6",
+  "chapter": 3,
+  "pos": 54,
+  "en": "(to) last",
+  "de": "(an)dauern; halten (to) take – (to) last",
+  "issue": "OCR-Rest: EN-Kontrast '(to) take – (to) last' im DE-Feld",
+  "fix": "(to) last = (an)dauern; halten"
+ },
+ {
+  "type": "B6",
+  "chapter": 3,
+  "pos": 55,
+  "en": "but this evening it",
+  "de": "took (us) an hour.",
+  "issue": "Beispielsatz-Rest von pos 54, kein Paar",
+  "fix": "DELETE"
+ },
+ {
+  "type": "B6",
+  "chapter": 3,
+  "pos": 63,
+  "en": "some",
+  "de": "buttons",
+  "issue": "OCR-Split-Fragment (Beispiel 'some buttons'), kein Paar",
+  "fix": "DELETE"
+ },
+ {
+  "type": "B6",
+  "chapter": 3,
+  "pos": 68,
+  "en": "(to) run",
+  "de": "ran, run ausführen (Computerprogramm)",
+  "issue": "OCR: unregelmäßige Formen '(ran, run)' ins DE-Feld gerutscht",
+  "fix": "(to) run (ran, run) = ausführen (Computerprogramm); rennen"
+ },
+ {
+  "type": "B6",
+  "chapter": 3,
+  "pos": 72,
+  "en": "attachment",
+  "de": "Anhang (einer E-Mail) (to) add/send/download/delete an",
+  "issue": "OCR-Rest: EN-Kollokationsliste im DE-Feld",
+  "fix": "attachment = Anhang (einer E-Mail)"
+ },
+ {
+  "type": "B6",
+  "chapter": 3,
+  "pos": 86,
+  "en": "(to) shrink",
+  "de": "shrank",
+  "issue": "DE ist Past-Form 'shrank' — Übersetzung 'schrumpfen' komplett verloren",
+  "fix": "(to) shrink (shrank, shrunk) = schrumpfen"
+ },
+ {
+  "type": "B6",
+  "chapter": 3,
+  "pos": 88,
+  "en": "(to) ensure",
+  "de": "gewährleisten, sicherstellen (to) make sure",
+  "issue": "OCR-Rest: EN-Crossref '(to) make sure' im DE-Feld",
+  "fix": "(to) ensure = gewährleisten, sicherstellen"
+ },
+ {
+  "type": "B6",
+  "chapter": 3,
+  "pos": 92,
+  "en": "generation",
+  "de": "Erzeugung",
+  "issue": "DE unvollständig/irreführend: Hauptbedeutung 'Generation' fehlt (Buch-Kontext: future generations)",
+  "fix": "generation = Generation; Erzeugung"
+ },
+ {
+  "type": "B6",
+  "chapter": 3,
+  "pos": 107,
+  "en": "clerk",
+  "de": "Büro-)Angestellte(r",
+  "issue": "DE zerbrochen: führende Klammer fehlt",
+  "fix": "clerk = (Büro-)Angestellte(r)"
+ },
+ {
+  "type": "B6",
+  "chapter": 3,
+  "pos": 113,
+  "en": "smart",
+  "de": "schlau, intelligent clever",
+  "issue": "OCR-Rest: EN-Wort 'clever' hängt am DE-Ende",
+  "fix": "smart = schlau, intelligent"
+ },
+ {
+  "type": "B6",
+  "chapter": 3,
+  "pos": 118,
+  "en": "(to) put sth. (+ adv)",
+  "de": "etwas (auf eine bestimmte Art)",
+  "issue": "DE abgebrochen ('ausdrücken' fehlt) — Beispiel steht als pos 119",
+  "fix": "(to) put sth. (+ adv) = etwas (auf eine bestimmte Weise) ausdrücken"
+ },
+ {
+  "type": "B6",
+  "chapter": 3,
+  "pos": 119,
+  "en": "Let me",
+  "de": "put it (in) a different way",
+  "issue": "OCR-Split: Phrase 'put it (in) a different way' zerrissen; als Paar sinnlos",
+  "fix": "(to) put it (in) a different way = es anders ausdrücken, anders formulieren"
+ },
+ {
+  "type": "B6",
+  "chapter": 3,
+  "pos": 123,
+  "en": "(to) straighten",
+  "de": "the chairs (gerade rücken)",
+  "issue": "OCR-Split: Beispielfragment, Bedeutung bereits in pos 122",
+  "fix": "DELETE"
+ },
+ {
+  "type": "B6",
+  "chapter": 3,
+  "pos": 124,
+  "en": "nuclear",
+  "de": "Kern-",
+  "issue": "DE unvollständig: gängige Bedeutung 'Atom-' fehlt (nuclear power = Atomkraft)",
+  "fix": "nuclear = Kern-, Atom-"
+ },
+ {
+  "type": "B6",
+  "chapter": 3,
+  "pos": 125,
+  "en": "anywhere",
+  "de": "überall, überallhin",
+  "issue": "FALSCHE Bedeutung: 'überall' = everywhere (pos 127) — anywhere = 'irgendwo(hin)'; MC-Kollision",
+  "fix": "anywhere = irgendwo(hin)"
+ },
+ {
+  "type": "B6",
+  "chapter": 3,
+  "pos": 141,
+  "en": "beneath",
+  "de": "unterhalb (von) under",
+  "issue": "OCR-Rest: EN-Crossref 'under' im DE-Feld",
+  "fix": "beneath = unterhalb (von)"
+ },
+ {
+  "type": "B6",
+  "chapter": 3,
+  "pos": 143,
+  "en": "terrible.",
+  "de": "Sucht nach, Abhängigkeit von",
+  "issue": "Invertiert/gesplittet: DE ist Übersetzung von 'addiction (to)', EN ist Beispielrest",
+  "fix": "addiction (to sth.) = Sucht (nach), Abhängigkeit (von)"
+ },
+ {
+  "type": "B6",
+  "chapter": 3,
+  "pos": 144,
+  "en": "einfach, klar",
+  "de": "(ausgedrückt) not complicated",
+  "issue": "Invertiert: EN-Feld ist Deutsch, DE-Feld ist Englisch; gehört zu '(to) put it simply'",
+  "fix": "(to) put it simply = einfach, klar (ausgedrückt)"
+ },
+ {
+  "type": "B6",
+  "chapter": 3,
+  "pos": 153,
+  "en": "( (Haare)",
+  "de": "stylen; (Kleidung) schneiden)",
+  "issue": "OCR-Split: '(to) style' komplett zerhackt",
+  "fix": "(to) style = (Haare) stylen; (Kleidung) schneiden"
+ },
+ {
+  "type": "B6",
+  "chapter": 3,
+  "pos": 157,
+  "en": "despite",
+  "de": "trotz, obwohl",
+  "issue": "FALSCHE Bedeutung: 'obwohl' = although (Nebensatz); despite = 'trotz (+ Nominalgruppe/Gerundium)'",
+  "fix": "despite = trotz (+ Nominalgruppe)"
+ }
+]

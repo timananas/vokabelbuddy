@@ -1,0 +1,277 @@
+[
+ {
+  "band": 3,
+  "unit": 1,
+  "en": "Christmas",
+  "de": "Weihnachten Der 1. Weihnachtsfeiertag heißt Christmas Day .",
+  "flags": [
+   "beispiel-anhang"
+  ]
+ },
+ {
+  "band": 3,
+  "unit": 1,
+  "en": "eastbound",
+  "de": "Richtung Osten northbound",
+  "flags": [
+   "rest-nachbareintrag"
+  ]
+ },
+ {
+  "band": 3,
+  "unit": 1,
+  "en": "westbound",
+  "de": "eastbound",
+  "flags": [
+   "invertiert",
+   "rest-nachbareintrag"
+  ]
+ },
+ {
+  "band": 3,
+  "unit": 1,
+  "en": "held, held",
+  "de": "sich an etwas festhalten She held onto the table and tried to stand up.",
+  "flags": [
+   "en-falsch",
+   "abgeschnitten"
+  ]
+ },
+ {
+  "band": 3,
+  "unit": 1,
+  "en": "whistle",
+  "de": "(Triller-)Pfeife a",
+  "flags": [
+   "beispiel-anhang"
+  ]
+ },
+ {
+  "band": 3,
+  "unit": 1,
+  "en": "pfeifen",
+  "de": "auf der Trillerpfeife",
+  "flags": [
+   "invertiert",
+   "en-falsch"
+  ]
+ },
+ {
+  "band": 3,
+  "unit": 1,
+  "en": "bent",
+  "de": "sich hinunterbeugen, sich bücken She saw a coin on the",
+  "flags": [
+   "invertiert",
+   "en-falsch",
+   "abgeschnitten"
+  ]
+ },
+ {
+  "band": 3,
+  "unit": 2,
+  "en": "empty",
+  "de": "leer full",
+  "flags": [
+   "antonym-tail"
+  ]
+ },
+ {
+  "band": 3,
+  "unit": 2,
+  "en": "Die",
+  "de": "Möbel sind neu.",
+  "flags": [
+   "invertiert",
+   "eintrag-verlust"
+  ]
+ },
+ {
+  "band": 3,
+  "unit": 2,
+  "en": "Tafel",
+  "de": "Schokolade",
+  "flags": [
+   "invertiert",
+   "eintrag-verlust"
+  ]
+ },
+ {
+  "band": 3,
+  "unit": 2,
+  "en": "(to) delete",
+  "de": "löschen; streichen (to) delete a paragraph/a program",
+  "flags": [
+   "beispiel-anhang"
+  ]
+ },
+ {
+  "band": 3,
+  "unit": 2,
+  "en": "(to) hate",
+  "de": "hassen (to) love",
+  "flags": [
+   "antonym-tail"
+  ]
+ },
+ {
+  "band": 3,
+  "unit": 2,
+  "en": "Mum says I",
+  "de": "spend too much time in front of my",
+  "flags": [
+   "satzfragment"
+  ]
+ },
+ {
+  "band": 3,
+  "unit": 2,
+  "en": "noisy",
+  "de": "laut, lärmend, voller Lärm quiet",
+  "flags": [
+   "antonym-tail"
+  ]
+ },
+ {
+  "band": 3,
+  "unit": 2,
+  "en": "sich hinlegen",
+  "de": "I’m so tired.",
+  "flags": [
+   "invertiert",
+   "satzfragment"
+  ]
+ },
+ {
+  "band": 3,
+  "unit": 2,
+  "en": "such a + noun",
+  "de": "so + adjective",
+  "flags": [
+   "grammatik-meta"
+  ]
+ },
+ {
+  "band": 3,
+  "unit": 2,
+  "en": "… so",
+  "de": "ein netter Mensch … so nett",
+  "flags": [
+   "grammatik-meta",
+   "satzfragment"
+  ]
+ },
+ {
+  "band": 3,
+  "unit": 3,
+  "en": "factual",
+  "de": "sachlich, Sach-; faktisch; den",
+  "flags": [
+   "abgeschnitten"
+  ]
+ },
+ {
+  "band": 3,
+  "unit": 3,
+  "en": "led",
+  "de": "führen, leiten",
+  "flags": [
+   "en-falsch",
+   "eintrag-verlust"
+  ]
+ },
+ {
+  "band": 3,
+  "unit": 3,
+  "en": "like",
+  "de": "als ob",
+  "flags": [
+   "invertiert",
+   "en-falsch"
+  ]
+ },
+ {
+  "band": 3,
+  "unit": 3,
+  "en": "(to) order",
+  "de": "ordnen (to) order",
+  "flags": [
+   "rest-nachbareintrag"
+  ]
+ },
+ {
+  "band": 3,
+  "unit": 3,
+  "en": "solved",
+  "de": "them all.",
+  "flags": [
+   "satzfragment"
+  ]
+ },
+ {
+  "band": 3,
+  "unit": 4,
+  "en": "(to) build",
+  "de": "built, built",
+  "flags": [
+   "invertiert",
+   "en-falsch"
+  ]
+ },
+ {
+  "band": 3,
+  "unit": 4,
+  "en": "Nachteil",
+  "de": "F le désavantage",
+  "flags": [
+   "fremdsprachen-rest"
+  ]
+ },
+ {
+  "band": 3,
+  "unit": 4,
+  "en": "(to) unpack",
+  "de": "auspacken (to) pack (packen, einpacken)",
+  "flags": [
+   "antonym-tail"
+  ]
+ },
+ {
+  "band": 3,
+  "unit": 4,
+  "en": "From the plane, the buildings",
+  "de": "below were so small.",
+  "flags": [
+   "satzfragment"
+  ]
+ },
+ {
+  "band": 3,
+  "unit": 5,
+  "en": "sheepdog",
+  "de": "Hütehund Mit sheepdog werden in Großbritannien oft Border",
+  "flags": [
+   "satzfragment",
+   "abgeschnitten"
+  ]
+ },
+ {
+  "band": 3,
+  "unit": 5,
+  "en": "(to) control",
+  "de": "kontrollieren, beherrschen; unter",
+  "flags": [
+   "abgeschnitten"
+  ]
+ },
+ {
+  "band": 3,
+  "unit": 5,
+  "en": "burst, burst",
+  "de": "in Tränen ausbrechen When I saw that the dog was dead, I immediately",
+  "flags": [
+   "en-falsch",
+   "beispiel-anhang"
+  ]
+ }
+]

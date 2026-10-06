@@ -1,0 +1,776 @@
+[
+ {
+  "type": "B5",
+  "chapter": 1,
+  "pos": 15,
+  "en": "a koala koala",
+  "de": "Koala",
+  "issue": "OCR: EN-Schleppwort 'a koala' verdoppelt",
+  "fix": "koala = Koala"
+ },
+ {
+  "type": "B5",
+  "chapter": 1,
+  "pos": 41,
+  "en": "barbie",
+  "de": "Abkürzung: BBQ)",
+  "issue": "OCR: defekter Klammerrest statt Übersetzung ('Abkürzung: BBQ)')",
+  "fix": "barbie (AUS, infml) = (kurz für:) Barbecue, Grillfest"
+ },
+ {
+  "type": "B5",
+  "chapter": 1,
+  "pos": 49,
+  "en": "a self-confident girl",
+  "de": "selbstbewusst, (selbst)sicher",
+  "issue": "OCR: Adjektiv-Eintrag aus Phrase gebrochen ('a girl' gehört nicht zur Bedeutung)",
+  "fix": "self-confident = selbstbewusst, (selbst)sicher"
+ },
+ {
+  "type": "B5",
+  "chapter": 1,
+  "pos": 50,
+  "en": "English-speaking countries",
+  "de": "englischsprachig",
+  "issue": "OCR: Nomen 'countries' hängt am Adjektiv-Eintrag",
+  "fix": "English-speaking = englischsprachig"
+ },
+ {
+  "type": "B5",
+  "chapter": 1,
+  "pos": 51,
+  "en": "a well-known singer",
+  "de": "bekannt, berühmt open-minded parents aufgeschlossen, offen, tolerant",
+  "issue": "OCR: zwei Einträge verschmolzen; 'open-minded parents = aufgeschlossen, offen, tolerant' fehlt als eigenes Paar",
+  "fix": "well-known = bekannt, berühmt"
+ },
+ {
+  "type": "B5",
+  "chapter": 1,
+  "pos": 52,
+  "en": "a family-owned company",
+  "de": "familiengeführt a three-week holiday dreiwöchig",
+  "issue": "OCR: zwei Einträge verschmolzen; 'three-week holiday = dreiwöchig' fehlt als eigenes Paar",
+  "fix": "family-owned = familiengeführt"
+ },
+ {
+  "type": "B5",
+  "chapter": 1,
+  "pos": 53,
+  "en": "risen",
+  "de": "(an)steigen, aufsteigen",
+  "issue": "OCR: nur Partizip 'risen' ohne Infinitiv — echtes Lemma '(to) rise'",
+  "fix": "(to) rise (rose, risen) = steigen, ansteigen, aufsteigen"
+ },
+ {
+  "type": "B5",
+  "chapter": 1,
+  "pos": 57,
+  "en": "unsure",
+  "de": "unsicher sure",
+  "issue": "OCR: EN-Wort 'sure' als Schlepprest am de-Ende",
+  "fix": "unsure = unsicher"
+ },
+ {
+  "type": "B5",
+  "chapter": 1,
+  "pos": 62,
+  "en": "Accidents can happen anywhere.",
+  "de": "überall",
+  "issue": "OCR-Bruch: Satzpaar halbiert, de enthält nur 'überall'",
+  "fix": "Accidents can happen anywhere. = Unfälle können überall passieren"
+ },
+ {
+  "type": "B5",
+  "chapter": 1,
+  "pos": 74,
+  "en": "schools.",
+  "de": "F la comparaison",
+  "issue": "OCR-Leiche aus französischer Vergleichszeile ('la comparaison'), kein Wortschatz",
+  "fix": "DELETE"
+ },
+ {
+  "type": "B5",
+  "chapter": 1,
+  "pos": 77,
+  "en": "wet",
+  "de": "Nässe",
+  "issue": "Wortart-Bruch: 'wet' (Adjektiv) hat de-Nomen 'Nässe'",
+  "fix": "wet = nass, feucht"
+ },
+ {
+  "type": "B5",
+  "chapter": 1,
+  "pos": 81,
+  "en": "fed, fed",
+  "de": "sich ernähren von (to) feed = 1. füttern; 2. sich ernähren",
+  "issue": "OCR: zwei feed-Einträge verschmolzen, nur 'fed, fed' ohne Infinitiv",
+  "fix": "(to) feed (fed, fed) = füttern; sich ernähren (von)"
+ },
+ {
+  "type": "B5",
+  "chapter": 1,
+  "pos": 84,
+  "en": "(to) injure sb.",
+  "de": "jn. verletzen Bei leichten körperlichen Verletzungen oder wenn",
+  "issue": "OCR: Beispielsatz-Rest 'Bei leichten … oder wenn' am de-Ende",
+  "fix": "(to) injure sb. = jn. verletzen"
+ },
+ {
+  "type": "B5",
+  "chapter": 1,
+  "pos": 86,
+  "en": "crocodile",
+  "de": "infml auch: croc",
+  "issue": "de = Wörterbuch-Verweis statt Übersetzung",
+  "fix": "crocodile = Krokodil (kurz: croc)"
+ },
+ {
+  "type": "B5",
+  "chapter": 1,
+  "pos": 95,
+  "en": "rural",
+  "de": "ländlich, Landrural",
+  "issue": "OCR-Smash: Kompositum-Rest 'Landrural'",
+  "fix": "rural = ländlich; Land-"
+ },
+ {
+  "type": "B5",
+  "chapter": 1,
+  "pos": 105,
+  "en": "afraid: 1. I’m afraid of spiders.",
+  "de": "Ich habe Angst …",
+  "issue": "OCR-Bruch: Nutzungs-Beispiel statt Lemma, de abgeschnitten",
+  "fix": "afraid (of) = Angst haben (vor)"
+ },
+ {
+  "type": "B5",
+  "chapter": 1,
+  "pos": 108,
+  "en": "I'm afraid",
+  "de": "I'm",
+  "issue": "OCR: de fehlt komplett, en halbiert",
+  "fix": "I'm afraid … = ich befürchte, …"
+ },
+ {
+  "type": "B5",
+  "chapter": 1,
+  "pos": 109,
+  "en": "dug, dug",
+  "de": "(nach etwas) graben",
+  "issue": "OCR: nur 'dug, dug' ohne Infinitiv — echtes Lemma '(to) dig'",
+  "fix": "(to) dig (dug, dug) = graben; (nach etwas) graben"
+ },
+ {
+  "type": "B5",
+  "chapter": 1,
+  "pos": 121,
+  "en": "racist",
+  "de": "F",
+  "issue": "de = defekter Label-Rest ('F'), keine Übersetzung",
+  "fix": "racist = rassistisch; Rassist/in"
+ },
+ {
+  "type": "B5",
+  "chapter": 1,
+  "pos": 137,
+  "en": "(to) empower sb.",
+  "de": "jn. stärken; jn. befähigen/in die",
+  "issue": "OCR: de mitten im Satz abgeschnitten",
+  "fix": "(to) empower sb. (to do sth.) = jn. stärken, jn. befähigen (etwas zu tun)"
+ },
+ {
+  "type": "B5",
+  "chapter": 1,
+  "pos": 138,
+  "en": "Lage versetzen",
+  "de": "etwas zu tun",
+  "issue": "OCR-Leiche: Fortsetzung des abgeschnittenen Eintrags pos 137",
+  "fix": "DELETE"
+ },
+ {
+  "type": "B5",
+  "chapter": 1,
+  "pos": 142,
+  "en": "outspoken",
+  "de": "direkt, geradeheraus, offen und",
+  "issue": "OCR: de am Satzende abgeschnitten ('offen und …')",
+  "fix": "outspoken = direkt, geradeheraus; offen (und ehrlich)"
+ },
+ {
+  "type": "B5",
+  "chapter": 1,
+  "pos": 152,
+  "en": "a basketball",
+  "de": "court",
+  "issue": "OCR-Bruch: 'a basketball' = 'court' — echtes Lemma 'basketball court'",
+  "fix": "a basketball court = ein Basketball-Spielfeld, -platz"
+ },
+ {
+  "type": "B5",
+  "chapter": 2,
+  "pos": 4,
+  "en": "it used to be",
+  "de": "die Bibliothek ist moderner als",
+  "issue": "invertiertes OCR-Fragment aus Vergleichssatz; 'used to + Infinitiv' fehlt als echtes Paar",
+  "fix": "used to (do sth.) = früher (einmal)"
+ },
+ {
+  "type": "B5",
+  "chapter": 2,
+  "pos": 6,
+  "en": "lazy",
+  "de": "faul hard-working",
+  "issue": "OCR: EN-Antonym 'hard-working' als Schlepprest am de-Ende (eigenes Paar fehlt)",
+  "fix": "lazy = faul"
+ },
+ {
+  "type": "B5",
+  "chapter": 2,
+  "pos": 12,
+  "en": "educational",
+  "de": "lehrreich, informativ; Bildungs- There were children with different ~ backgrounds at",
+  "issue": "OCR: halber Beispielsatz am de-Ende",
+  "fix": "educational = lehrreich, informativ; Bildungs-"
+ },
+ {
+  "type": "B5",
+  "chapter": 2,
+  "pos": 22,
+  "en": "(to) troll",
+  "de": "sachlich falsche Dinge im Internet",
+  "issue": "de unvollständig/gebrochen (kein Verb, keine Bedeutung 'provozieren')",
+  "fix": "(to) troll = (im Internet) provozieren; sachlich Falsches posten"
+ },
+ {
+  "type": "B5",
+  "chapter": 2,
+  "pos": 37,
+  "en": "(to) get to know sb.",
+  "de": "jn. kennenlernen My parents got to",
+  "issue": "OCR: Beispielsatz-Rest 'My parents got to' am de-Ende",
+  "fix": "(to) get to know sb. = jn. kennenlernen"
+ },
+ {
+  "type": "B5",
+  "chapter": 2,
+  "pos": 38,
+  "en": "annoyed (with",
+  "de": "sb. /",
+  "issue": "OCR: Klammer-Eintrag über zwei Paare gesplittet (→ pos 39)",
+  "fix": "annoyed (with sb.) (about sth.) = verärgert (über jn./etwas), irritiert"
+ },
+ {
+  "type": "B5",
+  "chapter": 2,
+  "pos": 39,
+  "en": "about sth. )",
+  "de": "verärgert (über jn./etwas), irritiert She was ~ with him because he was late again.",
+  "issue": "OCR-Leiche: Fortsetzung von pos 38 inkl. Beispielsatz",
+  "fix": "DELETE"
+ },
+ {
+  "type": "B5",
+  "chapter": 2,
+  "pos": 46,
+  "en": "furious (with/at",
+  "de": "sb. )",
+  "issue": "OCR: de fehlt, Klammerbezug gesplittet",
+  "fix": "furious (with/at sb.) = wütend, außer sich (über jn.)"
+ },
+ {
+  "type": "B5",
+  "chapter": 2,
+  "pos": 62,
+  "en": "professional",
+  "de": ")",
+  "issue": "OCR-Leiche: de = ')'; Eintrag existiert bereits in Kapitel 1 (professionell, Profi-)",
+  "fix": "DELETE"
+ },
+ {
+  "type": "B5",
+  "chapter": 2,
+  "pos": 64,
+  "en": "advertising",
+  "de": "emails",
+  "issue": "OCR-Split: 'advertising emails' auseinandergerissen; 'advertising = Werbung' fehlt",
+  "fix": "advertising emails = Werbe-E-Mails, Spam"
+ },
+ {
+  "type": "B5",
+  "chapter": 2,
+  "pos": 72,
+  "en": "chore",
+  "de": "(Haus-)Arbeit; (lästige) Pflicht What",
+  "issue": "OCR: Satzrest 'What' am de-Ende",
+  "fix": "chore = (Haus-)Arbeit; (lästige) Pflicht"
+ },
+ {
+  "type": "B5",
+  "chapter": 2,
+  "pos": 76,
+  "en": "cash flow",
+  "de": "Cashflow (die finanzielle Situation) cash",
+  "issue": "OCR: gebrochene Klammer + Duplikat-Rest 'cash' am de-Ende",
+  "fix": "cash flow = Cashflow, Geldfluss"
+ },
+ {
+  "type": "B5",
+  "chapter": 3,
+  "pos": 1,
+  "en": "different forms of",
+  "de": "transport",
+  "issue": "OCR-Split: 'transport' im de-Feld — echtes Lemma 'forms of transport'",
+  "fix": "different forms of transport = verschiedene Arten von Verkehrsmitteln"
+ },
+ {
+  "type": "B5",
+  "chapter": 3,
+  "pos": 3,
+  "en": "petrol",
+  "de": "/",
+  "issue": "de = '/' (leer), Bedeutung Benzin verloren",
+  "fix": "petrol (BE) = Benzin"
+ },
+ {
+  "type": "B5",
+  "chapter": 3,
+  "pos": 4,
+  "en": "sophomore",
+  "de": "Schüler/in in der 10. Klasse der",
+  "issue": "OCR: de abgeschnitten (… 'High School')",
+  "fix": "sophomore = Schüler/in in der 10. Klasse der High School"
+ },
+ {
+  "type": "B5",
+  "chapter": 3,
+  "pos": 7,
+  "en": "academic",
+  "de": "wissenschaftlich, akademisch academic credits",
+  "issue": "OCR: 'academic credits' als Schlepprest am de-Ende (eigenes Paar fehlt)",
+  "fix": "academic = wissenschaftlich, akademisch"
+ },
+ {
+  "type": "B5",
+  "chapter": 3,
+  "pos": 8,
+  "en": "junior year",
+  "de": "10. Klasse der High School",
+  "issue": "falsche Bedeutung: 'junior year' ist die 11. Klasse (10. = sophomore, 12. = senior)",
+  "fix": "junior year = 11. Klasse der High School"
+ },
+ {
+  "type": "B5",
+  "chapter": 3,
+  "pos": 12,
+  "en": "a publicly/privately",
+  "de": "funded organization",
+  "issue": "OCR-Split an 'funded' — echtes Lemma 'publicly/privately funded organization'",
+  "fix": "a publicly/privately funded organization = eine öffentlich/privat finanzierte Organisation"
+ },
+ {
+  "type": "B5",
+  "chapter": 3,
+  "pos": 14,
+  "en": "A level",
+  "de": "Prüfungen zur Hochschulzu- lassungsberechtigung (etwa wie",
+  "issue": "OCR: de mitten im Wort getrennt ('zu- lassungsberechtigung') und am Ende abgeschnitten",
+  "fix": "A level (GB) = britische Hochschulzugangsprüfung (etwa wie Abitur)"
+ },
+ {
+  "type": "B5",
+  "chapter": 3,
+  "pos": 20,
+  "en": "schwingen",
+  "de": "The sofa was so high that she could",
+  "issue": "invertiertes OCR-Fragment: deutsches Wort im en-Feld + Beispielsatz-Rest",
+  "fix": "DELETE"
+ },
+ {
+  "type": "B5",
+  "chapter": 3,
+  "pos": 34,
+  "en": "Don’t",
+  "de": "be so",
+  "issue": "OCR-Leiche: Satzfragment ('Don't be so …') zerrissen, kein brauchbares Paar",
+  "fix": "DELETE"
+ },
+ {
+  "type": "B5",
+  "chapter": 3,
+  "pos": 36,
+  "en": "bulletin board",
+  "de": "noticeboard",
+  "issue": "de = englisches Synonym statt deutscher Übersetzung",
+  "fix": "bulletin board = (Anschlag-)Pinnwand, Schwarzes Brett"
+ },
+ {
+  "type": "B5",
+  "chapter": 3,
+  "pos": 40,
+  "en": "though (adv)",
+  "de": "allerdings; trotzdem though",
+  "issue": "OCR: 'though'-Duplikat am de-Ende",
+  "fix": "though (adv) = allerdings; trotzdem"
+ },
+ {
+  "type": "B5",
+  "chapter": 3,
+  "pos": 54,
+  "en": "organization",
+  "de": "organisation",
+  "issue": "de = kleingeschriebene EN-Schreibung statt deutsches Substantiv",
+  "fix": "organization = Organisation"
+ },
+ {
+  "type": "B5",
+  "chapter": 3,
+  "pos": 59,
+  "en": "effort",
+  "de": "Anstrengung; Bemühung, Mühe (to) make an",
+  "issue": "OCR: '(to) make an effort' halbiert am de-Ende (eigenes Paar fehlt)",
+  "fix": "effort = Anstrengung; Bemühung, Mühe"
+ },
+ {
+  "type": "B5",
+  "chapter": 3,
+  "pos": 62,
+  "en": "A recent discovery shows that …",
+  "de": "eine kürzlich gemachte Entdeckung",
+  "issue": "OCR-Bruch: Satz-paar halbiert, de ist nur Nominalphrase ohne 'zeigt, dass …'",
+  "fix": "A recent discovery shows that … = Eine kürzlich gemachte Entdeckung zeigt, dass …"
+ },
+ {
+  "type": "B5",
+  "chapter": 3,
+  "pos": 73,
+  "en": "(to) involve",
+  "de": "bestehen aus, beinhalten, mit sich",
+  "issue": "OCR: de am Ende abgeschnitten ('… mit sich bringen')",
+  "fix": "(to) involve = beinhalten; mit sich bringen, einbeziehen"
+ },
+ {
+  "type": "B5",
+  "chapter": 3,
+  "pos": 82,
+  "en": "abhalten",
+  "de": "(Veranstaltung) (to) hold a meeting/a competition/an interview",
+  "issue": "invertiert: deutsches Verb im en-Feld, OCR-Split des hold-Eintrags",
+  "fix": "(to) hold (held, held) = abhalten (Meeting, Wettkampf, Interview)"
+ },
+ {
+  "type": "B5",
+  "chapter": 3,
+  "pos": 83,
+  "en": "science",
+  "de": "lab",
+  "issue": "OCR-Split: 'science lab' auseinandergerissen (de ist Englisch)",
+  "fix": "(the) science lab = das (Naturwissenschafts-)Labor"
+ },
+ {
+  "type": "B5",
+  "chapter": 3,
+  "pos": 89,
+  "en": "met, met",
+  "de": "einhalten, erfüllen (Kriterien, Bedingungen, Anforderungen)",
+  "issue": "OCR: nur 'met, met' ohne Infinitiv — echtes Lemma '(to) meet' (inkl. 'treffen')",
+  "fix": "(to) meet (met, met) = treffen; (Anforderungen) einhalten, erfüllen"
+ },
+ {
+  "type": "B5",
+  "chapter": 3,
+  "pos": 97,
+  "en": "(to) handle sth.",
+  "de": "etwas handhaben, mit etwas",
+  "issue": "OCR: de abgeschnitten ('… mit etwas umgehen')",
+  "fix": "(to) handle sth. = etwas handhaben; mit etwas umgehen"
+ },
+ {
+  "type": "B5",
+  "chapter": 3,
+  "pos": 99,
+  "en": "absolutely right",
+  "de": "völlig richtig highly motivated höchst motiviert",
+  "issue": "OCR: zwei Intensivierer-Paare verschmolzen; 'highly motivated = höchst motiviert' fehlt",
+  "fix": "absolutely right = völlig richtig"
+ },
+ {
+  "type": "B5",
+  "chapter": 3,
+  "pos": 100,
+  "en": "completely normal",
+  "de": "völlig normal, ganz normal terribly tired schrecklich müde",
+  "issue": "OCR: zwei Paare verschmolzen; 'terribly tired = schrecklich müde' fehlt",
+  "fix": "completely normal = völlig, ganz normal"
+ },
+ {
+  "type": "B5",
+  "chapter": 3,
+  "pos": 101,
+  "en": "especially helpful besonders hilfreich totally wrong",
+  "de": "völlig falsch",
+  "issue": "OCR: 'totally wrong = völlig falsch' steckt im en-Feld; 'especially helpful = besonders hilfreich' fehlt",
+  "fix": "totally wrong = völlig falsch"
+ },
+ {
+  "type": "B5",
+  "chapter": 3,
+  "pos": 102,
+  "en": "extremely hot",
+  "de": "äußerst heiß very confused sehr",
+  "issue": "OCR: 'very confused = sehr verwirrt' als Rest angehängt (Paar fehlt)",
+  "fix": "extremely hot = äußerst heiß"
+ },
+ {
+  "type": "B5",
+  "chapter": 3,
+  "pos": 105,
+  "en": "(to) consider",
+  "de": "erwägen, in Betracht/in Erwägung",
+  "issue": "OCR: de abgeschnitten ('… ziehen')",
+  "fix": "(to) consider = erwägen, in Betracht ziehen"
+ },
+ {
+  "type": "B5",
+  "chapter": 3,
+  "pos": 106,
+  "en": "Greetings, … (pl)",
+  "de": "Grüße",
+  "issue": "OCR-Junk ', …' im en-Feld",
+  "fix": "greetings (pl) = Grüße"
+ },
+ {
+  "type": "B5",
+  "chapter": 3,
+  "pos": 107,
+  "en": "(to) hire",
+  "de": "Person",
+  "issue": "OCR-Bruch: de = 'Person', Verb-Bedeutung 'anstellen/einstellen' verloren",
+  "fix": "(to) hire = (jemanden) anstellen, einstellen"
+ },
+ {
+  "type": "B5",
+  "chapter": 3,
+  "pos": 109,
+  "en": "(to) deserve",
+  "de": "verdienen (zu Recht bekommen)",
+  "issue": "OCR: gebrochene Klammer-Ergänzung 'zu Recht bekommen'",
+  "fix": "(to) deserve = (zu Recht) verdienen"
+ },
+ {
+  "type": "B5",
+  "chapter": 4,
+  "pos": 4,
+  "en": "M¯aori",
+  "de": "Maori",
+  "issue": "OCR: Makron-Artefakt 'M¯aori' statt 'Māori'",
+  "fix": "Māori = Maori"
+ },
+ {
+  "type": "B5",
+  "chapter": 4,
+  "pos": 5,
+  "en": "Neuseelands)",
+  "de": "maorisch",
+  "issue": "OCR-Leiche: Fortsetzung von 'Māori (in Neuseelands …)'; 'maorisch' gehört zu 'Māori (adj)'",
+  "fix": "DELETE"
+ },
+ {
+  "type": "B5",
+  "chapter": 4,
+  "pos": 18,
+  "en": "(to) power",
+  "de": "antreiben, betreiben, mit Energie",
+  "issue": "OCR: de abgeschnitten ('… mit Energie versorgen')",
+  "fix": "(to) power = antreiben, betreiben; mit Energie versorgen"
+ },
+ {
+  "type": "B5",
+  "chapter": 4,
+  "pos": 26,
+  "en": "goods (pl)",
+  "de": "Waren, Güter (to) produce/buy/sell/export/import goods",
+  "issue": "OCR: Beispielkollokation am de-Ende (eigenes Paar fehlt)",
+  "fix": "goods (pl) = Waren, Güter"
+ },
+ {
+  "type": "B5",
+  "chapter": 4,
+  "pos": 28,
+  "en": "Tourismus",
+  "de": "F le tourisme",
+  "issue": "invertiertes Fragment: deutsches Lemma im en-Feld + französische Vergleichszeile",
+  "fix": "DELETE"
+ },
+ {
+  "type": "B5",
+  "chapter": 4,
+  "pos": 41,
+  "en": "seatbelt",
+  "de": "seat belt",
+  "issue": "de = EN-Schreibvariante statt deutscher Übersetzung",
+  "fix": "seatbelt = Sicherheitsgurt, Gurt"
+ },
+ {
+  "type": "B5",
+  "chapter": 4,
+  "pos": 62,
+  "en": "customs (pl)",
+  "de": "Bräuche, Gebräuche, Sitten",
+  "issue": "Reise-/Einreise-Kontext (visa, terminal, travel agent): Bedeutung 'Zoll' fehlt komplett",
+  "fix": "customs (pl) = Zoll; (auch:) Bräuche, Sitten"
+ },
+ {
+  "type": "B5",
+  "chapter": 4,
+  "pos": 68,
+  "en": "several",
+  "de": "guns",
+  "issue": "OCR-Split aus 'several guns' — echtes Lemma 'gun = Schusswaffe' fehlt",
+  "fix": "gun = Schusswaffe, Gewehr"
+ },
+ {
+  "type": "B5",
+  "chapter": 4,
+  "pos": 77,
+  "en": "(to) result in sth.",
+  "de": "zu etwas führen, etwas zur",
+  "issue": "OCR: 'etwas zur Folge haben' abgeschnitten",
+  "fix": "(to) result in sth. = zu etwas führen; etwas zur Folge haben"
+ },
+ {
+  "type": "B5",
+  "chapter": 4,
+  "pos": 84,
+  "en": "(to) deliver",
+  "de": "zustellen, überbringen (to) deliver",
+  "issue": "OCR: '(to) deliver'-Duplikat am de-Ende",
+  "fix": "(to) deliver = zustellen, überbringen"
+ },
+ {
+  "type": "B5",
+  "chapter": 4,
+  "pos": 91,
+  "en": "on behalf of",
+  "de": "sb. /",
+  "issue": "OCR: Bezugssplit, 'sb.' im de-Feld — echte Bedeutung fehlt",
+  "fix": "on behalf of sb. = im Auftrag von jm., für jm."
+ },
+ {
+  "type": "B5",
+  "chapter": 4,
+  "pos": 92,
+  "en": "brief",
+  "de": "kurz (gefasst), knapp, von kurzer",
+  "issue": "OCR: 'von kurzer Dauer' abgeschnitten",
+  "fix": "brief = kurz, knapp; von kurzer Dauer"
+ },
+ {
+  "type": "B5",
+  "chapter": 4,
+  "pos": 100,
+  "en": "(to) gather",
+  "de": "(sich) versammeln (to) come together; (to) bring together",
+  "issue": "OCR: englische Synonym-Zeilen am de-Ende",
+  "fix": "(to) gather = (sich) versammeln, zusammenkommen"
+ },
+ {
+  "type": "B5",
+  "chapter": 4,
+  "pos": 101,
+  "en": "backyard",
+  "de": "BE: Hinterhof",
+  "issue": "OCR-Label 'BE:' im de-Feld (erscheint so als MC-Antwort)",
+  "fix": "backyard = Hinterhof"
+ },
+ {
+  "type": "B5",
+  "chapter": 4,
+  "pos": 106,
+  "en": "unknown",
+  "de": "unbekannt, nicht",
+  "issue": "OCR: de am Ende abgeschnitten ('unbekannt, nicht …')",
+  "fix": "unknown = unbekannt"
+ },
+ {
+  "type": "B5",
+  "chapter": 4,
+  "pos": 112,
+  "en": "rather ~",
+  "de": "heard.",
+  "issue": "OCR-Leiche: Beispielsatz-Fragment ('rather … heard.'), kein Wortschatzpaar",
+  "fix": "DELETE"
+ },
+ {
+  "type": "B5",
+  "chapter": 4,
+  "pos": 116,
+  "en": "throughout …",
+  "de": "überall in …, in ganz … throughout",
+  "issue": "OCR: 'throughout'-Duplikat am de-Ende",
+  "fix": "throughout … = überall in …, in ganz …"
+ },
+ {
+  "type": "B5",
+  "chapter": 4,
+  "pos": 121,
+  "en": "(to) colonize",
+  "de": "(to) colonise",
+  "issue": "de = EN-Variante 'colonise' statt deutscher Übersetzung",
+  "fix": "(to) colonize = kolonisieren; (ein Gebiet) besiedeln"
+ },
+ {
+  "type": "B5",
+  "chapter": 4,
+  "pos": 125,
+  "en": "(to) discourage",
+  "de": "unterbinden, zu verhindern",
+  "issue": "de gebräucht ('unterbinden, zu verhindern') + Sinnverschärfung: 'entmutigen, abraten/abbbringen' fehlt",
+  "fix": "(to) discourage = entmutigen; (von etwas) abraten, abbringen"
+ },
+ {
+  "type": "B5",
+  "chapter": 4,
+  "pos": 130,
+  "en": "some",
+  "de": "tools",
+  "issue": "OCR-Split aus 'some tools' — echtes Lemma 'tool = Werkzeug' fehlt",
+  "fix": "DELETE"
+ },
+ {
+  "type": "B5",
+  "chapter": 4,
+  "pos": 135,
+  "en": "entirely",
+  "de": "new/possible/different/unexpected",
+  "issue": "OCR: de = Beispielspalte mit EN-Wörtern statt Übersetzung",
+  "fix": "entirely = völlig, gänzlich"
+ },
+ {
+  "type": "B5",
+  "chapter": 4,
+  "pos": 141,
+  "en": "(to) relate sth. to sth.",
+  "de": "etwas mit etwas verknüpfen, etwas",
+  "issue": "OCR: '… in Beziehung setzen' abgeschnitten",
+  "fix": "(to) relate sth. to sth. = etwas mit etwas verknüpfen; etwas auf etwas beziehen"
+ },
+ {
+  "type": "B5",
+  "chapter": 4,
+  "pos": 148,
+  "en": "faraway",
+  "de": "fern, abgelegen, entlegen faraway countries",
+  "issue": "OCR: Beispiel 'faraway countries' am de-Ende",
+  "fix": "faraway = fern, abgelegen, entlegen"
+ },
+ {
+  "type": "B5",
+  "chapter": 4,
+  "pos": 151,
+  "en": "Turnier, Wettkampf",
+  "de": "a competition",
+  "issue": "invertiert: en/de vertauscht",
+  "fix": "competition = Turnier, Wettkampf"
+ }
+]

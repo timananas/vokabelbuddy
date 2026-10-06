@@ -1,0 +1,424 @@
+[
+ {
+  "band": 4,
+  "unit": 1,
+  "en": "newspaper",
+  "de": "paper",
+  "flags": [
+   "sinnfalsch",
+   "de-ist-en"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 1,
+  "en": "skyscraper",
+  "de": "Wolkenkratzer skyscrapers",
+  "flags": [
+   "anhang-muell"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 1,
+  "en": "thick",
+  "de": "dick German dick",
+  "flags": [
+   "anhang-muell"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 1,
+  "en": "neighborhood",
+  "de": "/ neighbourhood (BE)",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 1,
+  "en": "German",
+  "de": "als ob",
+  "flags": [
+   "sinnfalsch"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 1,
+  "en": "(to) stick",
+  "de": "stuck, stuck",
+  "flags": [
+   "lemma-zerbrochen",
+   "de-ist-en"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 1,
+  "en": "(to) be alive",
+  "de": "leben, am Leben sein (to) be alive",
+  "flags": [
+   "en-wiederholung-im-de"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 1,
+  "en": "inch",
+  "de": "Zoll (Längenmaß; 2,54 cm) 12 inches",
+  "flags": [
+   "en-wiederholung-im-de"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 1,
+  "en": "Friedhof",
+  "de": "an area of land",
+  "flags": [
+   "en-ist-deutsch",
+   "sinnfalsch"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 1,
+  "en": "railway tracks",
+  "de": "railroad tracks (AE)",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 1,
+  "en": "even though",
+  "de": "wenn; obwohl",
+  "flags": [
+   "sinnfalsch"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 1,
+  "en": "a turkey",
+  "de": "a frozen turkey",
+  "flags": [
+   "de-ist-en",
+   "sinnfalsch"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 1,
+  "en": "dealt, dealt",
+  "de": "sich mit etwas beschäftigen",
+  "flags": [
+   "lemma-zerbrochen"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 1,
+  "en": "shrubs",
+  "de": "lawn seeds",
+  "flags": [
+   "de-ist-en",
+   "sinnfalsch"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 2,
+  "en": "Welche",
+  "de": "Art von Musik …?",
+  "flags": [
+   "en-ist-deutsch",
+   "zeilenbruch-artefakt"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 2,
+  "en": "frying pan",
+  "de": "saucepan oven",
+  "flags": [
+   "de-ist-en",
+   "sinnfalsch"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 2,
+  "en": "onions",
+  "de": "peppers",
+  "flags": [
+   "de-ist-en",
+   "sinnfalsch"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 2,
+  "en": "Who is going to",
+  "de": "cook/do",
+  "flags": [
+   "zeilenbruch-artefakt"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 2,
+  "en": "waiter",
+  "de": "/",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 2,
+  "en": "jewellery",
+  "de": "/ jewelry (AE)",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 2,
+  "en": "Kino",
+  "de": "BE cinema",
+  "flags": [
+   "en-ist-deutsch",
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 2,
+  "en": "streetcar",
+  "de": "/",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 2,
+  "en": "adverb: completely",
+  "de": "völlig, vollkommen",
+  "flags": [
+   "label-artefakt"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 2,
+  "en": "shot",
+  "de": "schießen; erschießen",
+  "flags": [
+   "lemma-zerbrochen",
+   "sinnfalsch"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 3,
+  "en": "Mit sorry",
+  "de": "kannst du …",
+  "flags": [
+   "en-ist-deutsch",
+   "zeilenbruch-artefakt"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 3,
+  "en": "unstoppable",
+  "de": "unaufhaltsam, unaufhaltbar",
+  "flags": [
+   "rechtschreibung-de",
+   "anhang-muell"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 3,
+  "en": "Frau Miller",
+  "de": "Viele Frauen möchten lieber mit Ms … angesprochen",
+  "flags": [
+   "en-ist-deutsch"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 3,
+  "en": "werden, weil am Wort Ms",
+  "de": "nicht zu erkennen ist, ob",
+  "flags": [
+   "en-ist-deutsch"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 3,
+  "en": "miles per hour",
+  "de": ")",
+  "flags": [
+   "de-ohne-deutsch"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 3,
+  "en": "Meilen pro Stunde",
+  "de": "55 mph",
+  "flags": [
+   "en-ist-deutsch"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 3,
+  "en": "illegal",
+  "de": "illegal, ungesetzlich legal",
+  "flags": [
+   "en-wiederholung-im-de"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 3,
+  "en": "campfire",
+  "de": "Lagerfeuer a",
+  "flags": [
+   "anhang-muell"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 3,
+  "en": "more and more",
+  "de": "frequent / beautiful",
+  "flags": [
+   "de-ist-en",
+   "sinnfalsch"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 3,
+  "en": "effect (on)",
+  "de": "(Aus-)Wirkung (auf) cause",
+  "flags": [
+   "en-wiederholung-im-de"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 4,
+  "en": "reservation",
+  "de": "rez",
+  "flags": [
+   "de-ohne-deutsch",
+   "lemma-zerbrochen"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 4,
+  "en": "wheel",
+  "de": "( kurz für: steering wheel",
+  "flags": [
+   "de-ohne-deutsch",
+   "lemma-zerbrochen"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 4,
+  "en": "Lenkrad",
+  "de": "wheel",
+  "flags": [
+   "en-ist-deutsch"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 4,
+  "en": "(to) divide (into)",
+  "de": "sich) teilen (in",
+  "flags": [
+   "format-mangled"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 4,
+  "en": "(Schul-)Note, Zensur",
+  "de": "grade",
+  "flags": [
+   "en-ist-deutsch"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 4,
+  "en": "(to) attend a course",
+  "de": "einen Kurs besuchen, an einem",
+  "flags": [
+   "zu-lang-de"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 4,
+  "en": "lent, lent",
+  "de": "jm. etwas leihen",
+  "flags": [
+   "lemma-zerbrochen"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 4,
+  "en": "whenever",
+  "de": "wann",
+  "flags": [
+   "sinnfalsch"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 4,
+  "en": "mind",
+  "de": "es sich anders überlegen",
+  "flags": [
+   "lemma-zerbrochen",
+   "sinnfalsch"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 4,
+  "en": "I’ve",
+  "de": "changed my",
+  "flags": [
+   "zeilenbruch-artefakt"
+  ]
+ },
+ {
+  "band": 4,
+  "unit": 4,
+  "en": "das",
+  "de": "ist der green -Laut",
+  "flags": [
+   "en-ist-deutsch",
+   "zeilenbruch-artefakt"
+  ]
+ }
+]
