@@ -111,11 +111,11 @@ h2{font-size:1.05rem; margin:18px 0 10px}
     <h2 id="chHead">Kapitel</h2>
     <div class="chapters" id="chapters"></div>
     <div class="rangebox">
-      <span id="rbLabel">Übungsbereich (optional): Vokabel 1 – 20</span>
-      <input id="fromN" type="number" min="1" inputmode="numeric" placeholder="von" style="width:90px">
+      <span class="rb-label">Bereich</span>
+      <select id="fromSel" style="max-width:230px"></select>
       <span style="color:var(--muted)">–</span>
-      <input id="toN" type="number" min="1" inputmode="numeric" placeholder="bis" style="width:90px">
-      <button id="rbClear" class="back" style="padding:7px 10px">✕ Reset</button>
+      <select id="toSel" style="max-width:230px"></select>
+      <button id="rbClear" class="back" style="padding:7px 10px">✕ Ganzes Kapitel</button>
     </div>
     <button class="start" id="startBtn" disabled>Vokabeln üben</button>
   </section>
@@ -187,20 +187,37 @@ async function init(){
     if(i>=0){ const b=document.querySelectorAll('#qbox .choice')[i]; if(b&&!b.disabled) b.click(); }
   });
   show('viewHome','viewQuiz');
-  const applyRange=()=>{
-    let fv=parseInt($('fromN').value,10), tv=parseInt($('toN').value,10);
-    fv=fv>0?fv:0; tv=tv>0?tv:0;
-    if(fv&&tv&&fv>tv){ const x=fv; fv=tv; tv=x; $('fromN').value=fv; $('toN').value=tv; }
-    localStorage.setItem('vb_from', fv||''); localStorage.setItem('vb_to', tv||'');
-    $('rbLabel').textContent=(fv||tv)?`Übungsbereich: Vokabel ${fv||1} – ${tv||'Ende'}`:'Übungsbereich (optional)';
-  };
-  $('fromN').addEventListener('input',applyRange);
-  $('toN').addEventListener('input',applyRange);
-  $('rbClear').onclick=()=>{ $('fromN').value=''; $('toN').value=''; applyRange(); };
-  $('fromN').value=localStorage.getItem('vb_from')||'';
-  $('toN').value=localStorage.getItem('vb_to')||'';
-  applyRange();
+  $('fromSel').addEventListener('change',applyRange);
+  $('toSel').addEventListener('change',applyRange);
+  $('rbClear').onclick=()=>{ $('fromSel').value=''; $('toSel').value=''; applyRange(); };
   loadChapters();
+}
+const wordsCache = { key: '', items: [] };
+async function fillRangeSelects(){
+  if(!sel.size){ wordsCache.key=''; wordsCache.items=[]; return; }
+  const key = book+'|'+[...sel].sort((a,b)=>parseInt(a)-parseInt(b)).join(',');
+  if(wordsCache.key===key) return;
+  const r=await (await fetch(`/api/words?book=${encodeURIComponent(book)}&chapters=${[...sel].map(s=>encodeURIComponent(s)).join(',')}`)).json();
+  const items=[];
+  for(const c of (r.chapters||[])){
+    for(const w of (c.words||[]))
+      items.push({gpos: items.length+1, label: `#${items.length+1} · ${w.en}`, ch: c.num});
+  }
+  wordsCache.key=key; wordsCache.items=items;
+}
+function fillRangeUI(){
+  const fs=$('fromSel'), ts=$('toSel');
+  const pf=fs.value, pt=ts.value;
+  const opts=wordsCache.items.map(it=>`<option value="${it.gpos}">${esc(it.label)}</option>`).join('');
+  fs.innerHTML='<option value="">Start — ganzes Kapitel</option>'+opts;
+  ts.innerHTML='<option value="">Ende — ganzes Kapitel</option>'+opts;
+  if(pf) fs.value=pf; if(pt) ts.value=pt;
+}
+function applyRange(){
+  const fs=$('fromSel'), ts=$('toSel');
+  const fv=parseInt(fs.value,10)||0, tv=parseInt(ts.value,10)||0;
+  if(fv&&tv&&fv>tv){ fs.value=String(tv); ts.value=String(fv); }
+  localStorage.setItem('vb_from', fs.value||''); localStorage.setItem('vb_to', ts.value||'');
 }
 function show(a,b){ $(b).classList.add('hidden'); $(a).classList.remove('hidden'); }
 function drawKids(){
@@ -247,25 +264,32 @@ async function loadChapters(){
     el.onclick=()=>{
       if(sel.has(c.num)){ sel.delete(c.num); el.classList.remove('on'); }
       else{ sel.add(c.num); el.classList.add('on'); }
-      const ok=chapters.filter(x=>sel.has(x.num)).some(x=>x.count>0);
-      $('startBtn').disabled=!ok;
+      const ok2=chapters.filter(x=>sel.has(x.num)).some(x=>x.count>0);
+      $('startBtn').disabled=!ok2;
+      fillRangeSelects().then(()=>{ fillRangeUI(); applyRange(); });
     };
     host.appendChild(el);
   }
   $('startBtn').disabled=true;
+  await fillRangeSelects();
+  fillRangeUI();
+  $('fromSel').value=localStorage.getItem('vb_from')||'';
+  $('toSel').value=localStorage.getItem('vb_to')||'';
 }
 async function startQuiz(){
   if(!kid||!sel.size) return;
   mode='quiz'; show('viewQuiz','viewHome');
   $('result').classList.add('hidden'); $('qbox').classList.remove('hidden');
   score=0; qix=0; answered=false;
-  $('vbRange').textContent = (localStorage.getItem('vb_from')||localStorage.getItem('vb_to')) ?
-    'Bereich: Vokabel '+(localStorage.getItem('vb_from')||'1')+'–'+(localStorage.getItem('vb_to')||'n') : '';
+  const fl=$('fromSel'), tl=$('toSel');
+  const flTxt=(fl.value&&fl.selectedOptions[0])?fl.selectedOptions[0].textContent.replace(/^#\d+ · /,''):'';
+  const tlTxt=(tl.value&&tl.selectedOptions[0])?tl.selectedOptions[0].textContent.replace(/^#\d+ · /,''):'';
+  $('vbRange').textContent=(fl.value||tl.value)?'Bereich: '+((fl.value&&flTxt)||'Anfang')+' – '+((tl.value&&tlTxt)||'Ende'):'';
   $('vbRange').classList.toggle('on', !!$('vbRange').textContent);
   // crypto.randomUUID gibt es nur in Secure Contexts (HTTPS/localhost) – im LAN-HTTP fehlt es!
   const nonce=Date.now().toString(36)+Math.random().toString(36).slice(2)+performance.now().toString(36).replace(/[^a-z0-9]/g,'');
-  const fromv=parseInt(localStorage.getItem('vb_from')||'',10), tov=parseInt(localStorage.getItem('vb_to')||'',10);
-  const qs=(!isNaN(fromv)&&fromv>0?`&from=${fromv}`:'')+(!isNaN(tov)&&tov>0?`&to=${tov}`:'');
+  const fromv=parseInt($('fromSel').value,10)||0, tov=parseInt($('toSel').value,10)||0;
+  const qs=(fromv>0?`&from=${fromv}`:'')+(tov>0?`&to=${tov}`:'');
   const u=`/api/quiz?book=${encodeURIComponent(book)}&kid=${encodeURIComponent(kid)}`+
     `&chapters=${[...sel].map(s=>encodeURIComponent(s)).join(',')}&type=both&count=12&nonce=${encodeURIComponent(nonce)}${qs}`;
   try{ quiz=await (await fetch(u)).json(); }

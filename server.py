@@ -126,16 +126,18 @@ def _chapter_stats(st, kid):
 
 
 def _pool(book, chapters, from_n=None, to_n=None):
-    """Wörter der gewählten Kapitel (dedupliziert, casefold); pos = 1-basierte
-    Position in der Kapitel-Wortliste (Buch-Reihenfolge). from_n/to_n = optionaler
-    Bereichsfilter auf pos (inklusive, pro Kapitel)."""
+    """Wörter der gewählten Kapitel (dedupliziert, casefold).
+    pos = 1-basierte Position INNERHALB des Kapitels (Buch-Reihenfolge, für Anzeige).
+    gpos = fortlaufende Nummer über ALLE gewählten Kapitel (buchsortiert);
+    from_n/to_n filtern auf gpos — bei einem Kapitel identisch mit pos."""
     data = _qdata(book)
+    chs = sorted((ch for ch in data['chapters'] if str(ch.get('num')) in chapters),
+                 key=lambda c: int(c['num']) if str(c.get('num', 0)).isdigit() else 999)
     pool = []
     seen = set()
-    for ix, ch in enumerate(data['chapters']):
+    gpos = 0
+    for ch in chs:
         chnum = str(ch.get('num'))
-        if chnum not in chapters:
-            continue
         words = ch.get('words') if isinstance(ch.get('words'), list) else []
         for pos, w in enumerate(words, 1):
             if not isinstance(w, (list, tuple)) or len(w) < 2:
@@ -143,15 +145,17 @@ def _pool(book, chapters, from_n=None, to_n=None):
             en, de = _norm(w[0]), _norm(w[1])
             if not en or not de:
                 continue
-            if from_n and pos < from_n:
+            gpos += 1
+            if from_n and gpos < from_n:
                 continue
-            if to_n and pos > to_n:
+            if to_n and gpos > to_n:
                 continue
             key = (en.casefold(), de.casefold())
             if key in seen:
                 continue
             seen.add(key)
-            pool.append({'ch_ix': ix, 'num': chnum, 'pos': pos, 'en': en, 'de': de,
+            pool.append({'ch_ix': data['chapters'].index(ch), 'num': chnum, 'pos': pos,
+                         'gpos': gpos, 'en': en, 'de': de,
                          'qid': f'{book}|{chnum}|{en.casefold()}'})
     return pool
 
