@@ -534,8 +534,8 @@ async function startQuiz(){
   if(($('modeSel')||{}).value==='cards'){ return startCards(); }
   if(($('modeSel')||{}).value==='write'){ return startWrite(); }
   const fl=$('fromSel'), tl=$('toSel');
-  const flTxt=(fl.value&&fl.selectedOptions[0])?fl.selectedOptions[0].textContent.replace(/^#\d+ · /,''):'';
-  const tlTxt=(tl.value&&tl.selectedOptions[0])?tl.selectedOptions[0].textContent.replace(/^#\d+ · /,''):'';
+  const lblOf=v=>{ const t=v?window.getLabel((wordsCache.items||[]),v):''; return t?t.replace(/^#\d+ · /,''):''; };
+  const flTxt=lblOf(fl.value), tlTxt=lblOf(tl.value);
   $('vbRange').textContent=(fl.value||tl.value)?'Bereich: '+((fl.value&&flTxt)||'Anfang')+' – '+((tl.value&&tlTxt)||'Ende'):'';
   $('vbRange').classList.toggle('on', !!$('vbRange').textContent);
   window._lastWrong=[];
@@ -662,8 +662,8 @@ async function startWrite(){
   $('wFeedback').textContent=''; $('wFeedback').className='wfb';
   score=0; qix=0; answered=false;
   const fl=$('fromSel'), tl=$('toSel');
-  const flTxt=(fl.value&&fl.selectedOptions[0])?fl.selectedOptions[0].textContent.replace(/^#\d+ · /,''):'';
-  const tlTxt=(tl.value&&tl.selectedOptions[0])?tl.selectedOptions[0].textContent.replace(/^#\d+ · /,''):'';
+  const lblOfX=v=>{ const t=v?window.getLabel((wordsCache.items||[]),v):''; return t?t.replace(/^#\d+ · /,''):''; };
+  const flTxt=lblOfX($('fromSel').value), tlTxt=lblOfX($('toSel').value);
   $('vbRange').textContent=(fl.value||tl.value)?'Bereich: '+((fl.value&&flTxt)||'Anfang')+' – '+((tl.value&&tlTxt)||'Ende'):'';
   $('vbRange').classList.toggle('on', !!$('vbRange').textContent);
   window._lastWrong=[];
@@ -755,8 +755,8 @@ async function startCards(){
   $('cardResult').classList.add('hidden');
   score=0; qix=0; answered=false;
   const fl=$('fromSel'), tl=$('toSel');
-  const flTxt=(fl.value&&fl.selectedOptions[0])?fl.selectedOptions[0].textContent.replace(/^#\d+ · /,''):'';
-  const tlTxt=(tl.value&&tl.selectedOptions[0])?tl.selectedOptions[0].textContent.replace(/^#\d+ · /,''):'';
+  const lblOfX=v=>{ const t=v?window.getLabel((wordsCache.items||[]),v):''; return t?t.replace(/^#\d+ · /,''):''; };
+  const flTxt=lblOfX($('fromSel').value), tlTxt=lblOfX($('toSel').value);
   $('vbRange').textContent=(fl.value||tl.value)?'Bereich: '+((fl.value&&flTxt)||'Anfang')+' – '+((tl.value&&tlTxt)||'Ende'):'';
   $('vbRange').classList.toggle('on', !!$('vbRange').textContent);
   const nonce=Date.now().toString(36)+Math.random().toString(36).slice(2)+performance.now().toString(36).replace(/[^a-z0-9]/g,'');
