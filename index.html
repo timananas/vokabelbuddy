@@ -47,6 +47,14 @@ h2{font-size:1.05rem; margin:18px 0 10px}
 .top{display:flex; justify-content:space-between; gap:8px; align-items:center; margin-bottom:10px}
 .back{border:1px solid var(--line); background:var(--card); color:var(--ink); border-radius:10px; padding:8px 14px; cursor:pointer; font-weight:600}
 .pbar{height:8px; background:var(--chip); border-radius:99px; overflow:hidden; margin-bottom:18px}
+.range-pill{display:none; background:var(--accent-soft); color:var(--accent); font-size:.8rem; font-weight:700; padding:4px 12px; border-radius:99px; margin-bottom:12px; width:fit-content}
+.range-pill.on{display:block}
+.rangebox{display:flex; gap:8px; align-items:center; margin-top:14px; flex-wrap:wrap;
+  border:1.5px dashed var(--line); border-radius:12px; padding:10px 12px; background:var(--card)}
+.rb-label{font-size:.83rem; color:var(--muted); font-weight:600; margin-right:2px}
+.rangebox input{border:1.5px solid var(--line); background:var(--bg); color:var(--ink); border-radius:10px;
+  padding:8px 10px; font-size:.95rem; text-align:center}
+#rbClear{font-weight:700}
 .pbar>div{height:100%; background:var(--accent); width:0; transition:width .25s}
 .qmeta{color:var(--muted); font-size:.8rem; margin-bottom:6px}
 .qword{font-size:1.7rem; font-weight:800; margin:4px 0 4px; text-align:center}
@@ -76,6 +84,8 @@ h2{font-size:1.05rem; margin:18px 0 10px}
 .modal input,.modal select,.modal textarea{width:100%; border:1.5px solid var(--line); background:var(--bg);
   color:var(--ink); border-radius:10px; padding:9px; font-size:.95rem; font-family:inherit}
 .modal textarea{min-height:180px; font-family:ui-monospace,Menlo,Consolas,monospace; font-size:.85rem; white-space:pre}
+.mgrid{display:grid; grid-template-columns:110px 1fr 110px 1fr; gap:8px; align-items:center}
+.mgrid input{width:100%; border:1.5px solid var(--line); background:var(--bg); color:var(--ink); border-radius:10px; padding:9px; font-size:.95rem}
 .modal .mrow{display:flex; gap:10px; margin-top:16px}
 .modal .mrow button{flex:1; border:0; border-radius:10px; padding:11px; font-weight:700; cursor:pointer}
 .msave{background:var(--accent); color:#fff}
@@ -100,6 +110,13 @@ h2{font-size:1.05rem; margin:18px 0 10px}
     <div class="books" id="books"></div>
     <h2 id="chHead">Kapitel</h2>
     <div class="chapters" id="chapters"></div>
+    <div class="rangebox">
+      <span id="rbLabel">Übungsbereich (optional): Vokabel 1 – 20</span>
+      <input id="fromN" type="number" min="1" inputmode="numeric" placeholder="von" style="width:90px">
+      <span style="color:var(--muted)">–</span>
+      <input id="toN" type="number" min="1" inputmode="numeric" placeholder="bis" style="width:90px">
+      <button id="rbClear" class="back" style="padding:7px 10px">✕ Reset</button>
+    </div>
     <button class="start" id="startBtn" disabled>Vokabeln üben</button>
   </section>
 
@@ -109,6 +126,7 @@ h2{font-size:1.05rem; margin:18px 0 10px}
       <span class="sub" id="quizState" style="margin:0"></span>
     </div>
     <div class="pbar"><div id="pfill"></div></div>
+    <div id="vbRange" class="range-pill"></div>
     <div id="qbox"></div>
     <div id="result" class="hidden">
       <div class="res-big"><div class="score" id="resScore"></div><div class="res-note" id="resNote"></div></div>
@@ -169,6 +187,19 @@ async function init(){
     if(i>=0){ const b=document.querySelectorAll('#qbox .choice')[i]; if(b&&!b.disabled) b.click(); }
   });
   show('viewHome','viewQuiz');
+  const applyRange=()=>{
+    let fv=parseInt($('fromN').value,10), tv=parseInt($('toN').value,10);
+    fv=fv>0?fv:0; tv=tv>0?tv:0;
+    if(fv&&tv&&fv>tv){ const x=fv; fv=tv; tv=x; $('fromN').value=fv; $('toN').value=tv; }
+    localStorage.setItem('vb_from', fv||''); localStorage.setItem('vb_to', tv||'');
+    $('rbLabel').textContent=(fv||tv)?`Übungsbereich: Vokabel ${fv||1} – ${tv||'Ende'}`:'Übungsbereich (optional)';
+  };
+  $('fromN').addEventListener('input',applyRange);
+  $('toN').addEventListener('input',applyRange);
+  $('rbClear').onclick=()=>{ $('fromN').value=''; $('toN').value=''; applyRange(); };
+  $('fromN').value=localStorage.getItem('vb_from')||'';
+  $('toN').value=localStorage.getItem('vb_to')||'';
+  applyRange();
   loadChapters();
 }
 function show(a,b){ $(b).classList.add('hidden'); $(a).classList.remove('hidden'); }
@@ -211,7 +242,8 @@ async function loadChapters(){
     const streak=c.best_streak?` · 🔥${c.best_streak}`:'';
     el.innerHTML=`<span class="num">Ch. ${esc(c.num)}</span>${c.title?`<div>${esc(c.title)}</div>`:''}
       <span class="cnt">${c.count} Vokabeln</span>
-      <span class="stat ${c.seen_n?'':'none'}">${c.seen_n?`${c.seen_n}× geübt · ${pct}% richtig${streak}`:'noch nie geübt'}</span>`;
+      <span class="stat ${c.seen_n?'':'none'}">${c.seen_n?`${c.seen_n}× geübt · ${pct}% richtig${streak}`:'noch nie geübt'}</span>
+      <span class="cnt">Pos 1–${c.count}</span>`;
     el.onclick=()=>{
       if(sel.has(c.num)){ sel.delete(c.num); el.classList.remove('on'); }
       else{ sel.add(c.num); el.classList.add('on'); }
@@ -227,10 +259,15 @@ async function startQuiz(){
   mode='quiz'; show('viewQuiz','viewHome');
   $('result').classList.add('hidden'); $('qbox').classList.remove('hidden');
   score=0; qix=0; answered=false;
+  $('vbRange').textContent = (localStorage.getItem('vb_from')||localStorage.getItem('vb_to')) ?
+    'Bereich: Vokabel '+(localStorage.getItem('vb_from')||'1')+'–'+(localStorage.getItem('vb_to')||'n') : '';
+  $('vbRange').classList.toggle('on', !!$('vbRange').textContent);
   // crypto.randomUUID gibt es nur in Secure Contexts (HTTPS/localhost) – im LAN-HTTP fehlt es!
   const nonce=Date.now().toString(36)+Math.random().toString(36).slice(2)+performance.now().toString(36).replace(/[^a-z0-9]/g,'');
+  const fromv=parseInt(localStorage.getItem('vb_from')||'',10), tov=parseInt(localStorage.getItem('vb_to')||'',10);
+  const qs=(!isNaN(fromv)&&fromv>0?`&from=${fromv}`:'')+(!isNaN(tov)&&tov>0?`&to=${tov}`:'');
   const u=`/api/quiz?book=${encodeURIComponent(book)}&kid=${encodeURIComponent(kid)}`+
-    `&chapters=${[...sel].map(s=>encodeURIComponent(s)).join(',')}&type=both&count=12&nonce=${encodeURIComponent(nonce)}`;
+    `&chapters=${[...sel].map(s=>encodeURIComponent(s)).join(',')}&type=both&count=12&nonce=${encodeURIComponent(nonce)}${qs}`;
   try{ quiz=await (await fetch(u)).json(); }
   catch(e){ $('qbox').innerHTML='<p class="sub">Server nicht erreichbar.</p>'; return; }
   if(quiz.error||!(quiz.questions||[]).length){
@@ -247,7 +284,7 @@ function renderQ(){
   const dir=q.direction==='de2en'?'Wie sagt man das auf <b>Englisch</b>?':'Was heißt das auf <b>Deutsch</b>?';
   const byk=(META.kids.find(k=>k.id===kid)||{name:''}).name;
   $('qbox').innerHTML=`
-    <div class="qmeta">Ch. ${esc(q.chapter)} · ${esc(byk)}</div>
+    <div class="qmeta">Ch. ${esc(q.chapter)} · Pos. ${esc(q.pos)} · ${esc(byk)}</div>
     <div class="qword">${esc(q.prompt)}</div>
     <div class="qhint">${dir}</div>
     <div class="choices">${q.choices.map((c,i)=>
@@ -288,6 +325,7 @@ function finishQuiz(){
 function openAdmin(){
   $('mDone').textContent='';
   $('mNum').value=''; $('mTitle').value=''; $('mWords').value='';
+  $('mFrom').value=''; $('mTo').value='';
   const mb=$('mBook');
   if(mb.options.length!==META.books.length)
     mb.innerHTML=META.books.map(b=>`<option value="${esc(b.id)}">${esc(b.name)}</option>`).join('');

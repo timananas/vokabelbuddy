@@ -125,8 +125,10 @@ def _chapter_stats(st, kid):
     return agg
 
 
-def _pool(book, chapters):
-    """Alle Wörter der gewählten Kapitel, dedupliziert (casefold)."""
+def _pool(book, chapters, from_n=None, to_n=None):
+    """Wörter der gewählten Kapitel (dedupliziert, casefold); pos = 1-basierte
+    Position in der Kapitel-Wortliste (Buch-Reihenfolge). from_n/to_n = optionaler
+    Bereichsfilter auf pos (inklusive, pro Kapitel)."""
     data = _qdata(book)
     pool = []
     seen = set()
@@ -135,22 +137,26 @@ def _pool(book, chapters):
         if chnum not in chapters:
             continue
         words = ch.get('words') if isinstance(ch.get('words'), list) else []
-        for w in words:
+        for pos, w in enumerate(words, 1):
             if not isinstance(w, (list, tuple)) or len(w) < 2:
                 continue
             en, de = _norm(w[0]), _norm(w[1])
             if not en or not de:
                 continue
+            if from_n and pos < from_n:
+                continue
+            if to_n and pos > to_n:
+                continue
             key = (en.casefold(), de.casefold())
             if key in seen:
                 continue
             seen.add(key)
-            pool.append({'ch_ix': ix, 'num': chnum, 'en': en, 'de': de,
+            pool.append({'ch_ix': ix, 'num': chnum, 'pos': pos, 'en': en, 'de': de,
                          'qid': f'{book}|{chnum}|{en.casefold()}'})
     return pool
 
 
-def _build_question(item, pool, direction, rng):
+def _build_question(item, dpool, direction, rng):
     en, de = item['en'], item['de']
     if direction == 'de2en':
         prompt, answer, kind = de, en, 'en'
@@ -159,7 +165,7 @@ def _build_question(item, pool, direction, rng):
 
     cf = answer.casefold()
     cands = []
-    for other in pool:
+    for other in dpool:
         if other is item:
             continue
         v = other[kind]
@@ -186,16 +192,19 @@ def _build_question(item, pool, direction, rng):
         'id': item['qid'],
         'direction': direction,
         'chapter': item['num'],
+        'pos': item['pos'],
         'prompt': prompt,
         'choices': choices,
         'answer': answer,
     }
 
 
-def _make_quiz(book, kid, chapters, qtype, count, nonce):
-    pool = _pool(book, chapters)
-    if len(pool) < 2:
+def _make_quiz(book, kid, chapters, qtype, count, nonce, from_n=None, to_n=None):
+    pool = _pool(book, chapters, from_n, to_n)
+    if not pool:
         return None
+    # Distraktor-Pool: die KAPITEL ungefiltert (auch bei Bereich 1–1 volle 4 Optionen)
+    dpool = _pool(book, chapters)
     st = _stats()
     seen_map = st['kid_seen'].get(kid, {})
     rng = random.Random()
@@ -225,10 +234,10 @@ def _make_quiz(book, kid, chapters, qtype, count, nonce):
     out = []
     for i, (_w, _r, item) in enumerate(scored[:count]):
         d = dirs[i % len(dirs)]
-        q = _build_question(item, pool, d, rng)
+        q = _build_question(item, dpool, d, rng)
         with _lock:
             _sessions[nonce]['questions'][q['id'] + '|' + d] = q
-        out.append({k: q[k] for k in ('id', 'direction', 'chapter', 'prompt', 'choices')})
+        out.append({k: q[k] for k in ('id', 'direction', 'chapter', 'pos', 'prompt', 'choices')})
     return out
 
 
@@ -331,6 +340,8 @@ class Handler(BaseHTTPRequestHandler):
                 self.api_stats(q)
             elif r == '/api/export':
                 self.api_export(q)
+            elif r == '/api/words':
+                self.api_words(q)
             elif self._static():
                 pass
             else:
@@ -395,15 +406,23 @@ class Handler(BaseHTTPRequestHandler):
         nonce = (q.get('nonce') or [''])[0]
         chapters = {c for c in ((q.get('chapters') or [''])[0].split(',')) if c}
         qtype = (q.get('type') or ['both'])[0]
+        from_n = to_n = None
+        try:
+            from_n = int((q.get('from') or [''])[0] or 0) or None
+            to_n = int((q.get('to') or [''])[0] or 0) or None
+        except ValueError:
+            pass
+        if from_n and to_n and from_n > to_n:
+            from_n, to_n = to_n, from_n
         if book not in _book_ids() or not _kid_ok(kid) or not (6 <= len(nonce) <= 64):
             self._json({'error': 'Parameter fehlen'}, 400)
             return
         if not chapters:
             self._json({'error': 'Kein Kapitel gewählt'}, 400)
             return
-        qs = _make_quiz(book, kid, chapters, qtype, (q.get('count') or ['12'])[0], nonce)
+        qs = _make_quiz(book, kid, chapters, qtype, (q.get('count') or ['12'])[0], nonce, from_n, to_n)
         if qs is None:
-            self._json({'error': 'Kapitel hat keine Vokabeln'}, 404)
+            self._json({'error': 'Keine Vokabeln in diesem Bereich'}, 404)
             return
         self._json({'book': book, 'kid': kid, 'kind': qtype, 'questions': qs})
 
@@ -456,6 +475,30 @@ class Handler(BaseHTTPRequestHandler):
         self.send_header('Content-Length', str(len(body)))
         self.end_headers()
         self.wfile.write(body)
+
+    def api_words(self, q):
+        """Wortlisten je Kapitel mit Positions-Index (Sichtprüfung/Tests)."""
+        book = (q.get('book') or [''])[0]
+        if book not in _book_ids():
+            self._json({'error': 'book unbekannt'}, 400)
+            return
+        only = {c for c in ((q.get('chapters') or [''])[0].split(',')) if c}
+        data = _qdata(book)
+        out = []
+        for ch in data['chapters']:
+            num = str(ch.get('num'))
+            if only and num not in only:
+                continue
+            words = []
+            for pos, w in enumerate(ch.get('words') or [], 1):
+                if not isinstance(w, (list, tuple)) or len(w) < 2:
+                    continue
+                en, de = _norm(w[0]), _norm(w[1])
+                if en and de:
+                    words.append({'pos': pos, 'en': en, 'de': de})
+            out.append({'num': num, 'title': ch.get('title', ''), 'count': len(words), 'words': words})
+        out.sort(key=lambda c: int(c['num']) if str(c['num']).isdigit() else 999)
+        self._json({'book': book, 'chapters': out})
 
     def api_chapter_save(self, body):
         book = _norm(body.get('book'))
