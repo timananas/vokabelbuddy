@@ -282,9 +282,8 @@ _AUTH_CSS = ('body{font-family:Nunito,system-ui,sans-serif;background:#0B1B30;co
              'color:#fff;font-weight:800;cursor:pointer;margin-top:8px}'
              '.msg{color:#F2A49E;font-size:.9rem}.chk{display:flex;gap:8px;align-items:center;'
              'font-size:.86rem;color:#8FA6C4;margin-top:10px}'
-             '.bigbrand{display:flex;flex-direction:column;align-items:center;gap:10px;margin:2px 0 20px}'
-             '.biglogo{width:112px;height:112px;object-fit:contain;filter:drop-shadow(0 8px 18px rgba(4,12,24,.55))}'
-             '.bigmark{height:40px}')
+             '.bigbrand{display:flex;justify-content:center;margin:2px 0 22px}'
+             '.biglogo{height:72px;width:auto;object-fit:contain;filter:drop-shadow(0 6px 16px rgba(4,12,24,.5))}')
 _AUTH_WRAP = ('<!DOCTYPE html><html lang="de"><head><meta charset="utf-8">'
               '<meta name="viewport" content="width=device-width, initial-scale=1">'
               '<link rel="icon" type="image/png" sizes="32x32" href="/assets/mascot-32.png">'
@@ -309,8 +308,7 @@ def _login_html(msg='', pre_user=''):
     warn = f'<p class="msg">{msg}</p>' if msg else ''
     pre = f' value="{pre_user}"' if pre_user else ''
     body = ('<div class="bigbrand">'
-            '<img class="biglogo" src="/assets/mascot.png" alt="">'
-            '<img class="bigmark" src="/assets/logo-white.svg" alt="VokabelBuddy">'
+            '<img class="biglogo" src="/assets/logo-banner-white.png" alt="VokabelBuddy">'
             '</div>'
             '<form method="POST" action="/login">' + warn +
             f'<input type="text" name="username" placeholder="Benutzername (z.B. luis)"{pre} autocapitalize="none" autofocus>'
