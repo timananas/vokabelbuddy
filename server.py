@@ -282,9 +282,9 @@ _AUTH_CSS = ('body{font-family:Nunito,system-ui,sans-serif;background:#0B1B30;co
              'color:#fff;font-weight:800;cursor:pointer;margin-top:8px}'
              '.msg{color:#F2A49E;font-size:.9rem}.chk{display:flex;gap:8px;align-items:center;'
              'font-size:.86rem;color:#8FA6C4;margin-top:10px}'
-             '.bigbrand{display:flex;flex-direction:column;align-items:center;gap:8px;margin:2px 0 18px}'
-             '.biglogo{width:86px;height:86px;object-fit:contain;filter:drop-shadow(0 6px 14px rgba(4,12,24,.5))}'
-             '.bigmark{height:34px}')
+             '.bigbrand{display:flex;flex-direction:column;align-items:center;gap:10px;margin:2px 0 20px}'
+             '.biglogo{width:112px;height:112px;object-fit:contain;filter:drop-shadow(0 8px 18px rgba(4,12,24,.55))}'
+             '.bigmark{height:40px}')
 _AUTH_WRAP = ('<!DOCTYPE html><html lang="de"><head><meta charset="utf-8">'
               '<meta name="viewport" content="width=device-width, initial-scale=1">'
               '<link rel="icon" type="image/png" sizes="32x32" href="/assets/mascot-32.png">'
@@ -1008,10 +1008,15 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
                 ck = self._cookies()
                 sess = ck.get(SESSION_COOKIE)
                 if sess:
-                    AUTH_MEM.get('sessions', {}).pop(sess, None)
+                    AUTH_MEM.setdefault('sessions', {}).pop(sess, None)
                 headers = [('Set-Cookie', _set_cookie(SESSION_COOKIE, '', 0)),
-                           ('Set-Cookie', _set_cookie(TRUST_COOKIE, '', 0))]
-                _page(self, _AUTH_WRAP.replace('{t}', 'Abgemeldet').replace('{b}', '<h1>Abgemeldet</h1><p style="color:#8d94a8">Du kannst die Seite schließen.</p>'), extra_headers=headers)
+                           ('Set-Cookie', _set_cookie(TRUST_COOKIE, '', 0)),
+                           ('Refresh', '3; url=/login')]
+                _page(self, _AUTH_WRAP.replace('{t}', 'Abgemeldet').replace('{b}',
+                      '<h1>Abgemeldet</h1>'
+                      '<p style="color:#8FA6C4; text-align:center">Du wirst zur Anmeldeseite weitergeleitet…</p>'
+                      '<p style="text-align:center; margin-top:14px"><a href="/login" style="color:#2E8BFF; font-weight:700">Sofort weiter</a></p>'),
+                      extra_headers=headers)
             elif self._static():
                 pass
             else:
