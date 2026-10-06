@@ -457,6 +457,7 @@ async function startQuiz(){
   $('cardbox').classList.add('hidden'); $('cardResult').classList.add('hidden');
   $('writebox').classList.add('hidden'); $('writeResult').classList.add('hidden');
   window._lastWrong=[]; window._isCards=false; window._skipped=[];
+  window._skipPhase=false; window._skipQueue=[]; window._rix=0;
   $('skipBtn').classList.remove('hidden');
   score=0; qix=0; answered=false;
   if(($('modeSel')||{}).value==='cards'){ return startCards(); }
@@ -484,9 +485,19 @@ async function startQuiz(){
 }
 function renderQ(){
   answered=false;
-  const q=quiz.questions[qix], n=quiz.questions.length;
-  $('quizState').textContent=`Frage ${qix+1} / ${n} · ${score} richtig`;
-  $('pfill').style.width=`${(qix/n)*100}%`;
+  const n=quiz.questions.length;
+  let q, label, pct;
+  if(window._skipPhase){
+    q=window._skipQueue[window._rix];
+    label=`🔁 Wiederholung ${window._rix+1} / ${window._skipQueue.length} · ${score} richtig`;
+    pct=100;
+  } else {
+    q=quiz.questions[qix];
+    label=`Frage ${qix+1} / ${n} · ${score} richtig`;
+    pct=(qix/n)*100;
+  }
+  $('quizState').textContent=label;
+  $('pfill').style.width=`${pct}%`;
   $('skipBtn').classList.remove('hidden');
   const dir=q.direction==='de2en'?'Wie sagt man das auf <b>Englisch</b>?':'Was heißt das auf <b>Deutsch</b>?';
   const byk=(META.kids.find(k=>k.id===kid)||{name:''}).name;
@@ -518,15 +529,23 @@ async function answer(i,btn,q){
   }
   $('quizState').textContent=`Frage ${qix+1} / ${quiz.questions.length} · ${score} richtig`;
   setTimeout(()=>{
-    qix++;
-    if(qix<quiz.questions.length){ $('pfill').style.width=`${(qix/quiz.questions.length)*100}%`; renderQ(); }
-    else if(window._skipped && window._skipped.length){
-      // geskippte Fragen hängen ans Rundenende (1 Extra-Runde)
-      quiz.questions=quiz.questions.concat(window._skipped);
-      window._skipped=[];
-      $('pfill').style.width=`${(qix/quiz.questions.length)*100}%`; renderQ();
+    // HauptRunde fertig? → Wiederholungs-Phase mit Geskippten (chronologisch, solange bis alle dran waren)
+    if(qix+1>=quiz.questions.length && !window._skipPhase){
+      if(window._skipped && window._skipped.length){
+        window._skipPhase=true;
+        window._skipQueue=window._skipped.slice(); window._skipped=[];
+        window._rix=0;
+        renderQ(); return;
+      }
+      finishQuiz(); return;
     }
-    else finishQuiz();
+    if(window._skipPhase){
+      window._rix++;
+      if(window._rix<window._skipQueue.length){ renderQ(); return; }
+      finishQuiz(); return;  // Wiederholungsphase einmal durch — fertig
+    }
+    qix++;
+    $('pfill').style.width=`${(qix/quiz.questions.length)*100}%`; renderQ();
   }, good?600:1600);
 }
 function finishQuiz(){
@@ -757,19 +776,30 @@ $('skipBtn').onclick=skipCurrent;
 // ---------- Skip ----------
 function skipCurrent(){
   if(mode!=='quiz'||answered) return;
-  const q=quiz.questions[qix];
-  if(!window._skipped) window._skipped=[];
-  window._skipped.push(q);
-  // NUR überspringen: keine Antwort, keine Statistik; letzte Frage -> geskippte anhängen
-  const n=(quiz.questions||[]).length;
-  if(qix+1>=n){
-    if(window._skipped.length){
-      quiz.questions=quiz.questions.concat(window._skipped);
-      window._skipped=[];
-    } else { finishQuiz(); return; }
+  const q=window._skipPhase?window._skipQueue[window._rix]:quiz.questions[qix];
+  // in der Wiederholungsphase: geskippte bleibt geskippt (endet, wenn alles durch ist)
+  if(window._skipPhase){
+    answered=true;
+    window._skipped.push(q);
+    window._rix++;
+    setTimeout(()=>{
+      if(window._rix<window._skipQueue.length){ answered=false; renderQ(); return; }
+      finishQuiz(); return;
+    }, 250);
+    return;
   }
+  answered=true;  // verhindert Doppel-Klicks während des Übergangs
+  window._skipped.push(q);
   qix++;
-  renderQ();
+  setTimeout(()=>{
+    if(qix<quiz.questions.length){ answered=false; $('pfill').style.width=`${(qix/quiz.questions.length)*100}%`; renderQ(); }
+    else if(window._skipped.length){
+      window._skipPhase=true;
+      window._skipQueue=window._skipped.slice(); window._skipped=[];
+      window._rix=0; answered=false;
+      renderQ();
+    } else { finishQuiz(); return; }
+  }, 250);
 }
 // ---------- Auswertung ----------
 async function openReport(){
