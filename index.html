@@ -191,11 +191,8 @@ html.dark #wInput.half,html.dark #mxInput.half{border-color:#8a7434; background:
 .detail-item.v-wrong{background:var(--bad)}
 .capsnote{color:var(--muted); font-style:italic; font-weight:400}
 html.dark .detail-item.v-wrong .d-answer, html.dark .detail-item.v-half .d-answer{color:var(--ink)}
-.homebrand{display:flex; justify-content:center; margin:6px 0 14px}
-.homemascot{width:118px; height:118px; object-fit:contain;
-  background:#FFFFFF; border-radius:26px; padding:10px; box-sizing:border-box;
-  box-shadow:0 6px 22px rgba(12,24,44,.14)}
-html.dark .homemascot{background:#EAF2FD; box-shadow:0 8px 26px rgba(0,0,0,.45)}
+.homebrand{display:flex; justify-content:center; margin:10px 0 18px}
+.homemascot{height:64px; width:auto; object-fit:contain}
 .hidden{display:none!important}
 /* Moderne Auswahl: Segmente + Custom-Dropdowns */
 .seg-label{font-size:.82rem; color:var(--muted); font-weight:700; margin:14px 0 6px; letter-spacing:.02em}
@@ -243,7 +240,7 @@ body{overflow-x:hidden}
 <main>
   <div class="row" style="justify-content:space-between">
     <div class="brandhead">
-      <img class="brandlogo" src="/assets/mascot.png" alt="VokabelBuddy" onerror="this.classList.add('gone')">
+      <img class="brandlogo" src="/assets/logo-banner-dark.png" alt="VokabelBuddy" onerror="this.classList.add('gone')">
     </div>
     <div style="display:flex; gap:8px">
       <button class="iconbtn" id="themeBtn" title="Dark/Light umschalten" aria-label="Dark/Light umschalten">
@@ -265,7 +262,7 @@ body{overflow-x:hidden}
 
   <section id="viewHome">
     <div class="homebrand">
-      <img class="homemascot" src="/assets/mascot.png" alt="VokabelBuddy">
+      <img class="homemascot" src="/assets/logo-banner-white.png" alt="VokabelBuddy">
     </div>
     <h2>Englischbuch</h2>
     <div class="books" id="books"></div>
@@ -464,7 +461,9 @@ function themeApply(){
   // theme-color im Standalone/PWA-Fall mitziehen
   const meta=document.querySelector('meta[name="theme-color"]');
   if(meta) meta.setAttribute('content', dark?'#0B1B30':'#2E8BFF');
-  // Brandmark: dunkle Variante im Darkmode (nur noch im Admin-Modal-Title? — brandmark weg)
+  // Logo-Banner: dunkle Variante für dunklen Hintergrund
+  const bm=document.querySelector('.brandlogo');
+  if(bm) bm.src = dark ? '/assets/logo-banner-white.png' : '/assets/logo-banner-dark.png';
   const btn=document.getElementById('themeBtn');
   if(btn) themeSetIcon(dark);
 }
