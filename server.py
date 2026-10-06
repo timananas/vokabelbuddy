@@ -265,20 +265,27 @@ def _page(self, body, code=200, extra_headers=None):
         self.wfile.write(body)
 
 
-_AUTH_CSS = ('body{font-family:system-ui,sans-serif;background:#141822;color:#e8ebf4;'
+_AUTH_CSS = ('body{font-family:Nunito,system-ui,sans-serif;background:#0B1B30;color:#EAF2FD;'
              'display:grid;place-items:center;min-height:100vh;margin:0}'
-             '.card{background:#1d2331;border-radius:14px;padding:24px;width:min(340px,90vw)}'
+             '.card{background:#12305A;border-radius:16px;padding:26px;width:min(340px,90vw);'
+             'box-shadow:0 12px 36px rgba(4,12,24,.45)}'
+             '.brandline{display:flex;align-items:center;gap:10px;margin-bottom:16px}'
+             '.brandline img.bl-logo{width:42px;height:42px;object-fit:contain}'
+             '.brandline img.bl-mark{height:26px}'
              'h1{font-size:1.2rem;margin:0 0 14px}'
              'input{width:100%;box-sizing:border-box;padding:11px;border-radius:9px;'
-             'border:1.5px solid #2b3345;background:#141822;color:#e8ebf4;font-size:1rem;margin:6px 0}'
-             'button{width:100%;padding:11px;border:0;border-radius:9px;background:#3a6df0;'
-             'color:#fff;font-weight:700;cursor:pointer;margin-top:8px}'
-             '.msg{color:#ef9f9e;font-size:.9rem}.chk{display:flex;gap:8px;align-items:center;'
-             'font-size:.86rem;color:#8d94a8;margin-top:10px}')
+             'border:1.5px solid #1E4478;background:#0B1B30;color:#EAF2FD;font-size:1rem;margin:6px 0}'
+             'button{width:100%;padding:11px;border:0;border-radius:9px;background:#2E8BFF;'
+             'color:#fff;font-weight:800;cursor:pointer;margin-top:8px}'
+             '.msg{color:#F2A49E;font-size:.9rem}.chk{display:flex;gap:8px;align-items:center;'
+             'font-size:.86rem;color:#8FA6C4;margin-top:10px}')
 _AUTH_WRAP = ('<!DOCTYPE html><html lang="de"><head><meta charset="utf-8">'
               '<meta name="viewport" content="width=device-width, initial-scale=1">'
               '<title>{t}</title><style>' + _AUTH_CSS + '</style></head><body>'
-              '<div class="card">{b}</div></body></html>')
+              '<div class="card"><div class="brandline">'
+              '<img class="bl-logo" src="/assets/mascot.png" alt="">'
+              '<img class="bl-mark" src="/assets/logo-white.svg" alt="VokabelBuddy">'
+              '</div>{b}</div></body></html>')
 
 
 def _setup_html(msg=''):
@@ -863,7 +870,8 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
                 self._send(200, b'<h1>Vokabelbuddy</h1><p>index.html fehlt</p>', 'text/html; charset=utf-8')
             return True
         # PWA: Manifest, SW, Assets (weißliste, sandboxed auf ROOT)
-        m = {'/manifest.json': 'application/manifest+json', '/sw.js': 'application/javascript'}
+        m = {'/manifest.json': 'application/manifest+json', '/sw.js': 'application/javascript',
+             '/favicon.ico': 'image/x-icon', '/favicon-32.png': 'image/png', '/favicon-16.png': 'image/png'}
         a = {'.png': 'image/png', '.svg': 'image/svg+xml', '.ico': 'image/x-icon'}
         if path in m:
             p = os.path.join(ROOT, os.path.basename(path))

@@ -3,35 +3,47 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#3a6df0">
+<meta name="theme-color" content="#2E8BFF">
 <meta name="description" content="Vokabeltrainer Access 1–6">
 <link rel="manifest" href="/manifest.json">
-<link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="Vokabeln">
+<meta name="apple-mobile-web-app-title" content="VokabelBuddy">
 <title>Vokabelbuddy</title>
 <style>
+/* VokabelBuddy-Branding (BRAND-GUIDE) */
 :root{
-  --bg:#eef1f6; --card:#ffffff; --ink:#1c2333; --muted:#6b7387; --line:#dfe4ee;
-  --accent:#3a6df0; --accent-soft:#e8eefe; --good:#e2f3e6; --good-ink:#1e7a35;
-  --bad:#fbe4e4; --bad-ink:#b3312f; --chip:#f2f4fa;
+  --bg:#F4F6F8; --card:#FFFFFF; --ink:#1F2937; --muted:#6B7280; --line:#D1D5DB;
+  --accent:#2E8BFF; --accent-soft:#E3F1FF; --good:#E7F5E9; --good-ink:#3B9A40;
+  --bad:#FBE7E4; --bad-ink:#C0433C; --chip:#ECF0F3;
+  --navy:#0F2747; --blue-light:#7CC3FF; --yellow:#FFC83D; --green:#4CAF50;
 }
 html.dark{
-  --bg:#141822; --card:#1d2331; --ink:#e8ebf4; --muted:#8d94a8; --line:#2b3345;
-  --accent:#6b93f5; --accent-soft:#252f4a; --good:#1f3325; --good-ink:#7ed097;
-  --bad:#3a2224; --bad-ink:#ef9f9e; --chip:#232a3b;
+  --bg:#0B1B30; --card:#12305A; --ink:#EAF2FD; --muted:#8FA6C4; --line:#1E4478;
+  --accent:#2E8BFF; --accent-soft:#12305A; --good:#153A20; --good-ink:#7ED097;
+  --bad:#3A1E1C; --bad-ink:#F2A49E; --chip:#0F2747;
+  --navy:#091B32; --blue-light:#7CC3FF; --yellow:#FFC83D; --green:#4CAF50;
 }
 *{box-sizing:border-box; -webkit-tap-highlight-color:transparent}
-body{margin:0; font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif; background:var(--bg); color:var(--ink)}
+body{margin:0; font-family:'Nunito',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif; background:var(--bg); color:var(--ink)}
 @supports (padding: env(safe-area-inset-top)){
   main{padding-top:calc(16px + env(safe-area-inset-top)); padding-left:calc(14px + env(safe-area-inset-left)); padding-right:calc(14px + env(safe-area-inset-right)); padding-bottom:calc(40px + env(safe-area-inset-bottom))}
 }
 main{max-width:820px; margin:0 auto; padding:16px 14px 40px}
 h1{font-size:1.5rem; margin:6px 0 2px; display:flex; align-items:center; gap:10px}
 .sub{color:var(--muted); font-size:.85rem; margin:0 0 14px}
+.brandhead{display:flex; align-items:center; gap:10px}
+.brandlogo{width:44px; height:44px; object-fit:contain; flex:none}
+.brandlogo.gone{display:none}
+.brandmark{height:30px; width:auto}
+html.dark .brandmark{content:url('/assets/logo-white.svg')}
 .iconbtn{border:1px solid var(--line); background:var(--card); color:var(--muted); width:36px; height:36px;
   border-radius:50%; font-size:1rem; cursor:pointer; display:grid; place-items:center; flex:none;
   padding:0; line-height:1; filter:grayscale(1) opacity(.85); transition:filter .15s, border-color .15s, color .15s}
@@ -152,6 +164,9 @@ html.dark #wInput.half,html.dark #mxInput.half{border-color:#8a7434; background:
 .mdel{background:var(--bad); color:var(--bad-ink); flex:0 0 auto; padding:11px 14px}
 .mnote{font-size:.8rem; color:var(--muted); margin-top:8px}
 .mdone{color:var(--good-ink); font-size:.85rem; margin-top:8px; min-height:1em}
+.logoutbtn{width:100%; border:0; border-radius:10px; padding:11px; font-weight:700; cursor:pointer;
+  background:var(--bad); color:var(--bad-ink)}
+.logoutbtn:hover{filter:brightness(.97)}
 .hidden{display:none!important}
 /* Moderne Auswahl: Segmente + Custom-Dropdowns */
 .seg-label{font-size:.82rem; color:var(--muted); font-weight:700; margin:14px 0 6px; letter-spacing:.02em}
@@ -198,7 +213,10 @@ body{overflow-x:hidden}
 <body>
 <main>
   <div class="row" style="justify-content:space-between">
-    <h1>📚 Vokabelbuddy</h1>
+    <div class="brandhead">
+      <img class="brandlogo" src="/assets/mascot.png" alt="VokabelBuddy" onerror="this.classList.add('gone')">
+      <img class="brandmark" src="/assets/vokabelbuddy-wordmark.svg" alt="VokabelBuddy">
+    </div>
     <div style="display:flex; gap:8px">
       <button class="iconbtn" id="themeBtn" title="Dark/Light umschalten" aria-label="Dark/Light umschalten">
         <svg class="ico-ink" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
@@ -264,15 +282,15 @@ body{overflow-x:hidden}
       </div>
       <div id="cardVerdicts" class="hidden">
         <div class="res-actions">
-          <button id="cardForgot" style="border-color:#d9534f; color:#b3312f">✗ Wusste ich nicht</button>
-          <button id="cardKnew" class="primary" style="border-color:#2f9e4f">✓ Gewusst</button>
+          <button id="cardForgot" style="border-color:var(--bad-ink); color:var(--bad-ink)">✗ Wusste ich nicht</button>
+          <button id="cardKnew" class="primary" style="border-color:var(--good-ink)">✓ Gewusst</button>
         </div>
       </div>
       <div id="cardResult" class="hidden">
         <div class="res-big"><div class="score" id="cardScore"></div><div class="res-note" id="cardNote"></div></div>
         <div class="res-actions">
           <button id="cardAgain">Nochmal</button>
-          <button id="cardRetryWrong" style="border-color:#d9534f; color:#b3312f">Falsche wiederholen</button>
+          <button id="cardRetryWrong" style="border-color:var(--bad-ink); color:var(--bad-ink)">Falsche wiederholen</button>
           <button class="primary" id="cardHome">Fertig</button>
         </div>
         <div id="cardWrongList" class="wronglist"></div>
@@ -287,7 +305,7 @@ body{overflow-x:hidden}
         <div class="res-big"><div class="score" id="wScore"></div><div class="res-note" id="wNote"></div></div>
         <div class="res-actions">
           <button id="wAgain">Nochmal</button>
-          <button id="wRetryWrong" style="border-color:#d9534f; color:#b3312f">Falsche wiederholen</button>
+          <button id="wRetryWrong" style="border-color:var(--bad-ink); color:var(--bad-ink)">Falsche wiederholen</button>
           <button class="primary" id="wHome">Fertig</button>
         </div>
         <div id="wWrongList" class="wronglist"></div>
@@ -332,6 +350,9 @@ body{overflow-x:hidden}
       <button class="mdel" id="mDelete">🗑 Löschen</button>
       <button class="mcancel" id="mCancel">Abbrechen</button>
       <button class="msave" id="mSave">Speichern</button>
+    </div>
+    <div class="mrow" style="margin-top:12px; border-top:1px solid var(--line); padding-top:12px">
+      <button class="logoutbtn" id="logoutBtn">Abmelden ${' '}</button>
     </div>
   </div>
 </div>
@@ -379,7 +400,7 @@ function themeApply(){
   localStorage.setItem('vb_theme', dark?'dark':'light');
   // theme-color im Standalone/PWA-Fall mitziehen
   const meta=document.querySelector('meta[name="theme-color"]');
-  if(meta) meta.setAttribute('content', dark?'#141822':'#3a6df0');
+  if(meta) meta.setAttribute('content', dark?'#0B1B30':'#2E8BFF');
   const btn=document.getElementById('themeBtn');
   if(btn) themeSetIcon(dark);
 }
@@ -416,6 +437,9 @@ async function init(){
   drawKids(); drawBooks();
   themeBtnLabel();
   $('adminBtn').onclick=openAdmin;
+$('logoutBtn').onclick=()=>{ location.href='/logout'; };
+  // Kinder: Zahnrad (Vokabel-Verwaltung) verstecken
+  if(ME && ME.role==='kid' && $('adminBtn')) $('adminBtn').classList.add('gone');
   $('themeBtn').onclick=()=>{ const dark=document.documentElement.classList.contains('dark');
     document.documentElement.classList.toggle('dark', !dark); themeApply(); };
   $('startBtn').onclick=startQuiz;
@@ -518,6 +542,7 @@ function applyRange(){
 function show(a,b){ $(b).classList.add('hidden'); $(a).classList.remove('hidden'); }
 function drawKids(){
   const host=$('kids'); host.innerHTML='';
+  if(ME && ME.role==='kid'){ host.classList.add('gone'); }
   for(const k of META.kids){
     if(ME && ME.role==='kid' && k.id!==ME.kid) continue;  // Kind sieht nur sich
     const b=document.createElement('button');
@@ -696,8 +721,8 @@ function renderQ(){
         <div class="cface back"><div class="cmeta">Lösung</div><div class="cword">${esc(q.back)}</div></div>
       </div></div>
       <div id="mxVerdicts" class="hidden"><div class="res-actions">
-        <button id="mxForgot" style="border-color:#d9534f; color:#b3312f">✗ Wusste ich nicht</button>
-        <button id="mxKnew" class="primary" style="border-color:#2f9e4f">✓ Gewusst</button>
+        <button id="mxForgot" style="border-color:var(--bad-ink); color:var(--bad-ink)">✗ Wusste ich nicht</button>
+        <button id="mxKnew" class="primary" style="border-color:var(--good-ink)">✓ Gewusst</button>
       </div></div>`;
     const cardEl=$('mxCard');
     cardEl.onclick=()=>{ if(answered) return; cardEl.classList.toggle('flipped'); $('mxVerdicts').classList.remove('hidden'); };

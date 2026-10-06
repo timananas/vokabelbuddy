@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 180">
+<rect width="900" height="180" fill="none"/>
+<text x="20" y="122" font-family="Nunito, Arial, sans-serif" font-size="92" font-weight="800" fill="#0F2747">Vokabel</text>
+<text x="475" y="122" font-family="Nunito, Arial, sans-serif" font-size="92" font-weight="800" fill="#2E8BFF">Buddy</text>
+<path d="M476 145 Q650 160 835 145" fill="none" stroke="#FFC83D" stroke-width="13" stroke-linecap="round"/>
+</svg>
