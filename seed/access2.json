@@ -1,0 +1,24 @@
+{
+ "version": 1,
+ "note": "Demo-Daten Access 2. Echte Wordlists ueber das Zahnrad (Kapitel speichern/loeschen).",
+ "chapters": [
+  {"num": 1, "title": "Countries", "words": [
+   ["country", "Land"], ["city", "Stadt"], ["village", "Dorf"],
+   ["capital", "Hauptstadt"], ["England", "England"], ["Great Britain", "Großbritannien"],
+   ["London", "London"], ["flag", "Flagge"], ["to travel", "reisen"],
+   ["to visit", "besuchen"], ["population", "Bevölkerung"], ["world", "Welt"]
+  ]},
+  {"num": 2, "title": "Holidays", "words": [
+   ["holiday", "Ferien, Urlaub"], ["beach", "Strand"], ["sea", "Meer, See"],
+   ["sun", "Sonne"], ["campsite", "Campingplatz"], ["tent", "Zelt"],
+   ["to camp", "campen"], ["luggage", "Gepäck"], ["to pack", "packen"],
+   ["journey", "Reise"], ["boat", "Boot"], ["sandcastle", "Sandburg"]
+  ]},
+  {"num": 3, "title": "Daily routine", "words": [
+   ["to wake up", "aufwachen"], ["to get up", "aufstehen"], ["to wash", "waschen, sich waschen"],
+   ["always", "immer"], ["usually", "normalerweise"], ["sometimes", "manchmal"],
+   ["never", "nie"], ["then", "dann"], ["afterwards", "danach, später"],
+   ["clock", "Uhr"], ["half past", "halb"], ["quarter", "Viertel"]
+  ]}
+ ]
+}

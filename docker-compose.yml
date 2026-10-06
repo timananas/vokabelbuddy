@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  vokabelbuddy:
+    build: .
+    image: vokabelbuddy:latest
+    container_name: vokabelbuddy
+    restart: unless-stopped
+    ports:
+      - "8894:8894"
+    volumes:
+      - ./data:/app/data
+    user: "1000:1000"

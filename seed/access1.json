@@ -1,0 +1,54 @@
+{
+ "version": 1,
+ "note": "Demo-Daten zum Testen. Echte Wordlists kommen ueber das Zahnrad (Kapitel speichern/loeschen).",
+ "chapters": [
+  {"num": 1, "title": "My family", "words": [
+   ["family", "Familie"], ["mother", "Mutter"], ["father", "Vater"],
+   ["sister", "Schwester"], ["brother", "Bruder"], ["hello", "hallo"],
+   ["goodbye", "Auf Wiedersehen"], ["please", "bitte"], ["thank you", "danke"],
+   ["name", "Name"], ["friend", "Freund"], ["to meet", "treffen, kennenlernen"]
+  ]},
+  {"num": 2, "title": "School things", "words": [
+   ["school", "Schule"], ["pencil", "Bleistift"], ["pen", "Kuli, Stift"],
+   ["book", "Buch"], ["bag", "Tasche"], ["ruler", "Lineal"],
+   ["teacher", "Lehrer, Lehrerin"], ["class", "Klasse"], ["desk", "Tisch, Pult"],
+   ["homework", "Hausaufgaben"], ["break", "Pause"], ["timetable", "Stundenplan"]
+  ]},
+  {"num": 3, "title": "Animals", "words": [
+   ["animal", "Tier"], ["dog", "Hund"], ["cat", "Katze"], ["horse", "Pferd"],
+   ["bird", "Vogel"], ["fish", "Fisch"], ["rabbit", "Hase, Kaninchen"],
+   ["mouse", "Maus"], ["to fly", "fliegen"], ["to run", "laufen, rennen"],
+   ["to swim", "schwimmen"], ["pet", "Haustier"]
+  ]},
+  {"num": 4, "title": "Days & Time", "words": [
+   ["Monday", "Montag"], ["Tuesday", "Dienstag"], ["Wednesday", "Mittwoch"],
+   ["Thursday", "Donnerstag"], ["Friday", "Freitag"], ["Saturday", "Samstag"],
+   ["Sunday", "Sonntag"], ["week", "Woche"], ["day", "Tag"],
+   ["month", "Monat"], ["year", "Jahr"], ["tomorrow", "morgen"]
+  ]},
+  {"num": 5, "title": "Food & Drink", "words": [
+   ["food", "Essen, Lebensmittel"], ["drink", "Getränk"], ["water", "Wasser"],
+   ["milk", "Milch"], ["bread", "Brot"], ["cheese", "Käse"],
+   ["apple", "Apfel"], ["banana", "Banane"], ["breakfast", "Frühstück"],
+   ["lunch", "Mittagessen"], ["dinner", "Abendessen"], ["hungry", "hungrig"]
+  ]},
+  {"num": 6, "title": "Hobbies", "words": [
+   ["hobby", "Hobby"], ["football", "Fußball"], ["game", "Spiel"],
+   ["to play", "spielen"], ["to read", "lesen"], ["to listen", "hören, zuhören"],
+   ["to sing", "singen"], ["to dance", "tanzen"], ["bike", "Fahrrad"],
+   ["to ride", "reiten, Rad fahren"], ["music", "Musik"], ["party", "Party, Fest"]
+  ]},
+  {"num": 7, "title": "Colours & Numbers", "words": [
+   ["colour", "Farbe"], ["white", "weiß"], ["black", "schwarz"], ["green", "grün"],
+   ["blue", "blau"], ["red", "rot"], ["yellow", "gelb"], ["eleven", "elf"],
+   ["twelve", "zwölf"], ["thirteen", "dreizehn"], ["twenty", "zwanzig"],
+   ["hundred", "hundert"]
+  ]},
+  {"num": 8, "title": "Home", "words": [
+   ["house", "Haus"], ["home", "Zuhause"], ["room", "Zimmer"], ["kitchen", "Küche"],
+   ["living room", "Wohnzimmer"], ["bathroom", "Badezimmer"], ["bedroom", "Schlafzimmer"],
+   ["garden", "Garten"], ["bed", "Bett"], ["window", "Fenster"],
+   ["door", "Tür"], ["to live", "wohnen"]
+  ]}
+ ]
+}

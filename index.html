@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vokabelbuddy</title>
+<style>
+:root{
+  --bg:#eef1f6; --card:#ffffff; --ink:#1c2333; --muted:#6b7387; --line:#dfe4ee;
+  --accent:#3a6df0; --accent-soft:#e8eefe; --good:#e2f3e6; --good-ink:#1e7a35;
+  --bad:#fbe4e4; --bad-ink:#b3312f; --chip:#f2f4fa;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#141822; --card:#1d2331; --ink:#e8ebf4; --muted:#8d94a8; --line:#2b3345;
+    --accent:#6b93f5; --accent-soft:#252f4a; --good:#1f3325; --good-ink:#7ed097;
+    --bad:#3a2224; --bad-ink:#ef9f9e; --chip:#232a3b; }
+}
+*{box-sizing:border-box; -webkit-tap-highlight-color:transparent}
+body{margin:0; font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif; background:var(--bg); color:var(--ink)}
+main{max-width:820px; margin:0 auto; padding:16px 14px 40px}
+h1{font-size:1.5rem; margin:6px 0 2px; display:flex; align-items:center; gap:10px}
+.sub{color:var(--muted); font-size:.85rem; margin:0 0 14px}
+.iconbtn{border:1px solid var(--line); background:var(--card); color:var(--ink); width:34px; height:34px;
+  border-radius:50%; font-size:1rem; cursor:pointer; display:grid; place-items:center; flex:none}
+.row{display:flex; align-items:center; gap:8px; flex-wrap:wrap}
+.kids{gap:8px; margin:10px 0 14px}
+.kid{border:1.5px solid var(--line); background:var(--card); color:var(--ink); border-radius:999px;
+  padding:7px 14px; font-size:.9rem; font-weight:600; cursor:pointer}
+.kid.on{color:#fff; border-color:transparent}
+.books{display:flex; gap:8px; margin-bottom:14px}
+.book{flex:1; border:1.5px solid var(--line); background:var(--card); border-radius:12px; padding:10px 12px;
+  cursor:pointer; text-align:left; color:var(--ink)}
+.book.on{border-color:var(--accent); background:var(--accent-soft)}
+.book b{display:block; font-size:1rem}
+.book small{color:var(--muted)}
+h2{font-size:1.05rem; margin:18px 0 10px}
+.chapters{display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:10px}
+.ch{border:1.5px solid var(--line); background:var(--card); border-radius:12px; padding:10px; cursor:pointer; position:relative}
+.ch.on{border-color:var(--accent); background:var(--accent-soft)}
+.ch .num{font-weight:800; font-size:1.15rem}
+.ch .cnt{color:var(--muted); font-size:.8rem; display:block; margin-top:2px}
+.ch .stat{font-size:.75rem; margin-top:6px; color:var(--good-ink); font-weight:600}
+.ch .stat.none{color:var(--muted); font-weight:400}
+.start{margin-top:16px; width:100%; border:0; background:var(--accent); color:#fff; font-size:1.05rem;
+  font-weight:700; padding:14px; border-radius:12px; cursor:pointer}
+.start:disabled{opacity:.4; cursor:default}
+.top{display:flex; justify-content:space-between; gap:8px; align-items:center; margin-bottom:10px}
+.back{border:1px solid var(--line); background:var(--card); color:var(--ink); border-radius:10px; padding:8px 14px; cursor:pointer; font-weight:600}
+.pbar{height:8px; background:var(--chip); border-radius:99px; overflow:hidden; margin-bottom:18px}
+.pbar>div{height:100%; background:var(--accent); width:0; transition:width .25s}
+.qmeta{color:var(--muted); font-size:.8rem; margin-bottom:6px}
+.qword{font-size:1.7rem; font-weight:800; margin:4px 0 4px; text-align:center}
+.qhint{text-align:center; color:var(--muted); font-size:.85rem; margin-bottom:18px}
+.choices{display:grid; grid-template-columns:1fr 1fr; gap:10px}
+@media(max-width:560px){.choices{grid-template-columns:1fr}}
+.choice{border:1.5px solid var(--line); background:var(--card); color:var(--ink); border-radius:12px;
+  padding:14px; font-size:1.05rem; cursor:pointer; text-align:left; display:flex; gap:10px; align-items:center}
+.choice .key{flex:none; width:26px; height:26px; border-radius:8px; background:var(--chip);
+  display:grid; place-items:center; font-size:.8rem; font-weight:700; color:var(--muted)}
+.choice.ok{border-color:#2f9e4f; background:var(--good); color:var(--good-ink)}
+.choice.bad{border-color:#d9534f; background:var(--bad); color:var(--bad-ink)}
+.choice:disabled{cursor:default}
+.choice.ok .key,.choice.bad .key{background:transparent; color:inherit}
+.res-big{text-align:center; margin:20px 0 8px}
+.res-big .score{font-size:2.6rem; font-weight:800}
+.res-note{text-align:center; color:var(--muted); margin-bottom:18px}
+.res-actions{display:flex; gap:10px}
+.res-actions button{flex:1; border:1px solid var(--line); background:var(--card); color:var(--ink);
+  border-radius:12px; padding:13px; font-weight:700; cursor:pointer; font-size:.95rem}
+.res-actions .primary{background:var(--accent); border-color:var(--accent); color:#fff}
+/* Admin */
+.overlay{position:fixed; inset:0; background:rgba(10,14,24,.55); display:grid; place-items:center; padding:16px; z-index:50}
+.modal{background:var(--card); border-radius:14px; padding:18px; width:100%; max-width:480px; max-height:90vh; overflow:auto}
+.modal h3{margin:0 0 12px}
+.modal label{display:block; font-size:.8rem; color:var(--muted); font-weight:600; margin:10px 0 4px}
+.modal input,.modal select,.modal textarea{width:100%; border:1.5px solid var(--line); background:var(--bg);
+  color:var(--ink); border-radius:10px; padding:9px; font-size:.95rem; font-family:inherit}
+.modal textarea{min-height:180px; font-family:ui-monospace,Menlo,Consolas,monospace; font-size:.85rem; white-space:pre}
+.modal .mrow{display:flex; gap:10px; margin-top:16px}
+.modal .mrow button{flex:1; border:0; border-radius:10px; padding:11px; font-weight:700; cursor:pointer}
+.msave{background:var(--accent); color:#fff}
+.mcancel{background:var(--chip); color:var(--ink)}
+.mdel{background:var(--bad); color:var(--bad-ink); flex:0 0 auto; padding:11px 14px}
+.mnote{font-size:.8rem; color:var(--muted); margin-top:8px}
+.mdone{color:var(--good-ink); font-size:.85rem; margin-top:8px; min-height:1em}
+.hidden{display:none!important}
+</style>
+</head>
+<body>
+<main>
+  <div class="row" style="justify-content:space-between">
+    <h1>📚 Vokabelbuddy</h1>
+    <button class="iconbtn" id="adminBtn" title="Vokabeln verwalten">⚙️</button>
+  </div>
+  <p class="sub" id="subtitle">Wähle, wer übt</p>
+  <div class="row kids" id="kids"></div>
+
+  <section id="viewHome">
+    <h2>Englischbuch</h2>
+    <div class="books" id="books"></div>
+    <h2 id="chHead">Kapitel</h2>
+    <div class="chapters" id="chapters"></div>
+    <button class="start" id="startBtn" disabled>Vokabeln üben</button>
+  </section>
+
+  <section id="viewQuiz" class="hidden">
+    <div class="top">
+      <button class="back" id="quitBtn">← Aufhören</button>
+      <span class="sub" id="quizState" style="margin:0"></span>
+    </div>
+    <div class="pbar"><div id="pfill"></div></div>
+    <div id="qbox"></div>
+    <div id="result" class="hidden">
+      <div class="res-big"><div class="score" id="resScore"></div><div class="res-note" id="resNote"></div></div>
+      <div class="res-actions">
+        <button id="againBtn">Nochmal üben</button>
+        <button class="primary" id="homeBtn">Fertig</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="overlay hidden" id="adminOverlay">
+  <div class="modal">
+    <h3>Vokabeln verwalten</h3>
+    <label>Buch</label>
+    <select id="mBook"><option value="access1">Access 1</option><option value="access2">Access 2</option></select>
+    <label>Kapitelnummer</label>
+    <input id="mNum" type="number" min="1" inputmode="numeric" placeholder="z.B. 1">
+    <label>Titel (optional)</label>
+    <input id="mTitle" type="text" placeholder="z.B. My family">
+    <label>Vokabeln – eine pro Zeile: <b>english;deutsch</b></label>
+    <textarea id="mWords" placeholder="hello;hallo&#10;family;Familie"></textarea>
+    <div class="mnote">Tipps: „;“ trennt Englisch/Deutsch. Mehrere Bedeutungen: „to ride;reiten,Radfahren“ – beim Quiz zählt die ganze Zeile als Antwort.</div>
+    <div class="mdone" id="mDone"></div>
+    <div class="mrow">
+      <button class="mdel" id="mDelete">🗑 Löschen</button>
+      <button class="mcancel" id="mCancel">Abbrechen</button>
+      <button class="msave" id="mSave">Speichern</button>
+    </div>
+  </div>
+</div>
+
+<script>
+'use strict';
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let META=null, book=localStorage.getItem('vb_book')||'access1', kid=localStorage.getItem('vb_kid')||'';
+let chapters=[], sel=new Set(), mode='home'; // home|quiz
+let quiz=null, qix=0, score=0, answered=false;
+
+init();
+async function init(){
+  try{ META=await (await fetch('/api/meta')).json(); }catch(e){
+    $('subtitle').textContent='Server nicht erreichbar'; return;
+  }
+  book = META.books.some(b=>b.id===book) ? book : META.books[0].id;
+  kid  = META.kids.some(k=>k.id===kid) ? kid : (META.kids[0]?.id||'');
+  $('subtitle').textContent = 'Wähle, wer übt';
+  drawKids(); drawBooks();
+  $('adminBtn').onclick=openAdmin;
+  $('startBtn').onclick=startQuiz;
+  $('quitBtn').onclick=()=>{ mode='home'; show('viewHome','viewQuiz'); loadChapters(); };
+  $('homeBtn').onclick=()=>{ mode='home'; show('viewHome','viewQuiz'); loadChapters(); };
+  $('againBtn').onclick=()=>{ $('result').classList.add('hidden'); $('qbox').classList.remove('hidden'); runQuiz(); };
+  document.addEventListener('keydown',e=>{
+    if(mode!=='quiz'||answered) return;
+    const i='1234'.indexOf(e.key);
+    if(i>=0){ const b=document.querySelectorAll('#qbox .choice')[i]; if(b&&!b.disabled) b.click(); }
+  });
+  show('viewHome','viewQuiz');
+  loadChapters();
+}
+function show(a,b){ $(b).classList.add('hidden'); $(a).classList.remove('hidden'); }
+function drawKids(){
+  $('kids').innerHTML='';
+  for(const k of META.kids){
+    const b=document.createElement('button');
+    b.className='kid'+(k.id===kid?' on':'');
+    b.textContent=k.name;
+    if(k.id===kid) b.style.background=k.color;
+    b.onclick=()=>{ kid=k.id; localStorage.setItem('vb_kid',kid); drawKids(); loadChapters(); };
+    $('kids').appendChild(b);
+  }
+}
+function drawBooks(){
+  $('books').innerHTML='';
+  for(const b of META.books){
+    const el=document.createElement('button');
+    el.className='book'+(b.id===book?' on':'');
+    el.innerHTML=`<b>${esc(b.name)}</b><small>${esc(b.desc||'')}</small>`;
+    el.onclick=()=>{ book=b.id; localStorage.setItem('vb_book',book); drawBooks(); loadChapters(); };
+    $('books').appendChild(el);
+  }
+}
+async function loadChapters(){
+  if(!kid) return;
+  sel.clear();
+  const r=await (await fetch(`/api/chapters?book=${encodeURIComponent(book)}&kid=${encodeURIComponent(kid)}`)).json();
+  chapters=r.chapters||[];
+  const kname=(META.kids.find(k=>k.id===kid)||{}).name||'';
+  $('chHead').textContent=`Kapitel – ${kname}`;
+  const host=$('chapters'); host.innerHTML='';
+  if(!chapters.length){
+    host.innerHTML='<p class="sub" style="grid-column:1/-1">Noch keine Vokabeln in diesem Buch – ⚙️ oben rechts: Kapitel anlegen oder Liste importieren.</p>';
+  }
+  for(const c of chapters){
+    const el=document.createElement('div');
+    el.className='ch'; el.dataset.num=c.num;
+    const pct=c.seen_n?Math.round(100*c.seen_right/c.seen_n):0;
+    const streak=c.best_streak?` · 🔥${c.best_streak}`:'';
+    el.innerHTML=`<span class="num">Ch. ${esc(c.num)}</span>${c.title?`<div>${esc(c.title)}</div>`:''}
+      <span class="cnt">${c.count} Vokabeln</span>
+      <span class="stat ${c.seen_n?'':'none'}">${c.seen_n?`${c.seen_n}× geübt · ${pct}% richtig${streak}`:'noch nie geübt'}</span>`;
+    el.onclick=()=>{
+      if(sel.has(c.num)){ sel.delete(c.num); el.classList.remove('on'); }
+      else{ sel.add(c.num); el.classList.add('on'); }
+      const ok=chapters.filter(x=>sel.has(x.num)).some(x=>x.count>0);
+      $('startBtn').disabled=!ok;
+    };
+    host.appendChild(el);
+  }
+  $('startBtn').disabled=true;
+}
+async function startQuiz(){
+  if(!kid||!sel.size) return;
+  mode='quiz'; show('viewQuiz','viewHome');
+  $('result').classList.add('hidden'); $('qbox').classList.remove('hidden');
+  score=0; qix=0; answered=false;
+  // crypto.randomUUID gibt es nur in Secure Contexts (HTTPS/localhost) – im LAN-HTTP fehlt es!
+  const nonce=Date.now().toString(36)+Math.random().toString(36).slice(2)+performance.now().toString(36).replace(/[^a-z0-9]/g,'');
+  const u=`/api/quiz?book=${encodeURIComponent(book)}&kid=${encodeURIComponent(kid)}`+
+    `&chapters=${[...sel].map(s=>encodeURIComponent(s)).join(',')}&type=both&count=12&nonce=${encodeURIComponent(nonce)}`;
+  try{ quiz=await (await fetch(u)).json(); }
+  catch(e){ $('qbox').innerHTML='<p class="sub">Server nicht erreichbar.</p>'; return; }
+  if(quiz.error||!(quiz.questions||[]).length){
+    $('qbox').innerHTML=`<p class="sub">${esc(quiz.error||'Keine Vokabeln gefunden.')}</p>`; return;
+  }
+  window._nonce=nonce;
+  renderQ();
+}
+function renderQ(){
+  answered=false;
+  const q=quiz.questions[qix], n=quiz.questions.length;
+  $('quizState').textContent=`Frage ${qix+1} / ${n} · ${score} richtig`;
+  $('pfill').style.width=`${(qix/n)*100}%`;
+  const dir=q.direction==='de2en'?'Wie sagt man das auf <b>Englisch</b>?':'Was heißt das auf <b>Deutsch</b>?';
+  const byk=(META.kids.find(k=>k.id===kid)||{name:''}).name;
+  $('qbox').innerHTML=`
+    <div class="qmeta">Ch. ${esc(q.chapter)} · ${esc(byk)}</div>
+    <div class="qword">${esc(q.prompt)}</div>
+    <div class="qhint">${dir}</div>
+    <div class="choices">${q.choices.map((c,i)=>
+      `<button class="choice" data-i="${i}"><span class="key">${i+1}</span><span>${esc(c)}</span></button>`).join('')}</div>`;
+  for(const b of document.querySelectorAll('#qbox .choice'))
+    b.onclick=()=>answer(parseInt(b.dataset.i,10),b,q);
+}
+async function answer(i,btn,q){
+  if(answered) return; answered=true;
+  const body={kid,qid:q.id,direction:q.direction,nonce:window._nonce,choice:i};
+  let r;
+  try{ r=await (await fetch('/api/answer',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)})).json(); }
+  catch(e){ r={correct:false,answer:q.answer}; }
+  const good=!!r.correct;
+  if(good) score++;
+  for(const b of document.querySelectorAll('#qbox .choice')){
+    b.disabled=true;
+    if(parseInt(b.dataset.i,10)===i) b.classList.add(good?'ok':'bad');
+    else if(!good && b.textContent.trim()===String(r.answer).trim()) b.classList.add('ok');
+  }
+  $('quizState').textContent=`Frage ${qix+1} / ${quiz.questions.length} · ${score} richtig`;
+  setTimeout(()=>{
+    qix++;
+    if(qix<quiz.questions.length){ $('pfill').style.width=`${(qix/quiz.questions.length)*100}%`; renderQ(); }
+    else finishQuiz();
+  }, good?600:1600);
+}
+function finishQuiz(){
+  const n=quiz.questions.length, pct=Math.round(100*score/n);
+  $('pfill').style.width='100%';
+  $('quizState').textContent=`${score} / ${n} richtig`;
+  $('result').classList.remove('hidden'); $('qbox').classList.add('hidden');
+  $('resScore').textContent=`${score} / ${n}`;
+  $('resNote').textContent = pct>=90?'Super gemacht! 🎉':pct>=70?'Gut gemacht! 👍':'Weiter üben – du wirst immer besser! 💪';
+}
+
+// ---------- Admin ----------
+function openAdmin(){
+  $('mDone').textContent='';
+  $('mNum').value=''; $('mTitle').value=''; $('mWords').value='';
+  $('mBook').value=book;
+  $('adminOverlay').classList.remove('hidden');
+}
+$('mCancel').onclick=()=>$('adminOverlay').classList.add('hidden');
+$('mDelete').onclick=async()=>{
+  const b=$('mBook').value, num=$('mNum').value.trim();
+  if(!num){ $('mDone').textContent='Kapitelnummer angeben, die gelöscht werden soll.'; return; }
+  const r=await (await fetch('/api/chapter/save',{method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({book:b,action:'delete',num})})).json();
+  $('mDone').textContent=r.ok?`Kapitel ${num} gelöscht.`:(r.error||'Fehler');
+  if(r.ok&&b===book) loadChapters();
+};
+$('mSave').onclick=async()=>{
+  const b=$('mBook').value, num=$('mNum').value.trim(), title=$('mTitle').value.trim(), words=$('mWords').value;
+  if(!num){ $('mDone').textContent='Kapitelnummer fehlt.'; return; }
+  const r=await (await fetch('/api/chapter/save',{method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({book:b,num,title,words})})).json();
+  if(r.ok){
+    $('mDone').textContent=`✓ Kapitel ${r.num} gespeichert: ${r.count} Vokabeln${r.errors?`, ${r.errors} Zeilen übersprungen`:''}.`;
+    if(b===book) loadChapters();
+  } else $('mDone').textContent=r.error||'Fehler';
+};
+</script>
+</body>
+</html>
