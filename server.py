@@ -363,15 +363,21 @@ def _levenshtein(a, b):
 
 
 def _alternatives(answer):
-    """Übersetzung in acceptable Varianten splitten ('a, b / c; d')."""
+    """Übersetzung in acceptable Varianten splitten ('a, b / c; d').
+    KLAMMER-ERGÄNZUNGEN werden abgespalten: 'vor der Schule (vor Schulbeginn)' → 'vor der Schule'."""
     parts = re.split(r'\s*[/;]\s*|\s*,\s*', str(answer or ''))
-    out = [(_norm_text(p)) for p in parts]
-    out = [p for p in out if p]
-    if not out:
+    variants = []
+    for p in parts:
+        # Klammern (+Inhalt) raus — sie sind optional-Info
+        p = re.sub(r'\([^()]*\)', '', p)
+        p = _norm_text(p)
+        if p and p not in variants:
+            variants.append(p)
+    if not variants:
         n = _norm_text(answer)
         if n:
-            out = [n]
-    return out
+            variants = [n]
+    return variants
 
 
 DE_PLACEHOLDER = re.compile(r'^(?:sich|jn|jn\.|jm|jm\.|jemanden|jemandem|jemand|etwas|man|jdn|jd)\s+')
@@ -394,20 +400,11 @@ def _written_cmp(answer, text):
                 a == b or (min(len(a), len(b)) >= 5 and _levenshtein(a, b) <= 1)
                 for a, b in zip(aw, tw)):
             return 'full'
-    # 2) HALF a): mehrteilige Lösung, eine Komponente (oder der ganze Text) passt exakt/lev1
+    # 2) HALF a): mehrteilige Lösung — eine Komponente exakt/lev1 passt
     if alts:
-        full_join = _norm_text(answer)
-        partial_alts = []  # Varianten: jede Komponente + lev1
         for alt in alts:
-            partial_alts.append(alt)
-            if len(alt) >= 5:
-                partial_alts.append(alt)  # exakt reicht; lev der Komponente unten
-        for alt in alts:
-            if t == alt:
-                return 'half'  # Komponente der Mehrfachlösung
-            if len(alt) >= 5 and _levenshtein(t, alt) <= 1:
-                return 'half'
-        # 2) HALF b): Platzhalter strippen ('sich', 'jn.', 'jm.', 'etwas')
+            pass
+        # Platzhalter strippen ('sich', 'jn.', 'jm.', 'etwas') — auf BEIDEN Seiten
         def strip_ph(s):
             prev = None
             s = ' ' + s + ' '
@@ -415,9 +412,10 @@ def _written_cmp(answer, text):
                 prev = s
                 s = re.sub(r'\s(?:sich|jn\.?|jm\.?|jemanden|jemandem|jemand|etwas|man|jdn\.?|jd\.?)(\s)', r'\1', s)
             return s.strip()
+        t2 = strip_ph(t)
         for alt in alts:
             a2 = strip_ph(alt)
-            t2 = strip_ph(t)
+            # Komponente der Lösung exakt getippt (nach Platzhalter-Strip)
             if a2 == t2 and a2:
                 return 'half'
             if len(a2) >= 5 and a2 == t2:
@@ -725,6 +723,16 @@ class Handler(BaseHTTPRequestHandler):
         correct = _written_ok(entry['answer'], text)
         verdict = _written_cmp(entry['answer'], text)
         half = verdict == 'half'
+        # Groß-/Kleinschreibung-Hinweis: korrekt, aber Schreibung abweichend
+        caps_note = ''
+        if correct:
+            t_naked = re.sub(r'\s+', ' ', str(text or '')).strip()
+            ref = entry['answer']
+            # exakt-gleich (case-sensitiv, ohne Rauschzeichen)?
+            def _naked(s):
+                return re.sub(r'\s+', ' ', str(s or '')).strip().rstrip('.,;:!?…')
+            if _naked(t_naked) != _naked(ref):
+                caps_note = ref
         if not correct:
             wrongs = sess.setdefault('wrong', [])
             if not any(w.get('qid') == entry['qid'] for w in wrongs):
@@ -743,7 +751,8 @@ class Handler(BaseHTTPRequestHandler):
                 e['last'] = datetime.now().strftime('%Y-%m-%d')
                 _save_json(os.path.join(DATA_DIR, 'stats.json'), st)
         _record(kid, entry['qid'], correct or half)
-        self._json({'correct': correct, 'half': half, 'answer': entry['answer'], 'ok': True})
+        self._json({'correct': correct, 'half': half, 'answer': entry['answer'],
+                    'caps_note': caps_note, 'ok': True})
 
     def api_cards(self, q):
         """Karteikarten-Stapel (gleiche Auswahl-Parameter wie /api/quiz)."""
