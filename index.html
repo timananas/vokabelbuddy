@@ -654,15 +654,17 @@ function loadParents(){
 document.addEventListener('click', async e=>{
   const b=e.target.closest('.pchk'); if(!b) return;
   const pa=b.dataset.pa, kid=b.dataset.kid;
-  // aktuelle kids des parents aus DOM lesen:
-  const kids=[...document.querySelectorAll(`.pchk[data-pa="${pa}"]`)].filter(x=>!x.classList.contains(b)||!b.contains(x)&&x!==b? x.classList.contains('on')&&x!==b : x.classList.contains('on')).map(x=>x.dataset.kid);
+  // aktuelle kids des parents SOHNE den geklickten chip aus DOM lesen:
+  const kids=[...document.querySelectorAll(`.pchk[data-pa="${pa}"]`)]
+    .filter(x=>x!==b && x.classList.contains('on')).map(x=>x.dataset.kid);
   let target;
-  if(b.classList.contains('on')){ b.classList.remove('on'); target=kids.filter(k=>k!==kid); }
-  else { b.classList.add('on'); target=[...new Set([...kids, kid])]; }
+  if(b.classList.contains('on')){ b.classList.remove('on'); target=kids; }        // abwählen
+  else { b.classList.add('on'); target=[...kids, kid]; }                          // zuweisen — EINZELN klickbar
   try{
     const r=await (await fetch('/api/parent/kids',{method:'POST',headers:{'Content-Type':'application/json'},
       body:JSON.stringify({user:pa, kids:target})})).json();
     if(!r.ok){ b.classList.toggle('on'); $('paNote').textContent=r.error||'Fehler'; }
+    else { $('paNote').textContent=`${pa}: ${r.kids.length?r.kids.join(', '):'keine Kinder'} zugewiesen`; }
   }catch(e){ b.classList.toggle('on'); $('paNote').textContent='Offline'; }
 });
 async function loadAccount(){
