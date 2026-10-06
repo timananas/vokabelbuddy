@@ -164,6 +164,57 @@ def finalize_entry(en, de):
     m3 = re.search(r'^(.*?[a-zäöüß]{3,})\s+([a-z’\'-]{3,}(?:\s+[a-z’\'-]{2,})*)$', de) if de else None
     if (m3 and not de_german(m3.group(2))) and (EN_STOPISH.search(m3.group(2).lower()) or ANTonym_TAIL.search(' ' + m3.group(2))):
         de = m3.group(1)
+    # EVIDENTE Junk-Klassen (Runde 3):
+    # EN/DE endet mit Layout-Rest (Doppelpunkt, Gedankenstrich, offene Klammer, Bindestrich-Wort)
+    if en.rstrip().endswith((':', '–', '—', '(', ',')) or de.rstrip().endswith((':', '–', '—', '(', ',')):
+        return None
+    if en.rstrip().endswith('-') and '…' not in en:
+        return None  # 'multi-' Präfix-Fragmente
+    # EN beginnt als DEUTSCHER Satz (Erklärungs-Fragmente 'Du schreibst: …', 'Mit needn't …')
+    if (re.match(r'^(?:Mit |Der |Die |Das |Du |Deine|Dein|In den|In der|Was |Wie du?|Er |Es |Man |Am |Im |Zum |Zur |Vor |Bei |Auch )', en)
+            and len(en.split()) >= 3 and not en.startswith('(to')):
+        return None
+    # EN einzelne Funktions-Fragment-Wörter ('What' als ganzer Prompt)
+    if en in ('What', 'That', 'This', 'And', 'But', 'Or', 'If', 'So', 'There', 'Then', 'Where'):
+        return None
+    # DE rein-englischer Anhang (2+ Wörter, EN-Stopwort, kein deutsches Merkmal)
+    if (len(de.split()) >= 2 and not de_german(de) and EN_STOPISH.search(de.lower())
+            and EN_STOPISH.search(en.lower())):
+        return None
+    # Runde-4-Klassen (aus Live-Befund):
+    # 'simple past:'/'irregular'-Grammatikzeilen (sind Verbtabellen, keine Vokabeln)
+    if re.search(r'simple (past|present|perfect|progressive)|irregular|past participle', en, re.I):
+        return None
+    # EN mit '= 1.'-Aufzählungsrest / Gleichheitszeichen
+    if re.search(r'\s=\s', en):
+        return None
+    # '1/2 = a/one'-Bruch-Leichen + En mit Ziffern-Fraktion
+    if re.match(r'^\d+/\d+', en) or re.match(r'^\d+\s*(?:=|–|—)', en):
+        return None
+    # EN 'Let's/he's/What's'-Auxiliar-Fragmente: Verb-Auxiliar OHNE Vokabel-Kern + de ist EN-Fragment
+    if re.match(r"^[A-Za-z]+’s$|^[A-Za-z]+ n’t$|^[A-Za-z]+n’t$", en) and not de_german(de):
+        return None
+    # '( oft auch kurz:'-Klammer-Fragmente
+    if re.match(r'^\(\s*(?:oft|auch|kurz|bes|informal|bes\.|AE|BE|no pl|pl\b|usw)', en):
+        return None
+    # de-voll-englische Sätze ('watch', 'musical', 'smoking', 'sprayed', 'frustrated . ...', 'woke up')
+    if not de_german(de) and len(de.split()) <= 4 and EN_STOPISH.search(de.lower()):
+        return None
+    # EN-Satzfragment + rein-englisches Einzel-Wort als de ('The walls were' = 'sprayed') → Leiche
+    if (re.fullmatch(r"[a-zA-Z’'-]+", de.strip()) and not de_german(de)
+            and re.search(r"\b(?:was|were|is|are|’s|n’t|n't|has|have|had|will|would|got)\b", en)
+            and len(en.split()) >= 2 and not de.strip().casefold() == en.strip().casefold()):
+        return None
+    # EN-Satzanfang + de ohne de-Merkmal oder kleingeschrieben ('We walked' = 'around')
+    if (re.match(r"^(?:We|She|He|They|It|Don’t|And|But|This|That|There|Jack|Maya|Sam|The)\b", en)
+            and len(en.split())>=2 and en[0].isupper()
+            and not en.rstrip().endswith(('?','!','…'))
+            and (not de_german(de) or bool(re.match(r'^[a-z]', de)))):
+        return None
+    # Aux-Bruch: Ein-Wort-Pronomen-EN + kleingeschriebener EN-Satzrest als de
+    if (en in ('They','She','He','We','I','It','You','And','But','Then','There')
+            and de[:1].islower() and not de_german(de)):
+        return None
     # Übersetzungsreste mit Trailing-Komma-Leichen
     de = de.rstrip(' ,;').strip()
     en = en.rstrip(' ,;').strip()

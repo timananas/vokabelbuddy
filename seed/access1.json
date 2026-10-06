@@ -82,10 +82,6 @@
      "Wohnung"
     ],
     [
-     "their first day",
-     "ihr erster Tag Nicht verwechseln:"
-    ],
-    [
      "uniform",
      "(Schul-)Uniform"
     ],
@@ -146,6 +142,10 @@
      "bitte"
     ],
     [
+     "You’re late.",
+     "Du bist spät dran./ Du bist zu spät. Wait for me, please."
+    ],
+    [
      "(to) wait (for)",
      "warten (auf)"
     ],
@@ -162,16 +162,8 @@
      "Bibliothek, Bücherei"
     ],
     [
-     "Maya is at home .",
-     "daheim, zu Hause"
-    ],
-    [
      "Let’s go home .",
      "nach Hause gehen"
-    ],
-    [
-     "Sam, come home .",
-     "nach Hause kommen"
     ],
     [
      "on the way to …",
@@ -200,14 +192,6 @@
     [
      "So?",
      "Und?/Na und?"
-    ],
-    [
-     "It’s time",
-     "to go now. zu gehen"
-    ],
-    [
-     "It’s nice",
-     "to see you. zu sehen"
     ],
     [
      "(to) hurry up",
@@ -290,6 +274,10 @@
      "wenn"
     ],
     [
+     "telephone",
+     "( kurz auch: phone)"
+    ],
+    [
      "zero",
      "Null"
     ],
@@ -344,10 +332,6 @@
     [
      "birthday",
      "Geburtstag"
-    ],
-    [
-     "September",
-     "September Monatsnamen werden großgeschrieben:"
     ],
     [
      "(to) do",
@@ -462,10 +446,6 @@
      "dritte(r,s)"
     ],
     [
-     "Du schreibst: on 5th August –",
-     "du sagst: on the fifth of August"
-    ],
-    [
      "date",
      "Datum"
     ],
@@ -506,10 +486,6 @@
      "sich etwas anschauen"
     ],
     [
-     "Let’s",
-     "watch"
-    ],
-    [
      "(to) fall asleep",
      "einschlafen"
     ],
@@ -524,10 +500,6 @@
     [
      "(to) eat",
      "essen"
-    ],
-    [
-     "What",
-     "colour is/are …? Welche Farbe hat/haben …?"
     ],
     [
      "gym",
@@ -956,6 +928,10 @@
      "Was hättest du gern? / Was möchtest du?"
     ],
     [
+     "I’d like …",
+     "Ich hätte gern … / Ich möchte …"
+    ],
+    [
      "grandfather, grandpa",
      "Großvater, Opa"
     ],
@@ -982,10 +958,6 @@
     [
      "cream",
      "jam"
-    ],
-    [
-     "Sandwich",
-     "(zusammengeklapptes)"
     ],
     [
      "cake",
@@ -1116,10 +1088,6 @@
     [
      "more",
      "mehr"
-    ],
-    [
-     "clothes",
-     "und jeans sind Plural-Wörter:"
     ],
     [
      "Ihre gesamte",
@@ -1418,10 +1386,6 @@
      "Meter"
     ],
     [
-     "aber:",
-     "on Saturday afternoon/"
-    ],
-    [
      "(to) ride a bike",
      "Rad fahren"
     ],
@@ -1526,6 +1490,14 @@
      "£2.50"
     ],
     [
+     "The camera is £165.",
+     "Die Kamera kostet …"
+    ],
+    [
+     "The DVDs are £12.95.",
+     "Die DVDs kosten …"
+    ],
+    [
      "(to) imagine sth.",
      "sich etwas vorstellen"
     ],
@@ -1582,6 +1554,10 @@
     [
      "(to) call",
      "rufen"
+    ],
+    [
+     "(to) walk",
+     "(zu Fuß) gehen"
     ],
     [
      "Oh, it’s you.",
@@ -1716,6 +1692,10 @@
      "fast, beinahe"
     ],
     [
+     "(It’s) my turn.",
+     "Ich bin dran/an der Reihe"
+    ],
+    [
      "worm",
      "Wurm"
     ],
@@ -1824,10 +1804,6 @@
      "interessant"
     ],
     [
-     "line",
-     "Zeile Abkürzungen:"
-    ],
-    [
      "(to) go with sth.",
      "zu etwas passen"
     ],
@@ -1896,14 +1872,6 @@
      "viele"
     ],
     [
-     "Wie viel Tee …? –",
-     "… nicht viel Tee … viel Milch"
-    ],
-    [
-     "Wie viele Scones …? –",
-     "… nicht viele Scones … viele Sandwiches"
-    ],
-    [
      "better",
      "besser"
     ],
@@ -1934,6 +1902,10 @@
     [
      "(to) use",
      "benutzen, verwenden"
+    ],
+    [
+     "smuggling",
+     "(der Schmuggel, das Schmuggeln)"
     ],
     [
      "(to) go shopping",
@@ -2010,6 +1982,10 @@
     [
      "scene",
      "Szene"
+    ],
+    [
+     "just",
+     "(einfach) nur, bloß"
     ],
     [
      "poor",

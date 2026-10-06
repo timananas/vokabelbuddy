@@ -26,6 +26,10 @@
      "Projekt"
     ],
     [
+     "I can’t wait to see …",
+     "Ich kann es kaum erwarten, … zu"
+    ],
+    [
      "rainforest",
      "Regenwald"
     ],
@@ -106,12 +110,20 @@
      "schön"
     ],
     [
+     "I like her a lot .",
+     "Ich mag sie sehr."
+    ],
+    [
      "message",
      "Nachricht"
     ],
     [
      "brochure",
      "Broschüre, Prospekt"
+    ],
+    [
+     "phone call",
+     "( kurz auch: call )"
     ],
     [
      "(to) phone sb.",
@@ -172,6 +184,10 @@
     [
      "campsite",
      "Zeltplatz"
+    ],
+    [
+     "shopping mall",
+     "( kurz auch: mall)"
     ],
     [
      "rainy",
@@ -338,20 +354,12 @@
      "schreiben"
     ],
     [
-     "List of irregular verbs",
-     "pp. 272–273"
-    ],
-    [
      "news (no pl)",
      "Nachrichten; Neuigkeiten"
     ],
     [
      "the beach",
      "in der Bücherei/auf dem Strand"
-    ],
-    [
-     "We walked",
-     "around"
     ],
     [
      "(to) come came",
@@ -418,16 +426,12 @@
      "müssen"
     ],
     [
-     "simple past: got",
-     "(infml)"
-    ],
-    [
      "similar (to sth./sb. )",
      "(etwas/jm.) ähnlich"
     ],
     [
-     "simple past: rang",
-     "klingeln, läuten Listen."
+     "text message",
+     "( kurz auch: text)"
     ],
     [
      "invitation (to)",
@@ -534,10 +538,6 @@
      "war glücklich ."
     ],
     [
-     "simple past: bit",
-     "beißen Don’t feed the horses – they bite ."
-    ],
-    [
      "(to) give sb. a hug",
      "jn. umarmen"
     ],
@@ -548,10 +548,6 @@
     [
      "(to) be/feel bored",
      "gelangweilt sein, sich langweilen"
-    ],
-    [
-     "I was",
-     "bored . gelangweilt"
     ],
     [
      "just like …",
@@ -584,6 +580,10 @@
     [
      "unhappy",
      "unglücklich happy"
+    ],
+    [
+     "crib sheet",
+     "(infml) Spickzettel, Merkzettel"
     ],
     [
      "at Dad’s",
@@ -654,10 +654,6 @@
      "jetzt gerade"
     ],
     [
-     "I think you ’re right .",
-     "… du hast Recht."
-    ],
-    [
      "You’re Leo, right ?",
      "…, nicht wahr?"
     ],
@@ -674,10 +670,6 @@
     [
      "pancake",
      "Pfannkuchen, Eierkuchen"
-    ],
-    [
-     "outside = 1.",
-     "draußen; nach draußen"
     ],
     [
      "next to",
@@ -720,14 +712,6 @@
      "schlafen"
     ],
     [
-     "simple past: hung",
-     "etwas aufhängen"
-    ],
-    [
-     "( oft auch kurz:",
-     "so …)"
-    ],
-    [
      "(to) turn sth. off",
      "etwas ausschalten (to) turn sth. on"
     ],
@@ -738,10 +722,6 @@
     [
      "memory",
      "Erinnerung"
-    ],
-    [
-     "next year’s",
-     "musical"
     ],
     [
      "audition",
@@ -808,6 +788,10 @@
      "ein bisschen, etwas"
     ],
     [
+     "You should …",
+     "Du solltest …/Ihr solltet …"
+    ],
+    [
      "side",
      "Seite"
     ],
@@ -860,12 +844,16 @@
      "vorankommen, zurechtkommen"
     ],
     [
+     "(not) as big as",
+     "(nicht) so groß wie"
+    ],
+    [
      "bigger than",
      "größer als"
     ],
     [
-     "(to) get",
-     "simple past"
+     "(to) get sth.",
+     "(sich) etwas besorgen"
     ],
     [
      "(to) get ready",
@@ -900,6 +888,10 @@
      "a very big man a tall man"
     ],
     [
+     "(the) earth",
+     "( oft auch: Earth)"
+    ],
+    [
      "(die) Erde",
      "(der Planet)"
     ],
@@ -928,12 +920,16 @@
      "innehalten, pausieren; eine Pause"
     ],
     [
-     "She",
-     "paused"
-    ],
-    [
      "scared",
      "verängstigt"
+    ],
+    [
+     "I was scared .",
+     "Ich war verängstigt ./ Ich hatte Angst ."
+    ],
+    [
+     "(to) change",
+     "(ver)ändern; sich (ver)ändern"
     ],
     [
      "brilliant",
@@ -962,10 +958,6 @@
     [
      "(the) most beautiful",
      "der/die/das schönste …"
-    ],
-    [
-     "I think this village is",
-     "the most beautiful place in"
     ],
     [
      "stage",
@@ -1024,10 +1016,6 @@
      "Treppe"
     ],
     [
-     "could = 1. konnte(n); 2.",
-     "könnte(n)"
-    ],
-    [
      "clear",
      "klar, deutlich"
     ],
@@ -1044,10 +1032,6 @@
      "so"
     ],
     [
-     "simple past:",
-     "woke up"
-    ],
-    [
      "shy",
      "schüchtern, scheu"
     ],
@@ -1062,6 +1046,10 @@
     [
      "(to) drop sth.",
      "etwas fallen lassen"
+    ],
+    [
+     "sunglasses (pl)",
+     "(eine) Sonnenbrille glasses und sunglasses sind Pluralwörter!"
     ],
     [
      "nose",
@@ -1154,10 +1142,6 @@
      "gleich nachdem …"
     ],
     [
-     "simple past:",
-     "cost"
-    ],
-    [
      "(to) close",
      "schließen, zumachen (to) close"
     ],
@@ -1242,8 +1226,8 @@
      "magic lamp?"
     ],
     [
-     "simple past: fought",
-     "jn. bekämpfen; gegen jn. kämpfen The farmer had to fight the rats on his farm."
+     "price",
+     "(Kauf-)Preis (den man bezahlt)"
     ],
     [
      "he shook his head",
@@ -1260,10 +1244,6 @@
     [
      "as kung fu master",
      "als Kung Fu-Master as …"
-    ],
-    [
-     "Du kannst eine Rolle",
-     "als"
     ],
     [
      "Als Kind",
@@ -1294,20 +1274,12 @@
      "auf jn. aufpassen"
     ],
     [
-     "Sam often has to",
-     "look after his little sister after"
-    ],
-    [
      "(to) worry (about)",
      "sich Sorgen machen (wegen, um)"
     ],
     [
      "(to) happen (to)",
      "geschehen, passieren (mit)"
-    ],
-    [
-     "irregular",
-     "unregelmäßig"
     ],
     [
      "(to) highlight",
@@ -1332,6 +1304,10 @@
     [
      "German : Lass uns",
      "nach hinten gehen/ hinten sitzen."
+    ],
+    [
+     "Who did you dance with?",
+     "Mit wem hast du getanzt? Who …?"
     ],
     [
      "Who danced with you?",
@@ -1460,6 +1436,10 @@
      "footprints"
     ],
     [
+     "mist",
+     "(leichter) Nebel, Dunst(schleier)"
+    ],
+    [
      "valley",
      "Tal"
     ],
@@ -1478,10 +1458,6 @@
     [
      "etc. (et cetera)",
      "usw. (und so weiter)"
-    ],
-    [
-     "cheese, tomatoes",
-     "etc."
     ],
     [
      "poem",
@@ -1512,20 +1488,12 @@
      "Partizip Perfekt von „make”"
     ],
     [
-     "(to) be was/ been",
-     "sein"
-    ],
-    [
      "(to) come came come",
      "kommen"
     ],
     [
      "(to) do did done",
      "machen, tun"
-    ],
-    [
-     "List of irregular verbs",
-     "pp. 272–273"
     ],
     [
      "(to) eat ate eaten",
@@ -1640,18 +1608,6 @@
      "jemals"
     ],
     [
-     "Wie du weißt, verwendet man",
-     "Adverbien der Art und"
-    ],
-    [
-     "Weise , um zu sagen",
-     "wie jemand etwas tut :"
-    ],
-    [
-     "etwas tut, sondern darum",
-     "wie jemand oder etwas ist :"
-    ],
-    [
      "delicious",
      "köstlich, lecker"
     ],
@@ -1752,12 +1708,20 @@
      "keine Spur von …"
     ],
     [
+     "for ever",
+     "(für) immer; ewig"
+    ],
+    [
      "for miles",
      "meilenweit 1 mile"
     ],
     [
      "(to) hurt, hurt, hurt",
      "schmerzen, wehtun"
+    ],
+    [
+     "across the moor/the street",
+     "(quer) über das Moor/die Straße He ran across the road in front of a very fast car."
     ],
     [
      "impossible",
@@ -1874,6 +1838,10 @@
      "um … (herum)"
     ],
     [
+     "grown",
+     "(to) grow = 1. wachsen; 2. anbauen, anpflanzen"
+    ],
+    [
      "(to) plant",
      "pflanzen"
     ],
@@ -1962,10 +1930,6 @@
      "fangen"
     ],
     [
-     "List of irregular verbs",
-     "pp. 272–273"
-    ],
-    [
      "(to) cost cost cost",
      "kosten"
     ],
@@ -1976,10 +1940,6 @@
     [
      "(to) draw drew drawn",
      "zeichnen"
-    ],
-    [
-     "trousers",
-     "ist ein Plural-Wort:"
     ],
     [
      "probably",
@@ -1996,6 +1956,10 @@
     [
      "encore",
      "Zugabe"
+    ],
+    [
+     "flown",
+     "(to) take notes (sich) Notizen machen (beim Lesen"
     ],
     [
      "take notes",
@@ -2110,10 +2074,6 @@
      "berühmt (für, wegen)"
     ],
     [
-     "It’s easier to",
-     "defend"
-    ],
-    [
      "enemy",
      "Feind/in friend"
     ],
@@ -2162,6 +2122,10 @@
      "die Stirn runzeln"
     ],
     [
+     "(to) tap",
+     "(an)tippen, (vorsichtig) klopfen"
+    ],
+    [
      "(to) end",
      "enden; beenden"
     ],
@@ -2180,6 +2144,10 @@
     [
      "(to) kill",
      "töten"
+    ],
+    [
+     "I’ll have a tea/pizza/…",
+     "Ich nehme einen Tee/eine Pizza/ … (beim Essen, im Restaurant)"
     ],
     [
      "lift",
@@ -2216,10 +2184,6 @@
     [
      "director",
      "Leiter/in; Dirigent/in; Regisseur/in"
-    ],
-    [
-     "But: millions of cars Millionen",
-     "von Autos"
     ],
     [
      "whole",
