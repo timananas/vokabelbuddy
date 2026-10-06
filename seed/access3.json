@@ -1,0 +1,1747 @@
+{
+ "version": 1,
+ "chapters": [
+  {
+   "num": 1,
+   "title": "This is London",
+   "words": [
+    [
+     "huge",
+     "riesig, sehr groß"
+    ],
+    [
+     "cathedral",
+     "Kathedrale, Dom"
+    ],
+    [
+     "palace",
+     "Palast, Schloss"
+    ],
+    [
+     "Welsh",
+     "Walisisch; walisisch"
+    ],
+    [
+     "(to) reply (to)",
+     "antworten (auf); erwidern, entgegnen"
+    ],
+    [
+     "Europe",
+     "Europa"
+    ],
+    [
+     "western",
+     "westlich, I see. Aha!/Verstehe."
+    ],
+    [
+     "lift",
+     "Fahrstuhl, Aufzug"
+    ],
+    [
+     "amazing",
+     "erstaunlich, unglaublich"
+    ],
+    [
+     "quite",
+     "ziemlich; völlig, ganz"
+    ],
+    [
+     "post",
+     "Posting (auf Blog) , Blog-Eintrag"
+    ],
+    [
+     "(to) add (to)",
+     "hinzufügen, ergänzen, addieren"
+    ],
+    [
+     "carnival",
+     "Karneval, Fasching"
+    ],
+    [
+     "(to) enjoy",
+     "genießen"
+    ],
+    [
+     "by the way",
+     "übrigens"
+    ],
+    [
+     "south",
+     "Süden; nach Süden; südlich north [nɔːθ]"
+    ],
+    [
+     "west",
+     "east [iːst]"
+    ],
+    [
+     "darkness",
+     "Dunkelheit, Finsternis"
+    ],
+    [
+     "clue",
+     "(Lösungs-)Hinweis; Anhaltspunkt"
+    ],
+    [
+     "skyline",
+     "Skyline; Horizont"
+    ],
+    [
+     "(to) stay (at/with)",
+     "(vorübergehend) wohnen, übernachten (in/bei)"
+    ],
+    [
+     "timetable",
+     "Fahrplan"
+    ],
+    [
+     "gallery",
+     "Galerie"
+    ],
+    [
+     "the Tube",
+     "(no pl)"
+    ],
+    [
+     "stress",
+     "Betonung"
+    ],
+    [
+     "stress mark",
+     "Betonungszeichen"
+    ],
+    [
+     "culture",
+     "Kultur"
+    ],
+    [
+     "(to) expect sth.",
+     "etwas erwarten"
+    ],
+    [
+     "(to) continue sth.",
+     "etwas fortsetzen"
+    ],
+    [
+     "queue",
+     "Schlange, Reihe"
+    ],
+    [
+     "attraction",
+     "Attraktion; Anziehungspunkt"
+    ],
+    [
+     "entry",
+     "Eintritt, Zutritt"
+    ],
+    [
+     "in fact",
+     "eigentlich, in Wirklichkeit"
+    ],
+    [
+     "fact",
+     "Tatsache, Fakt"
+    ],
+    [
+     "(to) reserve",
+     "reservieren, buchen"
+    ],
+    [
+     "step",
+     "Stufe"
+    ],
+    [
+     "chance",
+     "Gelegenheit, Möglichkeit, Chance"
+    ],
+    [
+     "during",
+     "während"
+    ],
+    [
+     "(to) guard",
+     "bewachen"
+    ],
+    [
+     "raven",
+     "Rabe a raven"
+    ],
+    [
+     "blood",
+     "Blut"
+    ],
+    [
+     "jewels (pl)",
+     "Juwelen"
+    ],
+    [
+     "education",
+     "(Schul-, Aus-)Bildung; Erziehung"
+    ],
+    [
+     "adult",
+     "Erwachsene(r)"
+    ],
+    [
+     "figure",
+     "Zahl, Ziffer"
+    ],
+    [
+     "less (than)",
+     "weniger (als)"
+    ],
+    [
+     "tortoise",
+     "(Land-)Schildkröte"
+    ],
+    [
+     "parliament",
+     "Parlament"
+    ],
+    [
+     "Christmas",
+     "Weihnachten Der 1. Weihnachtsfeiertag heißt Christmas Day ."
+    ],
+    [
+     "ticket office",
+     "Fahrkartenschalter; Kasse"
+    ],
+    [
+     "detail",
+     "Detail, Einzelheit"
+    ],
+    [
+     "a family of four",
+     "eine vierköpfige Familie"
+    ],
+    [
+     "exact",
+     "genau"
+    ],
+    [
+     "linking word",
+     "Bindewort"
+    ],
+    [
+     "(to) link",
+     "verbinden, verknüpfen"
+    ],
+    [
+     "worth",
+     "wert"
+    ],
+    [
+     "(to) roar",
+     "brüllen"
+    ],
+    [
+     "feedback",
+     "Rückmeldung, Feedback"
+    ],
+    [
+     "(to) improve",
+     "verbessern; sich verbessern"
+    ],
+    [
+     "(to) react (to)",
+     "reagieren (auf)"
+    ],
+    [
+     "content",
+     "Inhalt"
+    ],
+    [
+     "spelling",
+     "Rechtschreibung; Schreibweise"
+    ],
+    [
+     "line",
+     "(U-Bahn-)Linie"
+    ],
+    [
+     "eastbound",
+     "Richtung Osten northbound"
+    ],
+    [
+     "(to) change",
+     "umsteigen"
+    ],
+    [
+     "announcement",
+     "Durchsage, Ansage"
+    ],
+    [
+     "message",
+     "Botschaft, Aussage"
+    ],
+    [
+     "No way!",
+     "Auf keinen Fall!/ Kommt nicht in Frage!"
+    ],
+    [
+     "And anyway, …",
+     "Und überhaupt, …"
+    ],
+    [
+     "while",
+     "während"
+    ],
+    [
+     "Jack rief",
+     "während des Fußballspiels an."
+    ],
+    [
+     "Jack rief an,",
+     "während wir das Fußballspiel schauten."
+    ],
+    [
+     "(to) turn sth. up/down",
+     "etwas lauter/leiser stellen"
+    ],
+    [
+     "each other",
+     "sich (gegenseitig), einander"
+    ],
+    [
+     "pub",
+     "Kneipe, Lokal"
+    ],
+    [
+     "mate",
+     "Kumpel, Freund"
+    ],
+    [
+     "several",
+     "mehrere, verschiedene"
+    ],
+    [
+     "route",
+     "Strecke, Route"
+    ],
+    [
+     "speed",
+     "Geschwindigkeit"
+    ],
+    [
+     "It was a pity that …",
+     "Es war schade, dass …"
+    ],
+    [
+     "platform",
+     "Bahnsteig, Gleis"
+    ],
+    [
+     "(to) hold onto sth.",
+     ", held, held [held]"
+    ],
+    [
+     "(to) scan sth. (for sth. )",
+     "etwas (nach etwas) absuchen"
+    ],
+    [
+     "(to) fill",
+     "füllen"
+    ],
+    [
+     "pavement",
+     "Gehweg, Bürgersteig"
+    ],
+    [
+     "available",
+     "erhältlich, verfügbar;"
+    ],
+    [
+     "whistle",
+     "(Triller-)Pfeife a whistle"
+    ],
+    [
+     "(to) blow a whistle",
+     ","
+    ],
+    [
+     "blew",
+     ", blown [bləʊn]"
+    ],
+    [
+     "(to) panic",
+     "in Panik geraten"
+    ],
+    [
+     "(to) bend down",
+     ", bent, bent [bent]"
+    ],
+    [
+     "crowded",
+     "voller Menschen; überfüllt"
+    ],
+    [
+     "rope",
+     "Seil"
+    ],
+    [
+     "wing",
+     "Flügel"
+    ],
+    [
+     "rainbow",
+     "Regenbogen"
+    ],
+    [
+     "dizzy",
+     "schwindlig"
+    ],
+    [
+     "(to) scream",
+     "schreien"
+    ],
+    [
+     "hip",
+     "Hüfte"
+    ],
+    [
+     "rhythm",
+     "Rhythmus"
+    ]
+   ]
+  },
+  {
+   "num": 2,
+   "title": "Welcome to Snowdonia",
+   "words": [
+    [
+     "(to) scare sb.",
+     "jn. erschrecken; jm. Angst machen"
+    ],
+    [
+     "loudspeaker",
+     "Lautsprecher; Megaphon"
+    ],
+    [
+     "(to) mind",
+     "etwas dagegen haben"
+    ],
+    [
+     "(to) rest",
+     "ruhen, sich ausruhen"
+    ],
+    [
+     "scientist",
+     "Naturwissenschaftler/in"
+    ],
+    [
+     "(to) study",
+     "studieren;"
+    ],
+    [
+     "workshop",
+     "Werkstatt"
+    ],
+    [
+     "carpenter",
+     "Tischler/in, Zimmerer/Zimmerin"
+    ],
+    [
+     "Die",
+     "Möbel sind neu."
+    ],
+    [
+     "oil",
+     "Öl"
+    ],
+    [
+     "a piece of …",
+     "ein Stück …"
+    ],
+    [
+     "tonight",
+     "heute Nacht, heute Abend"
+    ],
+    [
+     "actor",
+     "Schauspieler/in"
+    ],
+    [
+     "painter",
+     "Maler/in"
+    ],
+    [
+     "architect",
+     "Architekt/in"
+    ],
+    [
+     "astronaut",
+     "Astronaut/in"
+    ],
+    [
+     "engineer",
+     "Ingenieur/in"
+    ],
+    [
+     "hairdresser",
+     "Friseur/in"
+    ],
+    [
+     "musician",
+     "Musiker/in"
+    ],
+    [
+     "official",
+     "(n)"
+    ],
+    [
+     "government",
+     "Regierung"
+    ],
+    [
+     "national",
+     "national, National- F national, e L natio (f) (Volk, Nation)"
+    ],
+    [
+     "accident",
+     "Unfall"
+    ],
+    [
+     "altogether",
+     "insgesamt, alles in allem"
+    ],
+    [
+     "hostel",
+     "Herberge, Wohnheim"
+    ],
+    [
+     "(to) wonder",
+     "sich fragen, gern wissen wollen"
+    ],
+    [
+     "(to) pretend",
+     "so tun, als ob"
+    ],
+    [
+     "stupid",
+     "dumm, blöd"
+    ],
+    [
+     "downstream",
+     "flussabwärts"
+    ],
+    [
+     "edge",
+     "Rand, Kante"
+    ],
+    [
+     "(to) reach",
+     "erreichen"
+    ],
+    [
+     "stick",
+     "Stock"
+    ],
+    [
+     "(to) grab",
+     "schnappen, packen"
+    ],
+    [
+     "steep",
+     "steil"
+    ],
+    [
+     "danger",
+     "Gefahr"
+    ],
+    [
+     "warning",
+     "Warnung"
+    ],
+    [
+     "head teacher",
+     "Schulleiter/in"
+    ],
+    [
+     "(to) organize",
+     "organisieren; ordnen"
+    ],
+    [
+     "climb",
+     "Aufstieg, Anstieg"
+    ],
+    [
+     "summit",
+     "Gipfel"
+    ],
+    [
+     "(to) manage sth.",
+     "etwas schaffen; etwas zustande"
+    ],
+    [
+     "real",
+     "echt, wirklich"
+    ],
+    [
+     "downhill",
+     "bergab"
+    ],
+    [
+     "energy",
+     "Energie, Kraft"
+    ],
+    [
+     "a total of …",
+     "eine Gesamtsumme von …;"
+    ],
+    [
+     "bar",
+     "Riegel (Schokolade, Müsli) , Tafel (Schokolade)"
+    ],
+    [
+     "hero",
+     ","
+    ],
+    [
+     "(to) revise",
+     "überarbeiten;"
+    ],
+    [
+     "(Lernstoff)",
+     "wiederholen"
+    ],
+    [
+     "carrot",
+     "Möhre, Karotte"
+    ],
+    [
+     "(to) delete",
+     "löschen; streichen (to) delete a paragraph/a program"
+    ],
+    [
+     "Shall I ...?",
+     "Soll ich …?"
+    ],
+    [
+     "(to) sigh",
+     "seufzen"
+    ],
+    [
+     "stone",
+     "Stein"
+    ],
+    [
+     "(to) seem (to be/do)",
+     "(zu sein/zu tun) scheinen"
+    ],
+    [
+     "(to) suppose",
+     "annehmen, vermuten"
+    ],
+    [
+     "(to) miss",
+     "vermissen"
+    ],
+    [
+     "actually",
+     "eigentlich; übrigens; tatsächlich"
+    ],
+    [
+     "factory",
+     "Fabrik"
+    ],
+    [
+     "mine",
+     "Bergwerk"
+    ],
+    [
+     "coal",
+     "Kohle coal"
+    ],
+    [
+     "headword",
+     "Stichwort (im Wörterbuch)"
+    ],
+    [
+     "translation",
+     "Übersetzung"
+    ],
+    [
+     "police (pl)",
+     "Polizei"
+    ],
+    [
+     "(to) flow",
+     "fließen"
+    ],
+    [
+     "although",
+     "obwohl"
+    ],
+    [
+     "conservation",
+     "Umweltschutz"
+    ],
+    [
+     "narrow",
+     "schmal, eng"
+    ],
+    [
+     "(to) press",
+     "drücken"
+    ],
+    [
+     "finally",
+     "endlich, schließlich"
+    ],
+    [
+     "(to) be able to do sth.",
+     "etwas tun können; fähig sein/ in der Lage sein, etwas zu tun"
+    ],
+    [
+     "(to) enter",
+     "betreten, hineingehen in;"
+    ],
+    [
+     "meal",
+     "Mahlzeit, Essen"
+    ],
+    [
+     "(to) keep doing sth.",
+     ", kept, kept [kept]"
+    ],
+    [
+     "silently",
+     "lautlos; schweigend"
+    ],
+    [
+     "corridor",
+     "Gang, Korridor"
+    ],
+    [
+     "star",
+     "Stern"
+    ],
+    [
+     "magical",
+     "zauberhaft, wundervoll; magisch"
+    ],
+    [
+     "(to) lie down",
+     ","
+    ],
+    [
+     "lay",
+     ", lain [laɪn]"
+    ],
+    [
+     "busy",
+     "belebt, geschäftig, hektisch"
+    ],
+    [
+     "breeze",
+     "Brise"
+    ],
+    [
+     "wooden",
+     "hölzern;"
+    ],
+    [
+     "figure",
+     "Figur, Gestalt"
+    ],
+    [
+     "note",
+     "Note, Ton (Musik) note"
+    ],
+    [
+     "such a …",
+     "so ein/e …; solch ein/e …"
+    ],
+    [
+     "(to) argue",
+     "streiten; sich streiten"
+    ],
+    [
+     "bite",
+     "Biss, Bissen"
+    ],
+    [
+     "office",
+     "Büro"
+    ],
+    [
+     "(to) behave",
+     "sich verhalten, sich benehmen"
+    ],
+    [
+     "mop",
+     "Wischmopp"
+    ],
+    [
+     "(to) splash sb.",
+     "jn. nass spritzen"
+    ],
+    [
+     "punishment",
+     "Bestrafung, Strafe"
+    ]
+   ]
+  },
+  {
+   "num": 3,
+   "title": "A weekend in Liverpool",
+   "words": [
+    [
+     "(to) explore",
+     "erkunden, erforschen"
+    ],
+    [
+     "cruise",
+     "Kreuzfahrt, Schiffsreise, Bootsfahrt"
+    ],
+    [
+     "stuff",
+     "(infml)"
+    ],
+    [
+     "difference",
+     "Unterschied"
+    ],
+    [
+     "guidebook",
+     "Reiseführer"
+    ],
+    [
+     "opinion",
+     "Meinung"
+    ],
+    [
+     "hang out",
+     ","
+    ],
+    [
+     "hung, hung",
+     "(infml)"
+    ],
+    [
+     "submarine",
+     "U-Boot"
+    ],
+    [
+     "dock",
+     "Hafen"
+    ],
+    [
+     "crossword",
+     "Kreuzworträtsel"
+    ],
+    [
+     "factual",
+     "sachlich, Sach-; faktisch; den"
+    ],
+    [
+     "introduction",
+     "Einleitung, Einführung"
+    ],
+    [
+     "body",
+     "Hauptteil (eines Textes)"
+    ],
+    [
+     "conclusion",
+     "Schluss(folgerung)"
+    ],
+    [
+     "schedule",
+     "(Zeit-)Plan, Programm"
+    ],
+    [
+     "(to) get/have a day off",
+     "einen Tag frei bekommen/haben"
+    ],
+    [
+     "(to) earn",
+     "verdienen (Geld)"
+    ],
+    [
+     "(to) be born",
+     "geboren sein/werden"
+    ],
+    [
+     "(to) grow up",
+     ","
+    ],
+    [
+     "grew up",
+     ", grown up [ˌgrəʊnˈʌp]"
+    ],
+    [
+     "(to) invent",
+     "erfinden"
+    ],
+    [
+     "success",
+     "Erfolg"
+    ],
+    [
+     "(to) perform",
+     "auftreten (Künstler/in)"
+    ],
+    [
+     "popular (with)",
+     "populär, beliebt (bei)"
+    ],
+    [
+     "monument (to)",
+     "Denkmal, Monument"
+    ],
+    [
+     "banana",
+     "Banane"
+    ],
+    [
+     "proud (of)",
+     "stolz (auf)"
+    ],
+    [
+     "accent",
+     "Akzent"
+    ],
+    [
+     "support a team",
+     "eine Mannschaft unterstützen; Fan"
+    ],
+    [
+     "password",
+     "Passwort"
+    ],
+    [
+     "stadium",
+     "Stadion"
+    ],
+    [
+     "(to) lead",
+     ", led, led [led]"
+    ],
+    [
+     "on board",
+     "an Bord"
+    ],
+    [
+     "scarf",
+     ", pl scarves"
+    ],
+    [
+     "(to) photograph",
+     "fotografieren"
+    ],
+    [
+     "public",
+     "öffentliche(r,s)"
+    ],
+    [
+     "absolutely",
+     "völlig, absolut"
+    ],
+    [
+     "for ages",
+     "(infml)"
+    ],
+    [
+     "polite",
+     "höflich"
+    ],
+    [
+     "impolite",
+     "unhöflich"
+    ],
+    [
+     "2.",
+     "an etwas denken (etwas nicht vergessen) ;"
+    ],
+    [
+     "law",
+     "Gesetz"
+    ],
+    [
+     "(to) publish",
+     "veröffentlichen, verlegen"
+    ],
+    [
+     "permission",
+     "Erlaubnis"
+    ],
+    [
+     "focus",
+     "Mittelpunkt, Schwerpunkt"
+    ],
+    [
+     "nurse",
+     "Krankenschwester, Krankenpfleger"
+    ],
+    [
+     "exchange",
+     "Austausch"
+    ],
+    [
+     "(to) score",
+     "Treffer erzielen, Tor schießen"
+    ],
+    [
+     "score",
+     "Spielstand; Punktestand"
+    ],
+    [
+     "final",
+     "letzte(r,s), F final(e)"
+    ],
+    [
+     "result",
+     "Ergebnis, Resultat"
+    ],
+    [
+     "emotion",
+     "Gefühl, Emotion"
+    ],
+    [
+     "including",
+     "einschließlich; darunter"
+    ],
+    [
+     "goalkeeper",
+     "Torwart, Torfrau"
+    ],
+    [
+     "referee",
+     "Schiedsrichter/in"
+    ],
+    [
+     "pitch",
+     "(Sport-)Platz, Spielfeld"
+    ],
+    [
+     "free kick",
+     "Freistoß"
+    ],
+    [
+     "(to) pronounce",
+     "aussprechen"
+    ],
+    [
+     "(to) order",
+     "ordnen (to) order"
+    ],
+    [
+     "(to) structure",
+     "strukturieren, gliedern"
+    ],
+    [
+     "bully",
+     "(Schul-)Tyrann"
+    ],
+    [
+     "(to) solve",
+     "lösen"
+    ],
+    [
+     "slow motion",
+     "Zeitlupe"
+    ],
+    [
+     "canal",
+     "Kanal"
+    ],
+    [
+     "(to) shine",
+     ", shone, shone [ʃɒn]"
+    ],
+    [
+     "laughter",
+     "Gelächter"
+    ],
+    [
+     "surface",
+     "Oberfläche"
+    ],
+    [
+     "(to) burn",
+     "brennen; verbrennen"
+    ],
+    [
+     "(to) drown",
+     "ertrinken"
+    ],
+    [
+     "nowhere",
+     "nirgendwo; nirgendwohin"
+    ],
+    [
+     "(to) dive in",
+     "hineinspringen"
+    ],
+    [
+     "(to) save sb. from sth.",
+     "jn. von/vor etwas retten"
+    ],
+    [
+     "(to) marry sb.",
+     "jn. heiraten"
+    ],
+    [
+     "career",
+     "Karriere"
+    ],
+    [
+     "sailor",
+     "Seemann, Matrose, Matrosin"
+    ]
+   ]
+  },
+  {
+   "num": 4,
+   "title": "My trip to Ireland",
+   "words": [
+    [
+     "local",
+     "örtlich, Lokal-; am/vom Ort"
+    ],
+    [
+     "funeral",
+     "Trauerfeier"
+    ],
+    [
+     "(to) take place",
+     "stattfinden"
+    ],
+    [
+     "(to) name",
+     "(be)nennen"
+    ],
+    [
+     "impression",
+     "Eindruck"
+    ],
+    [
+     "march",
+     "Marsch, Demonstration"
+    ],
+    [
+     "(to) wave (at sb. )",
+     "(jm. zu)winken"
+    ],
+    [
+     "northern",
+     "nördlich,"
+    ],
+    [
+     "Aussprache: south",
+     "– southern [ˈsʌðən]"
+    ],
+    [
+     "speed limit",
+     "Geschwindigkeitsbegrenzung, -beschränkung"
+    ],
+    [
+     "giant",
+     "Riese"
+    ],
+    [
+     "coffee",
+     "Kaffee"
+    ],
+    [
+     "wonder",
+     "Wunder"
+    ],
+    [
+     "cliff",
+     "Klippe"
+    ],
+    [
+     "column",
+     "Säule"
+    ],
+    [
+     "(to) rise up",
+     ","
+    ],
+    [
+     "rose",
+     ", risen [ˈrɪzn]"
+    ],
+    [
+     "nearly",
+     "fast, beinahe"
+    ],
+    [
+     "(to) form",
+     "bilden, formen"
+    ],
+    [
+     "challenge",
+     "Herausforderung"
+    ],
+    [
+     "(to) bet, bet, bet",
+     "wetten"
+    ],
+    [
+     "(to) build",
+     ", built, built"
+    ],
+    [
+     "(to) be left",
+     "übrig sein"
+    ],
+    [
+     "legend",
+     "Legende, Sage"
+    ],
+    [
+     "curious",
+     "wissbegierig, neugierig"
+    ],
+    [
+     "passport",
+     "(Reise-)Pass"
+    ],
+    [
+     "ID card",
+     "Personalausweis"
+    ],
+    [
+     "airport",
+     "Flughafen"
+    ],
+    [
+     "(to) keep",
+     ", kept, kept"
+    ],
+    [
+     "god, God",
+     "Gott"
+    ],
+    [
+     "goddess",
+     "Göttin"
+    ],
+    [
+     "wedding",
+     "Hochzeit, Trauung"
+    ],
+    [
+     "king",
+     "König"
+    ],
+    [
+     "immediately",
+     "sofort"
+    ],
+    [
+     "border",
+     "Grenze"
+    ],
+    [
+     "(to) change",
+     "wechseln, umtauschen (Geld)"
+    ],
+    [
+     "letterbox",
+     "Briefkasten"
+    ],
+    [
+     "suit",
+     "Anzug"
+    ],
+    [
+     "(to) smoke",
+     "rauchen"
+    ],
+    [
+     "pipe",
+     "(Tabaks-)Pfeife"
+    ],
+    [
+     "pot",
+     "Gefäß; Topf"
+    ],
+    [
+     "What else can you do?",
+     "Was kannst du (sonst) noch tun?"
+    ],
+    [
+     "service",
+     "Gottesdienst"
+    ],
+    [
+     "by 8 pm",
+     "bis (spätestens) 20 Uhr"
+    ],
+    [
+     "(to) have a shower",
+     "(sich) duschen"
+    ],
+    [
+     "advantage",
+     "Vorteil"
+    ],
+    [
+     "beginning",
+     "Anfang, Beginn"
+    ],
+    [
+     "guest",
+     "Gast"
+    ],
+    [
+     "interaction",
+     "Interaktion, Umgang"
+    ],
+    [
+     "owner",
+     "Besitzer/in"
+    ],
+    [
+     "weird",
+     "seltsam, komisch"
+    ],
+    [
+     "(to) stare (at sb./sth. )",
+     "(jn./etwas an)starren"
+    ],
+    [
+     "(to) survive",
+     "überleben"
+    ],
+    [
+     "argument",
+     "Streit, Auseinandersetzung"
+    ],
+    [
+     "(to) be starving",
+     "einen Riesenhunger haben"
+    ],
+    [
+     "rude",
+     "unhöflich; unverschämt"
+    ],
+    [
+     "trail",
+     "Weg, Pfad"
+    ],
+    [
+     "stream",
+     "Bach"
+    ],
+    [
+     "boyfriend",
+     "Freund"
+    ],
+    [
+     "girlfriend",
+     "Freundin"
+    ],
+    [
+     "standard",
+     "Standard; Standard-"
+    ],
+    [
+     "capital",
+     "Hauptstadt"
+    ],
+    [
+     "crown",
+     "Krone"
+    ],
+    [
+     "currency",
+     "Währung"
+    ],
+    [
+     "nation",
+     "Nation, Volk"
+    ],
+    [
+     "peace",
+     "Friede, Frieden"
+    ],
+    [
+     "population",
+     "Bevölkerung, Einwohner(zahl)"
+    ],
+    [
+     "president",
+     "Präsident/in"
+    ],
+    [
+     "republic",
+     "Republik"
+    ],
+    [
+     "state",
+     "Staat"
+    ],
+    [
+     "coordinator",
+     "Koordinator/in"
+    ],
+    [
+     "layout",
+     "Layout, Gestaltung"
+    ],
+    [
+     "editor",
+     "Redakteur/in; Herausgeber/in"
+    ],
+    [
+     "research (no pl)",
+     "Recherche, Forschung(en)"
+    ],
+    [
+     "discussion",
+     "Diskussion"
+    ],
+    [
+     "decision",
+     "Entscheidung"
+    ],
+    [
+     "stable",
+     "(Pferde-, Kuh)Stall"
+    ],
+    [
+     "choice",
+     "Wahl; Auswahl"
+    ],
+    [
+     "reins (pl)",
+     "Zügel"
+    ],
+    [
+     "ditch",
+     "Graben"
+    ],
+    [
+     "beyond",
+     "jenseits (von), über … hinaus/hinweg"
+    ],
+    [
+     "straight",
+     "direkt, geradewegs"
+    ],
+    [
+     "shallow",
+     "flach, nicht tief"
+    ],
+    [
+     "(to) gallop",
+     "galoppieren"
+    ],
+    [
+     "distance",
+     "Ferne; Entfernung"
+    ],
+    [
+     "below",
+     "unten, darunter;"
+    ],
+    [
+     "above",
+     "oben, darüber;"
+    ],
+    [
+     "jolt",
+     "Ruck, Stoß"
+    ],
+    [
+     "saddle",
+     "Sattel"
+    ],
+    [
+     "(to) slip",
+     "(aus)rutschen"
+    ],
+    [
+     "(to) sink",
+     ", sank [sæŋk] , sunk [sʌŋk]"
+    ],
+    [
+     "(to) stretch sth. out",
+     "ausstrecken"
+    ],
+    [
+     "direction",
+     "Richtung"
+    ],
+    [
+     "(to) dial",
+     "wählen (Telefonnummer)"
+    ],
+    [
+     "(to) recognize",
+     "erkennen"
+    ],
+    [
+     "tide",
+     "Gezeiten, Ebbe und Flut"
+    ],
+    [
+     "signal",
+     "Signal, Zeichen"
+    ],
+    [
+     "calm",
+     "ruhig"
+    ],
+    [
+     "(to) teach",
+     ", taught, taught [tɔːt]"
+    ],
+    [
+     "thought",
+     "Gedanke"
+    ],
+    [
+     "( BE auch: lorry",
+     ")"
+    ]
+   ]
+  },
+  {
+   "num": 5,
+   "title": "Edinburgh and the Highlands",
+   "words": [
+    [
+     "the Highlands (pl)",
+     "das schottische Hochland"
+    ],
+    [
+     "atmosphere",
+     "Atmosphäre; Stimmung"
+    ],
+    [
+     "romantic",
+     "romantisch; Liebes-"
+    ],
+    [
+     "sunset",
+     "Sonnenuntergang"
+    ],
+    [
+     "bagpiper",
+     "Dudelsackpfeifer/in, Dudelsackspieler/in, Sackpfeifer/in"
+    ],
+    [
+     "bagpipes (pl)",
+     "Dudelsack, Sackpfeife"
+    ],
+    [
+     "sheepdog",
+     "Hütehund Mit sheepdog werden in Großbritannien oft Border"
+    ],
+    [
+     "trials (pl)",
+     "Turnier, Wettkampf"
+    ],
+    [
+     "I didn’t enjoy myself.",
+     "Ich habe mich nicht amüsiert./ Ich hatte keinen Spaß."
+    ],
+    [
+     "(to) relax",
+     "sich entspannen, sich ausruhen"
+    ],
+    [
+     "upset",
+     "aufgebracht, gekränkt, mitgenommen"
+    ],
+    [
+     "jealous (of)",
+     "neidisch (auf); eifersüchtig (auf)"
+    ],
+    [
+     "(to) control",
+     "kontrollieren, beherrschen; unter"
+    ],
+    [
+     "movement",
+     "Bewegung"
+    ],
+    [
+     "serious",
+     "ernst; ernsthaft"
+    ],
+    [
+     "comfortable",
+     "bequem; angenehm"
+    ],
+    [
+     "judge",
+     "Richter/in"
+    ],
+    [
+     "(to) escape",
+     "fliehen"
+    ],
+    [
+     "escape",
+     "Flucht"
+    ],
+    [
+     "split screen",
+     "geteilter Bildschirm;"
+    ],
+    [
+     "flock of sheep/goats",
+     "Schafen-/Ziegenherde BUT a flock of birds"
+    ],
+    [
+     "comment",
+     "Bemerkung, Kommentar"
+    ],
+    [
+     "royal",
+     "königlich"
+    ],
+    [
+     "complicated",
+     "kompliziert"
+    ],
+    [
+     "dishwasher",
+     "Geschirrspüler"
+    ],
+    [
+     "typical (of)",
+     "typisch (für)"
+    ],
+    [
+     "volcano",
+     "Vulkan"
+    ],
+    [
+     "army",
+     "Armee"
+    ],
+    [
+     "originally",
+     "ursprünglich"
+    ],
+    [
+     "material",
+     "Material, Stoff"
+    ],
+    [
+     "classical",
+     "klassisch"
+    ],
+    [
+     "flute",
+     "Querflöte"
+    ],
+    [
+     "trumpet",
+     "Trompete"
+    ],
+    [
+     "violin",
+     "Violine, Geige"
+    ],
+    [
+     "summary",
+     "Zusammenfassung"
+    ],
+    [
+     "(to) sum sth. up",
+     "etwas zusammenfassen"
+    ],
+    [
+     "search (for)",
+     "Durchsuchung; Suche (nach)"
+    ],
+    [
+     "term",
+     "Ausdruck, Begriff"
+    ],
+    [
+     "unusual",
+     "ungewöhnlich"
+    ],
+    [
+     "usual",
+     "gewöhnlich, üblich"
+    ],
+    [
+     "heading",
+     "Überschrift"
+    ],
+    [
+     "slide",
+     "Folie"
+    ],
+    [
+     "(to) fit",
+     "passen"
+    ],
+    [
+     "missing",
+     "verschollen, vermisst"
+    ],
+    [
+     "heather",
+     "Heide(kraut)"
+    ],
+    [
+     "tension",
+     "Spannung, Anspannung"
+    ],
+    [
+     "whistle",
+     "Pfiff"
+    ],
+    [
+     "(to) race",
+     "rasen"
+    ],
+    [
+     "in horror",
+     "entsetzt"
+    ],
+    [
+     "noise",
+     "Geräusch; Lärm"
+    ],
+    [
+     "(to) reach over",
+     "die Hand ausstrecken"
+    ],
+    [
+     "(to) beat",
+     ", beat [biːt] , beaten [ˈbiːtn]"
+    ],
+    [
+     "(to) read sb. ’s mind",
+     "jemandes Gedanken lesen"
+    ],
+    [
+     "shepherd",
+     "Schäfer/in, Schafhirte/-hirtin"
+    ],
+    [
+     "volunteer",
+     "Freiwillige(r), Ehrenamtliche(r)"
+    ],
+    [
+     "gently",
+     "behutsam, sanft"
+    ],
+    [
+     "(to) knock (on sth. )",
+     "(an)klopfen (an etwas)"
+    ],
+    [
+     "memorial",
+     "Denkmal; Gedenk- F le mémorial L memoria (Erinnerung)"
+    ],
+    [
+     "in second place",
+     "auf dem zweiten Platz; an zweiter"
+    ]
+   ]
+  }
+ ]
+}

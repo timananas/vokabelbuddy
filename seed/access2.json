@@ -1,24 +1,2571 @@
 {
  "version": 1,
- "note": "Demo-Daten Access 2. Echte Wordlists ueber das Zahnrad (Kapitel speichern/loeschen).",
  "chapters": [
-  {"num": 1, "title": "Countries", "words": [
-   ["country", "Land"], ["city", "Stadt"], ["village", "Dorf"],
-   ["capital", "Hauptstadt"], ["England", "England"], ["Great Britain", "Großbritannien"],
-   ["London", "London"], ["flag", "Flagge"], ["to travel", "reisen"],
-   ["to visit", "besuchen"], ["population", "Bevölkerung"], ["world", "Welt"]
-  ]},
-  {"num": 2, "title": "Holidays", "words": [
-   ["holiday", "Ferien, Urlaub"], ["beach", "Strand"], ["sea", "Meer, See"],
-   ["sun", "Sonne"], ["campsite", "Campingplatz"], ["tent", "Zelt"],
-   ["to camp", "campen"], ["luggage", "Gepäck"], ["to pack", "packen"],
-   ["journey", "Reise"], ["boat", "Boot"], ["sandcastle", "Sandburg"]
-  ]},
-  {"num": 3, "title": "Daily routine", "words": [
-   ["to wake up", "aufwachen"], ["to get up", "aufstehen"], ["to wash", "waschen, sich waschen"],
-   ["always", "immer"], ["usually", "normalerweise"], ["sometimes", "manchmal"],
-   ["never", "nie"], ["then", "dann"], ["afterwards", "danach, später"],
-   ["clock", "Uhr"], ["half past", "halb"], ["quarter", "Viertel"]
-  ]}
+  {
+   "num": 1,
+   "title": "In the summer holidays",
+   "words": [
+    [
+     "summer",
+     "Sommer"
+    ],
+    [
+     "grandparents",
+     "Großeltern"
+    ],
+    [
+     "parents",
+     "Eltern"
+    ],
+    [
+     "windy",
+     "windig"
+    ],
+    [
+     "project",
+     "Projekt"
+    ],
+    [
+     "rainforest",
+     "Regenwald"
+    ],
+    [
+     "forest",
+     "Wald"
+    ],
+    [
+     "rain",
+     "Regen"
+    ],
+    [
+     "(to) rain",
+     "regnen"
+    ],
+    [
+     "plant",
+     "Pflanze"
+    ],
+    [
+     "sights (pl)",
+     "Sehenswürdigkeiten"
+    ],
+    [
+     "stop",
+     "Halt;"
+    ],
+    [
+     "full (of)",
+     "voll"
+    ],
+    [
+     "cloudy",
+     "bewölkt"
+    ],
+    [
+     "cloud",
+     "Wolke"
+    ],
+    [
+     "caravan",
+     "Wohnwagen"
+    ],
+    [
+     "(to) get",
+     "bekommen"
+    ],
+    [
+     "weather",
+     "Wetter"
+    ],
+    [
+     "wave",
+     "Welle"
+    ],
+    [
+     "tomorrow",
+     "morgen"
+    ],
+    [
+     "world",
+     "Welt"
+    ],
+    [
+     "sunny",
+     "sonnig"
+    ],
+    [
+     "mountain",
+     "Berg"
+    ],
+    [
+     "beautiful",
+     "schön"
+    ],
+    [
+     "I like her a lot .",
+     "Ich mag sie sehr."
+    ],
+    [
+     "Say hello to … for me.",
+     "Grüß … von mir."
+    ],
+    [
+     "message",
+     "Nachricht"
+    ],
+    [
+     "brochure",
+     "Broschüre, Prospekt Betonung: brochure [ˈbrəʊʃə]"
+    ],
+    [
+     "(to) phone sb.",
+     "jn. anrufen"
+    ],
+    [
+     "holiday",
+     "Urlaub"
+    ],
+    [
+     "at first",
+     "zuerst, anfangs, am Anfang"
+    ],
+    [
+     "fun park",
+     "Vergnügungspark"
+    ],
+    [
+     "ride",
+     "Fahrt"
+    ],
+    [
+     "fantastic",
+     "fantastisch"
+    ],
+    [
+     "building",
+     "Gebäude"
+    ],
+    [
+     "if",
+     "wenn, falls"
+    ],
+    [
+     "(to) bring",
+     "(mit-, her)bringen"
+    ],
+    [
+     "past",
+     "Vergangenheit"
+    ],
+    [
+     "train",
+     "Zug"
+    ],
+    [
+     "island",
+     "Insel"
+    ],
+    [
+     "campsite",
+     "Zeltplatz"
+    ],
+    [
+     "shopping mall",
+     "( kurz auch: mall)"
+    ],
+    [
+     "rainy",
+     "regnerisch"
+    ],
+    [
+     "paragraph",
+     "Absatz (in einem Text) Betonung: paragraph [ˈpærəgrɑːf]"
+    ],
+    [
+     "chips (pl)",
+     "Pommes frites"
+    ],
+    [
+     "sky",
+     "Himmel"
+    ],
+    [
+     "top",
+     "Spitzen-"
+    ],
+    [
+     "drawing",
+     "Zeichnung"
+    ],
+    [
+     "(to) draw",
+     "zeichnen"
+    ],
+    [
+     "order",
+     "Reihenfolge"
+    ],
+    [
+     "another",
+     "ein(e) andere(r, s);"
+    ],
+    [
+     "(to) arrange",
+     "anordnen"
+    ],
+    [
+     "neighbour",
+     "Nachbar/in"
+    ],
+    [
+     "note",
+     "Notiz, Mitteilung"
+    ],
+    [
+     "tea",
+     "leichte Nachmittagsoder"
+    ],
+    [
+     "In Großbritannien wird das Wort",
+     "tea auch für eine"
+    ],
+    [
+     "Love, …",
+     "Alles Liebe, …/Liebe Grüße, …"
+    ],
+    [
+     "son",
+     "Sohn"
+    ],
+    [
+     "daughter",
+     "Tochter"
+    ],
+    [
+     "…, you see.",
+     "…, weißt du. Sue doesn’t speak German"
+    ],
+    [
+     "lonely",
+     "einsam"
+    ],
+    [
+     "(to) be busy",
+     "beschäftigt sein; viel zu tun haben"
+    ],
+    [
+     "already",
+     "schon, bereits"
+    ],
+    [
+     "(to) invite sb. (to)",
+     "jn. einladen (zu)"
+    ],
+    [
+     "only",
+     "erst"
+    ],
+    [
+     "(to) move in",
+     "einziehen"
+    ],
+    [
+     "a week ago",
+     "vor einer Woche"
+    ],
+    [
+     "problem",
+     "Problem Betonung: problem [ˈprɒbləm]"
+    ],
+    [
+     "threw",
+     "Vergangenheitsform von „throw“"
+    ],
+    [
+     "heard",
+     "Vergangenheitsform von „hear“"
+    ],
+    [
+     "(to) catch caught",
+     "fangen"
+    ],
+    [
+     "(to) choose chose",
+     "aussuchen, (aus)wählen"
+    ],
+    [
+     "(to) go went",
+     "gehen"
+    ],
+    [
+     "(to) make made",
+     "machen; herstellen"
+    ],
+    [
+     "(to) say said",
+     "sagen"
+    ],
+    [
+     "(to) see saw",
+     "sehen"
+    ],
+    [
+     "(to) sit sat",
+     "sitzen; sich setzen"
+    ],
+    [
+     "(to) swim swam",
+     "schwimmen"
+    ],
+    [
+     "(to) take took",
+     "nehmen; bringen"
+    ],
+    [
+     "(to) think thought",
+     "denken, glauben"
+    ],
+    [
+     "(to) write wrote",
+     "schreiben"
+    ],
+    [
+     "news (no pl)",
+     "Nachrichten; Neuigkeiten"
+    ],
+    [
+     "(to) come came",
+     "kommen"
+    ],
+    [
+     "(to) do did",
+     "tun, machen"
+    ],
+    [
+     "(to) fall fell",
+     "fallen"
+    ],
+    [
+     "(to) feel felt",
+     "fühlen; sich fühlen"
+    ],
+    [
+     "(to) get got",
+     "bekommen; werden;"
+    ],
+    [
+     "(to) have had",
+     "haben"
+    ],
+    [
+     "(to) know knew",
+     "wissen; kennen"
+    ],
+    [
+     "(to) leave left",
+     "verlassen; zurücklassen"
+    ],
+    [
+     "(to) run ran",
+     "laufen, rennen"
+    ],
+    [
+     "(to) send sent",
+     "schicken, senden"
+    ],
+    [
+     "(to) sing sang",
+     "singen"
+    ],
+    [
+     "(to) win won",
+     "gewinnen"
+    ],
+    [
+     "visit",
+     "Besuch"
+    ],
+    [
+     "meaning",
+     "Bedeutung"
+    ],
+    [
+     "(to) mean",
+     ", simple past: meant [ment]"
+    ],
+    [
+     "context",
+     "(Text-, Satz-)Zusammenhang, Kontext"
+    ],
+    [
+     "must",
+     "müssen"
+    ],
+    [
+     "(to) get sth.",
+     ","
+    ],
+    [
+     "simple past: got",
+     "(infml)"
+    ],
+    [
+     "similar (to sth./sb. )",
+     "(etwas/jm.) ähnlich"
+    ],
+    [
+     "revision",
+     "Wiederholung (des Lernstoffs)"
+    ],
+    [
+     "(to) ring",
+     ", simple past: rang [ræŋ]"
+    ],
+    [
+     "invitation (to)",
+     "Einladung (zu, nach)"
+    ],
+    [
+     "(to) stay",
+     "bleiben"
+    ],
+    [
+     "easy",
+     "einfach, leicht"
+    ],
+    [
+     "when",
+     "als"
+    ],
+    [
+     "to",
+     ", [tə]"
+    ],
+    [
+     "(to) hit",
+     ", simple past: hit"
+    ],
+    [
+     "(to) bring brought",
+     "(mit-, her)bringen"
+    ],
+    [
+     "(to) find found",
+     "finden"
+    ],
+    [
+     "(to) give gave",
+     "geben"
+    ],
+    [
+     "(to) grow grew",
+     "anbauen, anpflanzen"
+    ],
+    [
+     "(to) hold held",
+     "halten"
+    ],
+    [
+     "(to) meet met",
+     "(sich) treffen"
+    ],
+    [
+     "(to) put put",
+     "legen, stellen"
+    ],
+    [
+     "(to) read read",
+     "lesen"
+    ],
+    [
+     "(to) tell told",
+     "erzählen, berichten"
+    ],
+    [
+     "(to) miss",
+     "verpassen, verfehlen"
+    ],
+    [
+     "(to) roll",
+     "rollen"
+    ],
+    [
+     "against",
+     "gegen"
+    ],
+    [
+     "sure",
+     ", [ʃɔː]"
+    ],
+    [
+     "careful",
+     "vorsichtig"
+    ],
+    [
+     "rule",
+     "Regel, Vorschrift"
+    ],
+    [
+     "host family",
+     "Gastfamilie"
+    ],
+    [
+     "Skip",
+     "didn’t stop . Skip hörte nicht auf."
+    ],
+    [
+     "(to) pull",
+     "ziehen"
+    ],
+    [
+     "Sie",
+     "war glücklich ."
+    ],
+    [
+     "(to) bite",
+     ", simple past: bit [bɪt]"
+    ],
+    [
+     "(to) give sb. a hug",
+     "jn. umarmen"
+    ],
+    [
+     "(to) be/feel bored",
+     "gelangweilt sein, sich langweilen"
+    ],
+    [
+     "just like …",
+     "genau wie …"
+    ],
+    [
+     "term",
+     "Trimester"
+    ],
+    [
+     "boarding school",
+     "Internat"
+    ],
+    [
+     "shocked",
+     "schockiert, entsetzt"
+    ],
+    [
+     "outdoor",
+     "Außen-, im Freien outdoor activities;"
+    ],
+    [
+     "(to) climb",
+     "klettern;"
+    ],
+    [
+     "tear",
+     "Träne Aussprache: tear [tɪə]"
+    ],
+    [
+     "crib sheet",
+     "(infml) Spickzettel, Merkzettel"
+    ],
+    [
+     "jacket",
+     "Jacke, Jackett"
+    ],
+    [
+     "pocket",
+     "Tasche (Mantel-, Hosentasche)"
+    ],
+    [
+     "litter bin",
+     "Abfalleimer"
+    ],
+    [
+     "apartment",
+     "Wohnung"
+    ],
+    [
+     "screen",
+     "Bildschirm"
+    ],
+    [
+     "century",
+     "Jahrhundert"
+    ],
+    [
+     "(to) land",
+     "landen"
+    ],
+    [
+     "(to) buy bought",
+     "kaufen"
+    ],
+    [
+     "(to) drink drank",
+     "trinken"
+    ],
+    [
+     "(to) eat ate",
+     ", [eɪt] essen"
+    ],
+    [
+     "(to) feed fed",
+     "füttern"
+    ],
+    [
+     "(to) forget forgot",
+     "vergessen"
+    ],
+    [
+     "(to) sell sold",
+     "verkaufen"
+    ],
+    [
+     "(to) speak spoke",
+     "sprechen"
+    ],
+    [
+     "(to) understand understood",
+     "verstehen"
+    ],
+    [
+     "(to) wake up woke up",
+     "aufwachen"
+    ],
+    [
+     "(to) wear wore",
+     "tragen (Kleidung)"
+    ],
+    [
+     "right now",
+     "jetzt gerade"
+    ],
+    [
+     "(to) order",
+     "bestellen"
+    ]
+   ]
+  },
+  {
+   "num": 2,
+   "title": "A school day",
+   "words": [
+    [
+     "pancake",
+     "Pfannkuchen, Eierkuchen"
+    ],
+    [
+     "outside",
+     "1. draußen; nach draußen"
+    ],
+    [
+     "2.",
+     "vor …; außerhalb von …"
+    ],
+    [
+     "next to",
+     "neben"
+    ],
+    [
+     "tent",
+     "Zelt"
+    ],
+    [
+     "rocky",
+     "felsig, steinig"
+    ],
+    [
+     "high",
+     "hoch"
+    ],
+    [
+     "top",
+     "Spitze; oberes Ende"
+    ],
+    [
+     "shadow",
+     "Schatten shadow"
+    ],
+    [
+     "over",
+     "über"
+    ],
+    [
+     "fire",
+     "Feuer"
+    ],
+    [
+     "(to) look up",
+     "hochsehen, aufschauen"
+    ],
+    [
+     "(to) be asleep",
+     "schlafen"
+    ],
+    [
+     "torch",
+     "Taschenlampe a torch"
+    ],
+    [
+     "(to) hang sth. up",
+     ", simple past: hung [hʌŋ]"
+    ],
+    [
+     "wild",
+     "wild Aussprache: wild [waɪld]"
+    ],
+    [
+     "my own film/room/…",
+     "mein eigener Film/mein eigenes"
+    ],
+    [
+     "memory",
+     "Erinnerung"
+    ],
+    [
+     "audition",
+     "Vorsprechen, Vorsingen, Vorspielen"
+    ],
+    [
+     "(to) queue",
+     "Schlange stehen, sich anstellen They’re queuing"
+    ],
+    [
+     "doorbell",
+     "Türklingel, Türglocke"
+    ],
+    [
+     "article",
+     "Artikel"
+    ],
+    [
+     "Betonung: article",
+     "F"
+    ],
+    [
+     "earphones (pl)",
+     "Ohrhörer, Kopfhörer earphones"
+    ],
+    [
+     "by …",
+     "von …"
+    ],
+    [
+     "nervous",
+     "nervös, aufgeregt"
+    ],
+    [
+     "a bit",
+     "ein bisschen, etwas"
+    ],
+    [
+     "You should …",
+     ", [ʃəd]"
+    ],
+    [
+     "side",
+     "Seite"
+    ],
+    [
+     "a few",
+     "ein paar, einige"
+    ],
+    [
+     "present",
+     "Gegenwart"
+    ],
+    [
+     "future",
+     "Zukunft; zukünftige(r,s)"
+    ],
+    [
+     "(to) get ready (for)",
+     "sich fertig machen (für);"
+    ],
+    [
+     "mine",
+     "meiner, meine, meins"
+    ],
+    [
+     "worksheet",
+     "Arbeitsblatt"
+    ],
+    [
+     "(the) longest …",
+     "der/die/das längste …;"
+    ],
+    [
+     "(to) label",
+     "beschriften; etikettieren"
+    ],
+    [
+     "large",
+     "groß"
+    ],
+    [
+     "(to) get on",
+     "vorankommen, zurechtkommen"
+    ],
+    [
+     "(not) as big as",
+     ", [əz] (nicht) so groß wie"
+    ],
+    [
+     "bigger than",
+     ", [ðən] größer als"
+    ],
+    [
+     "ours",
+     "unserer, unsere, unseres"
+    ],
+    [
+     "awful",
+     "schrecklich, fürchterlich"
+    ],
+    [
+     "mistake",
+     "Fehler"
+    ],
+    [
+     "tall",
+     "groß (Person) ;"
+    ],
+    [
+     "hoch",
+     "(Gebäude, Baum)"
+    ],
+    [
+     "about",
+     "ungefähr"
+    ],
+    [
+     "plane",
+     "Flugzeug"
+    ],
+    [
+     "(to) read aloud",
+     "laut (vor)lesen"
+    ],
+    [
+     "(to) pause",
+     "innehalten, pausieren; eine Pause"
+    ],
+    [
+     "scared",
+     "verängstigt"
+    ],
+    [
+     "I",
+     "was scared . Ich war verängstigt ./ Ich hatte Angst ."
+    ],
+    [
+     "Punctuation",
+     "(Zeichensetzung)"
+    ],
+    [
+     ". full stop",
+     "Punkt ? question mark [ˈkwestʃən mɑːk] Fragezeichen"
+    ],
+    [
+     ", comma",
+     "Komma ! exclamation mark [ˌekskləˈmeɪʃn mɑːk] Ausrufezeichen"
+    ],
+    [
+     ": colon",
+     "Doppelpunkt - hyphen [ˈhaɪfən] Bindestrich"
+    ],
+    [
+     "(to) change",
+     "(ver)ändern; sich (ver)ändern"
+    ],
+    [
+     "brilliant",
+     "großartig, genial, glänzend"
+    ],
+    [
+     "yours",
+     "deiner, deine, deins;"
+    ],
+    [
+     "hers",
+     "ihrer, ihre, ihrs"
+    ],
+    [
+     "lovely",
+     "schön, hübsch, herrlich"
+    ],
+    [
+     "even",
+     "sogar"
+    ],
+    [
+     "more beautiful (than)",
+     "schöner (als)"
+    ],
+    [
+     "(the) most beautiful",
+     "der/die/das schönste …;"
+    ],
+    [
+     "stage",
+     "Bühne"
+    ],
+    [
+     "talented",
+     "begabt, talentiert Betonung: talented [ˈtæləntɪd]"
+    ],
+    [
+     "(to) cheer",
+     "jubeln"
+    ],
+    [
+     "(to) clap",
+     "(Beifall) klatschen"
+    ],
+    [
+     "cinema",
+     "Kino"
+    ],
+    [
+     "concert",
+     "Konzert"
+    ],
+    [
+     "recorder",
+     "Blockflöte a recorder"
+    ],
+    [
+     "theatre",
+     "Theater Betonung: theatre [ˈθɪətə]"
+    ],
+    [
+     "syllable",
+     "Silbe"
+    ],
+    [
+     "fashion",
+     "Mode"
+    ],
+    [
+     "round the world",
+     "um die Welt"
+    ],
+    [
+     "town hall",
+     "Rathaus"
+    ],
+    [
+     "snow",
+     "Schnee"
+    ],
+    [
+     "whose?",
+     "wessen?"
+    ],
+    [
+     "fat",
+     "dick, fett"
+    ],
+    [
+     "paw",
+     "Pfote, Tatze upstairs"
+    ],
+    [
+     "stairs (pl)",
+     "Treppe; Treppenstufen please."
+    ],
+    [
+     "could",
+     "1. konnte(n); 2. könnte(n)"
+    ],
+    [
+     "clear",
+     "klar, deutlich"
+    ],
+    [
+     "size",
+     "Größe"
+    ],
+    [
+     "correct",
+     "richtig, korrekt"
+    ],
+    [
+     "(to) lie",
+     ", simple past: lay [leɪ]"
+    ],
+    [
+     "(to) wake sb. up",
+     ", simple past: woke up"
+    ],
+    [
+     "shy",
+     "schüchtern, scheu"
+    ],
+    [
+     "(to) stick sth. into sth.",
+     ", simple past: stuck [stʌk]"
+    ],
+    [
+     "fork",
+     "Gabel"
+    ],
+    [
+     "knife",
+     ", pl knives [naɪvz]"
+    ],
+    [
+     "spoon",
+     "Löffel"
+    ],
+    [
+     "(to) drop sth.",
+     "etwas fallen lassen"
+    ],
+    [
+     "drama",
+     "Schauspiel; darstellende Kunst"
+    ],
+    [
+     "gel",
+     "Gel Aussprache: gel [dʒel]"
+    ],
+    [
+     "sunglasses (pl)",
+     "(eine) Sonnenbrille glasses und sunglasses sind Pluralwörter!"
+    ],
+    [
+     "flash",
+     "Lichtblitz"
+    ],
+    [
+     "head",
+     "Kopf"
+    ],
+    [
+     "(to) shake",
+     ", simple past: shook [ʃʊk]"
+    ],
+    [
+     "(to) beep",
+     "piepen"
+    ],
+    [
+     "(to) wish",
+     "wünschen"
+    ],
+    [
+     "(to) stand",
+     ", simple past: stood [stʊd]"
+    ]
+   ]
+  },
+  {
+   "num": 3,
+   "title": "Out and about",
+   "words": [
+    [
+     "except",
+     "außer, bis auf"
+    ],
+    [
+     "good-looking",
+     "gutaussehend"
+    ],
+    [
+     "Anyway, …",
+     "Jedenfalls, …/Wie dem auch sei, …/Aber egal, …"
+    ],
+    [
+     "opposite",
+     "gegenüber (von)"
+    ],
+    [
+     "post office",
+     "Postamt"
+    ],
+    [
+     "station",
+     "Bahnhof"
+    ],
+    [
+     "church",
+     "Kirche"
+    ],
+    [
+     "roundabout",
+     "Kreisverkehr"
+    ],
+    [
+     "(to) cross",
+     "überqueren, kreuzen; sich kreuzen"
+    ],
+    [
+     "straight on",
+     "geradeaus weiter"
+    ],
+    [
+     "past",
+     "vorbei (an), vorüber (an)"
+    ],
+    [
+     "Excuse me, …",
+     "Entschuldigung, …/ Entschuldigen Sie, …"
+    ],
+    [
+     "visitor",
+     "Besucher/in, Gast"
+    ],
+    [
+     "after",
+     "nachdem"
+    ],
+    [
+     "(to) cost",
+     ", simple past: cost"
+    ],
+    [
+     "chocolate",
+     "Praline"
+    ],
+    [
+     "(to) need to do sth.",
+     "etwas tun müssen"
+    ],
+    [
+     "flower",
+     "Blume; Blüte"
+    ],
+    [
+     "stall",
+     "(Markt-)Stand"
+    ],
+    [
+     "plastic",
+     "Plastik, Kunststoff"
+    ],
+    [
+     "(to) break",
+     ", simple past: broke [brəʊk]"
+    ],
+    [
+     "felt pen",
+     "Filzstift"
+    ],
+    [
+     "cash desk",
+     "Kasse (in Geschäften)"
+    ],
+    [
+     "set",
+     "Satz, Set"
+    ],
+    [
+     "Have you got …?",
+     "Haben Sie …?/Hast du …?/ Habt ihr …?"
+    ],
+    [
+     "change",
+     "Wechselgeld"
+    ],
+    [
+     "gram",
+     "Gramm"
+    ],
+    [
+     "packet",
+     "Packung, Päckchen"
+    ],
+    [
+     "tin",
+     "Dose"
+    ],
+    [
+     "juice",
+     "Saft"
+    ],
+    [
+     "tomato",
+     ", pl tomatoes"
+    ],
+    [
+     "sock",
+     "Socke"
+    ],
+    [
+     "(to) scan a text",
+     "einen Text schnell nach bestimmten"
+    ],
+    [
+     "skill",
+     "Fertigkeit"
+    ],
+    [
+     "souvenir",
+     "Andenken, Souvenir"
+    ],
+    [
+     "magic",
+     "magisch, Zauber- his magic lamp? F magique"
+    ],
+    [
+     "(to) fight sb.",
+     ", simple past: fought [fɔːt]"
+    ],
+    [
+     "prize",
+     "Preis, Gewinn"
+    ],
+    [
+     "price",
+     "(Kauf-)Preis (den man bezahlt)"
+    ],
+    [
+     "wall",
+     "Mauer; Wand"
+    ],
+    [
+     "role",
+     "Rolle (in einem Theaterstück, Film)"
+    ],
+    [
+     "as kung fu master",
+     ", [əz]"
+    ],
+    [
+     "in a loud/soft voice",
+     "mit lauter/sanfter Stimme"
+    ],
+    [
+     "up and down",
+     "auf und ab; rauf und runter"
+    ],
+    [
+     "responsible",
+     "verantwortlich"
+    ],
+    [
+     "(to) worry (about)",
+     "sich Sorgen machen (wegen, um)"
+    ],
+    [
+     "(to) happen (to)",
+     "geschehen, passieren (mit)"
+    ],
+    [
+     "irregular",
+     "unregelmäßig"
+    ],
+    [
+     "topic",
+     "Thema, Themengebiet"
+    ],
+    [
+     "(to) highlight",
+     "hervorheben, markieren"
+    ],
+    [
+     "example",
+     "Beispiel"
+    ],
+    [
+     "(to) underline",
+     "unterstreichen"
+    ],
+    [
+     "draft",
+     "Entwurf"
+    ],
+    [
+     "back",
+     "Rückseite, hintere Seite"
+    ],
+    [
+     "front",
+     "Vorderseite, vordere Seite"
+    ],
+    [
+     "seat",
+     "Sitz, Platz"
+    ],
+    [
+     "Who did you dance with?",
+     "Mit wem hast du getanzt? Who …?"
+    ],
+    [
+     "close (to)",
+     "nah, dicht (bei, an)"
+    ],
+    [
+     "Aussprache: close",
+     "nah, dicht"
+    ],
+    [
+     "(to) close",
+     "schließen"
+    ],
+    [
+     "(to) cry",
+     "schreien; weinen"
+    ],
+    [
+     "not … at all",
+     "überhaupt nicht(s), gar nicht(s);"
+    ],
+    [
+     "(to) hurry",
+     "eilen; sich beeilen"
+    ],
+    [
+     "race",
+     "Rennen"
+    ],
+    [
+     "subject",
+     "Subjekt"
+    ],
+    [
+     "F le sujet, l’objet (m) object",
+     "Objekt"
+    ],
+    [
+     "broken",
+     "zerbrochen, kaputt;"
+    ],
+    [
+     "gate",
+     "Tor, Pforte, Gatter"
+    ],
+    [
+     "(to) cut",
+     ", simple past: cut"
+    ],
+    [
+     "(to) disappear",
+     "verschwinden"
+    ],
+    [
+     "roof",
+     "Dach"
+    ],
+    [
+     "view (of)",
+     "Aussicht, Blick (auf)"
+    ],
+    [
+     "shore",
+     "Ufer (eines Sees) , Strand"
+    ],
+    [
+     "further",
+     "weiter"
+    ],
+    [
+     "hole",
+     "Loch"
+    ],
+    [
+     "waist",
+     "Taille"
+    ]
+   ]
+  },
+  {
+   "num": 4,
+   "title": "On Dartmoor",
+   "words": [
+    [
+     "the only …",
+     "der/die/das einzige …;"
+    ],
+    [
+     "hurt",
+     "verletzt"
+    ],
+    [
+     "leg",
+     "Bein"
+    ],
+    [
+     "wood",
+     "Holz"
+    ],
+    [
+     "body",
+     "Körper"
+    ],
+    [
+     "over to …",
+     "hinüber zu/nach …"
+    ],
+    [
+     "lip",
+     "Lippe"
+    ],
+    [
+     "(to) hug sb.",
+     "jn. umarmen"
+    ],
+    [
+     "(to) rescue",
+     "retten"
+    ],
+    [
+     "background",
+     "Hintergrund"
+    ],
+    [
+     "foreground",
+     "Vordergrund"
+    ],
+    [
+     "at the bottom (of)",
+     "unten, am unteren Ende (von)"
+    ],
+    [
+     "countryside",
+     "Landschaft, ländliche Gegend"
+    ],
+    [
+     "(to) begin",
+     ", simple past: began [bɪˈgæn]"
+    ],
+    [
+     "field",
+     "Feld, Acker, Weide"
+    ],
+    [
+     "footprint",
+     "Fußabdruck"
+    ],
+    [
+     "in the sand foot",
+     ", pl feet [fiːt] Fuß"
+    ],
+    [
+     "grass",
+     "Gras; Rasen"
+    ],
+    [
+     "mist",
+     "(leichter) Nebel, Dunst(schleier)"
+    ],
+    [
+     "pony",
+     "Pony Aussprache: pony [ˈpəʊni]"
+    ],
+    [
+     "valley",
+     "Tal"
+    ],
+    [
+     "cow",
+     "Kuh"
+    ],
+    [
+     "sheep, pl sheep",
+     "Schaf"
+    ],
+    [
+     "goat",
+     "Ziege"
+    ],
+    [
+     "etc. (et cetera)",
+     "usw. (und so weiter)"
+    ],
+    [
+     "poem",
+     "Gedicht"
+    ],
+    [
+     "twice",
+     "zweimal"
+    ],
+    [
+     "once",
+     "einmal"
+    ],
+    [
+     "over there",
+     "da drüben, dort drüben"
+    ],
+    [
+     "told",
+     "3. Form (Partizip Perfekt) von „tell”"
+    ],
+    [
+     "made",
+     "Partizip Perfekt von „make”"
+    ],
+    [
+     "(to) be was/ been",
+     "sein"
+    ],
+    [
+     "(to) come came come",
+     "kommen"
+    ],
+    [
+     "(to) do did done",
+     "machen, tun"
+    ],
+    [
+     "(to) eat ate eaten",
+     "essen"
+    ],
+    [
+     "(to) fall fell fallen",
+     "(hin)fallen, stürzen"
+    ],
+    [
+     "(to) go went gone",
+     "gehen; fahren"
+    ],
+    [
+     "(to) have had had",
+     "haben"
+    ],
+    [
+     "(to) hide hid hidden",
+     "(sich) verstecken"
+    ],
+    [
+     "(to) see saw seen",
+     "sehen"
+    ],
+    [
+     "(to) be hungry",
+     "hungrig sein, Hunger haben"
+    ],
+    [
+     "not … anything",
+     "nichts"
+    ],
+    [
+     "hay",
+     "Heu"
+    ],
+    [
+     "key",
+     "Schlüssel"
+    ],
+    [
+     "(to) own",
+     "besitzen"
+    ],
+    [
+     "moor",
+     ", [mʊə] Hochmoor"
+    ],
+    [
+     "that way",
+     "dort entlang; in die Richtung"
+    ],
+    [
+     "mud",
+     "Schlamm, Matsch"
+    ],
+    [
+     "(to) leave sth.",
+     ", left, left etwas übrig lassen"
+    ],
+    [
+     "bath",
+     "Bad"
+    ],
+    [
+     "(to) bring brought brought",
+     "(mit-, her)bringen"
+    ],
+    [
+     "(to) buy bought bought",
+     "kaufen"
+    ],
+    [
+     "(to) feed fed fed",
+     "füttern"
+    ],
+    [
+     "(to) hear heard heard",
+     "hören"
+    ],
+    [
+     "(to) meet met met",
+     "(sich) treffen"
+    ],
+    [
+     "(to) run ran run",
+     "rennen, laufen"
+    ],
+    [
+     "(to) take took taken",
+     "(mit)nehmen;"
+    ],
+    [
+     "(to) throw threw thrown",
+     "werfen"
+    ],
+    [
+     "(to) win won won",
+     "gewinnen"
+    ],
+    [
+     "(to) write wrote written",
+     "schreiben"
+    ],
+    [
+     "Oh dear!",
+     "Oje!"
+    ],
+    [
+     "lamb",
+     "Lamm"
+    ],
+    [
+     "barn",
+     "Scheune"
+    ],
+    [
+     "bacon",
+     "Schinkenspeck"
+    ],
+    [
+     "egg",
+     "Ei"
+    ],
+    [
+     "a glass (of)",
+     "ein Glas"
+    ],
+    [
+     "ever",
+     "jemals"
+    ],
+    [
+     "delicious",
+     "köstlich, lecker"
+    ],
+    [
+     "Have you … yet?",
+     "Hast du schon …?"
+    ],
+    [
+     "a pair (of)",
+     "ein Paar"
+    ],
+    [
+     "boot",
+     "Stiefel"
+    ],
+    [
+     "(to) lose",
+     ", lost, lost"
+    ],
+    [
+     "strong",
+     "stark, kräftig"
+    ],
+    [
+     "sweet",
+     "süß"
+    ],
+    [
+     "one more photo",
+     "noch ein Foto; ein weiteres Foto"
+    ],
+    [
+     "quick",
+     "schnell"
+    ],
+    [
+     "(to) be missing",
+     "fehlen"
+    ],
+    [
+     "(to) choose chose chosen",
+     "(aus)wählen"
+    ],
+    [
+     "(to) drink drank drunk",
+     "trinken"
+    ],
+    [
+     "(to) find found found",
+     "finden"
+    ],
+    [
+     "(to) hit hit hit",
+     "schlagen"
+    ],
+    [
+     "(to) read",
+     "read read [red] lesen"
+    ],
+    [
+     "(to) ride rode ridden",
+     "reiten;"
+    ],
+    [
+     "(to) sell sold sold",
+     "verkaufen"
+    ],
+    [
+     "(to) show showed shown",
+     "zeigen"
+    ],
+    [
+     "(to) sleep slept slept",
+     "schlafen"
+    ],
+    [
+     "(to) mark sth. up",
+     "etwas markieren, kennzeichnen"
+    ],
+    [
+     "(to) decide",
+     "beschließen, sich entscheiden"
+    ],
+    [
+     "waterfall",
+     "Wasserfall"
+    ],
+    [
+     "(to) take",
+     ", took [tʊk] , taken [ˈteɪkən]"
+    ],
+    [
+     "stamp",
+     "Stempel"
+    ],
+    [
+     "everywhere",
+     "überall"
+    ],
+    [
+     "for ever",
+     "(für) immer; ewig"
+    ],
+    [
+     "for miles",
+     "meilenweit 1 mile"
+    ],
+    [
+     "(to) hurt, hurt, hurt",
+     "schmerzen, wehtun;"
+    ],
+    [
+     "impossible",
+     "unmöglich"
+    ],
+    [
+     "(to) pass sth./sb.",
+     "an etwas/jm. vorbeigehen/ vorbeifahren"
+    ],
+    [
+     "path",
+     "Pfad, Weg"
+    ],
+    [
+     "raincoat",
+     "Regenmantel"
+    ],
+    [
+     "coat",
+     "Mantel"
+    ],
+    [
+     "until",
+     "bis"
+    ],
+    [
+     "jigsaw",
+     "Puzzle"
+    ],
+    [
+     "verse",
+     "Vers, Strophe"
+    ],
+    [
+     "(to) train",
+     "trainieren"
+    ],
+    [
+     "deer, pl deer",
+     "Reh, Hirsch"
+    ],
+    [
+     "adder",
+     "Kreuzotter"
+    ],
+    [
+     "tulip",
+     "Tulpe"
+    ],
+    [
+     "adventure",
+     "Abenteuer"
+    ],
+    [
+     "(to) nod",
+     "nicken"
+    ],
+    [
+     "(to) wander",
+     "herumlaufen; herumirren"
+    ],
+    [
+     "cocoa",
+     "Kakao"
+    ],
+    [
+     "both",
+     "beide"
+    ],
+    [
+     "fireplace",
+     "Kamin a fireplace"
+    ],
+    [
+     "a mug (of)",
+     "ein Becher"
+    ],
+    [
+     "ruin",
+     "Ruine"
+    ],
+    [
+     "ground",
+     "(Erd-)Boden ground"
+    ],
+    [
+     "pretty",
+     "hübsch"
+    ],
+    [
+     "cottage",
+     "Häuschen, Cottage"
+    ],
+    [
+     "(to) believe",
+     "glauben"
+    ],
+    [
+     "kind",
+     "freundlich, nett"
+    ]
+   ]
+  },
+  {
+   "num": 5,
+   "title": "Celebrate!",
+   "words": [
+    [
+     "honour",
+     "Ehre"
+    ],
+    [
+     "(to) die",
+     "sterben"
+    ],
+    [
+     "a nearby town",
+     "eine nahegelegene Stadt"
+    ],
+    [
+     "instead",
+     "stattdessen"
+    ],
+    [
+     "not … either",
+     ", [ˈiːðə]"
+    ],
+    [
+     "fence",
+     "Zaun"
+    ],
+    [
+     "around …",
+     "um … (herum)"
+    ],
+    [
+     "(to) grow",
+     ", grew [gruː] , grown [grəʊn]"
+    ],
+    [
+     "(to) plant",
+     "pflanzen"
+    ],
+    [
+     "Er hat den Brief",
+     "sogar geöffnet!"
+    ],
+    [
+     "grave",
+     "Grab"
+    ],
+    [
+     "(to) celebrate",
+     "feiern"
+    ],
+    [
+     "celebration",
+     "Feier"
+    ],
+    [
+     "parade",
+     "Parade, Umzug"
+    ],
+    [
+     "mayor",
+     "Bürgermeister/in"
+    ],
+    [
+     "(to) light",
+     ", lit, lit [lɪt] anzünden"
+    ],
+    [
+     "candle",
+     "Kerze"
+    ],
+    [
+     "(to) blow sth. out",
+     ","
+    ],
+    [
+     "blew",
+     ", blown [bləʊn]"
+    ],
+    [
+     "fireworks (pl)",
+     "Feuerwerk"
+    ],
+    [
+     "firework",
+     "Feuerwerkskörper"
+    ],
+    [
+     "(to) dress up",
+     "sich verkleiden;"
+    ],
+    [
+     "costume",
+     "Kostüm, Verkleidung Betonung: costume [ˈkɒstjuːm]"
+    ],
+    [
+     "special",
+     "besondere(r, s)"
+    ],
+    [
+     "bucket",
+     "Eimer"
+    ],
+    [
+     "crowd",
+     "(Menschen-)Menge"
+    ],
+    [
+     "festival",
+     "Fest, Festival"
+    ],
+    [
+     "flag",
+     "Fahne, Flagge"
+    ],
+    [
+     "charity",
+     "Wohlfahrtsorganisation;"
+    ],
+    [
+     "(to) plan",
+     "planen"
+    ],
+    [
+     "theme",
+     "Thema"
+    ],
+    [
+     "juggler",
+     "Jongleur/in"
+    ],
+    [
+     "(to) juggle sth.",
+     "mit etwas jonglieren"
+    ],
+    [
+     "(to) drive",
+     ","
+    ],
+    [
+     "drove",
+     ", driven [ˈdrɪvn]"
+    ],
+    [
+     "(to) begin began begun",
+     "beginnen, anfangen"
+    ],
+    [
+     "(to) bite bit bitten",
+     "beißen"
+    ],
+    [
+     "(to) catch caught caught",
+     "fangen"
+    ],
+    [
+     "(to) cost cost cost",
+     "kosten"
+    ],
+    [
+     "(to) cut cut cut",
+     "schneiden"
+    ],
+    [
+     "(to) draw drew drawn",
+     "zeichnen"
+    ],
+    [
+     "(to) put sth. on",
+     "etwas anziehen (Kleidung) ;"
+    ],
+    [
+     "(to) take sth. off",
+     "etwas ausziehen (Kleidung) ;"
+    ],
+    [
+     "choir",
+     "Chor Aussprache: choir [ˈkwaɪə]"
+    ],
+    [
+     "probably",
+     "wahrscheinlich"
+    ],
+    [
+     "artist",
+     "Künstler/in"
+    ],
+    [
+     "torch",
+     "Fackel"
+    ],
+    [
+     "encore",
+     "Zugabe"
+    ],
+    [
+     "(to) fly",
+     ", flew [fluː] , flown [fləʊn]"
+    ],
+    [
+     "abbreviation",
+     "Abkürzung"
+    ],
+    [
+     "speech",
+     "(offizielle) Rede"
+    ],
+    [
+     "competition",
+     "Wettbewerb"
+    ],
+    [
+     "workshop",
+     "Workshop, Lehrgang"
+    ],
+    [
+     "(to) paint",
+     "(an)streichen; (an)malen"
+    ],
+    [
+     "Spanish",
+     "spanisch"
+    ],
+    [
+     "main",
+     "Haupt- the most important question/road/thing/…"
+    ],
+    [
+     "we mustn’t do it",
+     "wir dürfen es nicht tun"
+    ],
+    [
+     "tasty",
+     "lecker"
+    ],
+    [
+     "Indian",
+     "Inder/in; indisch"
+    ],
+    [
+     "traditional",
+     "traditionell"
+    ],
+    [
+     "(to) repeat",
+     "wiederholen"
+    ],
+    [
+     "tongue-twister",
+     "Zungenbrecher"
+    ],
+    [
+     "we needn’t do it",
+     "wir müssen es nicht tun, wir brauchen es nicht zu tun"
+    ],
+    [
+     "must",
+     "(müssen)"
+    ],
+    [
+     "Mit",
+     "must drückt man aus, dass jemand"
+    ],
+    [
+     "needn’t",
+     "(nicht müssen)"
+    ],
+    [
+     "mustn’t",
+     "(nicht dürfen)"
+    ],
+    [
+     "puppet",
+     "Marionette, Handpuppe"
+    ],
+    [
+     "queen",
+     "Königin"
+    ],
+    [
+     "knight",
+     "Ritter"
+    ],
+    [
+     "(to) become",
+     ", became"
+    ],
+    [
+     "(to) feel felt felt",
+     "(sich) fühlen"
+    ],
+    [
+     "(to) fight fought fought",
+     "(be)kämpfen"
+    ],
+    [
+     "(to) forget forgot forgotten",
+     "vergessen"
+    ],
+    [
+     "(to) get got got",
+     "bekommen; besorgen;"
+    ],
+    [
+     "(to) give gave given",
+     "geben"
+    ],
+    [
+     "famous (for)",
+     "berühmt (für, wegen)"
+    ],
+    [
+     "(to) destroy",
+     "zerstören"
+    ],
+    [
+     "recipe",
+     "(Koch-)Rezept"
+    ],
+    [
+     "consonant",
+     "Konsonant, Mitlaut"
+    ],
+    [
+     "vowel",
+     "Vokal, Selbstlaut"
+    ],
+    [
+     "(to) pick sth. up",
+     "etwas aufheben (vom Boden) , etwas hochheben They’re picking up"
+    ],
+    [
+     "rubbish . rubbish",
+     "Müll, Abfall"
+    ],
+    [
+     "(to) pick sb. up",
+     "jn. abholen"
+    ],
+    [
+     "hospital",
+     "Krankenhaus"
+    ],
+    [
+     "ill",
+     "krank"
+    ],
+    [
+     "at least",
+     "zumindest, wenigstens"
+    ],
+    [
+     "doctor",
+     "Arzt/Ärztin"
+    ],
+    [
+     "each",
+     "jeder, jede, jedes (einzelne)"
+    ],
+    [
+     "(to) frown",
+     "die Stirn runzeln"
+    ],
+    [
+     "(to) tap",
+     "(an)tippen, (vorsichtig) klopfen"
+    ],
+    [
+     "(to) end",
+     "enden; beenden"
+    ],
+    [
+     "apple",
+     "Apfel"
+    ],
+    [
+     "fresh",
+     "frisch"
+    ],
+    [
+     "strawberry",
+     "Erdbeere"
+    ],
+    [
+     "(to) kill",
+     "töten"
+    ],
+    [
+     "lift",
+     "Mitfahrgelegenheit"
+    ],
+    [
+     "(to) offer",
+     "anbieten"
+    ],
+    [
+     "(to) groan",
+     "stöhnen"
+    ],
+    [
+     "terrible",
+     "schrecklich, furchtbar"
+    ],
+    [
+     "event",
+     "Ereignis"
+    ],
+    [
+     "(to) be sore",
+     "wund sein; wehtun"
+    ],
+    [
+     "truth",
+     "Wahrheit"
+    ],
+    [
+     "even if",
+     "selbst wenn"
+    ],
+    [
+     "director",
+     "Leiter/in; Dirigent/in; Regisseur/in"
+    ],
+    [
+     "whole",
+     "ganze(r,s), gesamte(r,s)"
+    ],
+    [
+     "mirror",
+     "Spiegel a mirror"
+    ],
+    [
+     "reason",
+     "Grund, Begründung"
+    ],
+    [
+     "air",
+     "Luft"
+    ],
+    [
+     "(to) turn to sb.",
+     "sich jm. zuwenden;"
+    ],
+    [
+     "– bei Farbveränderungen:",
+     "(to) go red/brown/green/… rot/braun/grün/… werden"
+    ],
+    [
+     "back",
+     "Rücken"
+    ],
+    [
+     "beard",
+     "Bart"
+    ],
+    [
+     "chest",
+     "Brust, Brustkorb"
+    ],
+    [
+     "heart",
+     "Herz"
+    ],
+    [
+     "knee",
+     "Knie"
+    ],
+    [
+     "neck",
+     "Hals"
+    ],
+    [
+     "throat",
+     "Hals, Kehle"
+    ],
+    [
+     "toe",
+     "Zeh"
+    ],
+    [
+     "tongue",
+     "Zunge"
+    ],
+    [
+     "stomach",
+     "Magen Aussprache: stomach [ˈstʌmək]"
+    ],
+    [
+     "tooth",
+     ", pl teeth [tiːθ]"
+    ],
+    [
+     "(to) have a cough",
+     "Husten haben Aussprache: cough [kɒf]"
+    ],
+    [
+     "(to) have a cold",
+     "eine Erkältung haben, erkältet sein"
+    ],
+    [
+     "plaster",
+     "(Heft-)Pflaster"
+    ],
+    [
+     "thermometer",
+     "Thermometer Betonung: thermometer [θəˈmɒmɪtə]"
+    ],
+    [
+     "sweet",
+     "Süßigkeit"
+    ],
+    [
+     "dentist",
+     "Zahnarzt/-ärztin"
+    ],
+    [
+     "report",
+     "Bericht, Reportage"
+    ],
+    [
+     "takeaway",
+     "Restaurant/Imbissgeschäft, das"
+    ],
+    [
+     "down",
+     "in your exercise books, please."
+    ],
+    [
+     "guide",
+     "Fremdenführer/in; Reiseleiter/in"
+    ],
+    [
+     "bridge",
+     "Brücke"
+    ],
+    [
+     "(to) melt",
+     "schmelzen"
+    ],
+    [
+     "(to) translate",
+     "übersetzen"
+    ],
+    [
+     "Betonung: (to) present",
+     "L praesentare"
+    ],
+    [
+     "presentation",
+     "Präsentation, Vorstellung"
+    ],
+    [
+     "storm",
+     "Sturm, Unwetter, Gewitter"
+    ],
+    [
+     "thunder",
+     "Donner"
+    ],
+    [
+     "journey",
+     "Reise, Fahrt"
+    ],
+    [
+     "(to) hang hung hung",
+     "hängen"
+    ],
+    [
+     "(to) hold held held",
+     "halten"
+    ],
+    [
+     "(to) know knew known",
+     "wissen; kennen"
+    ],
+    [
+     "(to) lie lay lain",
+     "liegen"
+    ],
+    [
+     "(to) mean meant meant",
+     "bedeuten; meinen"
+    ],
+    [
+     "(to) put put put",
+     "legen, stellen"
+    ],
+    [
+     "bowl",
+     "Schüssel"
+    ],
+    [
+     "painted",
+     "bemalt, angemalt"
+    ],
+    [
+     "audience",
+     "Publikum, Zuschauer/innen, Zuhörer/innen"
+    ],
+    [
+     "deep",
+     "tief"
+    ],
+    [
+     "breath",
+     "Atem, Atemzug"
+    ],
+    [
+     "(to) pay (for sth. )",
+     ", paid, paid [peɪd]"
+    ],
+    [
+     "(to) ring rang rung",
+     "klingeln, läuten"
+    ],
+    [
+     "(to) say said said",
+     "sagen"
+    ],
+    [
+     "(to) send sent sent",
+     "schicken, senden"
+    ],
+    [
+     "(to) shake shook shaken",
+     "schütteln"
+    ],
+    [
+     "(to) sing sang sung",
+     "singen"
+    ],
+    [
+     "(to) sit sat sat",
+     "sitzen;"
+    ],
+    [
+     "chorus",
+     "Refrain"
+    ],
+    [
+     "lightning (no pl)",
+     "Blitz(e)"
+    ],
+    [
+     "second",
+     "Sekunde"
+    ],
+    [
+     "heavy rain",
+     "starker Regen, heftiger Regen"
+    ],
+    [
+     "(to) bow",
+     "sich verbeugen, sich verneigen"
+    ],
+    [
+     "(to) interrupt",
+     "unterbrechen"
+    ],
+    [
+     "(to) pour",
+     "gießen"
+    ],
+    [
+     "circle",
+     "Kreis"
+    ],
+    [
+     "shoulder",
+     "Schulter"
+    ],
+    [
+     "(to) light sth. up",
+     ", lit, lit [lɪt]"
+    ],
+    [
+     "(to) whistle",
+     "pfeifen"
+    ],
+    [
+     "entry",
+     "Eintrag, Eintragung"
+    ],
+    [
+     "conversation",
+     "Gespräch, Unterhaltung (to) have a conversation with sb."
+    ],
+    [
+     "(to) speak spoke spoken",
+     "sprechen, reden"
+    ],
+    [
+     "(to) stand stood stood",
+     "stehen"
+    ],
+    [
+     "(to) stick stuck stuck",
+     "stechen, stecken"
+    ],
+    [
+     "(to) swim swam swum",
+     "schwimmen"
+    ],
+    [
+     "(to) think thought thought",
+     "denken, glauben"
+    ],
+    [
+     "(to) wear wore worn",
+     "tragen (Kleidung)"
+    ]
+   ]
+  }
  ]
 }
