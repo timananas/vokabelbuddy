@@ -520,6 +520,12 @@ async function answer(i,btn,q){
   setTimeout(()=>{
     qix++;
     if(qix<quiz.questions.length){ $('pfill').style.width=`${(qix/quiz.questions.length)*100}%`; renderQ(); }
+    else if(window._skipped && window._skipped.length){
+      // geskippte Fragen hängen ans Rundenende (1 Extra-Runde)
+      quiz.questions=quiz.questions.concat(window._skipped);
+      window._skipped=[];
+      $('pfill').style.width=`${(qix/quiz.questions.length)*100}%`; renderQ();
+    }
     else finishQuiz();
   }, good?600:1600);
 }
