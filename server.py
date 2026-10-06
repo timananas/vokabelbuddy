@@ -146,15 +146,15 @@ def _pool(book, chapters, from_n=None, to_n=None):
             en, de = _norm(w[0]), _norm(w[1])
             if not en or not de:
                 continue
+            key = (en.casefold(), de.casefold())
+            if key in seen:
+                continue
+            seen.add(key)
             gpos += 1
             if from_n and gpos < from_n:
                 continue
             if to_n and gpos > to_n:
                 continue
-            key = (en.casefold(), de.casefold())
-            if key in seen:
-                continue
-            seen.add(key)
             pool.append({'ch_ix': data['chapters'].index(ch), 'num': chnum, 'pos': pos,
                          'gpos': gpos, 'en': en, 'de': de,
                          'qid': f'{book}|{chnum}|{en.casefold()}'})
@@ -960,28 +960,28 @@ class Handler(BaseHTTPRequestHandler):
         self._json({'kid': kid, 'chapters': by_chapter, 'problems': problems[:60]})
 
     def api_words(self, q):
-        """Wortlisten je Kapitel mit Positions-Index (Sichtprüfung/Tests)."""
+        """Wortlisten je Kapitel mit Positions-Index (Sichtprüfung/Tests).
+        pos = FORTLAUFEND über alle gewählten Kapitel (== gpos des Quiz-Bereich-Filters),
+        damit Dropdown-Nummern und erreichbare Vokabeln exakt übereinstimmen."""
         book = (q.get('book') or [''])[0]
         if book not in _book_ids():
             self._json({'error': 'book unbekannt'}, 400)
             return
         only = {c for c in ((q.get('chapters') or [''])[0].split(',')) if c}
+        pool = _pool(book, only)
+        out = {}
+        for it in pool:
+            c = out.setdefault(it['num'], {'num': it['num'], 'title': '', 'words': []})
+            c['words'].append({'pos': it['gpos'], 'en': it['en'], 'de': it['de']})
+        # Titel nachreichen
         data = _qdata(book)
-        out = []
-        for ch in data['chapters']:
-            num = str(ch.get('num'))
-            if only and num not in only:
-                continue
-            words = []
-            for pos, w in enumerate(ch.get('words') or [], 1):
-                if not isinstance(w, (list, tuple)) or len(w) < 2:
-                    continue
-                en, de = _norm(w[0]), _norm(w[1])
-                if en and de:
-                    words.append({'pos': pos, 'en': en, 'de': de})
-            out.append({'num': num, 'title': ch.get('title', ''), 'count': len(words), 'words': words})
-        out.sort(key=lambda c: int(c['num']) if str(c['num']).isdigit() else 999)
-        self._json({'book': book, 'chapters': out})
+        title_map = {str(ch.get('num')): (ch.get('title') or '') for ch in data['chapters']}
+        for num, c in out.items():
+            c['title'] = title_map.get(num, '')
+            c['count'] = len(c['words'])
+        order = {str(ch.get('num')): i for i, ch in enumerate(sorted(data['chapters'], key=lambda ch: int(ch['num']) if str(ch.get('num', 0)).isdigit() else 999))}
+        out_l = sorted(out.values(), key=lambda c: order.get(c['num'], 999))
+        self._json({'book': book, 'chapters': out_l})
 
     def api_chapter_save(self, body):
         book = _norm(body.get('book'))
