@@ -1225,6 +1225,15 @@ document.addEventListener('click', e=>{
   const n=m?` (${m[1]})`:'';
   t.textContent=(box.classList.contains('hidden')?'Details anzeigen':'Details verbergen')+n;
 });
+// Backdrop-Klick schließt Modals (Klick neben das Popup)
+document.addEventListener('click', e=>{
+  for(const id of ['adminOverlay','reportOverlay']){
+    const ov=document.getElementById(id);
+    if(ov && !ov.classList.contains('hidden') && e.target===ov){
+      ov.classList.add('hidden');
+    }
+  }
+});
 // ---------- Service Worker (nur Secure Context: HTTPS oder localhost) ----------
 if('serviceWorker' in navigator && (location.protocol==='https:' || ['localhost','127.0.0.1'].includes(location.hostname))){
   navigator.serviceWorker.register('/sw.js').catch(()=>{});
