@@ -32,12 +32,22 @@ VERSION = '2026-10-06.1'
 PORT = 8894
 
 BOOKS = [
-    {'id': 'access1', 'name': 'Access 1', 'desc': 'Cornelsen · Klasse 5'},
-    {'id': 'access2', 'name': 'Access 2', 'desc': 'Cornelsen · Klasse 6'},
-    {'id': 'access3', 'name': 'Access 3', 'desc': 'Cornelsen · Klasse 7'},
-    {'id': 'access4', 'name': 'Access 4', 'desc': 'Cornelsen · Klasse 8'},
-    {'id': 'access5', 'name': 'Access 5', 'desc': 'Cornelsen · Klasse 9'},
-    {'id': 'access6', 'name': 'Access 6', 'desc': 'Cornelsen · Klasse 10'},
+    {'id': 'access1', 'name': 'Access 1', 'desc': 'Cornelsen · Klasse 5', 'series': 'access'},
+    {'id': 'access2', 'name': 'Access 2', 'desc': 'Cornelsen · Klasse 6', 'series': 'access'},
+    {'id': 'access3', 'name': 'Access 3', 'desc': 'Cornelsen · Klasse 7', 'series': 'access'},
+    {'id': 'access4', 'name': 'Access 4', 'desc': 'Cornelsen · Klasse 8', 'series': 'access'},
+    {'id': 'access5', 'name': 'Access 5', 'desc': 'Cornelsen · Klasse 9', 'series': 'access'},
+    {'id': 'access6', 'name': 'Access 6', 'desc': 'Cornelsen · Klasse 10', 'series': 'access'},
+    {'id': 'greenline1', 'name': 'Green Line 1', 'desc': 'Klett G9 · Klasse 5', 'series': 'greenline'},
+    {'id': 'greenline2', 'name': 'Green Line 2', 'desc': 'Klett G9 · Klasse 6', 'series': 'greenline'},
+    {'id': 'greenline3', 'name': 'Green Line 3', 'desc': 'Klett G9 · Klasse 7', 'series': 'greenline'},
+    {'id': 'greenline4', 'name': 'Green Line 4', 'desc': 'Klett G9 · Klasse 8', 'series': 'greenline'},
+    {'id': 'greenline5', 'name': 'Green Line 5', 'desc': 'Klett G9 · Klasse 9', 'series': 'greenline'},
+    {'id': 'greenline6', 'name': 'Green Line 6', 'desc': 'Klett G9 · Klasse 10', 'series': 'greenline'},
+]
+SERIES = [
+    {'id': 'access', 'name': 'Access (Cornelsen)'},
+    {'id': 'greenline', 'name': 'Green Line (Klett G9)'},
 ]
 KIDS = [
     {'id': 'luis', 'name': 'Luis', 'color': '#5b8def'},
