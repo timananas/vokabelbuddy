@@ -618,7 +618,7 @@ def _weighted_pick(pool, kid, count):
 
     scored = [(weight_of(seen_map.get(it['qid'], {})), rng.random(), it) for it in pool]
     scored.sort(key=lambda t: (-t[0], t[1]))
-    count = max(1, min(int(count or 12), 30, len(scored)))
+    count = max(1, min(int(count or 12), 250, len(scored)))
     return [it for _w, _r, it in scored[:count]]
 
 
@@ -656,7 +656,7 @@ def _quiz_core(pool, dpool, kid, qtype, count, nonce):
 
     scored = [(weight_of(seen_map.get(it['qid'], {})), rng.random(), it) for it in pool]
     scored.sort(key=lambda t: (-t[0], t[1]))
-    count = max(1, min(int(count or 12), 30, len(scored)))
+    count = max(1, min(int(count or 12), 250, len(scored)))
     dirs = (['en2de', 'de2en'] if qtype == 'both'
             else [qtype] if qtype in ('en2de', 'de2en')
             else ['en2de', 'de2en'])
@@ -1595,13 +1595,17 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
         if qtype == 'mixed':
             # Gewählte Modi (kommagetrennt: mc,write,cards) — Tim wählt aus, was gefragt wird:
             raw_kinds = [k.strip() for k in ((q.get('modes') or [''])[0].split(',')) if k.strip()]
-            items = _make_mixed_session(book, kid, chapters, qtype, (q.get('count') or ['12'])[0], nonce, from_n, to_n, raw_kinds)
+            raw_count2 = (q.get('count') or ['12'])[0]
+            count2 = 250 if str(raw_count2).strip().lower() == 'all' else raw_count2
+            items = _make_mixed_session(book, kid, chapters, qtype, count2, nonce, from_n, to_n, raw_kinds)
             if items is None:
                 self._json({'error': 'Keine Vokabeln in diesem Bereich'}, 404)
                 return
             self._json({'book': book, 'kid': kid, 'kind': 'mixed', 'questions': items})
             return
-        qs = _make_quiz(book, kid, chapters, qtype, (q.get('count') or ['12'])[0], nonce, from_n, to_n)
+        raw_count = (q.get('count') or ['12'])[0]
+        count = 250 if str(raw_count).strip().lower() == 'all' else raw_count
+        qs = _make_quiz(book, kid, chapters, qtype, count, nonce, from_n, to_n)
         if qs is None:
             self._json({'error': 'Keine Vokabeln in diesem Bereich'}, 404)
             return

@@ -284,7 +284,7 @@ body{overflow-x:hidden}
         <button data-dv="de2en">DE → EN</button>
       </div>
     </div>
-    <button class="start" id="startBtn" disabled>Vokabeln üben</button>
+    <button class="start" id="startBtn" disabled>Start</button>
   </section>
 
   <section id="viewQuiz" class="hidden">
@@ -764,7 +764,12 @@ function paintMfa(on, secret){
   $('mfaCode').classList.add('hidden');
   $('mfaConfirm').classList.add('hidden');
   $('mfaNote').textContent='';
-  if(!on && secret){ $('mfaSecretBox').textContent=secret; $('mfaSecretBox').classList.remove('hidden'); }
+  if(!on && secret){
+    $('mfaSecretBox').textContent=secret; $('mfaSecretBox').classList.remove('hidden');
+    // Code-Feld + Bestätigen erst JETZT zeigen (der User braucht sie für den 6-stelligen Code):
+    $('mfaCode').classList.remove('hidden');
+    $('mfaConfirm').classList.remove('hidden');
+  }
 }
 $('acSave').onclick=async()=>{
   $('acNote').textContent='…';
@@ -897,12 +902,14 @@ async function startQuiz(){
   // crypto.randomUUID gibt es nur in Secure Contexts (HTTPS/localhost) – im LAN-HTTP fehlt es!
   const nonce=Date.now().toString(36)+Math.random().toString(36).slice(2)+performance.now().toString(36).replace(/[^a-z0-9]/g,'');
   const fromv=parseInt($('fromSel').value,10)||0, tov=parseInt($('toSel').value,10)||0;
+  // FRAGENANZAHL: Bereich auswählen → genau diese Vokabeln; nichts gewählt → ALLE (ganzes Kapitel)
+  const wantCount=(fromv>0||tov>0)?((tov||999999)-(fromv||1)+1):'all';
   const qtype=(qmode==='mixed')?'mixed':($('dirSel').value||'both');
   const modesParam=(qmode==='mixed')?`&modes=${encodeURIComponent(($('modesSel')||{}).value||'mc,write,cards')}`:'';
   const qs=(fromv>0?`&from=${fromv}`:'')+(tov>0?`&to=${tov}`:'')+
     `&type=${encodeURIComponent(qtype)}${modesParam}`;
   const u=`/api/quiz?book=${encodeURIComponent(book)}&kid=${encodeURIComponent(kid)}`+
-    `&chapters=${[...sel].map(s=>encodeURIComponent(s)).join(',')}&count=12&nonce=${encodeURIComponent(nonce)}${qs}`;
+    `&chapters=${[...sel].map(s=>encodeURIComponent(s)).join(',')}&count=${wantCount}&nonce=${encodeURIComponent(nonce)}${qs}`;
   try{ quiz=await (await fetch(u)).json(); }
   catch(e){ $('qbox').innerHTML='<p class="sub">Server nicht erreichbar.</p>'; return; }
   if(quiz.error||!(quiz.questions||[]).length){
@@ -1128,7 +1135,7 @@ async function startWrite(){
   const qs=(fromv>0?`&from=${fromv}`:'')+(tov>0?`&to=${tov}`:'')+
     `&type=${encodeURIComponent($('dirSel').value||'both')}`;
   const u=`/api/write?book=${encodeURIComponent(book)}&kid=${encodeURIComponent(kid)}`+
-    `&chapters=${[...sel].map(s=>encodeURIComponent(s)).join(',')}&count=12&nonce=${encodeURIComponent(nonce)}${qs}`;
+    `&chapters=${[...sel].map(s=>encodeURIComponent(s)).join(',')}&count=${wantCount}&nonce=${encodeURIComponent(nonce)}${qs}`;
   try{
     const r=await (await fetch(u)).json();
     if(r.error||!(r.items||[]).length){ $('wPrompt').textContent='—'; $('wMeta').textContent=r.error||'Keine Vokabeln.'; return; }
@@ -1224,7 +1231,7 @@ async function startCards(){
   const qs=(fromv>0?`&from=${fromv}`:'')+(tov>0?`&to=${tov}`:'')+
     `&type=${encodeURIComponent($('dirSel').value||'both')}`;
   const u=`/api/cards?book=${encodeURIComponent(book)}&kid=${encodeURIComponent(kid)}`+
-    `&chapters=${[...sel].map(s=>encodeURIComponent(s)).join(',')}&count=12&nonce=${encodeURIComponent(nonce)}${qs}`;
+    `&chapters=${[...sel].map(s=>encodeURIComponent(s)).join(',')}&count=${wantCount}&nonce=${encodeURIComponent(nonce)}${qs}`;
   try{ const r=await (await fetch(u)).json();
     if(r.error||!(r.cards||[]).length){ $('cardFront').textContent='—'; $('cardMeta').textContent=r.error||'Keine Karten.'; return; }
     window._cards=r.cards;
