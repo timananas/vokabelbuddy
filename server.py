@@ -107,7 +107,6 @@ def auth_load():
                                    if str(k) in AUTH_MEM['trusted']}
         AUTH_MEM['user_series'] = {str(k): str(v) for k, v in (d.get('user_series') or {}).items()}
         AUTH_MEM['kid_series'] = {str(k): str(v) for k, v in (d.get('kid_series') or {}).items()}
-        AUTH_MEM['pw_resets'] = {str(k): v for k, v in (d.get('pw_resets') or {}).items()}
     except Exception as e:
         # FAILOPEN-Verbot: leere NIEMALS die RAM-users (sonst Setup-Modus → Tim-Reset!) —
         # der RAM-stand bleibt; die Datei ist ggf. defekt (log reicht):
@@ -121,8 +120,7 @@ def auth_save():
              'trust_users': {k: AUTH_MEM.get('trust_users', {}).get(k, '')
                              for k in AUTH_MEM['trusted']},
              'user_series': AUTH_MEM.get('user_series', {}),
-             'kid_series': AUTH_MEM.get('kid_series', {}),
-             'pw_resets': AUTH_MEM.get('pw_resets', {})}
+             'kid_series': AUTH_MEM.get('kid_series', {})}
         tmp = AUTH_PATH + '.tmp'
         with open(tmp, 'w') as f:
             json.dump(d, f)
@@ -131,70 +129,6 @@ def auth_save():
             os.chmod(AUTH_PATH, 0o600)
         except OSError:
             pass
-
-
-# ----------------- MAIL (Kennwort-Reset) -----------------
-# Zwei Versandwege: SMTP per ENV (VB_SMTP_HOST/PORT/USER/PASS/FROM/TO_TLS) — oder
-# Fallback-OUTBOX (data/mail_outbox.json — Mails landen als Einträge, Admin/HA leitet
-# sie weiter). Der Reset-Token läuft 30 min, einmalig.
-MAIL_OUTBOX = os.path.join(DATA_DIR, 'mail_outbox.json')
-
-
-def _mail_from_env():
-    return os.environ.get('VB_SMTP_HOST') or ''
-
-
-def _send_mail(to, subject, body):
-    host = _mail_from_env()
-    CRLF = chr(13) + chr(10)
-    msg = ('From: ' + os.environ.get('VB_SMTP_FROM', 'vokabelbuddy') + CRLF
-           + 'To: ' + to + CRLF
-           + 'Subject: ' + subject + CRLF + CRLF
-           + body)
-    if host:
-        try:
-            import smtplib
-            port = int(os.environ.get('VB_SMTP_PORT') or 587)
-            s = smtplib.SMTP(host, port, timeout=15)
-            s.starttls()
-            if os.environ.get('VB_SMTP_USER'):
-                s.login(os.environ['VB_SMTP_USER'], os.environ.get('VB_SMTP_PASS', ''))
-            s.sendmail(os.environ.get('VB_SMTP_FROM', 'vokabelbuddy@localhost'), [to], msg.encode())
-            s.quit()
-            print(f'MAIL via SMTP → {to}: {subject}', flush=True)
-            return True
-        except Exception as e:
-            print(f'MAIL SMTP-Fehler ({to}): {e} — fällt auf Outbox zurück', flush=True)
-    # Fallback-OUTBOX:
-    try:
-        with _lock:
-            box = _load_json(MAIL_OUTBOX, [])
-            box.append({'ts': datetime.now().strftime('%Y-%m-%d %H:%M:%S'), 'to': to,
-                        'subject': subject, 'body': body})
-            _save_json(MAIL_OUTBOX, box[-200:])
-        print(f'MAIL → outbox ({to}): {subject}', flush=True)
-        return True
-    except Exception as e:
-        print(f'MAIL outbox-Fehler: {e}', flush=True)
-        return False
-
-
-def _pw_reset_token(email):
-    """Erzeugt einen 30-min-Reset-Token und speichert ihn (auth.json-persistiert).
-    Liefert das Token (für die Mail)."""
-    tok = _new_token()
-    AUTH_MEM.setdefault('pw_resets', {})[tok] = {
-        'mail': email.lower().strip(), 'exp': time.time() + 1800}
-    auth_save()
-    return tok
-
-
-def _user_by_email(email):
-    em = (email or '').lower().strip()
-    for uid, u in AUTH_MEM['users'].items():
-        if (u.get('email') or '').lower().strip() == em:
-            return uid, u
-    return None, None
 
 
 # ----------------- BACKUP (täglich, rotierend) -----------------
@@ -322,8 +256,8 @@ def _set_cookie(name, value, max_age, path='/', secure=False):
 
 
 # ----------------- AUTH: Seiten + Gate -----------------
-PUBLIC_GET = {'/api/health', '/login', '/mfa', '/setup', '/auth/state', '/forgot', '/reset'}
-PUBLIC_POST = {'/login', '/mfa', '/setup', '/forgot', '/reset'}
+PUBLIC_GET = {'/api/health', '/login', '/mfa', '/setup', '/auth/state'}
+PUBLIC_POST = {'/login', '/mfa', '/setup'}
 
 
 class _AuthGateMixin:
@@ -516,9 +450,7 @@ def _login_html(msg='', pre_user=''):
             '<input type="password" name="password" placeholder="Kennwort">'
             '<label class="chk"><input type="checkbox" name="trust" value="1" checked> '
             'Diesem Gerät 30 Tage vertrauen</label>'
-            '<button>Anmelden</button></form>'
-            '<p class="msg" style="text-align:center; margin-top:10px">'
-            '<a href="/forgot" style="color:#8d94a8; font-size:.85rem">Kennwort vergessen?</a></p>')
+            '<button>Anmelden</button></form>')
     return _AUTH_WRAP.replace('{t}', 'VokabelBuddy – Anmelden').replace('{b}', body)
 
 
@@ -548,30 +480,6 @@ def _mfa_setup_html(secret, msg=''):
             'style="text-align:center;letter-spacing:.2em">'
             '<button>Bestätigen & aktivieren</button></form>')
     return _AUTH_WRAP.replace('{t}', 'Vokabelbuddy – MFA').replace('{b}', body)
-
-
-def _forgot_html(msg=''):
-    warn = f'<p class="msg">{esc(msg)}</p>' if msg else ''
-    body = ('<div class="bigbrand">'
-            '<img class="biglogo" src="/assets/logo-banner-white.png" alt="VokabelBuddy">'
-            '</div>'
-            '<form method="POST" action="/forgot">' + warn +
-            '<input type="email" name="email" placeholder="E-Mail-Adresse" autocapitalize="none" autofocus>'
-            '<button>Reset-Link anfordern</button></form>'
-            '<p class="msg"><a href="/login" style="color:inherit">← Zurück zur Anmeldung</a></p>')
-    return _AUTH_WRAP.replace('{t}', 'VokabelBuddy – Kennwort vergessen').replace('{b}', body)
-
-
-def _reset_html(token, msg=''):
-    warn = f'<p class="msg">{esc(msg)}</p>' if msg else ''
-    body = ('<div class="bigbrand">'
-            '<img class="biglogo" src="/assets/logo-banner-white.png" alt="VokabelBuddy">'
-            '</div>'
-            f'<form method="POST" action="/reset">' + warn +
-            f'<input type="hidden" name="token" value="{esc(token or "")}">'
-            '<input type="password" name="password" placeholder="Neues Kennwort (mind. 6 Zeichen)" autofocus>'
-            '<button>Kennwort setzen</button></form>')
-    return _AUTH_WRAP.replace('{t}', 'VokabelBuddy – Neues Kennwort').replace('{b}', body)
 
 
 def _gc_mfa_pending():
@@ -619,11 +527,6 @@ def _save_json(path, obj):
 def _norm(s):
     return str(s or '').strip()
 
-
-import html as _html_mod
-def esc(s):
-    """HTML-Escape für alle Template-Strings in Auth-Seiten."""
-    return _html_mod.escape(str(s or ''), quote=True)
 
 
 def _book_ids():
@@ -1184,7 +1087,6 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
                     u = AUTH_MEM['users'].get(me['id'], {})
                     self._json({'auth': True, 'user': me['id'], 'role': me['role'],
                                 'kid': me['kid'], 'mfa': bool(u.get('totp_enabled')),
-                                'email': (u.get('email') or ''),
                                 'kids': (u.get('kids') or []) if me['role']=='parent' else
                                         ([k['id'] for k in KIDS] if me['role']=='admin' else [])})
                 else:
@@ -1197,12 +1099,6 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
             if auth_has_password() is False:
                 # Setup-Modus: App nur als Hinweisseite
                 self._auth_redirect('/setup')
-                return
-            if r == '/forgot':
-                _page(self, _forgot_html())
-                return
-            if r == '/reset':
-                _page(self, _reset_html(_norm(q.get('token') and (q.get('token') or [''])[0])))
                 return
             if r == '/api/health':
                 self._json({'ok': True, 'version': VERSION})
@@ -1387,67 +1283,6 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
                     _page(self, _login_html('Zu viele Versuche – bitte 15 Minuten warten.'))
                     return
             body = self._body()
-            if r == '/forgot':
-                email = _norm(body.get('email')).lower().strip()
-                uid, u = _user_by_email(email)
-                # KEIN user-ENUM-leak: die Antwort ist identisch (immer 'link gesendet'),
-                # die Mail geht NUR raus wenn die Email wirklich bekannt ist:
-                if u and u.get('totp_enabled'):
-                    # MFA-Konten: der Mail-Reset würde den 2. Faktor umgehen — bewusst
-                    # AUS (die Antwort-Form bleibt identisch — kein Konto-Enumerieren):
-                    print(f'PW-RESET abgelehnt (MFA-Konto): {uid}', flush=True)
-                elif u:
-                    tok = _pw_reset_token(email)
-                    base = self.headers.get('Host') or 'vokabeln.henskes.cloud'
-                    scheme = 'https'
-                    link = f'{scheme}://{base}/reset?token={tok}'
-                    CRLF = chr(13) + chr(10)
-                    mail_body = CRLF.join([
-                        'Hallo,',
-                        '',
-                        'für dein VokabelBuddy-Konto wurde ein Kennwort-Reset angefordert.',
-                        'Öffne diesen Link (30 Minuten gültig):',
-                        link,
-                        '',
-                        'Falls du das nicht warst: ignoriere diese Mail;',
-                        'dein Kennwort bleibt unverändert.',
-                        '',
-                        'Dein VokabelBuddy',
-                    ])
-                    _send_mail(email, 'VokabelBuddy – neues Kennwort', mail_body)
-                    print(f'PW-RESET: Token für {uid} ({email}) ausgestellt', flush=True)
-                _page(self, _forgot_html('Wenn die E-Mail-Adresse hinterlegt ist, ist der Reset-Link unterwegs. Postfach prüfen.'))
-                return
-            if r == '/reset':
-                tok = _norm(body.get('token'))
-                pw1 = _norm(body.get('password'))
-                entry = (AUTH_MEM.get('pw_resets') or {}).get(tok)
-                if not entry or entry.get('exp', 0) < time.time():
-                    _page(self, _reset_html(tok, 'Link ungültig oder abgelaufen – fordere einen neuen an.'))
-                    return
-                if len(pw1) < 6:
-                    _page(self, _reset_html(tok, 'Kennwort: mindestens 6 Zeichen.'))
-                    return
-                uid, u = _user_by_email(entry.get('mail'))
-                if not u:
-                    _page(self, _reset_html(tok, 'Konto zu dieser E-Mail nicht mehr vorhanden.'))
-                    return
-                with _lock:
-                    u['salt'] = list(os.urandom(16))
-                    u['password_hash'] = _pbkdf2(pw1, u['salt'])
-                    u['iters'] = PBKDF2_ITERS
-                    AUTH_MEM.setdefault('pw_resets', {}).pop(tok, None)   # einmalig!
-                    # alle Sessions + Trust des Kontos killen:
-                    for k, v in list(AUTH_MEM.get('sessions', {}).items()):
-                        if v.get('user') == uid:
-                            AUTH_MEM['sessions'].pop(k, None)
-                    for k, v in list(AUTH_MEM.get('trust_users', {}).items()):
-                        AUTH_MEM['trusted'].pop(k, None)
-                        AUTH_MEM['trust_users'].pop(k, None)
-                    auth_save()
-                print(f'PW-RESET: {uid} hat das Kennwort per Mail-Link gesetzt', flush=True)
-                _page(self, _reset_html('', '✅ Kennwort gesetzt – jetzt anmelden.'))
-                return
             if r == '/setup':
                 if auth_has_password():
                     self._auth_redirect('/login')
@@ -1791,26 +1626,6 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
                 AUTH_MEM.setdefault('user_series', {})[me['id']] = want
                 auth_save()
                 self._json({'ok': True, 'series': want})
-                return
-            if r == '/api/account/email':
-                me = self._session_user()
-                if not me:
-                    self._json({'auth': True}, 401)
-                    return
-                em = _norm(body.get('email')).strip().lower()
-                if em and not re.fullmatch(r'[^@\s,;]+@[^@\s,;]+\.[A-Za-z]{2,}', em):
-                    self._json({'error': 'Keine gültige E-Mail-Adresse'}, 400)
-                    return
-                # die mail darf NICHT doppelt vergeben sein (eindeutiger Reset-Pfad):
-                if em:
-                    other, _ = _user_by_email(em)
-                    if other and other != me['id']:
-                        self._json({'error': 'Diese E-Mail nutzt bereits ein anderes Konto'}, 400)
-                        return
-                u = AUTH_MEM['users'].setdefault(me['id'], {})
-                u['email'] = em or None
-                auth_save()
-                self._json({'ok': True, 'email': u.get('email')})
                 return
             if r == '/api/account/password':
                 me = self._session_user()
@@ -2211,8 +2026,7 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
         if not me or me.get('role') != 'admin':
             self._json({'error': 'Nur der Admin'}, 403)
             return
-        out = [{'user': uid, 'kids': (u.get('kids') or []),
-                'email': (u.get('email') or ''), 'mfa': bool(u.get('totp_enabled'))}
+        out = [{'user': uid, 'kids': (u.get('kids') or [])}
                for uid, u in AUTH_MEM['users'].items() if u.get('role') == 'parent']
         kids_out = [{'user': uid, 'book': (u.get('book') or ''),
                      'name': (u.get('name') or uid.capitalize()),
