@@ -1051,6 +1051,17 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
                 self.api_export(q)
             elif r == '/api/words':
                 self.api_words(q)
+            elif r == '/api/account/status':
+                me = self._session_user()
+                if not me:
+                    self._json({'auth': True}, 401)
+                    return
+                u = AUTH_MEM['users'].get(me['id'], {})
+                reveal = bool(u.get('totp_secret')) and not bool(u.get('totp_enabled'))
+                self._json({'user': me['id'], 'mfa': bool(u.get('totp_enabled')),
+                            'secret': u.get('totp_secret') if reveal else None})
+            elif r == '/api/auth/parents':
+                self.api_auth_parents(q)
             elif r == '/login':
                 if self._is_authed():
                     self._auth_redirect('/')

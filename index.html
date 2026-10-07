@@ -691,14 +691,19 @@ function loadParents(){
       window.__parents=j.parents||[];
       renderParents(window.__parents);
       renderKidAccounts(j.kids||[]);
+      if(window.__fillReset) window.__fillReset();  // Reset-Select mit Eltern nachladen
     }).catch(()=>{});
   }catch(e){}
   // Kennwort-Reset (admin): alle users aus Eltern+Kids-Listen:
   if(ME && ME.role==='admin'){
     const rs=$('rsUser');
     if(rs){
-      const names=['luis','carlotta',...((window.__parents||[]).map(p=>p.user))];
-      rs.innerHTML=names.map(n=>`<option value="${esc(n)}">${esc(n)}</option>`).join('');
+      window.__fillReset = () => {
+        const names=[['luis','Luis (Kind)'],['carlotta','Carlotta (Kind)'],
+          ...(window.__parents||[]).map(p=>[p.user, p.user+' (Eltern-Account)'])];
+        rs.innerHTML=names.map(([v,l])=>`<option value="${esc(v)}">${esc(l)}</option>`).join('');
+      };
+      window.__fillReset();
       $('rsGo').onclick=async()=>{
         $('rsNote').textContent='…';
         try{
