@@ -100,6 +100,7 @@ def auth_load():
         AUTH_MEM['trust_users'] = {str(k): str(v) for k, v in (d.get('trust_users') or {}).items()
                                    if str(k) in AUTH_MEM['trusted']}
         AUTH_MEM['user_series'] = {str(k): str(v) for k, v in (d.get('user_series') or {}).items()}
+        AUTH_MEM['kid_series'] = {str(k): str(v) for k, v in (d.get('kid_series') or {}).items()}
     except Exception:
         AUTH_MEM.update({'users': {}, 'trusted': {}, 'trust_users': {}, 'user_series': {}})
 
@@ -110,7 +111,8 @@ def auth_save():
              'trusted': {k: v for k, v in AUTH_MEM['trusted'].items() if float(v) > time.time()},
              'trust_users': {k: AUTH_MEM.get('trust_users', {}).get(k, '')
                              for k in AUTH_MEM['trusted']},
-             'user_series': AUTH_MEM.get('user_series', {})}
+             'user_series': AUTH_MEM.get('user_series', {}),
+             'kid_series': AUTH_MEM.get('kid_series', {})}
         tmp = AUTH_PATH + '.tmp'
         with open(tmp, 'w') as f:
             json.dump(d, f)
@@ -1040,16 +1042,26 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
                 extra_kids = [{'id': uid, 'name': uid.capitalize(), 'color': '#a78bfa'}
                               for uid, u in AUTH_MEM.get('users', {}).items()
                               if u.get('role') == 'kid' and not any(k['id'] == uid for k in KIDS)]
-                # Reihen-Wahl: user-bound (auth.json # user_series) — admin/parent stellen pro
-                # KIND, kid für SICH, default 'access' (Bestand).
-                me = self._session_user()
-                us = AUTH_MEM.get('user_series', {})
-                chosen = us.get(me['id'] if me else '', 'access')
+                me = self._session_user()            # {id, role, kid}
+                kid_qs = q                           # parse_qs-Ergebnis aus do_GET
+                target_kid = (kid_qs.get('kid') or [''])[0] or (me['kid'] if me and me['role']=='kid' else '')
+                # Reihen-Wahl Auflösung — Ziel-Kind zuerst (Eltern-Perspektive), dann
+                # der eingeloggte Nutzer selbst, dann Bestand 'access':
+                kid_map = AUTH_MEM.get('kid_series', {})
+                user_map = AUTH_MEM.get('user_series', {})
+                kid_choice = kid_map.get(target_kid) if target_kid else ''
+                fallback_user = user_map.get(me['id'], '') if me else ''
+                chosen = kid_choice or fallback_user or 'access'
+                if chosen not in ('access', 'greenline'):
+                    chosen = 'access'
                 books = [b for b in BOOKS if b.get('series', 'access') == chosen]
-                self._json({'version': VERSION, 'books': books, 'kids': KIDS + extra_kids,
-                            'series': SERIES, 'series_current': chosen,
-                            'default_book': {k: (v if v.startswith(chosen) else books[0]['id'] if books else 'access1')
-                                             for k, v in DEFAULT_BOOKS.items()}})
+                self._json({'version': VERSION,
+                            'books': books,
+                            'kids': KIDS + extra_kids,
+                            'series': SERIES,
+                            'series_current': chosen,
+                            'target_kid': target_kid or None,
+                            'default_book': DEFAULT_BOOKS})
             elif r == '/api/chapters':
                 self.api_chapters(q)
             elif r == '/api/quiz':
@@ -1487,6 +1499,32 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
                                             'totp_secret': None, 'totp_enabled': False}
                 auth_save()
                 self._json({'ok': True, 'user': puser, 'kids': kids})
+                return
+            if r == '/api/kid/series':
+                me = self._session_user()
+                if not me:
+                    self._json({'auth': True}, 401)
+                    return
+                kid = _norm(body.get('kid'))
+                want = _norm(body.get('series'))
+                if want not in ('access', 'greenline'):
+                    self._json({'error': 'Unbekannte Reihe'}, 400)
+                    return
+                if not _kid_ok(kid):
+                    self._json({'error': 'Kid unbekannt'}, 400)
+                    return
+                if me['role'] == 'parent':
+                    allowed = AUTH_MEM.get('users', {}).get(me['id'], {}).get('kids') or []
+                    if kid not in allowed:
+                        self._json({'error': 'Dieses Kind ist dir nicht zugewiesen'}, 403)
+                        return
+                elif me['role'] == 'kid':
+                    self._json({'error': 'Nur Eltern dürfen umstellen'}, 403)
+                    return
+                # Kid-spezifische Reihen-Wahl (pro Kind) — persistiert in auth.json:
+                AUTH_MEM.setdefault('kid_series', {})[kid] = want
+                auth_save()
+                self._json({'ok': True, 'kid': kid, 'series': want})
                 return
             if r == '/api/series':
                 me = self._session_user()

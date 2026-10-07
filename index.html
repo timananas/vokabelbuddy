@@ -392,9 +392,12 @@ body{overflow-x:hidden}
     </div><!-- /adminZone -->
     <div id="seriesZone" class="hidden" style="border-top:1px solid var(--line); margin-top:12px; padding-top:12px">
       <div style="font-weight:800; font-size:.95rem">Vokabelheft (Reihe)</div>
-      <div style="display:flex; gap:8px; margin-top:8px">
+      <div id="seriesAdminRow" style="display:flex; gap:8px; margin-top:8px">
         <select id="seriesSel" style="flex:1"></select>
         <button class="msave" id="seriesSave" style="width:auto; padding:10px 14px">Wechseln</button>
+      </div>
+      <div id="seriesParentRow" class="hidden" style="margin-top:8px">
+        <div id="seriesKidRows"></div>
       </div>
       <div class="mdone" id="seriesNote"></div>
     </div>
@@ -526,7 +529,10 @@ async function init(){
     ME = ar;
     if(ar.kid){ kid = ar.kid; localStorage.setItem('vb_kid', ar.kid); }
   }catch(e){}
-  try{ META=await (await fetch('/api/meta')).json(); }catch(e){
+  try{
+    const mq = kid ? ('?kid='+encodeURIComponent(kid)) : '';
+    META=await (await fetch('/api/meta'+mq)).json();
+  }catch(e){
     $('subtitle').textContent='Server nicht erreichbar'; return;
   }
   book = META.books.some(b=>b.id===book) ? book : META.books[0].id;
@@ -787,10 +793,65 @@ document.addEventListener('click', async e=>{
     else { $('paNote').textContent=`${pa}: ${r.kids.length?r.kids.join(', '):'keine Kinder'} zugewiesen`; }
   }catch(e){ b.classList.toggle('on'); $('paNote').textContent='Offline'; }
 });
+async function loadParentSeries(){
+  // Zeilen: für JEDES eigene Kind (window.__kids) eine Reihe-Wahl (aus /api/meta je Kid).
+  const box=$('seriesKidRows'); if(!box) return;
+  const kids=(META.kids||[]).filter(k=>ME && (ME.kids||[]).includes(k.id));
+  if(!kids.length){ box.innerHTML='<div style="color:var(--muted)">Keine Kinder zugewiesen.</div>'; return; }
+  // Reihe-Infos aus META:
+  const rows = await Promise.all(kids.map(async k => {
+    // je Kid die aktuelle Reihe laden:
+    try{
+      const r=await (await fetch('/api/meta?kid='+encodeURIComponent(k.id))).json();
+      return {kid:k, cur:r.series_current||'access'};
+    }catch(e){ return {kid:k, cur:'access'}; }
+  }));
+  box.innerHTML = rows.map(({kid,cur}) => `
+    <div class="kidser" style="margin-bottom:10px">
+      <div style="font-size:.85rem; color:var(--muted); margin-bottom:4px">${esc(kid.name)} (${esc(kid.id)})</div>
+      <div style="display:flex; gap:8px">
+        <select class="kserSel" data-kid="${esc(kid.id)}" style="flex:1">
+          ${META.series.map(s=>`<option value="${esc(s.id)}"${s.id===cur?' selected':''}>${esc(s.name)}</option>`).join('')}
+        </select>
+        <button class="msave kserGo" data-kid="${esc(kid.id)}" style="width:auto; padding:8px 14px">Setzen</button>
+      </div>
+    </div>`).join('');
+  // Handler:
+  box.querySelectorAll('.kserGo').forEach(btn=>{
+    btn.onclick=async()=>{
+      const kidId=btn.getAttribute('data-kid');
+      const selV=box.querySelector('.kserSel[data-kid="'+kidId+'"]').value;
+      $('seriesNote').textContent='…';
+      try{
+        const resp=await fetch('/api/kid/series',{method:'POST',headers:{'Content-Type':'application/json'},
+          body:JSON.stringify({kid:kidId, series:selV})});
+        const r=await resp.json().catch(()=>({}));
+        if(r.ok){
+          $('seriesNote').textContent='✅ Reihe für '+kidId+' gesetzt: '+selV;
+          // wenn das Ziel-Kid der gerade aktive Kontext ist → Buch/Kapitel neu laden:
+          if(kid===kidId){
+            META=await (await fetch('/api/meta?kid='+encodeURIComponent(kidId))).json();
+            book = META.books.some(b=>b.id===book) ? book : (META.books[0]?.id||book);
+            localStorage.setItem('vb_book', book);
+            chapters=[]; sel.clear(); drawBooks(); loadChapters();
+            $('seriesNote').textContent='✅ '+ (META.books[0]?META.books[0].name:'') +' aktiv für '+kidId;
+          }
+        } else $('seriesNote').textContent='⚠️ '+(r.error||'konnte Reihe nicht setzen');
+      }catch(e){ $('seriesNote').textContent='⚠️ Server nicht erreichbar'; }
+    };
+  });
+}
+
 async function loadSeries(){
   if(!META || !META.series) return;
   const sSel=$('seriesSel'); if(!sSel) return;
   sSel.innerHTML=META.series.map(s=>`<option value="${esc(s.id)}"${s.id===(META.series_current||'access')?' selected':''}>${esc(s.name)}</option>`).join('');
+  // ELTERN-Modus: die Admin-Zeile verstecken, stattdessen pro-KIND-Zeilen rendern:
+  const isParent = typeof ME!=='undefined' && ME && ME.role==='parent';
+  const ar=$('seriesAdminRow'), pr=$('seriesParentRow');
+  if(ar) ar.classList.toggle('hidden', isParent);
+  if(pr) pr.classList.toggle('hidden', !isParent);
+  if(isParent) await loadParentSeries();
   $('seriesSave').onclick=async()=>{
     $('seriesNote').textContent='…';
     try{
@@ -913,11 +974,14 @@ function drawKids(){
     b.className='kid'+(k.id===kid?' on':'');
     b.textContent=k.name;
     if(k.id===kid) b.style.background=k.color;
-    b.onclick=()=>{
+    b.onclick=async()=>{
       if(ME && ME.role==='kid') return;  // Kinder sind fix
       kid=k.id; localStorage.setItem('vb_kid',kid);
+      // Reihen-Reload (die Reihe ist pro Kind) — META je Kid ziehen:
+      try{ META=await (await fetch('/api/meta?kid='+encodeURIComponent(kid))).json(); }catch(e){}
       const db=(META.default_book||{})[kid];
       if(db&&META.books.some(x=>x.id===db)){ book=db; localStorage.setItem('vb_book',book); }
+      else book = META.books.some(x=>x.id===book) ? book : (META.books[0]?.id||book);
       drawKids(); drawBooks(); loadChapters();
     };
     host.appendChild(b);
