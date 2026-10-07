@@ -820,7 +820,10 @@ async function loadAccount(){
   }catch(e){}
 }
 function paintMfa(on, secret){
-  $('mfaState').textContent = on ? '✅ Zwei-Faktor ist aktiv.' : 'Noch nicht aktiv — mit „MFA einrichten“ starten.';
+  // on = aktiv · secret da + !on = 'Einrichtung begonnen' (pending — nicht 'falsch'!)
+  $('mfaState').textContent = on ? '✅ Zwei-Faktor ist aktiv.'
+    : (secret ? '⏳ Einrichtung begonnen — Code bestätigen, dann ist sie aktiv.'
+              : 'Noch nicht aktiv — mit „MFA einrichten“ starten.');
   $('mfaBtnStart').classList.toggle('hidden', !!on);
   $('mfaBtnOff').classList.toggle('hidden', !on);
   $('mfaSecretBox').classList.add('hidden');

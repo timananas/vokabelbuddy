@@ -1,0 +1,140 @@
+{
+  "book": "greenline3",
+  "audited_pairs": 740,
+  "method": "Semantik-Vollaudit: JEDES [en,de]-Paar auf EN/DE-Korrespondenz, OCR-Artefakte (IPA-Glibber, Zeilenbrüche, Spaltensplit, Truncation), Dubletten und fehlende Kernbedeutungen geprüft; verdächtige Kandidaten programmatisch gegen den Seed verifiziert, false-positive-Anwärter manuell ausgeschlossen.",
+  "findings": [
+    {
+      "chapter": 1,
+      "en": "to learn about, learnt about, learnt",
+      "de": "about E+baUt? erfahren über",
+      "issue": "Zerbrochenes Eintragpaar: EN endet nach der Irregular-Formenliste mit Komma; DE beginnt mit OCR-Betonungs-/IPA-Rest ('about E+baUt?'). Die echte Vokabel 'to learn about sth' (erfahren über) ist für die Kinder unbrauchbar, weil unlesbare Zeichenfolge statt Übersetzung steht.",
+      "fix": "to learn about sth = erfahren über; etw. über … lernen"
+    },
+    {
+      "chapter": 1,
+      "en": "one another",
+      "de": "Anlass; Ereignis; Gelegenheit Eindruck; Impression unterschreiben; unterzeichnen Lachen du stehst hinter mir Schale; Muschel Boden; Erdboden keine Chance mehr haben warten; durchhalten Höhen und Tiefen tun als ob; vortäuschen fliehen; entfliehen; flüchten; entkommen befreien; freilassen Käfig Lüge Ohr geschlossen; zu eingängig; einprägsam Refrain wiederholen die Beine und Hände ruhig halten along etw. aus dem Kopf bekommen; von einem Gedanken loskommen Effekt; Wirkung Rhythmus rhythmisch; gleichmäßig Takt; Schlag Bestimmungen; Bedingungen legal; rechtlich; Rechts- Buchhandlung vorziehen; bevorzugen gemein haben Vertrauen Sekunde kleben; stecken Klebstoff leuchtend; strahlend; hell Verantwortung Schlauheit; Klugheit; Cleverness Fremde/-r Magnet egal; ganz gleich dauern; andauern; anhalten (jmdn. an etw./jmdn.) erinnern Beweis; Beleg; Beweismaterial weglassen; auslassen ähnlich üblich; gewöhnlich; (weit) verbreitet; gebräuchlich (sich) reimen einander; gegenseitig",
+      "issue": "Klassischer OCR-Spaltensplit: Das DE-Feld enthält das zusammengequetschte Vokabular von ~25 Folgewörtern (Anlass, Ereignis, Gelegenheit, Eindruck, unterschreiben, Lachen, Schale, Boden, keine Chance mehr haben, Höhen und Tiefen, tun als ob, fliehen, befreien, Käfig, Lüge, Ohr, geschlossen, eingängig, Refrain, wiederholen, ruhig halten, aus dem Kopf bekommen, Effekt, Rhythmus, rhythmisch, Takt, Bestimmungen, legal, Buchhandlung, vorziehen, gemein haben, Vertrauen, Sekunde, kleben, Klebstoff, leuchtend, Verantwortung, Cleverness, Fremde, Magnet, egal, dauern, erinnern, Beweis, weglassen, ähnlich, üblich, sich reimen). Die eigentliche Übersetzung von 'one another' steht nur ganz am Ende; die ~25 Partnerwörter fehlen dadurch komplett im Seed und erscheinen nie im Quiz.",
+      "fix": "one another = einander; gegenseitig"
+    },
+    {
+      "chapter": 1,
+      "en": "neutral",
+      "de": "Schulleiter/-in Geschäftsführer/-in; Leiter/-in; Manager/-in verfügbar; erhältlich Absatz; Paragraf Empfänger/-in enthalten unnötig; überflüssig; verzichtbar Ziel; Absicht; Zweck Postanschrift Bezahlung; Vergütung verheiratet Frau (Anrede) Erlaubnis; Genehmigung Unterschrift Absender/-in Umschlag; Briefumschlag Briefmarke halb-; Halb- völlig; absolut Viele Grüße,; Herzliche Grüße, werden viel/-e; jede Menge abkürzen Symbol; Ikone ersetzen (durch) Ehemann Gute Besserung! Glückwunsch!; Gratuliere! Umarmung Kuss Hurra! neutral",
+      "issue": "Klassischer OCR-Spaltensplit (wie 'one above'): Das DE-Feld enthält das zusammengequetschte Vokabular von ~26 Folgewörtern aus dem Briefformular-Kontext (Schulleiter, Geschäftsführer, verfügbar, Absatz, Empfänger, enthalten, unnötig, Ziel, Postanschrift, Bezahlung, verheiratet, Frau (Anrede), Erlaubnis, Unterschrift, Absender, Umschlag, Briefmarke, halb-, völlig, Viele Grüße, abkürzen, Symbol, ersetzen, Ehemann, Gute Besserung!, Glückwunsch!, Umarmung, Kuss, Hurra). 'neutral' selbst ist ein Kognat und heißt schlicht 'neutral'; die ~26 fehlenden Partnerwörter fehlen komplett im Seed.",
+      "fix": "neutral = neutral"
+    },
+    {
+      "chapter": 1,
+      "en": "haggis",
+      "de": "Haggis (schottisches Gericht aus in einem Schafsmagen gekochten",
+      "issue": "DE-Erklärung bricht mitten im Satz ab ('… gekochten') — die Fortsetzung (Haferflocken/Innereien/Zwiebeln) fehlt, der Eintrag endet unlesbar mitten im Genitiv/Dativ-Fragment.",
+      "fix": "Haggis (schottisches Gericht: Schafsmagen gefüllt mit Haferflocken, Innereien und Zwiebeln)"
+    },
+    {
+      "chapter": 1,
+      "en": "tartan",
+      "de": "Schottenkaro (bestimmtes Muster eines Clans); karierter",
+      "issue": "DE endet abgebrochen auf dem Adjektiv-Rest 'karierte/r' — das Bezugswort (Stoff) fehlt, der Eintrag macht so keinen Sinn.",
+      "fix": "Schottenkaro (bestimmtes Muster eines Clans); karierter Stoff"
+    },
+    {
+      "chapter": 1,
+      "en": "exit",
+      "de": "Ausgang; Abgang; Ausfahrt; Ausfahrt",
+      "issue": "'Ausfahrt' doppelt in ein und demselben DE-Feld (OCR/Listen-Dublette) — identische Bedeutung zweimal, wirkt wie Fehler.",
+      "fix": "Ausgang; Abgang; Ausfahrt"
+    },
+    {
+      "chapter": 1,
+      "en": "songwriter",
+      "de": "Liedermacher/-in; Songschreiber/- in",
+      "issue": "OCR-Zeilenumbruch mitten im Wort: 'Songschreiber/- in' mit Leerzeichen vor der Endung.",
+      "fix": "Liedermacher/-in; Songschreiber/-in"
+    },
+    {
+      "chapter": 2,
+      "en": "to make sure, made sure, made",
+      "de": "sure",
+      "issue": "Irregular-Formenliste über Zeilenbruch zerbrochen: '(made) sure' rutschte komplett ins DE-Feld; eine Übersetzung fehlt völlig — der Eintrag ist als Paar sinnlos.",
+      "fix": "to make sure (that) … = sich vergewissern; sicherstellen; darauf achten, dass …"
+    },
+    {
+      "chapter": 2,
+      "en": "to hang out (with), hung out (with),",
+      "de": "hung out (with) (infml) +h0N-*aUt (wID)? rumhängen (mit); sich herumtreiben (mit)",
+      "issue": "OCR-IPA-Glibber ('+h0N-*aUt (wID)?') im DE-Feld; die Formenliste endet im EN-Feld mit Komma und wiederholt sich ('hung out (with)') als Kopf der DE-Zeile.",
+      "fix": "to hang out (with) = rumhängen (mit); sich herumtreiben (mit)"
+    },
+    {
+      "chapter": 2,
+      "en": "to come up to sb, came up to,",
+      "de": "come up to tE? auf jmdn. zukommen",
+      "issue": "Zeilenbruch + OCR-IPA-Rest ('tE?') im DE-Feld; 'come up to' wiederholt sich vor der Übersetzung, Formenliste endet im EN-Feld mit Komma.",
+      "fix": "to come up to sb = auf jmdn. zukommen"
+    },
+    {
+      "chapter": 2,
+      "en": "to feel sorry for, felt sorry for, felt",
+      "de": "sorry for fC:? Mitleid haben mit; bedauern",
+      "issue": "Zeilenbruch + OCR-IPA-Glibber ('fC:?') im DE-Feld; 'sorry for' wiederholt sich als Kopf der DE-Zeile, echte Struktur ist 'to feel sorry for sb'.",
+      "fix": "to feel sorry for sb = Mitleid haben mit; bedauern"
+    },
+    {
+      "chapter": 2,
+      "en": "to pay attention, paid attention,",
+      "de": "paid attention E*tenSn? aufmerksam sein; aufpassen; jmdn./etw. beachten",
+      "issue": "Zeilenbruch + OCR-Betonungs-/IPA-Rest ('E*tenSn?') im DE-Feld; 'paid attention' steht doppelt (EN-Tail + DE-Kopf). Die Übersetzung selbst ist korrekt, der Eintrag aber verschmutzt.",
+      "fix": "to pay attention (to) = aufmerksam sein; aufpassen; jmdn./etw. beachten"
+    },
+    {
+      "chapter": 2,
+      "en": "recorder",
+      "de": "Flöte",
+      "issue": "Unpräzise Zuordnung: Im Schul-/Musik-Kontext (Klassenmusizieren) ist 'the recorder' die Blockflöte; 'Flöte' allein ist mehrdeutig (Querpfeife vs. Blockflöte) und führt bei MC-Distraktoren zu falschen Zuordnungen.",
+      "fix": "Blockflöte"
+    },
+    {
+      "chapter": 4,
+      "en": "to ban",
+      "de": "bannen; verbieten; sperren",
+      "issue": "Erste Bedeutung 'bannen' ist semantisch falsch — 'jdn. bannen' bedeutet 'im Bann halten/exorzieren', nicht 'verbieten'. 'to ban sth' = 'verbieten; sperren'.",
+      "fix": "verbieten; sperren"
+    },
+    {
+      "chapter": 4,
+      "en": "vegetarian",
+      "de": "Vegetarier/-in",
+      "issue": "Kapitel-doppelter Eintrag: 'vegetarian' steht zweimal im selben Kapitel — einmal als 'Vegetarier/-in', einmal als 'vegetarisch'. Beide Bedeutungen sind korrekt (Substantiv + Adjektiv), die Dublette ohne Kennzeichnung fällt jedoch im Quiz auf.",
+      "fix": "keine Löschung — Bedeutungen ergänzen: 'vegetarian (n) = Vegetarier/-in' und 'vegetarian (adj) = vegetarisch'"
+    },
+    {
+      "chapter": 6,
+      "en": "explorer",
+      "de": "Forscher/-in; Forschungsreisende/- r",
+      "issue": "OCR-Zeilenumbruch mitten im Wort: 'Forschungsreisende/- r' — Leerzeichen vor dem Schrägstrich-Suffix.",
+      "fix": "Forscher/-in; Forschungsreisende/-r"
+    },
+    {
+      "chapter": 7,
+      "en": "glad",
+      "de": "froh; dankbar",
+      "issue": "Kernbedeutung 'glücklich/erfreut' fehlt; 'dankbar' ist streng genommen 'grateful/thankful'. Im Buchkontext (I'm glad …) ist 'erfreut/froh' die tragende Bedeutung.",
+      "fix": "froh; erfreut; glücklich"
+    },
+    {
+      "chapter": 7,
+      "en": "to guess",
+      "de": "annehmen; annehmen; raten; erraten",
+      "issue": "Reduplikation 'annehmen; annehmen' (OCR-Dublette) — gleiche Bedeutung zweimal direkt hintereinander.",
+      "fix": "raten; erraten; vermuten"
+    },
+    {
+      "chapter": 8,
+      "en": "I go wherever the wind takes me.",
+      "de": "mi:? Ich lasse mich treiben.",
+      "issue": "OCR-Betonungs-/IPA-Rest 'mi:?' klebt vor der Übersetzung; die tragende Kernvokabel 'wherever' (überall dorthin, wo / wohin auch immer) ist so im Seed nicht erlernbar.",
+      "fix": "Ich lasse mich (vom Wind) überall dahin treiben, wohin er mich trägt. — zusätzlich anlegen: wherever = überall dorthin, wo; wohin auch immer"
+    }
+  ]
+}

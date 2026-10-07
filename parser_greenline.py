@@ -1,29 +1,51 @@
 #!/usr/bin/env python3
-"""Green Line G9 (2019) — Vokabel-Parser.
-Quelle: Klett-Vokabellisten (PDF, 4-Spalten-Tabelle: Lektion/Englisch/[Phonetik]/Deutsch/[Ukrainisch]).
-Band 6 hat KEINE Phonetik-Spalte; die ukrainische Spalte ist optional-falls vorhanden.
-Ausgabe: seed/greenline1..6.json ({book:'greenlineN', chapters:[{num, title, words:[[en,de],...]}]}).
+"""Green Line G9 (2019) — Vokabel-Parser v2.
+Quelle: Klett-Vokabellisten (PDF-Tabellen, 4/5-Spalten).
+STRUKTUR (per PDF-Analyse):
+  Jeder Entry beginnt mit einem PAAR Markern:
+    U-MARK (U1..U6|PUA|CI|GRS|AC1..4|SK1|SK2|ST1|ST2|UT1|UT2|FP1|FP2|TR1..3) = Abschnitt/Kapitel
+    optional S-MARK (S1..S9) = Schulbuch-Seite innerhalb des Abschnitts -> ÜBERSPRINGEN
+    (Band 1/2 haben oft S-Mark VOR jedem Eintrag: 'U1 / S1 / sister / IPA / Schwester / ukr')
+  Danach: en, [ipa ('!' oder '[' beginnend, optional)], de(mehrzeilig), [ukr(mehrzeilig)]
+  DE trimmt kyrillische Reste am Ende (is_ukr erkennt gemischte Zeilen nicht zuverlässig).
+Ausgabe: seed/greenline1..6.json ({book, chapters:[{num, title, words:[[en,de],...]}]}).
+Kapitel-Titel = lesbare Abschnittsnamen (OHNE Seitenzahlen — Tim will Seiten nicht sehen).
 """
-import pymupdf, re, json, os, sys
+import pymupdf, re, json, os
 
-LEKT_RE = re.compile(r'^(PUA|CI|GRS|U\d{1,2}|AC\d)$')
-UKR_CHARS = re.compile(r'[\u0400-\u04FF\u02BC\u2019\u02BE\u0591-\u05F4]')
+MARK_RE = re.compile(r'^(PUA|CI|GRS|U\d{1,2}|AC\d|TR\d)$')          # Kapitel-Marker
+CELL_RE = re.compile(r'^(S\d{1,2}|SK\d?|ST\d?|UT\d?|FP\d?|CO\d?|GRS|R\d|W\d|T\d)$')  # ZellenMarker
+PAGE_RE = re.compile(r'^S\d{1,2}$')
+UKR_LO, UKR_HI = '\u0400', '\u04FF'
 
 def is_ukr(line):
     t = line.strip()
     if not t:
         return False
-    # Ukrainisch = >40 % kyrillische Zeichen
-    cyr = sum(1 for c in t if '\u0400' <= c <= '\u04FF')
+    cyr = sum(1 for c in t if UKR_LO <= c <= UKR_HI)
     return cyr >= max(2, len(t.replace(' ', '')) * 0.4)
 
+def lekt_name(m):
+    mm = re.fullmatch(r'U(\d)', m)
+    if mm: return f'Unit {mm.group(1)}'
+    mm = re.fullmatch(r'AC(\d)', m)
+    if mm: return f'Across cultures {mm.group(1)}'
+    mm = re.fullmatch(r'TR(\d)', m)
+    if mm: return f'Text review {mm.group(1)}'
+    mm = re.fullmatch(r'(SK|ST|UT|FP)(\d)', m)
+    if mm:
+        names = {'SK': 'Skills', 'ST': 'Study skills', 'UT': 'Unit task', 'FP': 'Final probe'}
+        return f'{names[mm.group(1)]} {mm.group(2)}'
+    if m == 'PUA': return 'Pre-Unit'
+    if m == 'CI': return 'Check-in'
+    if m == 'GRS': return 'Grammar/Skills'
+    return m
+
 def parse_band(band):
-    path = f'/tmp/greenline/g9_vokabelliste_{band}.pdf'
-    d = pymupdf.open(path)
-    entries = []  # (lekt, en, de)
-    cur = None    # {'lekt','en','de_lines'}
-    state = 'idle'
-    has_ipa = True
+    d = pymupdf.open(f'/tmp/greenline/g9_vokabelliste_{band}.pdf')
+    entries = []          # dicts {lekt, page, en, de_lines}
+    cur = None
+    state = 'idle'        # idle|wait_en|wait_ipa_de|de|ukr
     for pg in d:
         for raw in pg.get_text().splitlines():
             line = raw.strip()
@@ -31,81 +53,102 @@ def parse_band(band):
                 continue
             if line.startswith('Vokabular zu Green Line'):
                 continue
-            if line in ('Lektion', 'Englisch', 'Phonetik', 'Deutsch', 'Ukrainisch', 'GRS'):
-                if line == 'Phonetik':
-                    has_ipa = has_ipa  # Kopf — nicht kritisch
+            if line in ('Lektion', 'Englisch', 'Phonetik', 'Deutsch', 'Ukrainisch'):
                 continue
-            if LEKT_RE.match(line):
-                # Flush:
+            if CELL_RE.match(line):
+                # Zellen-Marker (Seite/Skills/…) — die Vokabel folgt im selben Kapitel:
+                if cur is not None:
+                    cur['page'] = line
+                state = 'wait_en'
+                continue
+            if MARK_RE.match(line):
                 if cur and cur['en']:
-                    entries.append((cur['lekt'], cur['en'], ' '.join(cur['de_lines'])))
-                cur = {'lekt': line, 'en': '', 'de_lines': []}
-                state = 'en'
+                    entries.append(cur)
+                cur = {'lekt': line, 'page': '', 'en': '', 'de_lines': []}
+                state = 'wait_en'
                 continue
             if cur is None:
                 continue
-            if state == 'en':
-                cur['en'] = line
-                state = 'ipa_or_de'
-                continue
-            if state == 'ipa_or_de':
-                # IPA-Zeilen starten mit '!' oder '[':
-                if line.startswith('!') or line.startswith('['):
-                    state = 'de'   # IPA überspringen
+            if state == 'wait_en':
+                # PDF-Zellen-Merge: 'en !ipa de' auf EINER Zeile — NUR wenn NACH dem '!' mehr
+                # als nur ein Satzzeichen folgt (ein '!' am Ende = Ausrufezeichen des Satzes!):
+                if '!' in line.rstrip()[:-1]:   # nicht das letze Zeichen!
+                    head, tail = line.split('!', 1)
+                    cur['en'] = head.strip()
+                    qpos = tail.rfind('?')
+                    if qpos >= 0:
+                        der = tail[qpos+1:].strip(' ,;-')
+                        if der:
+                            cur['de_lines'].append(der)
+                    state = 'de'
                     continue
-                # sonst ist diese Zeile die erste Deutsch-Zeile:
+                cur['en'] = line
+                state = 'wait_ipa_de'
+                continue
+            if state == 'wait_ipa_de':
+                if line.startswith('!') or line.startswith('['):
+                    state = 'de'     # IPA überspringen
+                    continue
                 state = 'de'
-            # Deutsch-Aufbau, bis ukrainisch erscheint:
             if state == 'de':
                 if is_ukr(line):
                     state = 'ukr'
                     continue
+                # Verspätete IPA-Zeile (langes EN über 2 PDF-Zeilen) — an '!+…? '-grenze split:
+                if line.startswith('!') or line.startswith('['):
+                    qpos = line.rfind('?')
+                    if qpos >= 0:
+                        der = line[qpos+1:].strip(' ,;-')
+                        if der:
+                            cur['de_lines'].append(der)
+                        state = 'ukr'  # danach kommt ggf. die ukr-Zeile
+                        continue
+                    # kein '?'-Ende → reine IPA-Zeile (selten) — überspringen:
+                    continue
                 cur['de_lines'].append(line)
                 continue
-            # nach dem ukr-Start: nichts mehr in de_lines — sauber
-            # ukrainische Fortsetzung — ignorieren:
-            continue
+            # ukrainische Fortsetzung ignorieren
     if cur and cur['en']:
-        entries.append((cur['lekt'], cur['en'], ' '.join(cur['de_lines'])))
-    # Cyril-Rest in de trimmen (Mix-Zeilen wie 'und і...'):
-    cleaned = []
-    for lekt, en, de in entries:
-        i = next((j for j, c in enumerate(de) if '\u0400' <= c <= '\u04FF'), len(de))
+        entries.append(cur)
+    # kyrillische Reste in DE trimmen:
+    out = []
+    for e in entries:
+        de = ' '.join(e['de_lines'])
+        i = next((j for j, c in enumerate(de) if UKR_LO <= c <= UKR_HI), len(de))
         if i < len(de):
             de = de[:i]
-        cleaned.append((lekt, en, de.strip(' ;,')))
-    return cleaned, has_ipa
-
-
-LEKT_TITEL = {
-    'PUA': 'Pre-Unit / People & you',
-    'CI': 'Check-in',
-    'GRS': 'Grammar & Skills',
-}
+        de = de.strip(' ;,')
+        if de:
+            out.append({'lekt': e['lekt'], 'page': e['page'], 'en': e['en'], 'de': de})
+    return out
 
 def main():
-    out_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'seed')
-    stats = {}
+    here = os.path.dirname(os.path.abspath(__file__))
+    out_dir = os.path.join(here, 'seed')
+    total = 0
     for band in range(1, 7):
-        entries, _ = parse_band(band)
-        # Kapitel gruppieren (in Buchreihenfolge):
-        chapters = []
+        entries = parse_band(band)
         order = []
-        for lekt, en, de in entries:
-            if lekt not in order:
-                order.append(lekt)
+        for e in entries:
+            if e['lekt'] not in order:
+                order.append(e['lekt'])
+        chapters = []
         for lekt in order:
-            title = LEKT_TITEL.get(lekt, lekt.replace('U', 'Unit ').replace('AC', 'Across cultures ') )
             words = []
-            for lekt2, en, de in entries:
-                if lekt2 == lekt and de:
-                    words.append([en.strip(), de.strip()])
-            chapters.append({'num': len(chapters) + 1, 'title': f'{lekt} · {title}', 'words': words})
-        stats[band] = sum(len(c['words']) for c in chapters)
+            for e in entries:
+                if e['lekt'] == lekt and e['de']:
+                    words.append([e['en'].strip(), e['de'].strip()])
+            if words:
+                chapters.append({'num': len(chapters) + 1,
+                                 'title': lekt_name(lekt),
+                                 'words': words})
+        n = sum(len(c['words']) for c in chapters)
+        total += n
         with open(f'{out_dir}/greenline{band}.json', 'w') as f:
             json.dump({'book': f'greenline{band}', 'chapters': chapters}, f, ensure_ascii=False, indent=1)
-        print(f'Band {band}: {stats[band]} Vokabeln in {len(chapters)} Kapiteln')
-    print('SUMME:', sum(stats.values()))
+        tops = [f"{c['title']} ({len(c['words'])})" for c in chapters[:5]]
+        print(f'Band {band}: {n} Vokabeln in {len(chapters)} Kapiteln →', ' · '.join(tops), '…')
+    print('SUMME:', total)
 
 if __name__ == '__main__':
     main()
