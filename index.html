@@ -154,20 +154,27 @@ html.dark #wInput.half,html.dark #mxInput.half{border-color:#8a7434; background:
 .modal h3{margin:0 0 12px}
 .modal label{display:block; font-size:.8rem; color:var(--muted); font-weight:600; margin:10px 0 4px}
 .modal input,.modal select,.modal textarea{width:100%; border:1.5px solid var(--line); background:var(--bg);
-  color:var(--ink); border-radius:10px; padding:9px; font-size:.95rem; font-family:inherit}
+  color:var(--ink); border-radius:10px; padding:9px 12px; font-size:.95rem; font-family:inherit}
+.modal select{appearance:none; -webkit-appearance:none; background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path d='M1 1l5 5 5-5' fill='none' stroke='%238FA6C4' stroke-width='2' stroke-linecap='round'/></svg>");
+  background-repeat:no-repeat; background-position:right 12px center; padding-right:34px}
 .modal textarea{min-height:180px; font-family:ui-monospace,Menlo,Consolas,monospace; font-size:.85rem; white-space:pre}
 .mgrid{display:grid; grid-template-columns:110px 1fr 110px 1fr; gap:8px; align-items:center}
 .mgrid input{width:100%; border:1.5px solid var(--line); background:var(--bg); color:var(--ink); border-radius:10px; padding:9px; font-size:.95rem}
 .modal .mrow{display:flex; gap:10px; margin-top:16px}
 .modal .mrow button{flex:1; border:0; border-radius:10px; padding:11px; font-weight:700; cursor:pointer}
-.msave{background:var(--accent); color:#fff}
-.mcancel{background:var(--chip); color:var(--ink)}
-.mdel{background:var(--bad); color:var(--bad-ink); flex:0 0 auto; padding:11px 14px}
+.msave{background:var(--accent); color:#fff; border:0; border-radius:10px; padding:10px 16px;
+  font-weight:800; font-family:inherit; font-size:.92rem; cursor:pointer; transition:filter .15s}
+.msave:hover{filter:brightness(1.12)}
+.mcancel{background:var(--chip); color:var(--ink); border:1px solid var(--line); border-radius:10px;
+  padding:10px 16px; font-weight:700; font-family:inherit; cursor:pointer}
+.mdel{background:var(--bad); color:var(--bad-ink); flex:0 0 auto; padding:10px 16px;
+  border:0; border-radius:10px; font-weight:800; font-family:inherit; cursor:pointer; transition:filter .15s}
+.mdel:hover{filter:brightness(1.06)}
 .mnote{font-size:.8rem; color:var(--muted); margin-top:8px}
 .mdone{color:var(--good-ink); font-size:.85rem; margin-top:8px; min-height:1em}
-.logoutbtn{width:100%; border:0; border-radius:10px; padding:11px; font-weight:700; cursor:pointer;
-  background:var(--bad); color:var(--bad-ink)}
-.logoutbtn:hover{filter:brightness(.97)}
+.logoutbtn{width:100%; border:0; border-radius:10px; padding:11px; font-weight:800; font-family:inherit;
+  cursor:pointer; background:var(--bad); color:var(--bad-ink); transition:filter .15s}
+.logoutbtn:hover{filter:brightness(1.06)}
 .rh-item{border:1px solid var(--line); background:var(--card); border-radius:10px; padding:8px 12px; font-size:.88rem}
 .rh-top{display:flex; justify-content:space-between; gap:10px; align-items:baseline}
 .rh-date{color:var(--muted); font-size:.8rem; flex:none}

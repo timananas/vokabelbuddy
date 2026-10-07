@@ -394,7 +394,8 @@ def _mfa_html(msg=''):
 
 def _mfa_setup_html(secret, msg=''):
     warn = f'<p class="msg">{msg}</p>' if msg else ''
-    body = ('<h1>Zwei-Faktor einrichten</h1>'
+    body = ('<div class="bigbrand"><img class="biglogo" src="/assets/logo-banner-white.png" alt="VokabelBuddy"></div>'
+            '<h1>Zwei-Faktor einrichten</h1>'
             '<p style="color:#8d94a8;font-size:.86rem">Diesen Schlüssel in deiner '
             'Authenticator-App eintragen („Anderes Konto“ bzw. „+“):</p>'
             f'<p style="font-family:monospace;font-size:1.15rem;letter-spacing:.12em;'
