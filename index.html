@@ -666,8 +666,17 @@ $('startBtn').onclick=startQuiz;
   window._syncModeSet=syncModeSet;
   modeSeg.onclick=e=>{ const b=e.target.closest('button'); if(!b) return;
     const mv=b.dataset.mv; if(!mv) return;
-    if(window._modeSet.has(mv)){ if(window._modeSet.size>1) window._modeSet.delete(mv); }
-    else window._modeSet.add(mv);
+    if(window._modeSet.has(mv)){
+      // bereits aktiv: abwählen (solange >1 übrig — NIEMALS keinen Modus aktiv haben)
+      if(window._modeSet.size>1) window._modeSet.delete(mv);
+    } else if(window._modeSet.size===1){
+      // GENAU-1-Modus-was-aktiv + ein ANDERER gewählt = REPLACEMENT (Tim: 'nur
+      // karteikarte' soll NICHT mc+cards-mixen — single-select-Verhalten):
+      window._modeSet=new Set([mv]);
+    } else {
+      // mehrere aktiv → zusaätzlich hinzufügen (der Misch-Fall bleibt):
+      window._modeSet.add(mv);
+    }
     syncModeSet(); };
   $('mixAll').onclick=()=>{ window._modeSet=new Set(['mc','cards','write']); syncModeSet(); };
   syncModeSet();
@@ -1119,6 +1128,12 @@ async function loadChapters(){
     seg.parentElement.appendChild(inp);
   }
 })();
+// FRAGENANZAHL: Bereich gewählt → genau diese Spanne; nichts gewählt → 'all'
+// (ganzes Kapitel) — GEMEINSAM für quiz/write/cards:
+function fnWantCount(){
+  const fv=parseInt($('fromSel').value,10)||0, tv=parseInt($('toSel').value,10)||0;
+  return (fv>0||tv>0)?((tv||999999)-(fv||1)+1):'all';
+}
 async function startQuiz(){
   if(!kid||!sel.size) return;
   mode='quiz'; show('viewQuiz','viewHome');
@@ -1141,8 +1156,7 @@ async function startQuiz(){
   // crypto.randomUUID gibt es nur in Secure Contexts (HTTPS/localhost) – im LAN-HTTP fehlt es!
   const nonce=Date.now().toString(36)+Math.random().toString(36).slice(2)+performance.now().toString(36).replace(/[^a-z0-9]/g,'');
   const fromv=parseInt($('fromSel').value,10)||0, tov=parseInt($('toSel').value,10)||0;
-  // FRAGENANZAHL: Bereich auswählen → genau diese Vokabeln; nichts gewählt → ALLE (ganzes Kapitel)
-  const wantCount=(fromv>0||tov>0)?((tov||999999)-(fromv||1)+1):'all';
+  const wantCount=fnWantCount();
   const qtype=(qmode==='mixed')?'mixed':($('dirSel').value||'both');
   const modesParam=(qmode==='mixed')?`&modes=${encodeURIComponent(($('modesSel')||{}).value||'mc,write,cards')}`:'';
   const qs=(fromv>0?`&from=${fromv}`:'')+(tov>0?`&to=${tov}`:'')+
@@ -1371,6 +1385,7 @@ async function startWrite(){
   const nonce=Date.now().toString(36)+Math.random().toString(36).slice(2)+performance.now().toString(36).replace(/[^a-z0-9]/g,'');
   window._nonce=nonce;
   const fromv=parseInt(fl.value,10)||0, tov=parseInt(tl.value,10)||0;
+  const wantCount=fnWantCount();
   const qs=(fromv>0?`&from=${fromv}`:'')+(tov>0?`&to=${tov}`:'')+
     `&type=${encodeURIComponent($('dirSel').value||'both')}`;
   const u=`/api/write?book=${encodeURIComponent(book)}&kid=${encodeURIComponent(kid)}`+
@@ -1467,12 +1482,20 @@ async function startCards(){
   const nonce=Date.now().toString(36)+Math.random().toString(36).slice(2)+performance.now().toString(36).replace(/[^a-z0-9]/g,'');
   window._nonce=nonce;
   const fromv=parseInt(fl.value,10)||0, tov=parseInt(tl.value,10)||0;
+  const wantCount=fnWantCount();
   const qs=(fromv>0?`&from=${fromv}`:'')+(tov>0?`&to=${tov}`:'')+
     `&type=${encodeURIComponent($('dirSel').value||'both')}`;
   const u=`/api/cards?book=${encodeURIComponent(book)}&kid=${encodeURIComponent(kid)}`+
     `&chapters=${[...sel].map(s=>encodeURIComponent(s)).join(',')}&count=${wantCount}&nonce=${encodeURIComponent(nonce)}${qs}`;
-  try{ const r=await (await fetch(u)).json();
-    if(r.error||!(r.cards||[]).length){ $('cardFront').textContent='—'; $('cardMeta').textContent=r.error||'Keine Karten.'; return; }
+  try{
+    const r=await (await fetch(u)).json();
+    if(r.error||!(r.cards||[]).length){
+      // NIEMALS leer: Fehler sichtbar zeigen (inkl. abgelaufener Session — 401-Case
+      // zeigt der 401-Interceptor → redirect auf /login):
+      $('cardFront').textContent='—';
+      $('cardMeta').textContent=r.error||'Keine Karten in diesem Bereich.';
+      return;
+    }
     window._cards=r.cards;
   }catch(e){ $('cardMeta').textContent='Server nicht erreichbar.'; return; }
   window._lastWrong=[]; window._lastWrongCards=[];
