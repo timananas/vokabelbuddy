@@ -390,7 +390,7 @@ body{overflow-x:hidden}
       <button class="msave" id="mSave">Speichern</button>
     </div>
     </div><!-- /adminZone -->
-    <div style="border-top:1px solid var(--line); margin-top:12px; padding-top:12px">
+    <div id="seriesZone" class="hidden" style="border-top:1px solid var(--line); margin-top:12px; padding-top:12px">
       <div style="font-weight:800; font-size:.95rem">Vokabelheft (Reihe)</div>
       <div style="display:flex; gap:8px; margin-top:8px">
         <select id="seriesSel" style="flex:1"></select>
@@ -1535,7 +1535,7 @@ async function openAdmin(){
   loadSeries();
   loadParents();  // intern: nur bei ME.role==='admin' sichtbar/aktiv
   const isAdmin = ME && ME.role==='admin';
-  for(const id of ['adminZone','adminOnlyZone','adminKidsZone','adminResetZone'])
+  for(const id of ['adminZone','adminOnlyZone','adminKidsZone','adminResetZone','seriesZone'])
     { const el=document.getElementById(id); if(el) el.classList.toggle('hidden', !isAdmin); }
   // MFA-Sektion: Kids ohne MFA (Rollen-Design) — ausblenden (Sektion = Nachfolger von #pwForm)
   const pf=document.getElementById('pwForm');
