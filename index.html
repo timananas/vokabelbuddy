@@ -381,6 +381,7 @@ body{overflow-x:hidden}
       <button class="mcancel" id="mCancel">Abbrechen</button>
       <button class="msave" id="mSave">Speichern</button>
     </div>
+    </div><!-- /adminZone -->
     <div class="mrow" style="margin-top:12px; border-top:1px solid var(--line); padding-top:12px; flex-direction:column; align-items:stretch">
       <div class="acct-head" style="font-weight:800; font-size:.95rem">Konto</div>
       <div id="pwForm" style="display:grid; gap:8px; margin-top:4px">
@@ -405,7 +406,6 @@ body{overflow-x:hidden}
         <div class="mdone" id="mfaNote"></div>
       </div>
     </div>
-    </div>
     <div id="adminOnlyZone" class="hidden" style="border-top:1px solid var(--line); margin-top:12px; padding-top:12px">
       <div style="font-weight:800; font-size:.95rem">Eltern-Accounts</div>
       <div id="parentList" style="display:flex; flex-direction:column; gap:6px; margin-top:8px"></div>
@@ -415,6 +415,15 @@ body{overflow-x:hidden}
         <button class="msave" id="paAdd" style="width:auto; padding:10px 14px">Anlegen</button>
       </div>
       <div class="mdone" id="paNote"></div>
+    </div>
+    <div id="adminResetZone" class="hidden" style="border-top:1px solid var(--line); margin-top:12px; padding-top:12px">
+      <div style="font-weight:800; font-size:.95rem">Kennwort zurücksetzen</div>
+      <div style="display:flex; gap:8px; margin-top:8px">
+        <select id="rsUser" style="flex:1"></select>
+        <input id="rsPw" type="text" placeholder="Neues Kennwort" autocomplete="off" style="flex:1">
+        <button class="msave" id="rsGo" style="width:auto; padding:10px 14px">Setzen</button>
+      </div>
+      <div class="mdone" id="rsNote"></div>
     </div>
     <div id="adminKidsZone" class="hidden" style="border-top:1px solid var(--line); margin-top:12px; padding-top:12px">
       <div style="font-weight:800; font-size:.95rem">Kinder-Accounts</div>
@@ -656,10 +665,28 @@ function loadParents(){
   $('adminKidsZone').classList.remove('hidden');
   try{
     fetch('/api/auth/parents').then(r=>r.json()).then(j=>{
-      renderParents(j.parents||[]);
+      window.__parents=j.parents||[];
+      renderParents(window.__parents);
       renderKidAccounts(j.kids||[]);
     }).catch(()=>{});
   }catch(e){}
+  // Kennwort-Reset (admin): alle users aus Eltern+Kids-Listen:
+  if(ME && ME.role==='admin'){
+    const rs=$('rsUser');
+    if(rs){
+      const names=['luis','carlotta',...((window.__parents||[]).map(p=>p.user))];
+      rs.innerHTML=names.map(n=>`<option value="${esc(n)}">${esc(n)}</option>`).join('');
+      $('rsGo').onclick=async()=>{
+        $('rsNote').textContent='…';
+        try{
+          const r=await (await fetch('/api/account/reset',{method:'POST',headers:{'Content-Type':'application/json'},
+            body:JSON.stringify({user:rs.value, password:$('rsPw').value})})).json();
+          $('rsNote').textContent = r.ok ? `✅ ${r.user} hat das Kennwort: ${$('rsPw').value} — Luis/Carlotta sagen!` : (r.error||'Fehler');
+          if(r.ok){ $('rsPw').value=''; }
+        }catch(e){ $('rsNote').textContent='Server nicht erreichbar'; }
+      };
+    }
+  }
   $('kcAdd').onclick=async()=>{
     $('kcNote').textContent='…';
     try{
@@ -1379,7 +1406,7 @@ async function openAdmin(){
   loadAccount();
   loadParents();  // intern: nur bei ME.role==='admin' sichtbar/aktiv
   const isAdmin = ME && ME.role==='admin';
-  for(const id of ['adminZone','adminOnlyZone','adminKidsZone'])
+  for(const id of ['adminZone','adminOnlyZone','adminKidsZone','adminResetZone'])
     { const el=document.getElementById(id); if(el) el.classList.toggle('hidden', !isAdmin); }
   // MFA-Sektion: Kids ohne MFA (Rollen-Design) — ausblenden (Sektion = Nachfolger von #pwForm)
   const pf=document.getElementById('pwForm');
