@@ -525,7 +525,7 @@ async function init(){
   try{
     const ar = await (await fetch('/auth/state')).json();
     if(ar.setup){ location.href='/setup'; return; }
-    if(!ar.auth){ location.href='/login'; return; }
+    if(!ar.auth || !ar.user){ location.href='/login'; return; }  // 401-ghost vermeiden
     ME = ar;
     if(ar.kid){ kid = ar.kid; localStorage.setItem('vb_kid', ar.kid); }
   }catch(e){}
@@ -536,7 +536,13 @@ async function init(){
     $('subtitle').textContent='Server nicht erreichbar'; return;
   }
   book = META.books.some(b=>b.id===book) ? book : META.books[0].id;
-  kid  = META.kids.some(k=>k.id===kid) ? kid : (META.kids[0]?.id||'');
+  // Die gewählte Kid MUSS zum eingeloggten Konto passen (stale localStorage von
+  // anderem Account → amelia stand sonst bei juliane, bevor sie luis wählte):
+  const _allowed = ME ? (ME.role==='admin' ? META.kids.map(k=>k.id)
+                  : ME.role==='parent' ? (ME.kids||[])
+                  : [ME.kid]) : META.kids.map(k=>k.id);
+  if(!_allowed.includes(kid)) kid = _allowed[0] || '';
+  if(!_allowed.includes(kid) || !META.kids.some(k=>k.id===kid)) kid = (META.kids[0]?.id||'');
   // Default-Band je Kind — aber nur beim ERSTEN Besuch (kein gespeicherter Band)
   if(!localStorage.getItem('vb_book')){
     const db=(META.default_book||{})[kid];
