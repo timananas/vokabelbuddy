@@ -139,14 +139,14 @@ def _ensure_default_users():
 
 
 def _totp_now(secret, t=None):
-    """RFC 6238 (8 digits, Planbrett-kompatibel)"""
+    """RFC 6238 — STANDARD 6 Ziffern (Google/Microsoft Authenticator, Aegis, …)."""
     t = int(t if t is not None else time.time()) // 30
     key = base64.b32decode(secret + '=' * ((8 - len(secret) % 8) % 8), casefold=True)
     msg = struct.pack('>Q', t)
     dig = hmac.new(key, msg, hashlib.sha1).digest()
     o = dig[19] & 0x0f
-    code = (struct.unpack('>I', dig[o:o + 4])[0] & 0x7fffffff) % 1_000_000_00
-    return f'{code:08d}'
+    code = (struct.unpack('>I', dig[o:o + 4])[0] & 0x7fffffff) % 1_000_000
+    return f'{code:06d}'
 
 
 def totp_verify(secret, code):
@@ -154,7 +154,7 @@ def totp_verify(secret, code):
         return False
     code = re.sub(r'[^0-9]', '', str(code))
     t = time.time()
-    return any(_totp_now(secret, t + off) == code for off in (-30, 0, 30))
+    return any(_totp_now(secret, t + off) == code for off in (-60, -30, 0, 30, 60))
 
 
 TRUST_USERS_FILE = 'trust_users'  # in AUTH_MEM (mit auth.json persistiert)
