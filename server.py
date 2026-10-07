@@ -263,7 +263,12 @@ class _AuthGateMixin:
         return len(fails) >= 5
 
     def _record_fail(self, ip):
-        LOGIN_FAILS.setdefault(ip, []).append(time.time())
+        # GC: ältere Einträge weg + die Liste nicht unendlich wachsen lassen (Memory-Hygiene):
+        now = time.time()
+        for k in [k for k, v in LOGIN_FAILS.items()
+                  if not v or now - v[-1] > 1800] or (['x'] if len(LOGIN_FAILS) > 4000 else []):
+            LOGIN_FAILS.pop(k, None)
+        LOGIN_FAILS.setdefault(ip, []).append(now)
 
 
     def _forced_kid(self, asked):
@@ -316,7 +321,7 @@ SECURITY_HEADERS = [
     ('Referrer-Policy', 'same-origin'),
     ('Permissions-Policy', 'camera=(), microphone=(), geolocation=()'),
     ('Content-Security-Policy',
-     "default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; "
+     "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; "
      "font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; "
      "connect-src 'self'; frame-ancestors 'self' https://homeassistant.henskes.cloud; "
      "base-uri 'self'; form-action 'self'"),
@@ -942,7 +947,8 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
         self.send_response(code)
         self.send_header('Content-Type', ctype)
         self.send_header('Content-Length', str(len(body)))
-        self.send_header('X-Content-Type-Options', 'nosniff')
+        for k, v in SECURITY_HEADERS:
+            self.send_header(k, v)
         self.send_header('Cache-Control', 'no-store')
         self.end_headers()
         if self.command != 'HEAD':
@@ -1026,7 +1032,9 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
                                 'kids': (u.get('kids') or []) if me['role']=='parent' else
                                         ([k['id'] for k in KIDS] if me['role']=='admin' else [])})
                 else:
-                    self._json({'auth': True}, 401)
+                    # 401-Körper MUSS auth:false tragen (sonst rendert die App ein
+                    # 'ghost-auth' mit ME={auth:true} ohne user — Zona-Tot):
+                    self._json({'auth': False, 'login': True}, 401)
                 return
             if not self._auth_gate(r):
                 return
@@ -1243,23 +1251,6 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
                 self.send_header('Location', '/')
                 self.send_header('Set-Cookie', _set_cookie(SESSION_COOKIE, sess, SESSION_TTL))
                 self.send_header('Set-Cookie', _set_cookie(TRUST_COOKIE, trust, TRUST_TTL))
-                self.send_header('Content-Length', '0')
-                self.end_headers()
-                return
-                salt = list(os.urandom(16))
-                AUTH_MEM['password_hash'] = _pbkdf2(pw1, salt)
-                AUTH_MEM['salt'] = salt
-                auth_save()
-                # direkt Session ausstellen:
-                tok = _new_token()
-                AUTH_MEM.setdefault('sessions', {})[tok] = {'exp': time.time() + SESSION_TTL}
-                trust = _new_token()
-                AUTH_MEM.setdefault('trusted', {})[trust] = time.time() + TRUST_TTL
-                auth_save()
-                self.send_response(303)
-                self.send_header('Location', '/')
-                self.send_header('Set-Cookie', _set_cookie(SESSION_COOKIE, tok, SESSION_TTL, secure=self._is_https()))
-                self.send_header('Set-Cookie', _set_cookie(TRUST_COOKIE, trust, TRUST_TTL, secure=self._is_https()))
                 self.send_header('Content-Length', '0')
                 self.end_headers()
                 return
@@ -1831,6 +1822,11 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
         """Karteikarten-Stapel (gleiche Auswahl-Parameter wie /api/quiz)."""
         book = (q.get('book') or [''])[0]
         kid = (q.get('kid') or [''])[0]
+        fkid = self._forced_kid(kid) if auth_has_password() else kid
+        if auth_has_password() and fkid is None:
+            self._json({'error': 'Parameter fehlen'}, 400)
+            return
+        kid = fkid
         nonce = (q.get('nonce') or [''])[0]
         chapters = {c for c in ((q.get('chapters') or [''])[0].split(',')) if c}
         qtype = (q.get('type') or ['both'])[0]
