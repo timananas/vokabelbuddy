@@ -769,8 +769,8 @@ document.addEventListener('click', async e=>{
 });
 async function loadSeries(){
   if(!META || !META.series) return;
-  const sel=$('seriesSel'); if(!sel) return;
-  sel.innerHTML=META.series.map(s=>`<option value="${esc(s.id)}"${s.id===(META.series_current||'access')?' selected':''}>${esc(s.name)}</option>`).join('');
+  const sSel=$('seriesSel'); if(!sSel) return;
+  sSel.innerHTML=META.series.map(s=>`<option value="${esc(s.id)}"${s.id===(META.series_current||'access')?' selected':''}>${esc(s.name)}</option>`).join('');
   $('seriesSave').onclick=async()=>{
     $('seriesNote').textContent='…';
     try{
@@ -783,7 +783,7 @@ async function loadSeries(){
         META=await (await fetch('/api/meta')).json();
         book = META.books.some(b=>b.id===book) ? book : (META.books[0]?.id||book);
         localStorage.setItem('vb_book', book);
-        chapters=[]; sel.clear(); drawBooks(); loadChapters();
+        chapters=[]; sel.clear(); drawBooks(); loadChapters();  // sel = globales Kapitel-Set
         $('seriesNote').textContent='✅ '+ (META.books[0]?META.books[0].name:'') +' aktiv — Reihe '+(META.series_current||'');
         $('adminOverlay').classList.add('hidden');
       } else $('seriesNote').textContent=r.error||'Fehler';
