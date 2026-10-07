@@ -792,7 +792,7 @@ $('mfaConfirm').onclick=async()=>{
     const r=await (await fetch('/mfa/confirm-json',{method:'POST',headers:{'Content-Type':'application/json'},
       body:JSON.stringify({code:$('mfaCode').value})})).json();
     if(r.ok){ paintMfa(true, null); $('mfaNote').textContent='✅ Zwei-Faktor aktiv.'; }
-    else { $('mfaNote').textContent=r.error||'Code falsch'; $('mfaCode').value=''; }
+    else { $('mfaNote').textContent=(r.error||'Code falsch')+' — bitte prüfen und erneut senden.'; }
   }catch(e){ $('mfaNote').textContent='Server nicht erreichbar'; }
 };
 $('mfaBtnOff').onclick=async()=>{
@@ -802,9 +802,21 @@ $('mfaBtnOff').onclick=async()=>{
   }catch(e){}
 };
 // mfaCode: bei 6 Ziffern auto-confirm
-document.getElementById('mfaCode').addEventListener('input',e=>{
-  if(e.target.value.replace(/\D/g,'').length===6) $('mfaConfirm').click();
-});
+(() => {
+  // Auto-Confirm bei 6 Ziffern — mit Debounce (Paste von iOS liefert 2 Events) und OHNE Feldleeren
+  // bei Fehler (Code bleibt stehen, Hinweis reicht):
+  let mfat=null;
+  const inp=document.getElementById('mfaCode');
+  if(!inp) return;
+  inp.addEventListener('input',e=>{
+    const digits=(e.target.value||'').replace(/\D/g,'').slice(0,6);
+    e.target.value=digits;
+    if(mfat) clearTimeout(mfat);
+    if(digits.length===6){
+      mfat=setTimeout(()=>{ const b=document.getElementById('mfaConfirm'); if(b && !b.classList.contains('hidden')) b.click(); }, 350);
+    }
+  });
+})();
 const _mfaConfirmToggle=()=>{ $('mfaCode').classList.remove('hidden'); $('mfaConfirm').classList.remove('hidden'); };
 const _mfaBtnStartWrap=$('mfaBtnStart').onclick;  // kein noop
 function drawKids(){
