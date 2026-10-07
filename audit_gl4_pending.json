@@ -1,0 +1,51 @@
+[
+ {
+  "chapter": 3,
+  "en": "curfew",
+  "de": "Sperrstunde; Ausgangssperre; hier: Uhrzeit, zu der man nach Hause",
+  "issue": "Übersetzung abgeschnitten (klingt wie ein unfertiger Satz „...nach Hause“); offizielle Klett-Liste bricht hier ebenfalls ab",
+  "fix": "Sperrstunde; Ausgangssperre; hier: Uhrzeit, zu der man nach Hause muss."
+ },
+ {
+  "chapter": 5,
+  "en": "oral historian",
+  "de": "Historiker/-in mit Spezialisierung auf mündlich überlieferter",
+  "issue": "Übersetzung bricht mitten im Nominalphrasen-Param ab (grammatikalisch „überlieferter ???“); auch offizielle Klett-Liste unvollständig",
+  "fix": "Historiker/-in mit Spezialisierung auf mündlich überlieferte Geschichte"
+ },
+ {
+  "chapter": 7,
+  "en": "security guard",
+  "de": "Sicherheitsbediensteter/Sicherheit sbedienstete",
+  "issue": "Fehlendes Leerzeichen/Schmuck-Glitch in Variante 2: „Sicherheit sbedienstete“ — Unwort",
+  "fix": "Sicherheitsbediensteter/Sicherheitsbedienstete"
+ },
+ {
+  "chapter": 3,
+  "en": "police officer",
+  "de": "Polizist/-in; Polizeibeamter/- beamtin",
+  "issue": "Fehlendes Leerzeichen/Schmuck-Glitch in Variante 2: „Polizeibeamter/- beamtin“ — Unwort",
+  "fix": "Polizist/-in; Polizeibeamter/-in"
+ },
+ {
+  "chapter": 3,
+  "en": "I can see where you're coming",
+  "de": "from.",
+  "issue": "Headword/Übersetzungs-Zeilenumbruch-Artefakt: EN ist ein Fragment („I can see where you’re coming from.”), DE-Feld „from.“ gehört zum EN-Satz, fehlende Übersetzung",
+  "fix": "EN: I can see where you’re coming from. — DE: Ich verstehe, was du meinst."
+ },
+ {
+  "chapter": 5,
+  "en": "Necessity is the mother of",
+  "de": "invention.",
+  "issue": "Headword-Zeilenumbruch-Artefakt: EN-Feld ist ein Fragmentsatz, DE-Feld = überzählige Restzeile des englischen Sprichworts („invention.“) statt Übersetzung",
+  "fix": "EN: Necessity is the mother of invention. — DE: Not macht erfinderisch."
+ },
+ {
+  "chapter": 9,
+  "en": "right",
+  "de": "Recht",
+  "issue": "Doppel-Entry im Seed: „right“ zweimal in Kapitel 3 (Unit 1) mit aufgeteilten Bedeutungen (‚Recht“ und ‚direkt; genau“); offizielle Liste hat beide (S2 u. ST) an zwei Stellen — im Trainer als verwirrendes Duplikat",
+  "fix": "Konsolidieren zu: right → Recht; direkt; genau  (ein Entry; ggf. zweites Vorkommen löschen)"
+ }
+]

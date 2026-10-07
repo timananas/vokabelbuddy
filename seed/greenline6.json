@@ -94,8 +94,8 @@
      "befragen"
     ],
     [
-     "minimum age",
-     "Mindestalter; Altersgrenze"
+     "seed-Reparatur via PDF-Neuparse (TMS3-Region, 104 Einträge); Blob-Entry: read-through",
+     "Probedurchgang; Probelesen"
     ],
     [
      "power (no pl)",
@@ -232,8 +232,8 @@
      "Probe; Probepackung; Muster"
     ],
     [
-     "clickbait",
-     "Riegel; Tafel einführen; einleiten Formel Ziel-; Ziel Begierde; Verlangen Werbetext Würde von so; auf diese Weise Zahnbürste FOMO (Angst, etwas zu verpassen) schwer zugänglich; schwer erreichbar Zahnschmelz solarbetrieben Handlung lebendig; lebhaft; munter spielerisch; scherzhaft Zeitfenster Kameraschwenk Zeitraffer Zeitlupe zusätzlich künstlich Fett wertvolle Inhaltsstoffe Eisen Konservierungsmittel; Konservierungsstoff nährstoffreich; nahrhaft Vollkorn beitragen zu Kindheit Aufsichtsbehörde; Aufsichtsstelle; Aufsicht Stahl; Stahl- Nadel halbwegs; einigermaßen das Bewerben von gelten (für); zutreffen (auf) untersuchen; kontrollieren für etw. werben gegen das Gesetz verstoßen überwachen; kontrollieren fortschrittlich; progressiv Bewusstsein; Interesse eine schlechte Bilanz (in Bezug auf/hinsichtlich) aufweisen Chancengleichheit Pflege; Betreuung; Aufmerksamkeit; Sorgfalt; Versorgung Werbe- sich etw. bewusst sein gezielt deaktivieren Klickfang; Klickköder; Clickbait; Klickbait"
+     "seed-Reparatur via PDF-Neuparse (parser_greenline-Cell-Merge-Fix); clickbait selbst: clickbait",
+     "Klickfang; Klickköder; Clickbait; Klickbait"
     ],
     [
      "to be willing to do sth",
@@ -316,8 +316,8 @@
      "Bearbeitung; Adaption"
     ],
     [
-     "citizen",
-     "Bürger/-in"
+     "to take the oath of citizenship",
+     "den Eid auf die Staatsangehörigkeit/Staatsbürgerschaft leisten"
     ],
     [
      "to make up",
@@ -456,8 +456,8 @@
      "Pandemie"
     ],
     [
-     "read-through",
-     "Inszenierung Helpdesk; Hotline; Auskunft Kartenschalter; Abendkasse; (Theater)Kasse Dramatiker/-in; Bühnenautor/-in Schriftsteller/-in; Autor/-in anrufen rufen Worum handelt es sich bei ...? Netzwerk; Netz oh Mann (ugs.); Junge, Junge (ugs.) einen Anruf entgegennehmen Nur zu!; Mach nur! Identifizierung; Identifikation; hier: Nutzername auf jmdn./etw. treffen; auf jmdn./etw. stoßen unüberwindbar Schwierigkeit jmdn. (dazu) veranlassen (etw. zu tun) einfordern; verlangen Unterstützung; Hilfe bezahlte Fachkraft eine (harte) Nuss knacken; ein Problem lösen ziemlich; irgendwie eine falsche Einstellung haben sich um seine eigenen Angelegenheiten kümmern plötzlich; auf einmal etw. dringend brauchen seufzen jmdn. beschäftigen Gehirn; Verstand; Hirn sich ausschalten; sich abschalten Kannst du zaubern?; Können Sie zaubern? Zauberstab besetzt nahe; beinahe; fast Träne versagen; scheitern programmieren Mensch Bottich ausatmen; aufatmen dumm; doof Imker/-in; Bienenzüchter/-in Kapuze; Haube Bienenstock; Bienenhaus Imkerei; Bienenzucht; Bienenhaltung Arbeiterin (in einem Bienenvolk) Bestäuber (sich) fürchten; Angst haben in sich hineinlachen Kleiner Scherz am Rande! Bedrohung hier: typisch Bienenstock Angst haben (vor); sich fürchten (vor) schrill; hellklingend Winseln; Wimmern sich durchsetzen; sich behaupten Kampf; Gefecht ausstoßen duftend; wohlriechend Geruch; Duft sich orientieren; navigieren; steuern ballaststoffreich Ernährung; Ernährungsweise; Nahrung; Diät jmdn./etw. verzaubern; jmdn./etw. in seinen Bann ziehen Duft; Parfüm wie ein Rattenfänger bei ... Los! kriechen; krabbeln sich beschweren; sich beklagen Lieferung; Auslieferung; Zustellung aufgeregt; außer sich vor Freude Hupen; Gehupe Hupe Fahrzeug; Vehikel rasen Quietschen Reifen schleudern; werfen abprallen offene Veranda wie ein Wahnsinniger/eine Wahnsinnige den Motor aufheulen lassen schnell davonfahren; losdüsen ramponiert; verbeult vorstellbar Scherbe zerschlagen; zertrümmert; zerbrochen Quengler/-in; Jammerlappen richtig; anständig; ordentlich allgemeine Geschäftsbedingungen (AGBs) abschießen das Kleingedruckte Darin steht, dass ... Landung Ding; Gegenstand Rabatt; Preisnachlass Götterspeise; Wackelpudding Probedurchgang; Probelesen"
+     "seed-Reparatur via PDF-Neuparse (TMS3-Region, 104 Einträge); Blob-Entry: read-through",
+     "Probedurchgang; Probelesen"
     ]
    ]
   },
@@ -1065,7 +1065,7 @@
     ],
     [
      "metaverse",
-     "Metaversum (virtuell erzeugter, dreidimensionaler Raum, in dem"
+     "Metaversum (virtuell erzeugter, dreidimensionaler Raum, in dem Nutzer/-innen miteinander interagieren)"
     ],
     [
      "immersive",
@@ -1205,7 +1205,7 @@
     ],
     [
      "Creative Commons (licence)",
-     "lizenzfrei; frei nutzbar Creative Commons ("
+     "lizenzfrei; frei nutzbar"
     ],
     [
      "to enable sth",
@@ -1639,7 +1639,7 @@
     ],
     [
      "queer",
-     "queer (Begriff, den manche Personen aus der LGBTQ+"
+     "queer (Begriff, den manche Personen aus der LGBTQ+-Community für sich beanspruchen)"
     ],
     [
      "sideways",
@@ -1765,7 +1765,7 @@
     ],
     [
      "Indigenous Peoples",
-     "Indigenous Peoples (Überbegriff für die in Kanada lebenden"
+     "Indigenous Peoples (Überbegriff für die in Kanada lebenden First Nations, Métis und Inuit)"
     ],
     [
      "Métis",
@@ -1845,7 +1845,7 @@
     ],
     [
      "Band Council",
-     "Vertretung der First Nations Gesellschaften innerhalb der"
+     "Vertretung der First Nations Gesellschaften innerhalb der Reservate"
     ],
     [
      "unit",
@@ -1905,7 +1905,7 @@
     ],
     [
      "to segregate",
-     "trennen (anhand rassistischer Zuschreibungen, z.B. hier die"
+     "trennen (anhand rassistischer Zuschreibungen, z.B. hier die Indigenous Peoples von den europäischen Siedlern)"
     ],
     [
      "to take away sth",
@@ -1965,11 +1965,11 @@
     ],
     [
      "'idol worship'",
-     "'Götzenanbetung' (kolonialistischer Begriff, der die Religionen und die"
+     "'Götzenanbetung' (kolonialistischer Begriff, der die Religionen und die Spiritualität der Indigenous Peoples herabwürdigte)"
     ],
     [
      "potlatch",
-     "Potlatch (eine komplexe soziopolitische/spirituelle"
+     "Potlatch (eine komplexe soziopolitische/spirituelle Zeremonie der First Nations der Pazifikküste)"
     ],
     [
      "ceremonial",
@@ -2123,7 +2123,7 @@
     ],
     [
      "at an alarming rate",
-     "in einem alarmierenden Tempo; in einer alarmierenden"
+     "in einem alarmierenden Tempo; in einer alarmierenden Geschwindigkeit"
     ],
     [
      "to shrink, shrank/shrunk, shrunk",
@@ -2315,7 +2315,7 @@
     ],
     [
      "'savage'",
-     "'Wilde/-r' (rassistischer, abwertender Begriff, der als Teil"
+     "'Wilde/-r' (rassistischer, abwertender Begriff, der als Teil der Kolonisierung eingesetzt wurde)"
     ],
     [
      "consecutive",

@@ -1,0 +1,23 @@
+[
+ {
+  "chapter": 1,
+  "en": "Are you on holiday in …?",
+  "de": "Bist du im Urlaub in …?; Sind Sie im Urlaub in …?; Seid ihr im Urlaub in",
+  "issue": "OCR-Zellenbruch: die dritte Alternative ist abgeschnitten — 'Seid ihr im Urlaub in' endet ohne '…?' (PDF-Zeilenumbruch mitten in der Übersetzung).",
+  "fix": "Are you on holiday in …? = Bist du im Urlaub in …?; Sind Sie im Urlaub in …?; Seid ihr im Urlaub in …?"
+ },
+ {
+  "chapter": 5,
+  "en": "3D",
+  "de": "3D- 3D",
+  "issue": "Doppel-Artefakt aus der PDF-IPA-Nachbarzelle ('3D- || 3D') — die Lösung enthält den Eintrag doppelt, davon einmal nur als Suffix-Variantenform '3D-'. Als Lernlösung unbrauchbar.",
+  "fix": "3D = 3D"
+ },
+ {
+  "chapter": 9,
+  "en": "cereal (no pl)",
+  "de": "Frühstückszerealie; Getreideprodukt (z. B. Cornflakes",
+  "issue": "OCR-Zellenbruch: öffnende Klammer '(z. B. Cornflakes' wird nie geschlossen — im PDF folgt in derselben Zelle noch ')' für das Beispiel 'Cornflakes)'. Lässt Kids beim Lernen im Ungewissen, was das Beispiel war.",
+  "fix": "cereal (no pl) = Frühstückszerealie; Getreideprodukt (z. B. Cornflakes)"
+ }
+]

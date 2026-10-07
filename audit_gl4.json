@@ -1,0 +1,57 @@
+{
+ "book": "greenline4",
+ "checked_pairs": 634,
+ "reference": "offizielle Klett-Vokabelliste GL G9 Band 4 (Vokabelliste_835040_GL_G9_19_4_ukr.pdf); Seed stimmt in 632/634 Paaren wortidentisch mit der Vorlage (restlos ohne Inhaltsfehler)",
+ "generated": "2026-10-07",
+ "findings": [
+  {
+   "chapter": 3,
+   "en": "curfew",
+   "de": "Sperrstunde; Ausgangssperre; hier: Uhrzeit, zu der man nach Hause",
+   "issue": "Übersetzung abgeschnitten: sie endet als unfertiger Satz („zu der man nach Hause“ — es fehlt ‚muss.‘); bricht so auch in der Klett-Vorlage ab",
+   "fix": "Sperrstunde; Ausgangssperre; hier: Uhrzeit, zu der man nach Hause muss."
+  },
+  {
+   "chapter": 5,
+   "en": "oral historian",
+   "de": "Historiker/-in mit Spezialisierung auf mündlich überlieferter",
+   "issue": "Übersetzung grammatisch unvollständig: „… auf mündlich überlieferter [—]“ (es fehlt das Bezugswort); bricht so auch in der Klett-Vorlage ab",
+   "fix": "Historiker/-in mit Spezialisierung auf mündlich überlieferte Geschichte"
+  },
+  {
+   "chapter": 7,
+   "en": "security guard",
+   "de": "Sicherheitsbediensteter/Sicherheit sbedienstete",
+   "issue": "Zusammengesetztes Wort mit eingebautem Leerzeichen: „Sicherheit sbedienstete“ ist kein deutsches Wort (Glitch in der Vorlage)",
+   "fix": "Sicherheitsbediensteter/Sicherheitsbedienstete"
+  },
+  {
+   "chapter": 3,
+   "en": "police officer",
+   "de": "Polizist/-in; Polizeibeamter/- beamtin",
+   "issue": "Zusammengesetztes Wort mit eingebautem Leerzeichen: „Polizeibeamter/- beamtin“ ist kein deutsches Wort (Glitch in der Vorlage)",
+   "fix": "Polizist/-in; Polizeibeamter/-in"
+  },
+  {
+   "chapter": 3,
+   "en": "I can see where you're coming",
+   "de": "from.",
+   "issue": "Zeilenumbruch-Artefakt aus der PDF-Quelle: EN-Feld „I can see where you’re coming“ ist ein Satzfragment, DE-Feld „from.“ ist die Restzeile des Englisch-Satzes, keine Übersetzung",
+   "fix": "EN: I can see where you’re coming from. — DE: Ich verstehe, was du meinst."
+  },
+  {
+   "chapter": 5,
+   "en": "Necessity is the mother of",
+   "de": "invention.",
+   "issue": "Zeilenumbruch-Artefakt aus der PDF-Quelle: EN-Feld „Necessity is the mother of“ ist ein Satzfragment, DE-Feld „invention.“ ist die Restzeile des Englisch-Satzes, keine Übersetzung",
+   "fix": "EN: Necessity is the mother of invention. — DE: Not macht erfinderisch."
+  },
+  {
+   "chapter": 3,
+   "en": "right",
+   "de": "Recht",
+   "issue": "Doppelter Entry „right“ in ‚Unit 1‘ (‚Recht‘ und ‚direkt; genau‘): so auch 2 Stelle in der Klett-Vorlage (S2/ST) — im Trainer aber gleicher Lernschlüssel (QID), deshalb erscheint ‚right‘ 2 je Kapitel",
+   "fix": "FAKULTATIV: die zwei Einträge zu einem zusammenführen — right: Recht; direkt; genau"
+  }
+ ]
+}

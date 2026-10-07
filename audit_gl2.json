@@ -1,0 +1,42 @@
+{
+  "book": "greenline2",
+  "audited_pairs": 1132,
+  "method": "Semantik-Vollaudit Green Line G9 2019 Band 2: JEDES [en,de]-Paar einzeln geprueft (EN+DE fliessend, Buchkontext Klasse 6). Verifikation gegen die offizielle Klett-Quelle (Vokabelliste_GL_G9_19_2_ukr.pdf, media_fast_path/145, ISBN-Kern 835020): alle 1132 Paare 1:1 positionsgenau gegen das Original abgeglichen, EN- und DE-Spalten bis auf die unten gelisteten Zeilen zeichenidentisch (Modulo Leer-/Kommavariationen). Verdachtsfaelle (to learn=erfahren, first=erstens, to pass=zupassen; zuspielen, tide=Flut, silly=Dummkopf, official=Schiedsrichter/-in, to include=benutzen;..., for=wegen, print, outside=vor, hard 2x, once 2x, as 3x) einzeln gegen die Raw-PDF-Rows geprueft: alles Quell-getreu und im Lektionskontext legitim -> NICHT geflaggt (keine false positives). Cognaten (marathon=Marathon, quiche, lassi, karaoke, magic) legal. Geflaggt werden nur die objektiv zerbrochenen/abgeschnittenen Zeilen.",
+  "findings": [
+    {
+      "chapter": 6,
+      "en": "On the one hand …, (but) on the",
+      "de": "other hand … *0DE +hxnd ...? Einerseits …, (aber) andererseits …",
+      "issue": "Zerbrochenes Eintragpaar: EN bricht nach '(but) on the' mitten im Redemittel ab ('other hand …' gehoert ins EN-Feld); das DE-Feld enthaelt OCR-IPA-Restmuell ('*0DE +hxnd ...?') gefolgt erst von der echten Uebersetzung. Fuer die Kinder ist weder EN-Redemittel noch DE-Hinweis benutzbar.",
+      "fix": "On the one hand …, (but) on the other hand … = Einerseits …, (aber) andererseits …"
+    },
+    {
+      "chapter": 7,
+      "en": "I’ve done this a million times",
+      "de": "before.",
+      "issue": "Zerbrochenes Eintragpaar: der Satz rest 'before.' rutschte ins DE-Feld — als Uebersetzung steht dort nur 'before.' statt des deutschen Satzes; die echte Uebersetzung ('Ich habe das schon eine Million Mal gemacht.') fehlt komplett.",
+      "fix": "I’ve done this a million times before. = Ich habe das schon eine Million Mal gemacht."
+    },
+    {
+      "chapter": 2,
+      "en": "Happy Birthday!",
+      "de": "Alles Gute zum Geburtstag!; Herzlichen Glückwunsch zum",
+      "issue": "Zweite Grußformel bricht ab und endet auf dem haengenden Artikel 'zum' (in der offiziellen Klett-Liste ebenfalls abgebrochen) — als Lernitem ein unlesbares Fragment; 'zum Geburtstag!' fehlt.",
+      "fix": "Alles Gute zum Geburtstag!; Herzlichen Glückwunsch zum Geburtstag!"
+    },
+    {
+      "chapter": 5,
+      "en": "mudlark",
+      "de": "jemand, der im Schlamm nach Sachen sucht, die er dann",
+      "issue": "Erklaerung bricht mitten im Nebensatz ab ('… die er dann' — wie verhaelt es sich weiter?) und ist so fuer die Kids ein unvollstaendiger Torso; die Kernbedeutung (am Flussufer/Ufer gelegene Suche nach Gegenstaenden, z. B. an der Themse) fehlt komplett.",
+      "fix": "jemand, der im Schlamm (am Flussufer) nach Gegenständen sucht, die er dann behält oder verkauft"
+    },
+    {
+      "chapter": 8,
+      "en": "cream tea",
+      "de": "Cream Tea (südwestenglische Spezialität: Tee mit süßen",
+      "issue": "Erklaerung bricht mitten im Adjektiv/Complement ab ('… Tee mit süßen' — Womit?), die Fortsetzung (Scones mit Clotted Cream und Marmelade) fehlt; unleserlicher Fragmenteintrag.",
+      "fix": "Cream Tea (südwestenglische Spezialität: Tee mit Scones, Clotted Cream und Marmelade)"
+    }
+  ]
+}

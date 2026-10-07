@@ -1,0 +1,105 @@
+{
+ "done": true,
+ "findings": 14,
+ "out_file": "/home/hermesadmin/workspace/vokabelbuddy/audit_gl5.json",
+ "report": [
+  {
+   "chapter": 2,
+   "en": "journalism",
+   "de": "<Blob aus 1934 Zeichen, s. Seed-Feld>",
+   "issue": "Zeile korrupt (verifiziert gg. offizielle Klett-Liste G9 Band 5): statt 'sound engineer → Tontechniker/-in' steht EN 'journalism' und im DE-Feld ein Blob verketteter Übersetzungen der TMS1/S1-S2-Folgerowen (up to, emergency services, to rescue ... Journalismus). Die offizielle Zeile 'sound engineer' fehlt dadurch im Chapter; 'journalism' (→ Journalismus) ist eine TMS-Zeile und gehört nicht ins Chapter Check-in.",
+   "fix": "en → 'sound engineer'; de → 'Tontechniker/-in'"
+  },
+  {
+   "chapter": 2,
+   "en": "to vibrate",
+   "de": "<Blob aus 1708 Zeichen, s. Seed-Feld>",
+   "issue": "Zeile korrupt: statt 'impressive → beeindruckend' steht EN 'to vibrate' und ein Blob verketteter DE-Texte der TMS2/S2-Folgerowen (bis 'vibrieren'). Die offizielle Zeile 'impressive' fehlt im Chapter; 'to vibrate' ist eine TMS-Zeile.",
+   "fix": "en → 'impressive'; de → 'beeindruckend'"
+  },
+  {
+   "chapter": 2,
+   "en": "in brief",
+   "de": "<Blob aus 701 Zeichen, s. Seed-Feld>",
+   "issue": "Zeile korrupt: statt 'call for → Aufruf (zu); Forderung (nach)' steht EN 'in brief' und ein Blob der TMS3/S2-Folgerowen (bis 'kurz gesagt'). Die offizielle Schlusszeile 'call for' fehlt im Chapter; 'in brief' ist eine TMS-Zeile.",
+   "fix": "en → 'call for'; de → 'Aufruf (zu); Forderung (nach)'"
+  },
+  {
+   "chapter": 4,
+   "en": "<fehlende Zeile zwischen 'barbie (= barbecue) (Aus) (infml)' und 'marine stinger (Aus)'>",
+   "de": "<fehlt>",
+   "issue": "Zeile fehlt komplett (Seitenwechsel-Verlust): offiziell steht zwischen 'barbie' und 'marine stinger' die Zeile \"G'day! (= Good day!) (Aus)\"; alle Folgezeilen des Chapters sind dadurch um 1 Position verschoben.",
+   "fix": "Zeile einfügen: \"G'day! (= Good day!) (Aus)\" → \"Guten Tag.; Hallo.; Hi. (Begrüßung in Australien)\""
+  },
+  {
+   "chapter": 7,
+   "en": "GCSE (= General Certificate of",
+   "de": "Secondary Education) +sekEndri-edZU*keISn)? allg. Abschluss der weiterführenden Schulen in",
+   "issue": "Zeile über Spalten/Seiten zerrissen: EN bricht mitten im Ausdruck ab; der EN-Rest 'Secondary Education)' und das Lautschrift-Artefakt '+sekEndri-edZU*keISn)?' landeten im DE-Feld. Offizielle EN: 'GCSE (= General Certificate of Secondary Education)'; offizielles DE: 'allg. Abschluss der weiterführenden Schulen in England, Wales und Nordirland' (in der offiziellen Liste selbst am Spaltenende abgeschnitten: '... Schulen in').",
+   "fix": "en → 'GCSE (= General Certificate of Secondary Education)'; de → 'allg. Abschluss der weiterführenden Schulen in England, Wales und Nordirland'"
+  },
+  {
+   "chapter": 2,
+   "en": "ecological footprint",
+   "de": "<fehlt in Seed>",
+   "issue": "In der offiziellen Vokabelliste steht 'ecological footprint → ökologischer Fußabdruck' als erste Zeile VOR 'AC1 slave', ohne Lektion-Tag; im Seed fehlt die Zeile. Die Kapitel-Zuordnung ist in der offiziellen Liste nicht gekennzeichnet (Tag-Zelle leer).",
+   "fix": "Zeile ergänzen: 'ecological footprint' → 'ökologischer Fußabdruck' (am Anfang von Check-in bzw. vor AC1)"
+  },
+  {
+   "chapter": 1,
+   "en": "segregated",
+   "de": "getrennt (= auf einem rassistischen System der Trennung von",
+   "issue": "DE-Definition endet mittendrin ('der Trennung von …' — Fortsetzung fehlt).",
+   "fix": "de → 'getrennt (= auf einem rassistischen System der Trennung von Schwarzen und Weißen basierend)' (Ergänzung aus Kontext; Schnitt bereits in offizieller Liste)"
+  },
+  {
+   "chapter": 3,
+   "en": "pantomime",
+   "de": "Aufführung eines Märchens mit Musik, Tanz und humorvollen",
+   "issue": "DE-Definition endet mittendrin ('humorvollen …' — Bezugswort fehlt).",
+   "fix": "de → 'Aufführung eines Märchens mit Musik, Tanz und humorvollen Einlagen' (Ergänzung aus Kontext; Schnitt bereits in offizieller Liste)"
+  },
+  {
+   "chapter": 3,
+   "en": "wildfire",
+   "de": "Waldbrand; nicht zu kontrollierender",
+   "issue": "DE-Gloss endet mittendrin ('nicht zu kontrollierender …' — Bezugswort fehlt).",
+   "fix": "de → 'Waldbrand; nicht zu kontrollierendes Feuer' (Ergänzung aus Kontext; Schnitt bereits in offizieller Liste)"
+  },
+  {
+   "chapter": 5,
+   "en": "Dreamtime",
+   "de": "Traumzeit (= Begriff, der sich auf das religiös-kulturelle",
+   "issue": "DE-Definition endet mittendrin ('religiös-kulturelle …' — Fortsetzung fehlt).",
+   "fix": "de → 'Traumzeit (= Begriff, der sich auf das religiös-kulturelle Weltbild der Aborigines bezieht)' (Ergänzung aus Kontext; Schnitt bereits in offizieller Liste)"
+  },
+  {
+   "chapter": 5,
+   "en": "'race'",
+   "de": "\"sozial konstruierte 'Rasse'\" (= Es gibt keine biologischen",
+   "issue": "DE-Definition endet mittendrin ('keine biologischen …' — Fortsetzung fehlt).",
+   "fix": "de → \"\\\"sozial konstruierte 'Rasse'\\\" (= Es gibt keine biologischen Menschenrassen)\" (Ergänzung aus Kontext; Schnitt bereits in offizieller Liste)"
+  },
+  {
+   "chapter": 4,
+   "en": "Australian of Colour",
+   "de": "Australier/-in of Colour (\"of Colour\" wird als Selbstbezeichnung",
+   "issue": "DE-Gloss endet mittendrin ('als Selbstbezeichnung …' — Fortsetzung fehlt).",
+   "fix": "de → 'Australier/-in of Colour (\"of Colour\" wird als Selbstbezeichnung verwendet)' (Ergänzung aus Kontext; Schnitt bereits in offizieller Liste)"
+  },
+  {
+   "chapter": 6,
+   "en": "to be prejudiced against sb/sth",
+   "de": "voreingenommen sein gegenüber jmdm./etw.; Vorurteile gegenüber",
+   "issue": "DE-Gloss endet mittendrin ('Vorurteile gegenüber …' — Fortsetzung fehlt).",
+   "fix": "de → 'voreingenommen sein gegenüber jmdm./etw.; Vorurteile gegenüber jmdm./etw. haben' (Ergänzung aus Kontext; Schnitt bereits in offizieller Liste)"
+  },
+  {
+   "chapter": 6,
+   "en": "to embarrass",
+   "de": "sich (selbst) in Verlegenheit bringen; sich in eine peinliche Lage",
+   "issue": "DE-Gloss endet mittendrin ('in eine peinliche Lage …' — Verb fehlt).",
+   "fix": "de → 'sich (selbst) in Verlegenheit bringen; sich in eine peinliche Lage bringen' (Ergänzung aus Kontext; Schnitt bereits in offizieller Liste)"
+  }
+ ]
+}

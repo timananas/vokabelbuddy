@@ -1,0 +1,236 @@
+[
+ {
+  "chapter": 2,
+  "en": "clickbait",
+  "issue": "BLOB (PDF-Zell-Merge): die DE-Zellen der Folge-Einträge hängen im de-Feld konkatiniert (to introduce/einführen; einleiten · formula/Formel · target/Ziel-; Ziel · desire/Begierde; Verlangen · ad copy/Werbetext · dignity (no pl)/Würde · out of/von · this/that way/so; auf diese Weise · toothbrush/Zahnbürste · FOMO … · hard-to-reach · enamel/Zahnschmelz · solar-powered · storyline/Handlung · lively · playful · time slot/Zeitfenster · tracking shot · fast motion · slow motion · added · artificial · fat/Fett · goodness/wertvolle Inhaltsstoffe · iron/Eisen · preservative · nutritious · whole grains (pl)/Vollkorn · to contribute to · childhood/Kindheit · watchdog/Aufsichtsbehörde … · steel/[sti:l] Stahl · needle/Nadel · reasonably · promotion of · to apply (to) · to examine · to promote sth · to break the law · to police · progressive · awareness · to have a poor record · equal opportunity · care · promotional · to be aware of sth · targeted · to disable). de im Seed beginnt korrekt mit „Klickfang; Klickköder“ und enthält außerdem EN-Wortfragmente („Formel Ziel-; Ziel Begierde Werbetext…“). Alle 43 Folge-Einträge fehlen als eigenständige Paare (Quelle: /tmp/gl6_lines.txt 1032–1294).",
+  "fix": "seed-Reparatur via PDF-Neuparse (parser_greenline-Cell-Merge-Fix); clickbait selbst: clickbait = Klickfang; Klickköder; Clickbait; Klickbait"
+ },
+ {
+  "chapter": 2,
+  "en": "minimum age",
+  "issue": "BLOB (PDF-Zell-Merge): die DE-Zellen des TMS2-Blocks hängen im de-Feld (intention/Absicht; Intention · summary/Zusammenfassung · honey/Schatz · to quote/zitieren · rise/Anstieg; Zunahme · parental · surveillance · guardian · on a daily basis · whereabouts · extension · helicopter · parenting · battleground · contentious · solicitor · to last · not necessarily · meanwhile · to go along with · request · to catch sb out · frankly · anxious · to mess up · childhood · worrier · to keep sb sane · neither … nor … · evil · boundary · negotiation · dismissive · to confide in sb · mute · rupture · to be disputed · offspring · abridged · entitled · to negotiate sth · to advise · to reduce · to state · partly · restriction · fixed · ID (identification) · purchase · mental · habit · concern · increasingly · rowing · sailing · eventually · to tend to · complaint · to be pleased · to raise · objective · to justify — 61 Einträge). de muss „Mindestalter; Altersgrenze“ sein (Quelle: /tmp/gl6_lines.txt 2698–2700; Paar korrekt in K1 pos20).",
+  "fix": "seed-Reparatur via PDF-Neuparse (TMS2-Region, 61 Einträge); Blob-Entry: minimum age = Mindestalter; Altersgrenze"
+ },
+ {
+  "chapter": 2,
+  "en": "read-through",
+  "issue": "BLOB (PDF-Zell-Merge): die DE-Zellen des TMS3-Blocks hängen im de-Feld (production/Inszenierung · help desk · box office · playwright · novelist · to call in (AE) · to call out · What's the nature of ...? · network · boy (coll) · to pick up a call · go ahead · ID (identification) · to encounter · insurmountable · difficulty · to prompt · to demand · assistance · paid professional · to crack a nugget · kinda · to have an attitude · to mind one's own business · all of a sudden · to be desperate for · to sigh · to keep sb occupied · brain · to cut out · Are you magic? · wand · busy · near · tear · to fail · to programme · human being · vat · to exhale · dumb (rude) · beekeeper · hood · apiary · beekeeping · minion · pollinator · to fear · to chuckle · Just kidding! (AE) · threat · classic · hive · to be frightened (of) · high-pitched · whimper · to assert one's dominance · combat · to extrude · fragrant · odor (AE) · to navigate · high fiber (AE) · diet · to entrance · scent · pied-piper · on the count of · Charge! · to crawl · to complain · delivery · thrilled · honk · horn · vehicle · to careen (AE) · screech · tire (AE) · to hurl · to ricochet · stoop (AE) · maniacally · to gun the engine · to speed off · battered · imaginable · shard · shattered · whiner · properly · terms and conditions · to launch · the fine print · It states that ... · landing · item · discount · jello (AE) — 104 Einträge). de muss „Probedurchgang; Probelesen“ sein (Paar korrekt in K3 pos …). 24 CI-Paare fehlen im Seed-Kapitel.",
+  "fix": "seed-Reparatur via PDF-Neuparse (TMS3-Region, 104 Einträge); Blob-Entry: read-through = Probedurchgang; Probelesen"
+ },
+ {
+  "chapter": 4,
+  "en": "metaverse",
+  "issue": "de-Übersetzung am PDF-Zellenende abgerissen: „Metaversum (virtuell erzeugter, dreidimensionaler Raum, in dem“ (Fortsetzung fehlt). Fortsetzung fehlt — PDF-Zellenende: „Metaversum (virtuell erzeugter, dreidimensionaler Raum, in dem“ (/tmp/gl6_lines.txt 1370–1373); Definition endet unsinnig mitten im Relativsatz",
+  "fix": "metaverse = Metaversum (virtuell erzeugter, dreidimensionaler Raum, in dem Nutzer/-innen miteinander interagieren)"
+ },
+ {
+  "chapter": 5,
+  "en": "queer",
+  "issue": "de-Übersetzung am PDF-Zellenende abgerissen: „queer (Begriff, den manche Personen aus der LGBTQ+“ (Fortsetzung fehlt). Fortsetzung fehlt — PDF-Zellenende (/tmp/gl6_lines.txt 2199–2202); Definition bricht ab",
+  "fix": "queer = queer (Begriff, den manche Personen aus der LGBTQ+-Community für sich beanspruchen)"
+ },
+ {
+  "chapter": 6,
+  "en": "Indigenous Peoples",
+  "issue": "de-Übersetzung am PDF-Zellenende abgerissen: „Indigenous Peoples (Überbegriff für die in Kanada lebenden“ (Fortsetzung fehlt). Fortsetzung fehlt — PDF-Zellenende (/tmp/gl6_lines.txt 2855–2857); Erklärung bricht ab",
+  "fix": "Indigenous Peoples = Indigenous Peoples (Überbegriff für die in Kanada lebenden First Nations, Métis und Inuit)"
+ },
+ {
+  "chapter": 6,
+  "en": "Band Council",
+  "issue": "de-Übersetzung am PDF-Zellenende abgerissen: „Vertretung der First Nations Gesellschaften innerhalb der“ (Fortsetzung fehlt). Fortsetzung fehlt — PDF-Zellenende (/tmp/gl6_lines.txt 2946–2949); Erklärung bricht ab",
+  "fix": "Band Council = Vertretung der First Nations Gesellschaften innerhalb der Reservate"
+ },
+ {
+  "chapter": 6,
+  "en": "to segregate",
+  "issue": "de-Übersetzung am PDF-Zellenende abgerissen: „trennen (anhand rassistischer Zuschreibungen, z.B. hier die“ (Fortsetzung fehlt). Fortsetzung fehlt — PDF-Zellenende (/tmp/gl6_lines.txt 3012–3015); Erklärung bricht ab",
+  "fix": "to segregate = trennen (anhand rassistischer Zuschreibungen, z.B. hier die Indigenous Peoples von den europäischen Siedlern)"
+ },
+ {
+  "chapter": 6,
+  "en": "'idol worship'",
+  "issue": "de-Übersetzung am PDF-Zellenende abgerissen: „'Götzenanbetung' (kolonialistischer Begriff, der die Religionen und die“ (Fortsetzung fehlt). Fortsetzung fehlt — PDF-Zellenende (/tmp/gl6_lines.txt 3089–3092); Erklärung bricht ab",
+  "fix": "'idol worship' = 'Götzenanbetung' (kolonialistischer Begriff, der die Religionen und die Spiritualität der Indigenous Peoples herabwürdigte)"
+ },
+ {
+  "chapter": 6,
+  "en": "potlatch",
+  "issue": "de-Übersetzung am PDF-Zellenende abgerissen: „Potlatch (eine komplexe soziopolitische/spirituelle“ (Fortsetzung fehlt). Fortsetzung fehlt — PDF-Zellenende (/tmp/gl6_lines.txt 3094–3097); Erklärung bricht ab",
+  "fix": "potlatch = Potlatch (eine komplexe soziopolitische/spirituelle Zeremonie der First Nations der Pazifikküste)"
+ },
+ {
+  "chapter": 7,
+  "en": "at an alarming rate",
+  "issue": "de-Übersetzung am PDF-Zellenende abgerissen: „in einem alarmierenden Tempo; in einer alarmierenden“ (Fortsetzung fehlt). Fortsetzung fehlt — PDF-Zellenende (/tmp/gl6_lines.txt 3423–3426); Phrase bricht ab",
+  "fix": "at an alarming rate = in einem alarmierenden Tempo; in einer alarmierenden Geschwindigkeit"
+ },
+ {
+  "chapter": 7,
+  "en": "'savage'",
+  "issue": "de-Übersetzung am PDF-Zellenende abgerissen: „'Wilde/-r' (rassistischer, abwertender Begriff, der als Teil“ (Fortsetzung fehlt). Fortsetzung fehlt — PDF-Zellenende (/tmp/gl6_lines.txt 3687–3690); Erklärung bricht ab",
+  "fix": "'savage' = 'Wilde/-r' (rassistischer, abwertender Begriff, der als Teil der Kolonisierung eingesetzt wurde)"
+ },
+ {
+  "chapter": 2,
+  "en": "to take the oath of citizenship",
+  "issue": "de-Übersetzung am PDF-Zellenende abgerissen: „den Eid auf die Staatsangehörigkeit/Staatsbürgersc“ (Fortsetzung fehlt). Fortsetzung fehlt — PDF-Zellenende (/tmp/gl6_lines.txt 3145–3148); Wort mitten abgerissen („Staatsbürgersc“); Fortsetzung über die Seiten-Break-Zeilen weggeschnitten",
+  "fix": "to take the oath of citizenship = den Eid auf die Staatsangehörigkeit/Staatsbürgerschaft leisten"
+ },
+ {
+  "chapter": 3,
+  "en": "to put sth into practice",
+  "issue": "Seed-de ist SAUBER; Quelle-Feld behält TMS-Marker-„TMS1“-Rest. Parser-Regel: TMS-Marker im de-Feld trimmen (kein Seed-Fix nötig).",
+  "fix": "Kein Seed-Fix — Parser: de-Tail „\\s+TMS1“ trimmen"
+ },
+ {
+  "chapter": 5,
+  "en": "coding",
+  "issue": "Seed-de ist SAUBER; Quelle-Feld behält TMS-Marker-„TMS2“-Rest. Parser-Regel: TMS-Marker im de-Feld trimmen (kein Seed-Fix nötig).",
+  "fix": "Kein Seed-Fix — Parser: de-Tail „\\s+TMS2“ trimmen"
+ },
+ {
+  "chapter": 2,
+  "en": "advertising (no pl)",
+  "issue": "Seed-de ist SAUBER; Quelle-Feld behält TMS-Marker-„TMS1“-Rest. Parser-Regel: TMS-Marker im de-Feld trimmen (kein Seed-Fix nötig).",
+  "fix": "Kein Seed-Fix — Parser: de-Tail „\\s+TMS1“ trimmen"
+ },
+ {
+  "chapter": 2,
+  "en": "print ad",
+  "issue": "Seed-de ist SAUBER; Quelle-Feld behält TMS-Marker-„TMS1“-Rest. Parser-Regel: TMS-Marker im de-Feld trimmen (kein Seed-Fix nötig).",
+  "fix": "Kein Seed-Fix — Parser: de-Tail „\\s+TMS1“ trimmen"
+ },
+ {
+  "chapter": 2,
+  "en": "commercial",
+  "issue": "Seed-de ist SAUBER; Quelle-Feld behält TMS-Marker-„TMS1“-Rest. Parser-Regel: TMS-Marker im de-Feld trimmen (kein Seed-Fix nötig).",
+  "fix": "Kein Seed-Fix — Parser: de-Tail „\\s+TMS1“ trimmen"
+ },
+ {
+  "chapter": 2,
+  "en": "advertiser",
+  "issue": "Seed-de ist SAUBER; Quelle-Feld behält TMS-Marker-„TMS1“-Rest. Parser-Regel: TMS-Marker im de-Feld trimmen (kein Seed-Fix nötig).",
+  "fix": "Kein Seed-Fix — Parser: de-Tail „\\s+TMS1“ trimmen"
+ },
+ {
+  "chapter": 2,
+  "en": "sceptical",
+  "issue": "Seed-de ist SAUBER; Quelle-Feld behält TMS-Marker-„TMS1“-Rest. Parser-Regel: TMS-Marker im de-Feld trimmen (kein Seed-Fix nötig).",
+  "fix": "Kein Seed-Fix — Parser: de-Tail „\\s+TMS1“ trimmen"
+ },
+ {
+  "chapter": 2,
+  "en": "brand",
+  "issue": "Seed-de ist SAUBER; Quelle-Feld behält TMS-Marker-„TMS1“-Rest. Parser-Regel: TMS-Marker im de-Feld trimmen (kein Seed-Fix nötig).",
+  "fix": "Kein Seed-Fix — Parser: de-Tail „\\s+TMS1“ trimmen"
+ },
+ {
+  "chapter": 2,
+  "en": "sample",
+  "issue": "Seed-de ist SAUBER; Quelle-Feld behält TMS-Marker-„TMS1“-Rest. Parser-Regel: TMS-Marker im de-Feld trimmen (kein Seed-Fix nötig).",
+  "fix": "Kein Seed-Fix — Parser: de-Tail „\\s+TMS1“ trimmen"
+ },
+ {
+  "chapter": 2,
+  "en": "argumentative text",
+  "issue": "Seed-de ist SAUBER; Quelle-Feld behält TMS-Marker-„TMS2“-Rest. Parser-Regel: TMS-Marker im de-Feld trimmen (kein Seed-Fix nötig).",
+  "fix": "Kein Seed-Fix — Parser: de-Tail „\\s+TMS2“ trimmen"
+ },
+ {
+  "chapter": 2,
+  "en": "everyday",
+  "issue": "Seed-de ist SAUBER; Quelle-Feld behält TMS-Marker-„TMS2“-Rest. Parser-Regel: TMS-Marker im de-Feld trimmen (kein Seed-Fix nötig).",
+  "fix": "Kein Seed-Fix — Parser: de-Tail „\\s+TMS2“ trimmen"
+ },
+ {
+  "chapter": 2,
+  "en": "playscript",
+  "issue": "Seed-de ist SAUBER; Quelle-Feld behält TMS-Marker-„TMS3“-Rest. Parser-Regel: TMS-Marker im de-Feld trimmen (kein Seed-Fix nötig).",
+  "fix": "Kein Seed-Fix — Parser: de-Tail „\\s+TMS3“ trimmen"
+ },
+ {
+  "chapter": 2,
+  "en": "to stage",
+  "issue": "Seed-de ist SAUBER; Quelle-Feld behält TMS-Marker-„TMS3“-Rest. Parser-Regel: TMS-Marker im de-Feld trimmen (kein Seed-Fix nötig).",
+  "fix": "Kein Seed-Fix — Parser: de-Tail „\\s+TMS3“ trimmen"
+ },
+ {
+  "chapter": 2,
+  "en": "to direct",
+  "issue": "Seed-de ist SAUBER; Quelle-Feld behält TMS-Marker-„TMS3“-Rest. Parser-Regel: TMS-Marker im de-Feld trimmen (kein Seed-Fix nötig).",
+  "fix": "Kein Seed-Fix — Parser: de-Tail „\\s+TMS3“ trimmen"
+ },
+ {
+  "chapter": 2,
+  "en": "set",
+  "issue": "Seed-de ist SAUBER; Quelle-Feld behält TMS-Marker-„TMS3“-Rest. Parser-Regel: TMS-Marker im de-Feld trimmen (kein Seed-Fix nötig).",
+  "fix": "Kein Seed-Fix — Parser: de-Tail „\\s+TMS3“ trimmen"
+ },
+ {
+  "chapter": 2,
+  "en": "seating",
+  "issue": "Seed-de ist SAUBER; Quelle-Feld behält TMS-Marker-„TMS3“-Rest. Parser-Regel: TMS-Marker im de-Feld trimmen (kein Seed-Fix nötig).",
+  "fix": "Kein Seed-Fix — Parser: de-Tail „\\s+TMS3“ trimmen"
+ },
+ {
+  "chapter": 2,
+  "en": "cabaret",
+  "issue": "Seed-de ist SAUBER; Quelle-Feld behält TMS-Marker-„TMS3“-Rest. Parser-Regel: TMS-Marker im de-Feld trimmen (kein Seed-Fix nötig).",
+  "fix": "Kein Seed-Fix — Parser: de-Tail „\\s+TMS3“ trimmen"
+ },
+ {
+  "chapter": 2,
+  "en": "nativity play",
+  "issue": "Seed-de ist SAUBER; Quelle-Feld behält TMS-Marker-„TMS3“-Rest. Parser-Regel: TMS-Marker im de-Feld trimmen (kein Seed-Fix nötig).",
+  "fix": "Kein Seed-Fix — Parser: de-Tail „\\s+TMS3“ trimmen"
+ },
+ {
+  "chapter": 2,
+  "en": "dress circle",
+  "issue": "Seed-de ist SAUBER; Quelle-Feld behält TMS-Marker-„TMS3“-Rest. Parser-Regel: TMS-Marker im de-Feld trimmen (kein Seed-Fix nötig).",
+  "fix": "Kein Seed-Fix — Parser: de-Tail „\\s+TMS3“ trimmen"
+ },
+ {
+  "chapter": 2,
+  "en": "upper circle",
+  "issue": "Seed-de ist SAUBER; Quelle-Feld behält TMS-Marker-„TMS3“-Rest. Parser-Regel: TMS-Marker im de-Feld trimmen (kein Seed-Fix nötig).",
+  "fix": "Kein Seed-Fix — Parser: de-Tail „\\s+TMS3“ trimmen"
+ },
+ {
+  "chapter": 2,
+  "en": "aisle",
+  "issue": "Seed-de ist SAUBER; Quelle-Feld behält TMS-Marker-„TMS3“-Rest. Parser-Regel: TMS-Marker im de-Feld trimmen (kein Seed-Fix nötig).",
+  "fix": "Kein Seed-Fix — Parser: de-Tail „\\s+TMS3“ trimmen"
+ },
+ {
+  "chapter": 2,
+  "en": "to star",
+  "issue": "Seed-de ist SAUBER; Quelle-Feld behält TMS-Marker-„TMS3“-Rest. Parser-Regel: TMS-Marker im de-Feld trimmen (kein Seed-Fix nötig).",
+  "fix": "Kein Seed-Fix — Parser: de-Tail „\\s+TMS3“ trimmen"
+ },
+ {
+  "chapter": 2,
+  "en": "pandemic",
+  "issue": "Seed-de ist SAUBER; Quelle-Feld behält TMS-Marker-„TMS3“-Rest. Parser-Regel: TMS-Marker im de-Feld trimmen (kein Seed-Fix nötig).",
+  "fix": "Kein Seed-Fix — Parser: de-Tail „\\s+TMS3“ trimmen"
+ },
+ {
+  "chapter": 7,
+  "en": "beluga whale",
+  "issue": "Seed-de ist SAUBER; Quelle-Feld behält TMS-Marker-„TMS3“-Rest. Parser-Regel: TMS-Marker im de-Feld trimmen (kein Seed-Fix nötig).",
+  "fix": "Kein Seed-Fix — Parser: de-Tail „\\s+TMS3“ trimmen"
+ },
+ {
+  "chapter": 4,
+  "en": "Creative Commons (licence)",
+  "issue": "de enthält angehängten Zell-Merge-Rest: 'lizenzfrei; frei nutzbar Creative Commons (' — EN-Nachbarkopf + offene Klammer der ukr-Zelle (Quelle: 'lizenzfrei; frei nutzbar').",
+  "fix": "Creative Commons (licence) = lizenzfrei; frei nutzbar"
+ },
+ {
+  "chapter": 7,
+  "en": "Creative Commons (licence)",
+  "issue": "de enthält angehängten Zell-Merge-Rest: 'lizenzfrei; frei nutzbar Creative Commons (' — EN-Nachbarkopf + offene Klammer der ukr-Zelle (Quelle: 'lizenzfrei; frei nutzbar').",
+  "fix": "Creative Commons (licence) = lizenzfrei; frei nutzbar"
+ }
+]
