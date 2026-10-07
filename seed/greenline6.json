@@ -94,8 +94,8 @@
      "befragen"
     ],
     [
-     "seed-Reparatur via PDF-Neuparse (TMS3-Region, 104 Einträge); Blob-Entry: read-through",
-     "Probedurchgang; Probelesen"
+     "minimum age",
+     "Mindestalter; Altersgrenze"
     ],
     [
      "power (no pl)",
@@ -232,8 +232,8 @@
      "Probe; Probepackung; Muster"
     ],
     [
-     "seed-Reparatur via PDF-Neuparse (parser_greenline-Cell-Merge-Fix); clickbait selbst: clickbait",
-     "Klickfang; Klickköder; Clickbait; Klickbait"
+     "bar",
+     "Riegel; Tafel"
     ],
     [
      "to be willing to do sth",
@@ -308,16 +308,16 @@
      "alltäglich; Alltags-"
     ],
     [
-     "minimum age",
-     "Absicht; Intention Zusammenfassung Schatz zitieren Anstieg; Zunahme elterlich; Eltern- Überwachung; Überwachungs- Erziehungsberechtigte/-r; Vormund täglich; tagtäglich Aufenthaltsort; Verbleib Erweiterung; Vergrößerung; Ausdehnung; Ausbau Helikopter; Hubschrauber Kindererziehung Reizthema; Schlachtfeld strittig; kontrovers; umstritten Rechtsanwalt/Rechtsanwältin; Anwalt/Anwältin durchhalten; (an)dauern; (an)halten nicht unbedingt derweil jmdm./etw. zustimmen; sich jmdm./etw. anschließen Bitte; Wunsch; Anfrage jmdn. bei etw. erwischen ehrlich gesagt; offen gestanden besorgt; ängstlich Mist bauen Kindheit jmd., der sich ständig Sorgen macht; Pessimist/-in jmdn. bei Verstand halten weder … noch …"
+     "intention",
+     "Absicht; Intention"
     ],
     [
      "adaptation",
      "Bearbeitung; Adaption"
     ],
     [
-     "to take the oath of citizenship",
-     "den Eid auf die Staatsangehörigkeit/Staatsbürgerschaft leisten"
+     "citizen",
+     "Bürger/-in"
     ],
     [
      "to make up",
@@ -456,8 +456,8 @@
      "Pandemie"
     ],
     [
-     "seed-Reparatur via PDF-Neuparse (TMS3-Region, 104 Einträge); Blob-Entry: read-through",
-     "Probedurchgang; Probelesen"
+     "production",
+     "Inszenierung"
     ]
    ]
   },
@@ -1021,6 +1021,224 @@
   },
   {
    "num": 4,
+   "title": "Text & Media Skills 1",
+   "words": [
+    [
+     "to introduce",
+     "einführen; einleiten"
+    ],
+    [
+     "formula",
+     "Formel"
+    ],
+    [
+     "target",
+     "Ziel-; Ziel"
+    ],
+    [
+     "desire",
+     "Begierde; Verlangen"
+    ],
+    [
+     "ad copy",
+     "Werbetext"
+    ],
+    [
+     "dignity (no pl)",
+     "Würde"
+    ],
+    [
+     "out of",
+     "von"
+    ],
+    [
+     "this/that way",
+     "so; auf diese Weise"
+    ],
+    [
+     "toothbrush",
+     "Zahnbürste"
+    ],
+    [
+     "FOMO (fear of missing out)",
+     "FOMO (Angst, etwas zu verpassen)"
+    ],
+    [
+     "hard-to-reach",
+     "schwer zugänglich; schwer erreichbar"
+    ],
+    [
+     "enamel",
+     "Zahnschmelz"
+    ],
+    [
+     "solar-powered",
+     "solarbetrieben"
+    ],
+    [
+     "storyline",
+     "Handlung"
+    ],
+    [
+     "lively",
+     "lebendig; lebhaft; munter"
+    ],
+    [
+     "playful",
+     "spielerisch; scherzhaft"
+    ],
+    [
+     "time slot",
+     "Zeitfenster"
+    ],
+    [
+     "tracking shot",
+     "Kameraschwenk"
+    ],
+    [
+     "fast motion",
+     "Zeitraffer"
+    ],
+    [
+     "slow motion",
+     "Zeitlupe"
+    ],
+    [
+     "added",
+     "zusätzlich"
+    ],
+    [
+     "artificial",
+     "künstlich"
+    ],
+    [
+     "fat",
+     "Fett"
+    ],
+    [
+     "goodness",
+     "wertvolle Inhaltsstoffe"
+    ],
+    [
+     "iron",
+     "Eisen"
+    ],
+    [
+     "preservative",
+     "Konservierungsmittel; Konservierungsstoff"
+    ],
+    [
+     "nutritious",
+     "nährstoffreich; nahrhaft"
+    ],
+    [
+     "whole grains (pl)",
+     "Vollkorn"
+    ],
+    [
+     "to contribute to",
+     "beitragen zu"
+    ],
+    [
+     "childhood",
+     "Kindheit"
+    ],
+    [
+     "watchdog",
+     "Aufsichtsbehörde; Aufsichtsstelle; Aufsicht"
+    ],
+    [
+     "steel",
+     "Stahl; Stahl-"
+    ],
+    [
+     "needle",
+     "Nadel"
+    ],
+    [
+     "reasonably",
+     "halbwegs; einigermaßen"
+    ],
+    [
+     "promotion of",
+     "das Bewerben von"
+    ],
+    [
+     "to apply (to)",
+     "gelten (für); zutreffen (auf)"
+    ],
+    [
+     "to examine",
+     "untersuchen; kontrollieren"
+    ],
+    [
+     "to promote sth",
+     "für etw. werben"
+    ],
+    [
+     "to break the law",
+     "gegen das Gesetz verstoßen"
+    ],
+    [
+     "to police",
+     "überwachen; kontrollieren"
+    ],
+    [
+     "progressive",
+     "fortschrittlich; progressiv"
+    ],
+    [
+     "awareness",
+     "Bewusstsein; Interesse"
+    ],
+    [
+     "to have a poor record (as)",
+     "eine schlechte Bilanz (in Bezug auf/hinsichtlich) aufweisen"
+    ],
+    [
+     "equal opportunity",
+     "Chancengleichheit"
+    ],
+    [
+     "care",
+     "Pflege; Betreuung; Aufmerksamkeit; Sorgfalt; Versorgung"
+    ],
+    [
+     "promotional",
+     "Werbe-"
+    ],
+    [
+     "to be aware of sth",
+     "sich etw. bewusst sein"
+    ],
+    [
+     "targeted",
+     "gezielt"
+    ],
+    [
+     "to disable",
+     "deaktivieren"
+    ],
+    [
+     "clickbait",
+     "Klickfang; Klickköder; Clickbait; Klickbait"
+    ],
+    [
+     "advertising agency",
+     "Werbeagentur"
+    ],
+    [
+     "ice cream parlour",
+     "Eisdiele; Eiscafé"
+    ],
+    [
+     "Creative Commons (licence)",
+     "lizenzfrei; frei nutzbar Creative Commons ("
+    ]
+   ]
+  },
+  {
+   "num": 5,
    "title": "Across cultures 2",
    "words": [
     [
@@ -1065,7 +1283,7 @@
     ],
     [
      "metaverse",
-     "Metaversum (virtuell erzeugter, dreidimensionaler Raum, in dem Nutzer/-innen miteinander interagieren)"
+     "Metaversum (virtuell erzeugter, dreidimensionaler Raum, in dem"
     ],
     [
      "immersive",
@@ -1205,7 +1423,7 @@
     ],
     [
      "Creative Commons (licence)",
-     "lizenzfrei; frei nutzbar"
+     "lizenzfrei; frei nutzbar Creative Commons ("
     ],
     [
      "to enable sth",
@@ -1214,7 +1432,7 @@
    ]
   },
   {
-   "num": 5,
+   "num": 6,
    "title": "Unit 2",
    "words": [
     [
@@ -1639,7 +1857,7 @@
     ],
     [
      "queer",
-     "queer (Begriff, den manche Personen aus der LGBTQ+-Community für sich beanspruchen)"
+     "queer (Begriff, den manche Personen aus der LGBTQ+"
     ],
     [
      "sideways",
@@ -1704,7 +1922,377 @@
    ]
   },
   {
-   "num": 6,
+   "num": 7,
+   "title": "Text & Media Skills 2",
+   "words": [
+    [
+     "summary",
+     "Zusammenfassung"
+    ],
+    [
+     "honey",
+     "Schatz"
+    ],
+    [
+     "to quote",
+     "zitieren"
+    ],
+    [
+     "rise",
+     "Anstieg; Zunahme"
+    ],
+    [
+     "parental",
+     "elterlich; Eltern-"
+    ],
+    [
+     "surveillance (no pl)",
+     "Überwachung; Überwachungs-"
+    ],
+    [
+     "guardian",
+     "Erziehungsberechtigte/-r; Vormund"
+    ],
+    [
+     "on a daily basis",
+     "täglich; tagtäglich"
+    ],
+    [
+     "whereabouts",
+     "Aufenthaltsort; Verbleib"
+    ],
+    [
+     "extension",
+     "Erweiterung; Vergrößerung; Ausdehnung; Ausbau"
+    ],
+    [
+     "helicopter",
+     "Helikopter; Hubschrauber"
+    ],
+    [
+     "parenting",
+     "Kindererziehung"
+    ],
+    [
+     "battleground",
+     "Reizthema; Schlachtfeld"
+    ],
+    [
+     "contentious",
+     "strittig; kontrovers; umstritten"
+    ],
+    [
+     "solicitor",
+     "Rechtsanwalt/Rechtsanwältin; Anwalt/Anwältin"
+    ],
+    [
+     "to last",
+     "durchhalten; (an)dauern; (an)halten"
+    ],
+    [
+     "not necessarily",
+     "nicht unbedingt"
+    ],
+    [
+     "meanwhile",
+     "derweil"
+    ],
+    [
+     "to go along with sb/sth",
+     "jmdm./etw. zustimmen; sich jmdm./etw. anschließen"
+    ],
+    [
+     "request",
+     "Bitte; Wunsch; Anfrage"
+    ],
+    [
+     "to catch sb out doing sth",
+     "jmdn. bei etw. erwischen"
+    ],
+    [
+     "frankly",
+     "ehrlich gesagt; offen gestanden"
+    ],
+    [
+     "anxious",
+     "besorgt; ängstlich"
+    ],
+    [
+     "to mess up (infml)",
+     "Mist bauen"
+    ],
+    [
+     "childhood",
+     "Kindheit"
+    ],
+    [
+     "worrier",
+     "jmd., der sich ständig Sorgen macht; Pessimist/-in"
+    ],
+    [
+     "to keep sb sane",
+     "jmdn. bei Verstand halten"
+    ],
+    [
+     "neither … nor …",
+     "weder … noch …"
+    ],
+    [
+     "evil",
+     "böse; schlecht"
+    ],
+    [
+     "boundary",
+     "Grenze"
+    ],
+    [
+     "negotiation",
+     "Verhandlung"
+    ],
+    [
+     "dismissive",
+     "abweisend; ablehnend"
+    ],
+    [
+     "to confide in sb",
+     "sich jmdm. anvertrauen"
+    ],
+    [
+     "mute",
+     "still; schweigsam"
+    ],
+    [
+     "rupture",
+     "Bruch; Riss"
+    ],
+    [
+     "to be disputed",
+     "umstritten sein"
+    ],
+    [
+     "offspring",
+     "Nachwuchs; Nachkommen"
+    ],
+    [
+     "abridged",
+     "gekürzt"
+    ],
+    [
+     "entitled",
+     "mit dem Titel"
+    ],
+    [
+     "to negotiate sth",
+     "etw. aushandeln; etw. verhandeln"
+    ],
+    [
+     "to advise (sb to do sth)",
+     "(jmdm.) raten (etw. zu tun)"
+    ],
+    [
+     "to reduce",
+     "reduzieren; vermindern; verringern"
+    ],
+    [
+     "to state",
+     "nennen; darlegen; darstellen"
+    ],
+    [
+     "partly",
+     "teilweise; zum Teil"
+    ],
+    [
+     "restriction",
+     "Begrenzung; Beschränkung; Einschränkung; Restriktion"
+    ],
+    [
+     "fixed",
+     "festgesetzt; festgelegt"
+    ],
+    [
+     "ID (identification)",
+     "Identifizierung; Identifikation"
+    ],
+    [
+     "purchase",
+     "Kauf"
+    ],
+    [
+     "mental",
+     "psychisch; seelisch"
+    ],
+    [
+     "habit",
+     "Gewohnheit; Angewohnheit"
+    ],
+    [
+     "concern",
+     "Sorge"
+    ],
+    [
+     "increasingly",
+     "zunehmend"
+    ],
+    [
+     "rowing",
+     "Rudern"
+    ],
+    [
+     "sailing",
+     "Segeln"
+    ],
+    [
+     "eventually",
+     "schließlich; endlich; irgendwann"
+    ],
+    [
+     "to tend to",
+     "neigen zu; tendieren zu"
+    ],
+    [
+     "complaint",
+     "Beschwerde; Beschwerde-"
+    ],
+    [
+     "to be pleased",
+     "froh sein; sich freuen; erfreut sein"
+    ],
+    [
+     "to raise",
+     "vorbringen; aufwerfen (Fragen)"
+    ],
+    [
+     "objective",
+     "sachlich"
+    ],
+    [
+     "to justify",
+     "rechtfertigen"
+    ],
+    [
+     "to harm sb",
+     "jmdm. schaden; jmdn. verletzen; jmdm. etw. antun"
+    ],
+    [
+     "to be confronted with",
+     "konfrontiert werden mit"
+    ],
+    [
+     "disability (no pl)",
+     "Behinderung; Beeinträchtigung"
+    ],
+    [
+     "slim",
+     "schlank"
+    ],
+    [
+     "confidence",
+     "Selbstvertrauen"
+    ],
+    [
+     "plastic surgery (no pl)",
+     "Schönheitschirurgie; Schönheitsoperation"
+    ],
+    [
+     "diet",
+     "Ernährung; Ernährungsweise; Nahrung; Diät"
+    ],
+    [
+     "professional",
+     "professionell; Profi-; ausgebildet"
+    ],
+    [
+     "well-founded",
+     "fundiert; stichhaltig; begründet"
+    ],
+    [
+     "to take a stand",
+     "Stellung beziehen; Position beziehen"
+    ],
+    [
+     "student council",
+     "Vertretung der Schüler/-innen"
+    ],
+    [
+     "minimum age",
+     "Mindestalter; Altersgrenze"
+    ],
+    [
+     "deprivation",
+     "Entbehrung; Entzug"
+    ],
+    [
+     "depressed",
+     "deprimiert; bedrückt; depressiv"
+    ],
+    [
+     "twist",
+     "Clou; Knackpunkt"
+    ],
+    [
+     "to overuse",
+     "übermäßig nutzen"
+    ],
+    [
+     "co-founder",
+     "Mitgründer/-in"
+    ],
+    [
+     "chief executive",
+     "Vorstandsvorsitzende/-r"
+    ],
+    [
+     "overuse",
+     "übermäßiger Gebrauch"
+    ],
+    [
+     "access",
+     "Zugang"
+    ],
+    [
+     "to shut down",
+     "herunterfahren; abschalten"
+    ],
+    [
+     "after bedtime",
+     "nach dem Schlafengehen"
+    ],
+    [
+     "to be aware of sth",
+     "sich etw. bewusst sein"
+    ],
+    [
+     "to complain",
+     "sich beschweren; sich beklagen"
+    ],
+    [
+     "to characterise",
+     "charakerisieren; bezeichnen"
+    ],
+    [
+     "to respond to",
+     "reagieren auf; erwidern auf; antworten auf"
+    ],
+    [
+     "well-adjusted",
+     "ausgeglichen"
+    ],
+    [
+     "policymaker",
+     "Politiker/-in; Entscheidungsträger/- in"
+    ],
+    [
+     "workable",
+     "brauchbar; geeignet; praktikabel"
+    ],
+    [
+     "in the meantime",
+     "in der Zwischenzeit"
+    ]
+   ]
+  },
+  {
+   "num": 8,
    "title": "Across cultures 3",
    "words": [
     [
@@ -1765,7 +2353,7 @@
     ],
     [
      "Indigenous Peoples",
-     "Indigenous Peoples (Überbegriff für die in Kanada lebenden First Nations, Métis und Inuit)"
+     "Indigenous Peoples (Überbegriff für die in Kanada lebenden"
     ],
     [
      "Métis",
@@ -1845,7 +2433,7 @@
     ],
     [
      "Band Council",
-     "Vertretung der First Nations Gesellschaften innerhalb der Reservate"
+     "Vertretung der First Nations Gesellschaften innerhalb der"
     ],
     [
      "unit",
@@ -1905,7 +2493,7 @@
     ],
     [
      "to segregate",
-     "trennen (anhand rassistischer Zuschreibungen, z.B. hier die Indigenous Peoples von den europäischen Siedlern)"
+     "trennen (anhand rassistischer Zuschreibungen, z.B. hier die"
     ],
     [
      "to take away sth",
@@ -1965,11 +2553,11 @@
     ],
     [
      "'idol worship'",
-     "'Götzenanbetung' (kolonialistischer Begriff, der die Religionen und die Spiritualität der Indigenous Peoples herabwürdigte)"
+     "'Götzenanbetung' (kolonialistischer Begriff, der die Religionen und die"
     ],
     [
      "potlatch",
-     "Potlatch (eine komplexe soziopolitische/spirituelle Zeremonie der First Nations der Pazifikküste)"
+     "Potlatch (eine komplexe soziopolitische/spirituelle"
     ],
     [
      "ceremonial",
@@ -1998,7 +2586,7 @@
    ]
   },
   {
-   "num": 7,
+   "num": 9,
    "title": "Unit 3",
    "words": [
     [
@@ -2123,7 +2711,7 @@
     ],
     [
      "at an alarming rate",
-     "in einem alarmierenden Tempo; in einer alarmierenden Geschwindigkeit"
+     "in einem alarmierenden Tempo; in einer alarmierenden"
     ],
     [
      "to shrink, shrank/shrunk, shrunk",
@@ -2315,7 +2903,7 @@
     ],
     [
      "'savage'",
-     "'Wilde/-r' (rassistischer, abwertender Begriff, der als Teil der Kolonisierung eingesetzt wurde)"
+     "'Wilde/-r' (rassistischer, abwertender Begriff, der als Teil"
     ],
     [
      "consecutive",
@@ -2480,6 +3068,412 @@
     [
      "beluga whale",
      "Beluga; Weißwal"
+    ]
+   ]
+  },
+  {
+   "num": 10,
+   "title": "Text & Media Skills 3",
+   "words": [
+    [
+     "help desk",
+     "Helpdesk; Hotline; Auskunft"
+    ],
+    [
+     "box office",
+     "Kartenschalter; Abendkasse; (Theater)Kasse"
+    ],
+    [
+     "playwright",
+     "Dramatiker/-in; Bühnenautor/-in"
+    ],
+    [
+     "novelist",
+     "Schriftsteller/-in; Autor/-in"
+    ],
+    [
+     "to call in (AE)",
+     "anrufen"
+    ],
+    [
+     "to call out",
+     "rufen"
+    ],
+    [
+     "What's the nature of ...?",
+     "Worum handelt es sich bei ...?"
+    ],
+    [
+     "network",
+     "Netzwerk; Netz"
+    ],
+    [
+     "boy (coll)",
+     "oh Mann (ugs.); Junge, Junge (ugs.)"
+    ],
+    [
+     "to pick up a call",
+     "einen Anruf entgegennehmen"
+    ],
+    [
+     "go ahead",
+     "Nur zu!; Mach nur!"
+    ],
+    [
+     "ID (identification)",
+     "Identifizierung; Identifikation; hier: Nutzername"
+    ],
+    [
+     "to encounter sb/sth",
+     "auf jmdn./etw. treffen; auf jmdn./etw. stoßen"
+    ],
+    [
+     "insurmountable",
+     "unüberwindbar"
+    ],
+    [
+     "difficulty",
+     "Schwierigkeit"
+    ],
+    [
+     "to prompt sb (to do sth)",
+     "jmdn. (dazu) veranlassen (etw. zu tun)"
+    ],
+    [
+     "to demand",
+     "einfordern; verlangen"
+    ],
+    [
+     "assistance",
+     "Unterstützung; Hilfe"
+    ],
+    [
+     "paid professional",
+     "bezahlte Fachkraft"
+    ],
+    [
+     "to crack a nugget (coll)",
+     "eine (harte) Nuss knacken; ein Problem lösen"
+    ],
+    [
+     "kinda (= kind of) (infml)",
+     "ziemlich; irgendwie"
+    ],
+    [
+     "to have an attitude",
+     "eine falsche Einstellung haben"
+    ],
+    [
+     "to mind one's own business",
+     "sich um seine eigenen Angelegenheiten kümmern"
+    ],
+    [
+     "all of a sudden",
+     "plötzlich; auf einmal"
+    ],
+    [
+     "to be desperate for sth",
+     "etw. dringend brauchen"
+    ],
+    [
+     "to sigh",
+     "seufzen"
+    ],
+    [
+     "to keep sb occupied",
+     "jmdn. beschäftigen"
+    ],
+    [
+     "brain",
+     "Gehirn; Verstand; Hirn"
+    ],
+    [
+     "to cut out",
+     "sich ausschalten; sich abschalten"
+    ],
+    [
+     "Are you magic?",
+     "Kannst du zaubern?; Können Sie zaubern?"
+    ],
+    [
+     "wand",
+     "Zauberstab"
+    ],
+    [
+     "busy",
+     "besetzt"
+    ],
+    [
+     "near",
+     "nahe; beinahe; fast"
+    ],
+    [
+     "tear",
+     "Träne"
+    ],
+    [
+     "to fail",
+     "versagen; scheitern"
+    ],
+    [
+     "to programme",
+     "programmieren"
+    ],
+    [
+     "human being",
+     "Mensch"
+    ],
+    [
+     "vat",
+     "Bottich"
+    ],
+    [
+     "to exhale",
+     "ausatmen; aufatmen"
+    ],
+    [
+     "dumb (rude)",
+     "dumm; doof"
+    ],
+    [
+     "beekeeper",
+     "Imker/-in; Bienenzüchter/-in"
+    ],
+    [
+     "hood",
+     "Kapuze; Haube"
+    ],
+    [
+     "apiary",
+     "Bienenstock; Bienenhaus"
+    ],
+    [
+     "beekeeping",
+     "Imkerei; Bienenzucht; Bienenhaltung"
+    ],
+    [
+     "minion",
+     "Arbeiterin (in einem Bienenvolk)"
+    ],
+    [
+     "pollinator",
+     "Bestäuber"
+    ],
+    [
+     "to fear",
+     "(sich) fürchten; Angst haben"
+    ],
+    [
+     "to chuckle",
+     "in sich hineinlachen"
+    ],
+    [
+     "Just kidding",
+     "Kleiner Scherz am Rande!"
+    ],
+    [
+     "threat",
+     "Bedrohung"
+    ],
+    [
+     "classic",
+     "hier: typisch"
+    ],
+    [
+     "hive",
+     "Bienenstock"
+    ],
+    [
+     "to be frightened (of)",
+     "Angst haben (vor); sich fürchten (vor)"
+    ],
+    [
+     "high-pitched",
+     "schrill; hellklingend"
+    ],
+    [
+     "whimper",
+     "Winseln; Wimmern"
+    ],
+    [
+     "to assert one's dominance",
+     "sich durchsetzen; sich behaupten"
+    ],
+    [
+     "combat",
+     "Kampf; Gefecht"
+    ],
+    [
+     "to extrude",
+     "ausstoßen"
+    ],
+    [
+     "fragrant",
+     "duftend; wohlriechend"
+    ],
+    [
+     "odor (AE)",
+     "Geruch; Duft"
+    ],
+    [
+     "to navigate",
+     "sich orientieren; navigieren; steuern"
+    ],
+    [
+     "high fiber (AE)",
+     "ballaststoffreich"
+    ],
+    [
+     "diet",
+     "Ernährung; Ernährungsweise; Nahrung; Diät"
+    ],
+    [
+     "to entrance sb/sth",
+     "jmdn./etw. verzaubern; jmdn./etw. in seinen Bann ziehen"
+    ],
+    [
+     "scent",
+     "Duft; Parfüm"
+    ],
+    [
+     "pied-piper",
+     "wie ein Rattenfänger"
+    ],
+    [
+     "on the count of ...",
+     "bei ..."
+    ],
+    [
+     "Charge!",
+     "Los!"
+    ],
+    [
+     "to crawl",
+     "kriechen; krabbeln"
+    ],
+    [
+     "to complain",
+     "sich beschweren; sich beklagen"
+    ],
+    [
+     "delivery",
+     "Lieferung; Auslieferung; Zustellung"
+    ],
+    [
+     "thrilled",
+     "aufgeregt; außer sich vor Freude"
+    ],
+    [
+     "honk",
+     "Hupen; Gehupe"
+    ],
+    [
+     "horn",
+     "Hupe"
+    ],
+    [
+     "vehicle",
+     "Fahrzeug; Vehikel"
+    ],
+    [
+     "to careen (AE)",
+     "rasen"
+    ],
+    [
+     "screech",
+     "Quietschen"
+    ],
+    [
+     "tire (AE)",
+     "Reifen"
+    ],
+    [
+     "to hurl",
+     "schleudern; werfen"
+    ],
+    [
+     "to ricochet",
+     "abprallen"
+    ],
+    [
+     "stoop (AE)",
+     "offene Veranda"
+    ],
+    [
+     "maniacally",
+     "wie ein Wahnsinniger/eine Wahnsinnige"
+    ],
+    [
+     "to gun the engine",
+     "den Motor aufheulen lassen"
+    ],
+    [
+     "to speed off, sped off, sped off",
+     "schnell davonfahren; losdüsen"
+    ],
+    [
+     "battered",
+     "ramponiert; verbeult"
+    ],
+    [
+     "imaginable",
+     "vorstellbar"
+    ],
+    [
+     "shard",
+     "Scherbe"
+    ],
+    [
+     "shattered",
+     "zerschlagen; zertrümmert; zerbrochen"
+    ],
+    [
+     "whiner",
+     "Quengler/-in; Jammerlappen"
+    ],
+    [
+     "properly",
+     "richtig; anständig; ordentlich"
+    ],
+    [
+     "terms and conditions",
+     "allgemeine Geschäftsbedingungen (AGBs)"
+    ],
+    [
+     "to launch",
+     "abschießen"
+    ],
+    [
+     "the fine print (no pl)",
+     "das Kleingedruckte"
+    ],
+    [
+     "It states that ...",
+     "Darin steht, dass ..."
+    ],
+    [
+     "landing",
+     "Landung"
+    ],
+    [
+     "item",
+     "Ding; Gegenstand"
+    ],
+    [
+     "discount",
+     "Rabatt; Preisnachlass"
+    ],
+    [
+     "jello (AE)",
+     "Götterspeise; Wackelpudding"
+    ],
+    [
+     "read-through",
+     "Probedurchgang; Probelesen"
+    ],
+    [
+     "dress rehearsal",
+     "Generalprobe"
     ]
    ]
   }

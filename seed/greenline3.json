@@ -134,8 +134,8 @@
      "Gefühl; Emotion"
     ],
     [
-     "one another",
-     "einander; gegenseitig"
+     "occasion",
+     "Anlass; Ereignis; Gelegenheit"
     ],
     [
      "historic",
@@ -534,8 +534,8 @@
      "Mit freundlichen Grüßen"
     ],
     [
-     "neutral",
-     "neutral"
+     "head teacher",
+     "Schulleiter/-in"
     ],
     [
      "on the move",
@@ -1028,8 +1028,8 @@
      "Körpersprache"
     ],
     [
-     "to hang out (with)",
-     "rumhängen (mit); sich herumtreiben (mit)"
+     "to hang out (with), hung out (with),",
+     "hung out (with) (infml) +h0N-*aUt (wID)? rumhängen (mit); sich herumtreiben (mit)"
     ],
     [
      "instead",
@@ -1112,8 +1112,8 @@
      "hübsch"
     ],
     [
-     "to come up to sb",
-     "auf jmdn. zukommen"
+     "to come up to sb, came up to,",
+     "come up to tE? auf jmdn. zukommen"
     ],
     [
      "poor",
@@ -1231,6 +1231,208 @@
   },
   {
    "num": 3,
+   "title": "Text & Media Skills 1",
+   "words": [
+    [
+     "impression",
+     "Eindruck; Impression"
+    ],
+    [
+     "to sign",
+     "unterschreiben; unterzeichnen"
+    ],
+    [
+     "laugh",
+     "Lachen"
+    ],
+    [
+     "you've got my back",
+     "du stehst hinter mir"
+    ],
+    [
+     "shell",
+     "Schale; Muschel"
+    ],
+    [
+     "ground",
+     "Boden; Erdboden"
+    ],
+    [
+     "to be out of chances",
+     "keine Chance mehr haben"
+    ],
+    [
+     "to hang on",
+     "warten; durchhalten"
+    ],
+    [
+     "ups and downs",
+     "Höhen und Tiefen"
+    ],
+    [
+     "to pretend",
+     "tun als ob; vortäuschen"
+    ],
+    [
+     "to escape",
+     "fliehen; entfliehen; flüchten; entkommen"
+    ],
+    [
+     "to free",
+     "befreien; freilassen"
+    ],
+    [
+     "cage",
+     "Käfig"
+    ],
+    [
+     "lie",
+     "Lüge"
+    ],
+    [
+     "ear",
+     "Ohr"
+    ],
+    [
+     "closed",
+     "geschlossen; zu"
+    ],
+    [
+     "catchy",
+     "eingängig; einprägsam"
+    ],
+    [
+     "chorus",
+     "Refrain"
+    ],
+    [
+     "to repeat",
+     "wiederholen"
+    ],
+    [
+     "to keep one's feet or hands still",
+     "die Beine und Hände ruhig halten"
+    ],
+    [
+     "to sing along, sang along, sung",
+     "along"
+    ],
+    [
+     "to get sth out of one's head",
+     "etw. aus dem Kopf bekommen; von einem Gedanken loskommen"
+    ],
+    [
+     "effect",
+     "Effekt; Wirkung"
+    ],
+    [
+     "rhythm",
+     "Rhythmus"
+    ],
+    [
+     "rhythmic",
+     "rhythmisch; gleichmäßig"
+    ],
+    [
+     "beat",
+     "Takt; Schlag"
+    ],
+    [
+     "terms",
+     "Bestimmungen; Bedingungen"
+    ],
+    [
+     "legal",
+     "legal; rechtlich; Rechts-"
+    ],
+    [
+     "bookshop",
+     "Buchhandlung"
+    ],
+    [
+     "to prefer",
+     "vorziehen; bevorzugen"
+    ],
+    [
+     "to have in common",
+     "gemein haben"
+    ],
+    [
+     "trust",
+     "Vertrauen"
+    ],
+    [
+     "second",
+     "Sekunde"
+    ],
+    [
+     "to stick, stuck, stuck",
+     "kleben; stecken"
+    ],
+    [
+     "glue",
+     "Klebstoff"
+    ],
+    [
+     "bright",
+     "leuchtend; strahlend; hell"
+    ],
+    [
+     "responsibility",
+     "Verantwortung"
+    ],
+    [
+     "cleverness",
+     "Schlauheit; Klugheit; Cleverness"
+    ],
+    [
+     "stranger",
+     "Fremde/-r"
+    ],
+    [
+     "magnet",
+     "Magnet"
+    ],
+    [
+     "no matter",
+     "egal; ganz gleich"
+    ],
+    [
+     "to last",
+     "dauern; andauern; anhalten"
+    ],
+    [
+     "to remind (sb of sth/sb)",
+     "(jmdn. an etw./jmdn.) erinnern"
+    ],
+    [
+     "evidence (no pl)",
+     "Beweis; Beleg; Beweismaterial"
+    ],
+    [
+     "to leave out",
+     "weglassen; auslassen"
+    ],
+    [
+     "similar",
+     "ähnlich"
+    ],
+    [
+     "common",
+     "üblich; gewöhnlich; (weit) verbreitet; gebräuchlich"
+    ],
+    [
+     "to rhyme",
+     "(sich) reimen"
+    ],
+    [
+     "one another",
+     "einander; gegenseitig"
+    ]
+   ]
+  },
+  {
+   "num": 4,
    "title": "Across cultures 1",
    "words": [
     [
@@ -1324,7 +1526,7 @@
    ]
   },
   {
-   "num": 4,
+   "num": 5,
    "title": "Unit 2",
    "words": [
     [
@@ -1344,8 +1546,8 @@
      "Gemüse"
     ],
     [
-     "keine Löschung — Bedeutungen ergänzen: 'vegetarian (n)",
-     "Vegetarier/-in' und 'vegetarian (adj) = vegetarisch'"
+     "vegetarian",
+     "Vegetarier/-in"
     ],
     [
      "thousands of",
@@ -1524,8 +1726,8 @@
      "Clan; Sippe"
     ],
     [
-     "Ich lasse mich (vom Wind) überall dahin treiben, wohin er mich trägt. — zusätzlich anlegen: wherever",
-     "überall dorthin, wo; wohin auch immer"
+     "ben",
+     "hoher Berg"
     ],
     [
      "glen",
@@ -1802,7 +2004,7 @@
    ]
   },
   {
-   "num": 5,
+   "num": 6,
    "title": "Across cultures 2",
    "words": [
     [
@@ -1876,7 +2078,7 @@
    ]
   },
   {
-   "num": 6,
+   "num": 7,
    "title": "Unit 3",
    "words": [
     [
@@ -1888,8 +2090,8 @@
      "Eigenschaft; typisches Merkmal"
     ],
     [
-     "to make sure (that) …",
-     "sich vergewissern; sicherstellen; darauf achten, dass …"
+     "that",
+     "der; dem; den; die; das (Relativpronomen)"
     ],
     [
      "who",
@@ -2202,7 +2404,137 @@
    ]
   },
   {
-   "num": 7,
+   "num": 8,
+   "title": "Text & Media Skills 2",
+   "words": [
+    [
+     "manager",
+     "Geschäftsführer/-in; Leiter/-in; Manager/-in"
+    ],
+    [
+     "available",
+     "verfügbar; erhältlich"
+    ],
+    [
+     "paragraph",
+     "Absatz; Paragraf"
+    ],
+    [
+     "recipient",
+     "Empfänger/-in"
+    ],
+    [
+     "to contain",
+     "enthalten"
+    ],
+    [
+     "unnecessary",
+     "unnötig; überflüssig; verzichtbar"
+    ],
+    [
+     "purpose",
+     "Ziel; Absicht; Zweck"
+    ],
+    [
+     "postal address",
+     "Postanschrift"
+    ],
+    [
+     "payment",
+     "Bezahlung; Vergütung"
+    ],
+    [
+     "married",
+     "verheiratet"
+    ],
+    [
+     "Ms",
+     "Frau (Anrede)"
+    ],
+    [
+     "permission",
+     "Erlaubnis; Genehmigung"
+    ],
+    [
+     "signature",
+     "Unterschrift"
+    ],
+    [
+     "sender",
+     "Absender/-in"
+    ],
+    [
+     "envelope",
+     "Umschlag; Briefumschlag"
+    ],
+    [
+     "stamp",
+     "Briefmarke"
+    ],
+    [
+     "semi-",
+     "halb-; Halb-"
+    ],
+    [
+     "absolutely",
+     "völlig; absolut"
+    ],
+    [
+     "Best wishes,",
+     "Viele Grüße,; Herzliche Grüße"
+    ],
+    [
+     "gonna (= going to) (coll)",
+     "werden"
+    ],
+    [
+     "loads (of)",
+     "viel/-e; jede Menge"
+    ],
+    [
+     "to abbreviate",
+     "abkürzen"
+    ],
+    [
+     "icon",
+     "Symbol; Ikone"
+    ],
+    [
+     "to replace (by/with)",
+     "ersetzen (durch)"
+    ],
+    [
+     "husband",
+     "Ehemann"
+    ],
+    [
+     "Get well soon!",
+     "Gute Besserung!"
+    ],
+    [
+     "Congratulations!",
+     "Glückwunsch!; Gratuliere!"
+    ],
+    [
+     "hug",
+     "Umarmung"
+    ],
+    [
+     "kiss",
+     "Kuss"
+    ],
+    [
+     "Hooray!",
+     "Hurra!"
+    ],
+    [
+     "neutral",
+     "neutral"
+    ]
+   ]
+  },
+  {
+   "num": 9,
    "title": "Across cultures 3",
    "words": [
     [
@@ -2268,7 +2600,7 @@
    ]
   },
   {
-   "num": 8,
+   "num": 10,
    "title": "Unit 4",
    "words": [
     [
@@ -2730,7 +3062,7 @@
    ]
   },
   {
-   "num": 9,
+   "num": 11,
    "title": "Text review 1",
    "words": [
     [
@@ -2762,8 +3094,8 @@
      "Wildnis; freie Wildbahn"
     ],
     [
-     "to pay attention (to)",
-     "aufmerksam sein; aufpassen; jmdn./etw. beachten"
+     "tent",
+     "Zelt"
     ],
     [
      "to fly, flew, flown",
@@ -2872,7 +3204,7 @@
    ]
   },
   {
-   "num": 10,
+   "num": 12,
    "title": "Text review 2",
    "words": [
     [
@@ -2930,7 +3262,7 @@
    ]
   },
   {
-   "num": 11,
+   "num": 13,
    "title": "Text review 3",
    "words": [
     [

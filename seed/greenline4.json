@@ -452,8 +452,8 @@
      "übermitteln; transportieren; ausdrücken; vermitteln"
     ],
     [
-     "topography",
-     "Untersuchung; Studie Blick; Sicht; Aussicht; Ausblick einbeziehen; einschließen; beifügen jmds. Aufmerksamkeit lenken auf Gedankenblase Erwartung Prozess; Verfahren Tafel; Brett Identifizierung; Identifikation Schildchen; Etikett befestigen; stecken; anheften Mantel Register Hungersnot Verfolgung körperlich und geistig gesund sich in etw. hineinversetzen scharf; schneidend verschwommen; unscharf dargestellt; gestellt; posiert Ausrichtung; Format Querformat Hochformat Totale (Kameraeinstellung) Halbtotale (Kameraeinstellung) Vogelperspektive Froschperspektive Feier auf den ersten Blick irreführend; täuschend; trügerisch Politiker/-in Sockel; Podest Tafel Kette Zacke; Spitze; Stachel sich beziehen auf; sprechen von andeuten; nahelegen politische Linie; Politik begrenzen auf; beschränken auf; limitieren auf Antrag; Bewerbungs-; Bewerbung Präsidentschaft Säulendiagramm; Balkendiagramm Kuchendiagramm; Tortendiagramm Kurvendiagramm Tabelle bestehen aus Entwicklung Rechteck Höhe; (Körper)Größe Scheibe; Stück; Teil Prozentsatz; prozentualer Anteil ein Ganzes Reihe Spalte Statistik Veröffentlichung Mehrheit; Mehrzahl Minderheit zunehmen; (an)steigen; steigern; vergrößern abnehmen; sinken; vermindern Höhe; Level; Niveau folgern; eine Schlussfolgerung ziehen Tabellenkalkulationsprogramm topographisch; Topografie- klimatisch; Klima- Seekarte Vegetation; Vegetations- geologisch; Geologie- hauptsächlich; in erster Linie; vorwiegend abstammen; herstammen Grenze Dichte fruchtbar Topografie"
+     "study",
+     "Untersuchung; Studie"
     ],
     [
      "intersection (AE)",
@@ -584,8 +584,8 @@
      "Journalist/-in"
     ],
     [
-     "length",
-     "absolut; völlig; komplett multimodal sowie; und (auch) Reservat Protagonist/-in; Hauptfigur jmdn./etw. umgeben; jmdn./etw. einkreisen; um jmdn./etw. Haut; Fell Riesen-; riesig Schüler/-in im letzten Schuljahr der High School (sich) rasieren rassistisch Realität; Wirklichkeit kaufen; erwerben offensichtlich ständig; konstant; stetig; gleichmäßig Benzin annehmen; ausgehen von Bundesstraße; Highway Es würde mir nichts nützen.; Es würde mir eher schaden. trampen; per Anhalter fahren zur Mittelschicht gehören dazugehören Schulausflug; Exkursion allergisch sein auf/gegen Zeremonie Erscheinung; Aussehen; Auftritt Ich-Erzähler/-in Er/Sie-Erzähler/-in unbegrenzt begrenzt; eingeschränkt teilnehmen (an); sich beteiligen (an) verlässlich; zuverlässig; vertrauenswürdig objektiv subjektiv Übertreibung normal; üblich Anzug; Kostüm vor Freude; vor Entzücken brüllen; laut rufen (sich) wünschen lahm; langweilig; aus der Mode; altmodisch erziehen; bilden; jmdm. etw. beibringen verprügeln; verkloppen Verräter/-in Anstrengung; Kampf Mensch Schutz Hungertod; Verhungern drohen; bedrohen; gefährden sentimental Rauschgift; Droge Selbstmord Missbrauch Gewalt Erzählung; erzählerisch; erzählend; Schilderung; Beschreibung autobiografisch passen (zu); entsprechen; übereinstimmen (mit) variieren; (sich) ändern Länge"
+     "absolutely",
+     "absolut; völlig; komplett"
     ]
    ]
   },
@@ -615,7 +615,7 @@
     ],
     [
      "curfew",
-     "Sperrstunde; Ausgangssperre; hier: Uhrzeit, zu der man nach Hause muss."
+     "Sperrstunde; Ausgangssperre; hier: Uhrzeit, zu der man nach Hause"
     ],
     [
      "to meet up",
@@ -755,7 +755,7 @@
     ],
     [
      "right",
-     "Recht; direkt; genau"
+     "Recht"
     ],
     [
      "Pledge of Allegiance",
@@ -834,8 +834,8 @@
      "Auflauf; Eintopf"
     ],
     [
-     "I can see where you’re coming from.",
-     "Ich verstehe, was du meinst."
+     "I can see where you're coming",
+     "from."
     ],
     [
      "annoyed",
@@ -894,6 +894,10 @@
      "eröffnen"
     ],
     [
+     "right",
+     "direkt; genau"
+    ],
+    [
      "cheer",
      "Jubel; Hurraruf"
     ],
@@ -919,7 +923,7 @@
     ],
     [
      "police officer",
-     "Polizist/-in; Polizeibeamter/-in"
+     "Polizist/-in; Polizeibeamter/- beamtin"
     ],
     [
      "to panic",
@@ -1206,8 +1210,8 @@
      "Lebensweise"
     ],
     [
-     "Necessity is the mother of invention.",
-     "Not macht erfinderisch."
+     "Necessity is the mother of",
+     "invention."
     ],
     [
      "communications network",
@@ -1395,7 +1399,7 @@
     ],
     [
      "oral historian",
-     "Historiker/-in mit Spezialisierung auf mündlich überlieferte Geschichte"
+     "Historiker/-in mit Spezialisierung auf mündlich überlieferter"
     ],
     [
      "normally",
@@ -1617,6 +1621,316 @@
   },
   {
    "num": 6,
+   "title": "Text & Media Skills 1",
+   "words": [
+    [
+     "view",
+     "Blick; Sicht; Aussicht; Ausblick"
+    ],
+    [
+     "to include",
+     "einbeziehen; einschließen; beifügen"
+    ],
+    [
+     "to draw sb's eye to sth",
+     "jmds. Aufmerksamkeit lenken auf"
+    ],
+    [
+     "thought bubble",
+     "Gedankenblase"
+    ],
+    [
+     "expectation",
+     "Erwartung"
+    ],
+    [
+     "process",
+     "Prozess; Verfahren"
+    ],
+    [
+     "board",
+     "Tafel; Brett"
+    ],
+    [
+     "identification",
+     "Identifizierung; Identifikation"
+    ],
+    [
+     "tag",
+     "Schildchen; Etikett"
+    ],
+    [
+     "to pin",
+     "befestigen; stecken; anheften"
+    ],
+    [
+     "coat",
+     "Mantel"
+    ],
+    [
+     "registry",
+     "Register"
+    ],
+    [
+     "famine",
+     "Hungersnot"
+    ],
+    [
+     "persecution",
+     "Verfolgung"
+    ],
+    [
+     "physically and mentally fit",
+     "körperlich und geistig gesund"
+    ],
+    [
+     "to step into sth",
+     "sich in etw. hineinversetzen"
+    ],
+    [
+     "sharp",
+     "scharf; schneidend"
+    ],
+    [
+     "blurry",
+     "verschwommen; unscharf"
+    ],
+    [
+     "posed",
+     "dargestellt; gestellt; posiert"
+    ],
+    [
+     "orientation",
+     "Ausrichtung; Format"
+    ],
+    [
+     "landscape mode",
+     "Querformat"
+    ],
+    [
+     "portrait mode",
+     "Hochformat"
+    ],
+    [
+     "long shot",
+     "Totale (Kameraeinstellung)"
+    ],
+    [
+     "medium shot",
+     "Halbtotale (Kameraeinstellung)"
+    ],
+    [
+     "bird's eye view",
+     "Vogelperspektive"
+    ],
+    [
+     "frog's eye view",
+     "Froschperspektive"
+    ],
+    [
+     "celebration",
+     "Feier"
+    ],
+    [
+     "at first glance",
+     "auf den ersten Blick"
+    ],
+    [
+     "deceptive",
+     "irreführend; täuschend; trügerisch"
+    ],
+    [
+     "politician",
+     "Politiker/-in"
+    ],
+    [
+     "pedestal",
+     "Sockel; Podest"
+    ],
+    [
+     "tablet",
+     "Tafel"
+    ],
+    [
+     "chain",
+     "Kette"
+    ],
+    [
+     "spike",
+     "Zacke; Spitze; Stachel"
+    ],
+    [
+     "to refer to",
+     "sich beziehen auf; sprechen von"
+    ],
+    [
+     "to suggest",
+     "andeuten; nahelegen"
+    ],
+    [
+     "policy",
+     "politische Linie; Politik"
+    ],
+    [
+     "to limit to",
+     "begrenzen auf; beschränken auf; limitieren auf"
+    ],
+    [
+     "application",
+     "Antrag; Bewerbungs-; Bewerbung"
+    ],
+    [
+     "presidency",
+     "Präsidentschaft"
+    ],
+    [
+     "bar chart",
+     "Säulendiagramm; Balkendiagramm"
+    ],
+    [
+     "pie chart",
+     "Kuchendiagramm; Tortendiagramm"
+    ],
+    [
+     "line graph",
+     "Kurvendiagramm"
+    ],
+    [
+     "table",
+     "Tabelle"
+    ],
+    [
+     "to consist of",
+     "bestehen aus"
+    ],
+    [
+     "development",
+     "Entwicklung"
+    ],
+    [
+     "rectangle",
+     "Rechteck"
+    ],
+    [
+     "height",
+     "Höhe; (Körper)Größe"
+    ],
+    [
+     "slice",
+     "Scheibe; Stück; Teil"
+    ],
+    [
+     "percentage",
+     "Prozentsatz; prozentualer Anteil"
+    ],
+    [
+     "a whole",
+     "ein Ganzes"
+    ],
+    [
+     "row",
+     "Reihe"
+    ],
+    [
+     "column",
+     "Spalte"
+    ],
+    [
+     "statistics (pl)",
+     "Statistik"
+    ],
+    [
+     "publication",
+     "Veröffentlichung"
+    ],
+    [
+     "majority",
+     "Mehrheit; Mehrzahl"
+    ],
+    [
+     "minority",
+     "Minderheit"
+    ],
+    [
+     "to increase",
+     "zunehmen; (an)steigen; steigern; vergrößern"
+    ],
+    [
+     "to decrease",
+     "abnehmen; sinken; vermindern"
+    ],
+    [
+     "level",
+     "Höhe; Level; Niveau"
+    ],
+    [
+     "to draw a conclusion",
+     "folgern; eine Schlussfolgerung ziehen"
+    ],
+    [
+     "spreadsheet program",
+     "Tabellenkalkulationsprogramm"
+    ],
+    [
+     "topographic",
+     "topographisch; Topografie-"
+    ],
+    [
+     "climatic",
+     "klimatisch; Klima-"
+    ],
+    [
+     "nautical chart",
+     "Seekarte"
+    ],
+    [
+     "vegetation",
+     "Vegetation; Vegetations-"
+    ],
+    [
+     "geological",
+     "geologisch; Geologie-"
+    ],
+    [
+     "mainly",
+     "hauptsächlich; in erster Linie; vorwiegend"
+    ],
+    [
+     "to originate",
+     "abstammen; herstammen"
+    ],
+    [
+     "border",
+     "Grenze"
+    ],
+    [
+     "density",
+     "Dichte"
+    ],
+    [
+     "fertile",
+     "fruchtbar"
+    ],
+    [
+     "topography",
+     "Topografie"
+    ],
+    [
+     "infographic",
+     "Infographik"
+    ],
+    [
+     "relevant",
+     "relevant; von Bedeutung"
+    ],
+    [
+     "at least",
+     "mindestens; wenigstens; zumindest"
+    ]
+   ]
+  },
+  {
+   "num": 7,
    "title": "Across cultures 3",
    "words": [
     [
@@ -1686,7 +2000,7 @@
    ]
   },
   {
-   "num": 7,
+   "num": 8,
    "title": "Unit 3",
    "words": [
     [
@@ -1883,7 +2197,7 @@
     ],
     [
      "security guard",
-     "Sicherheitsbediensteter/Sicherheitsbedienstete"
+     "Sicherheitsbediensteter/Sicherheit sbedienstete"
     ],
     [
      "social background",
@@ -2064,7 +2378,7 @@
    ]
   },
   {
-   "num": 8,
+   "num": 9,
    "title": "Across cultures 4",
    "words": [
     [
@@ -2122,7 +2436,7 @@
    ]
   },
   {
-   "num": 9,
+   "num": 10,
    "title": "Unit 4",
    "words": [
     [
@@ -2584,6 +2898,244 @@
     [
      "seal",
      "Seehund; Robbe"
+    ]
+   ]
+  },
+  {
+   "num": 11,
+   "title": "Text & Media Skills 2",
+   "words": [
+    [
+     "multimodal",
+     "multimodal"
+    ],
+    [
+     "as well as",
+     "sowie; und (auch)"
+    ],
+    [
+     "rez (= reservation)",
+     "Reservat"
+    ],
+    [
+     "protagonist",
+     "Protagonist/-in; Hauptfigur"
+    ],
+    [
+     "to surround sb/sth",
+     "jmdn./etw. umgeben; jmdn./etw. einkreisen; um jmdn./etw."
+    ],
+    [
+     "skin",
+     "Haut; Fell"
+    ],
+    [
+     "giant",
+     "Riesen-; riesig"
+    ],
+    [
+     "senior (AE)",
+     "Schüler/-in im letzten Schuljahr der High School"
+    ],
+    [
+     "to shave",
+     "(sich) rasieren"
+    ],
+    [
+     "racist",
+     "rassistisch"
+    ],
+    [
+     "reality",
+     "Realität; Wirklichkeit"
+    ],
+    [
+     "to purchase (fml)",
+     "kaufen; erwerben"
+    ],
+    [
+     "obvious",
+     "offensichtlich"
+    ],
+    [
+     "constant",
+     "ständig; konstant; stetig; gleichmäßig"
+    ],
+    [
+     "gas(oline) (AE)",
+     "Benzin"
+    ],
+    [
+     "to assume",
+     "annehmen; ausgehen von"
+    ],
+    [
+     "highway (AE)",
+     "Bundesstraße; Highway"
+    ],
+    [
+     "It wouldn’t do me any good.",
+     "Es würde mir nichts nützen.; Es würde mir eher schaden."
+    ],
+    [
+     "to hitchhike",
+     "trampen; per Anhalter fahren"
+    ],
+    [
+     "to be middle class",
+     "zur Mittelschicht gehören"
+    ],
+    [
+     "to belong (to)",
+     "dazugehören"
+    ],
+    [
+     "field trip",
+     "Schulausflug; Exkursion"
+    ],
+    [
+     "to be allergic to",
+     "allergisch sein auf/gegen"
+    ],
+    [
+     "ceremony",
+     "Zeremonie"
+    ],
+    [
+     "appearance",
+     "Erscheinung; Aussehen; Auftritt"
+    ],
+    [
+     "first-person narrator",
+     "Ich-Erzähler/-in"
+    ],
+    [
+     "third-person narrator",
+     "Er/Sie-Erzähler/-in"
+    ],
+    [
+     "unlimited",
+     "unbegrenzt"
+    ],
+    [
+     "limited",
+     "begrenzt; eingeschränkt"
+    ],
+    [
+     "to participate (in)",
+     "teilnehmen (an); sich beteiligen (an)"
+    ],
+    [
+     "reliable",
+     "verlässlich; zuverlässig; vertrauenswürdig"
+    ],
+    [
+     "objective",
+     "objektiv"
+    ],
+    [
+     "subjective",
+     "subjektiv"
+    ],
+    [
+     "exaggeration",
+     "Übertreibung"
+    ],
+    [
+     "regular",
+     "normal; üblich"
+    ],
+    [
+     "suit",
+     "Anzug; Kostüm"
+    ],
+    [
+     "with delight",
+     "vor Freude; vor Entzücken"
+    ],
+    [
+     "to yell",
+     "brüllen; laut rufen"
+    ],
+    [
+     "to wish",
+     "(sich) wünschen"
+    ],
+    [
+     "lame",
+     "lahm; langweilig; aus der Mode; altmodisch"
+    ],
+    [
+     "to educate sb",
+     "erziehen; bilden; jmdm. etw. beibringen"
+    ],
+    [
+     "to punch sb",
+     "verprügeln; verkloppen"
+    ],
+    [
+     "traitor",
+     "Verräter/-in"
+    ],
+    [
+     "struggle",
+     "Anstrengung; Kampf"
+    ],
+    [
+     "human",
+     "Mensch"
+    ],
+    [
+     "protection",
+     "Schutz"
+    ],
+    [
+     "starvation (no pl)",
+     "Hungertod; Verhungern"
+    ],
+    [
+     "to threaten",
+     "drohen; bedrohen; gefährden"
+    ],
+    [
+     "sentimental",
+     "sentimental"
+    ],
+    [
+     "drug",
+     "Rauschgift; Droge"
+    ],
+    [
+     "suicide",
+     "Selbstmord"
+    ],
+    [
+     "abuse",
+     "Missbrauch"
+    ],
+    [
+     "violence (no pl)",
+     "Gewalt"
+    ],
+    [
+     "narrative",
+     "Erzählung; erzählerisch; erzählend; Schilderung; Beschreibung"
+    ],
+    [
+     "autobiographical",
+     "autobiografisch"
+    ],
+    [
+     "to be consistent (with)",
+     "passen (zu); entsprechen; übereinstimmen (mit)"
+    ],
+    [
+     "to vary",
+     "variieren; (sich) ändern"
+    ],
+    [
+     "length",
+     "Länge"
     ]
    ]
   }

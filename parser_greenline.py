@@ -13,8 +13,8 @@ Kapitel-Titel = lesbare Abschnittsnamen (OHNE Seitenzahlen — Tim will Seiten n
 """
 import pymupdf, re, json, os
 
-MARK_RE = re.compile(r'^(PUA|CI|GRS|U\d{1,2}|AC\d|TR\d)$')          # Kapitel-Marker
-CELL_RE = re.compile(r'^(S\d{1,2}|SK\d?|ST\d?|UT\d?|FP\d?|CO\d?|GRS|R\d|W\d|T\d)$')  # ZellenMarker
+MARK_RE = re.compile(r'^(PUA|CI|GRS|U\d{1,2}|AC\d|TR\d|TMS\d)$')   # Kapitel-Marker
+CELL_RE = re.compile(r'^(S\d{1,2}|SK\d?|ST\d?|UT\d?|FP\d?|CO\d?|GRS|R\d|W\d|T\d|OP\d?)$')  # ZellenMarker
 PAGE_RE = re.compile(r'^S\d{1,2}$')
 UKR_LO, UKR_HI = '\u0400', '\u04FF'
 
@@ -26,6 +26,8 @@ def is_ukr(line):
     return cyr >= max(2, len(t.replace(' ', '')) * 0.4)
 
 def lekt_name(m):
+    mm = re.fullmatch(r'TMS(\d)', m)
+    if mm: return f'Text & Media Skills {mm.group(1)}'
     mm = re.fullmatch(r'U(\d)', m)
     if mm: return f'Unit {mm.group(1)}'
     mm = re.fullmatch(r'AC(\d)', m)
