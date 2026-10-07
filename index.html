@@ -654,11 +654,9 @@ async function fillRangeSelects(){
   const r=await (await fetch(`/api/words?book=${encodeURIComponent(book)}&chapters=${[...sel].map(s=>encodeURIComponent(s)).join(',')}`)).json();
   const items=[];
   for(const c of (r.chapters||[])){
-    for(const w of (c.words||[])){
-      const de=(w.de||'').split(';')[0].trim();
-      const main=(w.en||'').trim();
-      items.push({gpos: items.length+1, label: main + (de?` · ${de}`:''), ch: c.num});
-    }
+    for(const w of (c.words||[]))
+      // NUR Englisch — die deutsche Übersetzung würde die Antwort verraten (EN→DE):
+      items.push({gpos: items.length+1, label: (w.en||'').trim(), ch: c.num});
   }
   wordsCache.key=key; wordsCache.items=items;
 }
