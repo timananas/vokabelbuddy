@@ -101,8 +101,10 @@ def auth_load():
                                    if str(k) in AUTH_MEM['trusted']}
         AUTH_MEM['user_series'] = {str(k): str(v) for k, v in (d.get('user_series') or {}).items()}
         AUTH_MEM['kid_series'] = {str(k): str(v) for k, v in (d.get('kid_series') or {}).items()}
-    except Exception:
-        AUTH_MEM.update({'users': {}, 'trusted': {}, 'trust_users': {}, 'user_series': {}})
+    except Exception as e:
+        # FAILOPEN-Verbot: leere NIEMALS die RAM-users (sonst Setup-Modus → Tim-Reset!) —
+        # der RAM-stand bleibt; die Datei ist ggf. defekt (log reicht):
+        AUTH_MEM.__setitem__('auth_load_error', str(e))
 
 
 def auth_save():
@@ -142,14 +144,10 @@ def _session_user(self):
 
 
 def _ensure_default_users():
-    """luis/carlotta einmalig anlegen (Passwort = Username), nur wenn sie fehlen."""
-    ch = False
-    for uid, spec in DEFAULT_USERS.items():
-        if uid not in AUTH_MEM['users']:
-            AUTH_MEM['users'][uid] = _user_entry(spec['pw'], spec['role'])
-            ch = True
-    if ch:
-        auth_save()
+    """ENTFERNT: automatische Passwort-Default-Anlage für luis/carlotta — die 'resettete'
+    still alle Kennwörter auf Username (Tim-Report: Kennwort nach jedem Deploy weg).
+    Kid-Accounts werden im Setup bzw. über die Zahnrad-Verwaltung angelegt."""
+    pass
 
 
 def _totp_now(secret, t=None):
