@@ -1,0 +1,3163 @@
+{
+ "book": "greenline1",
+ "chapters": [
+  {
+   "num": 1,
+   "title": "PUA · Pre-Unit / People & you",
+   "words": [
+    [
+     "We're from …",
+     "Wir sind aus …"
+    ],
+    [
+     "Here's your ball.",
+     "Hier ist dein Ball."
+    ],
+    [
+     "Hello.",
+     "Hallo."
+    ],
+    [
+     "I'm …",
+     "Ich heiße …; Ich bin …"
+    ],
+    [
+     "You're a nice dog.",
+     "Du bist ein lieber Hund."
+    ],
+    [
+     "What's your name?",
+     "Wie heißt du?; Wie heißen Sie?"
+    ],
+    [
+     "Sorry, my dog is crazy.",
+     "Tut mir leid, mein Hund ist verrückt."
+    ],
+    [
+     "and",
+     "und"
+    ],
+    [
+     "My name is …",
+     "Ich heiße …"
+    ],
+    [
+     "Where are you from?",
+     "Woher kommst du?; Woher kommt ihr?; Woher kommen Sie?"
+    ],
+    [
+     "I'm from …",
+     "Ich bin aus …"
+    ],
+    [
+     "in",
+     "in; im; rein; herein"
+    ],
+    [
+     "Are you on holiday in …?",
+     "Bist du im Urlaub in …?; Sind Sie im Urlaub in …?; Seid ihr im Urlaub in"
+    ],
+    [
+     "yes",
+     "ja"
+    ],
+    [
+     "I'm here with my parents.",
+     "Ich bin mit meinen Eltern hier."
+    ],
+    [
+     "How old are you?",
+     "Wie alt bist du?; Wie alt seid ihr?; Wie alt sind Sie?"
+    ],
+    [
+     "You too?",
+     "Du auch?; Ihr auch?"
+    ],
+    [
+     "no",
+     "nein"
+    ],
+    [
+     "the",
+     "der; die (auch Pl.); das –"
+    ],
+    [
+     "boy",
+     "Junge"
+    ],
+    [
+     "girl",
+     "Mädchen"
+    ],
+    [
+     "me too",
+     "ich auch"
+    ],
+    [
+     "friend",
+     "Freund/-in"
+    ],
+    [
+     "he",
+     "er"
+    ],
+    [
+     "she",
+     "sie"
+    ],
+    [
+     "it",
+     "er; sie; es"
+    ],
+    [
+     "they",
+     "sie (Pl.)"
+    ],
+    [
+     "new",
+     "neu"
+    ],
+    [
+     "Come in.",
+     "Komm/Kommt rein."
+    ],
+    [
+     "to come",
+     "kommen"
+    ],
+    [
+     "mum",
+     "Mama; Mutti"
+    ],
+    [
+     "who",
+     "wer; wem; wen"
+    ],
+    [
+     "Mrs",
+     "Frau (Anrede)"
+    ],
+    [
+     "town",
+     "Stadt"
+    ],
+    [
+     "in the north of",
+     "im Norden von"
+    ],
+    [
+     "student",
+     "Schüler/-in; Student/-in"
+    ],
+    [
+     "class",
+     "Klasse; Schulklasse"
+    ],
+    [
+     "You're right.",
+     "Du hast Recht."
+    ],
+    [
+     "all",
+     "alle/-s; ganz"
+    ],
+    [
+     "the same",
+     "der-/die-/dasselbe; der/die/das gleiche"
+    ],
+    [
+     "his",
+     "sein/-e"
+    ],
+    [
+     "cat",
+     "Katze"
+    ],
+    [
+     "animal",
+     "Tier"
+    ],
+    [
+     "to like",
+     "mögen; gern haben"
+    ],
+    [
+     "I'm not scared of dogs.",
+     "Ich habe keine Angst vor Hunden."
+    ],
+    [
+     "not",
+     "nicht"
+    ],
+    [
+     "but",
+     "aber"
+    ],
+    [
+     "OK",
+     "o.k.; in Ordnung"
+    ],
+    [
+     "They don't eat mice.",
+     "Sie essen keine Mäuse."
+    ],
+    [
+     "mouse, mice (pl)",
+     "Maus/Mäuse"
+    ],
+    [
+     "to hate",
+     "nicht mögen; hassen"
+    ],
+    [
+     "to love",
+     "lieben; gern mögen"
+    ],
+    [
+     "That was close!",
+     "Das war knapp!"
+    ],
+    [
+     "Thank you.",
+     "Danke."
+    ],
+    [
+     "This is …",
+     "Das (hier) ist …"
+    ],
+    [
+     "school",
+     "Schule"
+    ],
+    [
+     "big",
+     "groß"
+    ],
+    [
+     "great",
+     "großartig; toll; super"
+    ],
+    [
+     "for",
+     "zum; für"
+    ],
+    [
+     "cycling",
+     "Radfahren"
+    ],
+    [
+     "sport",
+     "Sport; Sportart"
+    ],
+    [
+     "football",
+     "Fußball"
+    ],
+    [
+     "boating lake",
+     "See zum Rudern"
+    ],
+    [
+     "Let's go!",
+     "Lass/Lasst uns hingehen!; Los, gehen wir hin!"
+    ],
+    [
+     "It's fun.",
+     "Es macht Spaß."
+    ],
+    [
+     "hobby, hobbies (pl)",
+     "Hobby"
+    ],
+    [
+     "place",
+     "Ort; Stelle; Platz"
+    ],
+    [
+     "skateboarding",
+     "Skateboardfahren"
+    ],
+    [
+     "volleyball",
+     "Volleyball"
+    ],
+    [
+     "(inline) skating",
+     "Inlineskatefahren"
+    ],
+    [
+     "My favourite … is …",
+     "Mein Lieblings… ist …"
+    ],
+    [
+     "colour",
+     "Farbe"
+    ],
+    [
+     "puzzle",
+     "Rätsel; Puzzle"
+    ],
+    [
+     "What's your favourite …?",
+     "Was ist dein/-e Lieblings …?"
+    ],
+    [
+     "kite",
+     "Drachen"
+    ],
+    [
+     "bike",
+     "Fahrrad"
+    ],
+    [
+     "boat",
+     "Boot"
+    ],
+    [
+     "bag",
+     "Tasche; Tüte"
+    ],
+    [
+     "there is/are",
+     "es gibt"
+    ],
+    [
+     "number",
+     "Zahl; Nummer"
+    ],
+    [
+     "quiz",
+     "Quiz; Rätsel"
+    ],
+    [
+     "Please.",
+     "Bitte."
+    ],
+    [
+     "phone number",
+     "Telefon-/Handynummer"
+    ],
+    [
+     "What colour is …?",
+     "Welche Farbe hat …?"
+    ],
+    [
+     "first name",
+     "Vorname"
+    ],
+    [
+     "surname",
+     "Nachname"
+    ],
+    [
+     "double",
+     "Doppel-; zweimal"
+    ],
+    [
+     "to rap",
+     "rappen"
+    ],
+    [
+     "like me",
+     "wie ich"
+    ]
+   ]
+  },
+  {
+   "num": 2,
+   "title": "CI · Check-in",
+   "words": [
+    [
+     "at home",
+     "zu Hause"
+    ],
+    [
+     "to live",
+     "wohnen; leben"
+    ],
+    [
+     "flat",
+     "Wohnung"
+    ],
+    [
+     "in the street",
+     "auf der Straße"
+    ],
+    [
+     "family",
+     "Familie"
+    ],
+    [
+     "house",
+     "Haus"
+    ],
+    [
+     "door",
+     "Tür"
+    ],
+    [
+     "bath",
+     "Bad; Badewanne"
+    ],
+    [
+     "TV",
+     "Fernsehen; Fernseher"
+    ],
+    [
+     "sofa",
+     "Sofa; Couch"
+    ],
+    [
+     "shower",
+     "Dusche"
+    ],
+    [
+     "chair",
+     "Stuhl; Sessel"
+    ],
+    [
+     "cupboard",
+     "Küchenschrank; Schrank"
+    ],
+    [
+     "toilet",
+     "Toilette"
+    ],
+    [
+     "bed",
+     "Bett"
+    ],
+    [
+     "clock",
+     "Uhr"
+    ],
+    [
+     "wardrobe",
+     "Kleiderschrank"
+    ],
+    [
+     "cooker",
+     "Herd"
+    ],
+    [
+     "table",
+     "Tisch"
+    ],
+    [
+     "good",
+     "gut"
+    ],
+    [
+     "biscuit",
+     "Keks"
+    ],
+    [
+     "under",
+     "unter"
+    ],
+    [
+     "planner",
+     "Handbuch; Kalender"
+    ],
+    [
+     "rule",
+     "Regel"
+    ],
+    [
+     "lunch",
+     "Mittagessen"
+    ],
+    [
+     "cafeteria",
+     "Cafeteria"
+    ],
+    [
+     "money",
+     "Geld"
+    ],
+    [
+     "machine",
+     "Automat; Maschine; Apparat; Gerät"
+    ],
+    [
+     "to pay (for)",
+     "bezahlen"
+    ],
+    [
+     "finger",
+     "Finger"
+    ],
+    [
+     "art",
+     "Kunst; Kunstunterricht"
+    ],
+    [
+     "to buy",
+     "kaufen"
+    ],
+    [
+     "sweets (pl)",
+     "Süßigkeiten; Bonbons"
+    ],
+    [
+     "shop",
+     "Geschäft; Laden"
+    ],
+    [
+     "pen",
+     "Füller"
+    ],
+    [
+     "pencil",
+     "Bleistift; Buntstift"
+    ],
+    [
+     "pencil case",
+     "Federmäppchen; Mäppchen"
+    ],
+    [
+     "exercise book",
+     "Übungsheft"
+    ],
+    [
+     "ruler",
+     "Lineal"
+    ],
+    [
+     "rubber",
+     "Radiergummi"
+    ],
+    [
+     "uniform",
+     "Uniform"
+    ],
+    [
+     "recording studio",
+     "Aufnahmestudio; Tonstudio"
+    ],
+    [
+     "classroom",
+     "Klassenzimmer"
+    ],
+    [
+     "a.m.",
+     "vormittags (Uhrzeit); morgens (Uhrzeit)"
+    ],
+    [
+     "p.m.",
+     "nachmittags (Uhrzeit); abends (Uhrzeit)"
+    ],
+    [
+     "still",
+     "noch; immer noch"
+    ],
+    [
+     "dog-tired",
+     "hundemüde"
+    ],
+    [
+     "tired",
+     "müde"
+    ],
+    [
+     "Time to get up!",
+     "Es ist Zeit aufzustehen!"
+    ],
+    [
+     "I'm on my way …",
+     "Ich bin auf dem Weg …; Ich bin unterwegs …"
+    ],
+    [
+     "usually",
+     "normalerweise; gewöhnlich; meistens"
+    ],
+    [
+     "by (bike)",
+     "mit (dem Fahrrad)"
+    ],
+    [
+     "to sit down",
+     "sich hinsetzen; sich setzen"
+    ],
+    [
+     "to have breakfast",
+     "frühstücken"
+    ],
+    [
+     "often",
+     "oft; häufig"
+    ],
+    [
+     "to start",
+     "anfangen; beginnen; starten"
+    ],
+    [
+     "too",
+     "zu"
+    ],
+    [
+     "early",
+     "früh"
+    ],
+    [
+     "to practise",
+     "üben; trainieren"
+    ],
+    [
+     "saxophone",
+     "Saxofon"
+    ],
+    [
+     "sometimes",
+     "manchmal"
+    ],
+    [
+     "story, stories (pl)",
+     "Story; Geschichte; Erzählung"
+    ],
+    [
+     "at 7:15",
+     "um Viertel nach sieben"
+    ],
+    [
+     "What’s the time?",
+     "Wie spät ist es?; Wie viel Uhr ist es?"
+    ],
+    [
+     "fun",
+     "lustig; witzig; fröhlich"
+    ],
+    [
+     "museum",
+     "Museum"
+    ],
+    [
+     "to cost",
+     "kosten"
+    ],
+    [
+     "ship",
+     "Schiff"
+    ],
+    [
+     "over",
+     "hinüber; über"
+    ],
+    [
+     "foot, feet (pl)",
+     "Fuß"
+    ],
+    [
+     "east",
+     "Osten; Ost-"
+    ],
+    [
+     "west",
+     "Westen; West-"
+    ],
+    [
+     "pier",
+     "Pier; Hafendamm"
+    ],
+    [
+     "tunnel",
+     "Tunnel"
+    ],
+    [
+     "river",
+     "Fluss"
+    ],
+    [
+     "farm",
+     "Farm; Bauernhof"
+    ],
+    [
+     "across",
+     "auf der anderen Seite von; über; hinüber; herüber; quer durch"
+    ],
+    [
+     "city",
+     "Stadt; Großstadt"
+    ],
+    [
+     "free",
+     "frei; kostenlos"
+    ],
+    [
+     "water slide",
+     "Wasserrutsche"
+    ],
+    [
+     "leisure centre",
+     "Freizeitzentrum"
+    ],
+    [
+     "activity",
+     "Aktivität"
+    ],
+    [
+     "tour",
+     "Tour; Fahrt; Rundgang"
+    ],
+    [
+     "through",
+     "durch"
+    ],
+    [
+     "to go shopping",
+     "einkaufen gehen"
+    ],
+    [
+     "bottle",
+     "Flasche"
+    ],
+    [
+     "That's …",
+     "Das macht …"
+    ],
+    [
+     "pound (£)",
+     "Pfund (brit. Währungseinheit)"
+    ],
+    [
+     "Anything else?",
+     "Sonst noch etwas?"
+    ],
+    [
+     "can",
+     "Dose; Büchse"
+    ],
+    [
+     "coke",
+     "Cola"
+    ],
+    [
+     "packet",
+     "Päckchen; Paket; Packung"
+    ],
+    [
+     "Here you are.",
+     "Bitte schön."
+    ],
+    [
+     "cheap",
+     "billig; preiswert"
+    ],
+    [
+     "How much (is/are) …?",
+     "Wie viel (kostet/kosten) …?"
+    ],
+    [
+     "It's …/They're …",
+     "Es kostet …/Sie kosten …"
+    ],
+    [
+     "expensive",
+     "teuer"
+    ],
+    [
+     "top",
+     "Spitzen-; oberste/-r/-s; beste/-r/-s"
+    ],
+    [
+     "quality",
+     "Qualität; Eigenschaft"
+    ],
+    [
+     "I'm looking for …",
+     "Ich suche nach …"
+    ],
+    [
+     "present",
+     "Geschenk"
+    ],
+    [
+     "bracelet",
+     "Armband"
+    ],
+    [
+     "special offer",
+     "Sonderangebot"
+    ],
+    [
+     "fashion",
+     "Mode"
+    ],
+    [
+     "snack bar",
+     "Snackbar; Imbissstube"
+    ],
+    [
+     "jewellery",
+     "Schmuck"
+    ],
+    [
+     "price",
+     "Preis"
+    ],
+    [
+     "penny, pence (pl)",
+     "Penny; Pence (brit. Währungseinheit)"
+    ],
+    [
+     "euro",
+     "Euro (Währung)"
+    ],
+    [
+     "cent",
+     "Cent (Währung)"
+    ],
+    [
+     "to spend",
+     "ausgeben (Geld)"
+    ],
+    [
+     "to save",
+     "sparen"
+    ],
+    [
+     "piggy bank",
+     "Sparbüchse; Spardose; Sparschwein"
+    ],
+    [
+     "next",
+     "als Nächstes"
+    ]
+   ]
+  },
+  {
+   "num": 3,
+   "title": "U1 · Unit 1",
+   "words": [
+    [
+     "S1",
+     "sister !*sIstE? Schwester"
+    ],
+    [
+     "S1",
+     "little !*lItl? klein"
+    ],
+    [
+     "S1",
+     "brother !*br0DE? Bruder"
+    ],
+    [
+     "S1",
+     "father !*fA:DE? Vater"
+    ],
+    [
+     "S1",
+     "English !*INGlIS? englisch; Englisch; aus England; Engländer/-in"
+    ],
+    [
+     "S1",
+     "mother !*m0DE? Mutter"
+    ],
+    [
+     "S1",
+     "cousin !*k0zn? Cousin/Cousine"
+    ],
+    [
+     "S1",
+     "… is an only child !+Iz-En-*EUnli +tSaIld? … ist ein Einzelkind"
+    ],
+    [
+     "S1",
+     "like !laIk? wie"
+    ],
+    [
+     "S1",
+     "dad !dxd? Papa; Vati"
+    ],
+    [
+     "S1",
+     "always !*C:lweIz? immer; ständig"
+    ],
+    [
+     "S1",
+     "easy !*i:zi? einfach; leicht"
+    ],
+    [
+     "S1",
+     "our !aUE; A:? unser/-e"
+    ],
+    [
+     "S1",
+     "uncle !*0Nkl? Onkel"
+    ],
+    [
+     "S1",
+     "aunt !A:nt? Tante"
+    ],
+    [
+     "S1",
+     "grandad !*Grxndxd? Opa; Opi"
+    ],
+    [
+     "S1",
+     "grandma !*GrxnmA:? Oma; Omi"
+    ],
+    [
+     "S1",
+     "Tell me about … !*tel mi:-E+baUt? Erzähle/Erzählt mir von …"
+    ],
+    [
+     "S1",
+     "her !h3:? ihr/-e; sie"
+    ],
+    [
+     "S1",
+     "guinea pig !*GIni: +pIG? Meerschweinchen"
+    ],
+    [
+     "S1",
+     "quiet !kwaIEt? still; ruhig; leise"
+    ],
+    [
+     "S1",
+     "small !smC:l? klein"
+    ],
+    [
+     "S1",
+     "child , children (pl) !*tSaIld; *tSIldrEn? Kind"
+    ],
+    [
+     "S1",
+     "boring !*bC:rIN? langweilig"
+    ],
+    [
+     "S1",
+     "lucky number !+l0ki *n0mbE? Glückszahl"
+    ],
+    [
+     "S2",
+     "problem !*prOblEm? Problem; Schwierigkeit"
+    ],
+    [
+     "S2",
+     "part !pA:t? Teil; Stadtteil"
+    ],
+    [
+     "S2",
+     "end !end? Ende; Schluss"
+    ],
+    [
+     "S2",
+     "long !lON? lang"
+    ],
+    [
+     "S2",
+     "road !rEUd? Straße"
+    ],
+    [
+     "S2",
+     "garden !*GA:dn? Garten"
+    ],
+    [
+     "S2",
+     "in front of !In *fr0nt-Ev? vor"
+    ],
+    [
+     "S2",
+     "behind !bI*haInd? hinter"
+    ],
+    [
+     "S2",
+     "only !*EUnli? erst; bloß; nur"
+    ],
+    [
+     "S2",
+     "Mr !*mIstE? Herr (Anrede)"
+    ],
+    [
+     "S2",
+     "now !naU? jetzt; nun"
+    ],
+    [
+     "S2",
+     "there's (= there is) !DeEz? es gibt"
+    ],
+    [
+     "S2",
+     "car !kA:? Auto"
+    ],
+    [
+     "S2",
+     "everywhere !*evriweE? überall"
+    ],
+    [
+     "S2",
+     "again !E*Gen? wieder; noch einmal; noch mal"
+    ],
+    [
+     "S2",
+     "Look! !lUk? Schau/Schaut mal!"
+    ],
+    [
+     "S2",
+     "floor !flC:? Fußboden"
+    ],
+    [
+     "S2",
+     "next to !*nekst tE? neben"
+    ],
+    [
+     "S2",
+     "thing !TIN? Ding; Sache"
+    ],
+    [
+     "S2",
+     "to listen (to) !*lIsn (tE)? zuhören; anhören"
+    ],
+    [
+     "S2",
+     "idea !aI*dIE? Idee; Einfall"
+    ],
+    [
+     "S2",
+     "loft !lOft? Dachboden"
+    ],
+    [
+     "S2",
+     "own !EUn? eigene/-r/-s"
+    ],
+    [
+     "S2",
+     "toy !tCI? Spielzeug"
+    ],
+    [
+     "S2",
+     "very !*veri? sehr"
+    ],
+    [
+     "S2",
+     "happy !*hxpi? glücklich; froh; fröhlich"
+    ],
+    [
+     "S2",
+     "at !xt; Et? in; auf; bei; an"
+    ],
+    [
+     "S2",
+     "fantasy !*fxntEsi? Fantasie; Traum-"
+    ],
+    [
+     "S2",
+     "to play !pleI? spielen"
+    ],
+    [
+     "S2",
+     "cheese !tSi:z? Käse"
+    ],
+    [
+     "S2",
+     "fridge !frIdZ? Kühlschrank"
+    ],
+    [
+     "S2",
+     "their !DeE? ihr/-e (Pl.)"
+    ],
+    [
+     "S2",
+     "can !kxn; kEn? können; dürfen"
+    ],
+    [
+     "S2",
+     "when !wen? wenn; wann; als"
+    ],
+    [
+     "S2",
+     "to see !si:? sehen"
+    ],
+    [
+     "S2",
+     "Thanks. !TxNks? Danke."
+    ],
+    [
+     "S2",
+     "home !hEUm? Zuhause; Heim"
+    ],
+    [
+     "S2",
+     "to want (to) !*wOnt tE? wollen; mögen"
+    ],
+    [
+     "S2",
+     "music !*mju:zIk? Musik"
+    ],
+    [
+     "S2",
+     "near !nIE? nahe; in der Nähe von"
+    ],
+    [
+     "S2",
+     "busy !*bIzi? belebt; beschäftigt"
+    ],
+    [
+     "S2",
+     "centre !*sentE? Zentrum; Center"
+    ],
+    [
+     "S2",
+     "Don't worry! !+dEUnt *w0ri? Keine Sorge!"
+    ],
+    [
+     "S2",
+     "or !C:? oder"
+    ],
+    [
+     "S2",
+     "address !E*dres? Adresse"
+    ],
+    [
+     "S2",
+     "wall !wC:l? Wand; Mauer"
+    ],
+    [
+     "S2",
+     "newspaper !*nju:s+peIpE? Zeitung"
+    ],
+    [
+     "S2",
+     "people (pl) !*pi:pl? Leute; Menschen"
+    ],
+    [
+     "S2",
+     "so !sEU? so; also"
+    ],
+    [
+     "S2",
+     "clothes (pl) !klEUDz? Kleider; Kleidung"
+    ],
+    [
+     "S2",
+     "lots (of) !*lOts-Ev? viel/-e; jede Menge"
+    ],
+    [
+     "S2",
+     "with me !wID *mi:? mit mir; bei mir"
+    ],
+    [
+     "S2",
+     "from … to !frEm-tE? von … bis"
+    ],
+    [
+     "S2",
+     "pet !pet? Haustier"
+    ],
+    [
+     "ST",
+     "model !*mOdl? Modell; Tonmodell; Model"
+    ],
+    [
+     "ST",
+     "Who … for? !+hu: *fC:? Für wen …?"
+    ],
+    [
+     "ST",
+     "to explore !Ik*splC:? auf Entdeckungsreise gehen; sich umschauen; erkunden; erforschen"
+    ],
+    [
+     "ST",
+     "best !best? beste/-r/-s"
+    ],
+    [
+     "ST",
+     "maybe !*meIbi? vielleicht"
+    ],
+    [
+     "ST",
+     "after !*A:ftE? nach (zeitlich)"
+    ],
+    [
+     "ST",
+     "visit !*vIzIt? Besuch"
+    ],
+    [
+     "ST",
+     "outside !aUt*saId? nach draußen; draußen; außerhalb (von)"
+    ],
+    [
+     "ST",
+     "awful !*C:fl? schrecklich; furchtbar"
+    ],
+    [
+     "ST",
+     "sentence !*sentEns? Satz"
+    ],
+    [
+     "ST",
+     "picture !*pIktSE? Bild; Foto"
+    ],
+    [
+     "ST",
+     "right !raIt? richtig; korrekt"
+    ],
+    [
+     "ST",
+     "ending !*endIN? Ende; Schluss (einer Geschichte)"
+    ],
+    [
+     "FP",
+     "around the house !E+raUnd DE *haUs? rund ums Haus; ums Haus herum"
+    ],
+    [
+     "FP",
+     "What about …? !*wOt-EbaUt? Was ist mit …?; Wie wär's mit …?"
+    ],
+    [
+     "FP",
+     "hair straightener !*heE +streItnE? Haarglätter"
+    ],
+    [
+     "FP",
+     "magazine !9mxGE*zi:n? Zeitschrift"
+    ],
+    [
+     "FP",
+     "book !bUk? Buch"
+    ],
+    [
+     "FP",
+     "radio !*reIdiEU? Radio"
+    ],
+    [
+     "FP",
+     "fast !fA:st? schnell"
+    ],
+    [
+     "FP",
+     "interesting !*IntrEstIN? interessant"
+    ],
+    [
+     "FP",
+     "exciting !Ik*saItIN? spannend; aufregend"
+    ],
+    [
+     "CO",
+     "to !tU; tE? zu; nach; auf; in; an"
+    ]
+   ]
+  },
+  {
+   "num": 4,
+   "title": "U2 · Unit 2",
+   "words": [
+    [
+     "S1",
+     "to have got !hxv *GOt? besitzen; haben"
+    ],
+    [
+     "S1",
+     "question !*kwestSEn? Frage"
+    ],
+    [
+     "S1",
+     "an !En? ein/-e –"
+    ],
+    [
+     "S1",
+     "test !test? Test; Klassenarbeit; Prüfung"
+    ],
+    [
+     "S1",
+     "today !tE*deI? heute; heutzutage"
+    ],
+    [
+     "S1",
+     "schoolbag !*sku:lbxG? Schultasche"
+    ],
+    [
+     "S1",
+     "tutor !*tju:tE? Klassenlehrer/-in"
+    ],
+    [
+     "S1",
+     "tutor group !*tju:tE +Gru:p? Klasse (in einer englischen Schule)"
+    ],
+    [
+     "S1",
+     "Good morning. !9GUd *mC:nIN? Guten Morgen."
+    ],
+    [
+     "S1",
+     "everyone !*evriw0n? jeder; alle"
+    ],
+    [
+     "S1",
+     "to call !kC:l? nennen"
+    ],
+    [
+     "S1",
+     "him !hIm? ihn; ihm"
+    ],
+    [
+     "S1",
+     "no !nEU? kein/-e"
+    ],
+    [
+     "S1",
+     "to sing !sIN? singen"
+    ],
+    [
+     "S1",
+     "to dance !dA:ns? tanzen"
+    ],
+    [
+     "S1",
+     "project !*prOdZekt? Projekt"
+    ],
+    [
+     "S1",
+     "well !wel? tja; nun"
+    ],
+    [
+     "S1",
+     "something !*s0mTIN? etwas"
+    ],
+    [
+     "S1",
+     "Wait and see! !9weIt-End *si:? Warte ab!"
+    ],
+    [
+     "S1",
+     "to look at !*lUk-Et? anschauen; ansehen"
+    ],
+    [
+     "S1",
+     "silly !*sIli? dumm; doof; albern"
+    ],
+    [
+     "S1",
+     "teacher !*ti:tSE? Lehrer/-in"
+    ],
+    [
+     "S1",
+     "office !*OfIs? Büro"
+    ],
+    [
+     "S1",
+     "job !dZOb? Arbeit; Aufgabe; Job"
+    ],
+    [
+     "S1",
+     "grandparents (pl) !*Grxn9peErEnts? Großeltern"
+    ],
+    [
+     "S1",
+     "talent show !*txlEnt +SEU? Talentwettbewerb"
+    ],
+    [
+     "S1",
+     "to text !tekst? eine SMS schicken"
+    ],
+    [
+     "S1",
+     "food !fu:d? Essen; Lebensmittel"
+    ],
+    [
+     "S1",
+     "carrot !*kxrEt? Karotte; Möhre"
+    ],
+    [
+     "S1",
+     "pudding !*pUdIN? Pudding; Nachtisch"
+    ],
+    [
+     "S1",
+     "restaurant !*restrOnt? Restaurant; Gaststätte"
+    ],
+    [
+     "S1",
+     "to help !help? helfen"
+    ],
+    [
+     "S1",
+     "pocket money !*pOkIt +m0ni? Taschengeld"
+    ],
+    [
+     "S2",
+     "to stare !steE? starren; anstarren"
+    ],
+    [
+     "S2",
+     "rude !ru:d? unhöflich; unverschämt"
+    ],
+    [
+     "S2",
+     "funny !*f0ni? lustig; witzig"
+    ],
+    [
+     "S2",
+     "to sit !sIt? sitzen"
+    ],
+    [
+     "S2",
+     "to use !ju:z? benutzen; verwenden; gebrauchen"
+    ],
+    [
+     "S2",
+     "lunch break !*l0nS breIk? Mittagspause"
+    ],
+    [
+     "S2",
+     "them !Dem? sie (Pl.); ihnen"
+    ],
+    [
+     "S2",
+     "more !mC:? mehr; weitere"
+    ],
+    [
+     "S2",
+     "to forget !fE*Get? vergessen"
+    ],
+    [
+     "S2",
+     "knife, knives (pl) !naIf; naIfz? Messer"
+    ],
+    [
+     "S2",
+     "fork !fC:k? Gabel"
+    ],
+    [
+     "S2",
+     "spoon !spu:n? Löffel"
+    ],
+    [
+     "S2",
+     "to run !r0n? rennen; laufen"
+    ],
+    [
+     "S2",
+     "to shout !SaUt? schreien; rufen"
+    ],
+    [
+     "S2",
+     "polite !pE*laIt? höflich"
+    ],
+    [
+     "S2",
+     "to put away !+pUt-E*weI? wegstellen; weglegen"
+    ],
+    [
+     "S2",
+     "tray !treI? Tablett"
+    ],
+    [
+     "S2",
+     "to be late !bi *leIt? zu spät dran sein; zu spät kommen"
+    ],
+    [
+     "S2",
+     "to wear !weE? anhaben; tragen (Kleidung)"
+    ],
+    [
+     "S2",
+     "to bring !brIN? bringen; mitbringen"
+    ],
+    [
+     "S2",
+     "building !*bIldIN? Gebäude"
+    ],
+    [
+     "S2",
+     "homework (no pl) !*hEUmw3:k? Hausaufgabe(n)"
+    ],
+    [
+     "S2",
+     "into !*IntE? in; in … hinein"
+    ],
+    [
+     "S2",
+     "alone !E*lEUn? allein; ohne fremde Hilfe"
+    ],
+    [
+     "S2",
+     "dream !dri:m? Traum; Traum-"
+    ],
+    [
+     "S2",
+     "lesson !*lesn? Unterrichtsstunde; Schulstunde; Unterricht"
+    ],
+    [
+     "S2",
+     "far away !+fA:r-E*weI? weit weg"
+    ],
+    [
+     "S2",
+     "these !Di:z? diese (hier)"
+    ],
+    [
+     "S2",
+     "those !DEUz? diese dort; jene"
+    ],
+    [
+     "S2",
+     "over there !+EUvE *DeE? da drüben; dort drüben; nach dort drüben"
+    ],
+    [
+     "S2",
+     "to think !TINk? denken; nachdenken; glauben"
+    ],
+    [
+     "UT",
+     "to think !TINk? finden (= der Meinung sein)"
+    ],
+    [
+     "UT",
+     "best !best? am besten"
+    ],
+    [
+     "UT",
+     "because !bI*kOz? weil; da"
+    ],
+    [
+     "ST",
+     "to play a trick (on) !+pleI-E *trIk-On? einen Streich spielen"
+    ],
+    [
+     "ST",
+     "week !wi:k? Woche"
+    ],
+    [
+     "ST",
+     "before !bI*fC:? vor (zeitlich); bevor"
+    ],
+    [
+     "ST",
+     "to work !w3:k? arbeiten"
+    ],
+    [
+     "ST",
+     "group !Gru:p? Gruppe; Klasse"
+    ],
+    [
+     "ST",
+     "in pairs !In *peEz? zu zweit; mit einem Partner/einer Partnerin"
+    ],
+    [
+     "ST",
+     "audio !*C:diEU? Audio-; Hör-"
+    ],
+    [
+     "ST",
+     "presentation !+prezn*teISn? Präsentation; Vortrag"
+    ],
+    [
+     "ST",
+     "recording !rI*kC:dIN? Aufnahme; Aufzeichnung"
+    ],
+    [
+     "ST",
+     "poem !*pEUIm? Gedicht"
+    ],
+    [
+     "ST",
+     "sure !SUE; SC:? sicher"
+    ],
+    [
+     "ST",
+     "voice !vCIs? Stimme"
+    ],
+    [
+     "ST",
+     "next !nekst? nächste/-r/-s; der/die Nächste(n)"
+    ],
+    [
+     "ST",
+     "jealous !*dZelEs? eifersüchtig; neidisch"
+    ],
+    [
+     "ST",
+     "already !C:l*redi? schon; bereits"
+    ],
+    [
+     "ST",
+     "popular !*pOpjElE? beliebt; populär"
+    ],
+    [
+     "ST",
+     "king !kIN? König"
+    ],
+    [
+     "ST",
+     "Come on! !+k0m-*On? Komm schon!; Komm jetzt!"
+    ],
+    [
+     "ST",
+     "a few !E *fju:? ein paar; wenige; einige"
+    ],
+    [
+     "ST",
+     "minute !*mInIt? Minute"
+    ],
+    [
+     "ST",
+     "later !*leItE? später"
+    ],
+    [
+     "ST",
+     "I hear … !aI *hIE? Ich habe gehört, dass …"
+    ],
+    [
+     "ST",
+     "to hear !hIE? hören"
+    ],
+    [
+     "ST",
+     "just !dZ0st? gerade; nur; einfach"
+    ],
+    [
+     "ST",
+     "joke !dZEUk? Witz"
+    ],
+    [
+     "ST",
+     "really !*rIEli? wirklich"
+    ],
+    [
+     "ST",
+     "much !m0tS? viel"
+    ],
+    [
+     "ST",
+     "time !taIm? Zeit"
+    ],
+    [
+     "ST",
+     "to know !nEU? kennen; wissen"
+    ],
+    [
+     "ST",
+     "to say !seI? sagen; aufsagen; sprechen"
+    ],
+    [
+     "ST",
+     "star !stA:? Star; Stern"
+    ],
+    [
+     "ST",
+     "Get out of his way. !Get +aUt-Ev hIz *weI? Geh ihm aus dem Weg."
+    ],
+    [
+     "ST",
+     "stage !steIdZ? Bühne"
+    ],
+    [
+     "ST",
+     "net !net? Netz"
+    ],
+    [
+     "ST",
+     "wanna (= want to) (infml) !*wOnE? will/wollen"
+    ],
+    [
+     "ST",
+     "to follow !*fOlEU? folgen; befolgen; hinterhergehen"
+    ],
+    [
+     "ST",
+     "one day !w0n *deI? eines Tages"
+    ],
+    [
+     "ST",
+     "news (sg) !nju:z? Nachricht(en); Neuigkeit(en)"
+    ],
+    [
+     "ST",
+     "It's your turn. !+Its *jC: t3:n? Du bist dran."
+    ],
+    [
+     "ST",
+     "Stop it! !*stOp-It? Mach/Macht das aus!; Hör/Hört auf!"
+    ],
+    [
+     "ST",
+     "classmate !*klA:smeIt? Klassenkamerad/-in; Mitschüler/-in"
+    ],
+    [
+     "ST",
+     "to laugh !lA:f? lachen"
+    ],
+    [
+     "ST",
+     "angry !*xNGri? wütend; zornig; verärgert; böse"
+    ],
+    [
+     "ST",
+     "to give !GIv? geben; schenken"
+    ],
+    [
+     "ST",
+     "to make trouble !+meIk *tr0bl? Ärger machen; in Schwierigkeiten bringen"
+    ],
+    [
+     "ST",
+     "to make !meIk? machen; tun; bilden"
+    ],
+    [
+     "FP",
+     "to make friends !+meIk *frendz? Freundschaft schließen"
+    ],
+    [
+     "FP",
+     "club !kl0b? Klub; Verein; AG"
+    ],
+    [
+     "FP",
+     "to be good at !bi *GUd-Et? gut sein in"
+    ],
+    [
+     "FP",
+     "to have a look (at) !+hxv-E *lUk (-Et)? anschauen"
+    ],
+    [
+     "FP",
+     "chewing gum !*tSu:IN +G0m? Kaugummi"
+    ],
+    [
+     "FP",
+     "mine !maIn? mein/-er/-e/-es"
+    ],
+    [
+     "FP",
+     "different !*dIfrnt? anders; unterschiedlich; verschieden"
+    ],
+    [
+     "CO",
+     "to write !raIt? schreiben"
+    ],
+    [
+     "CO",
+     "sweet !swi:t? süß"
+    ],
+    [
+     "CO",
+     "to put (in) !pUt (-*In)? (hinein)setzen; (hinein)stellen; (hinein)legen"
+    ],
+    [
+     "CO",
+     "box !bOks? Box; Kasten; Schachtel; Kiste"
+    ]
+   ]
+  },
+  {
+   "num": 5,
+   "title": "U3 · Unit 3",
+   "words": [
+    [
+     "S1",
+     "subject !*s0bdZIkt? Betreff in E-Mails etc.; Thema"
+    ],
+    [
+     "S1",
+     "never !*nevE? nie; niemals"
+    ],
+    [
+     "S1",
+     "every !*evri? jede/-r/-s"
+    ],
+    [
+     "S1",
+     "morning !*mC:nIN? Morgen; Vormittag"
+    ],
+    [
+     "S1",
+     "stepmum !*stepm0m? Stiefmutter"
+    ],
+    [
+     "S1",
+     "then !Den? dann; danach"
+    ],
+    [
+     "S1",
+     "if !If? wenn; falls; ob"
+    ],
+    [
+     "S1",
+     "till !tIl? bis"
+    ],
+    [
+     "S1",
+     "after that !+A:ftE *Dxt? danach"
+    ],
+    [
+     "S1",
+     "on Mondays !On *m0ndeIz? montags"
+    ],
+    [
+     "S1",
+     "netball !*netbC:l? Korbball"
+    ],
+    [
+     "S1",
+     "other !*0DE? anders; andere/-r/-s; weitere"
+    ],
+    [
+     "S1",
+     "home !hEUm? nach Hause"
+    ],
+    [
+     "S1",
+     "right away !9raIt-E*weI? sofort; gleich"
+    ],
+    [
+     "S1",
+     "to tidy (a room) !*taIdi? aufräumen; in Ordnung bringen"
+    ],
+    [
+     "S1",
+     "in the evenings !In Di-*i:vnINz? abends"
+    ],
+    [
+     "S1",
+     "evening !*i:vnIN? Abend"
+    ],
+    [
+     "S1",
+     "afternoon !+A:ftE*nu:n? Nachmittag"
+    ],
+    [
+     "S1",
+     "whole !hEUl? ganz"
+    ],
+    [
+     "S1",
+     "greeting !*Gri:tIN? Gruß"
+    ],
+    [
+     "S1",
+     "e.g. (= for example) !+i:*dZi:? z.B. (= zum Beispiel)"
+    ],
+    [
+     "S1",
+     "bye !baI? tschüss"
+    ],
+    [
+     "S1",
+     "abbreviation !E+bri:vi*eISn? Abkürzung"
+    ],
+    [
+     "S1",
+     "information (no pl) !+InfE*meISn? Information; Informationen"
+    ],
+    [
+     "S1",
+     "emoji !I*mEUdZi? Emoji"
+    ],
+    [
+     "S1",
+     "weekday !*wi:kdeI? Wochentag"
+    ],
+    [
+     "S1",
+     "swimming !*swImIN? Schwimmen"
+    ],
+    [
+     "S1",
+     "singing !*sININ? Gesang; Singen"
+    ],
+    [
+     "S1",
+     "dancing !*dA:nsIN? Tanz"
+    ],
+    [
+     "S1",
+     "to organise !*C:GEnaIz? organisieren"
+    ],
+    [
+     "S1",
+     "spring break !*sprIN breIk? Frühlingsferien"
+    ],
+    [
+     "S1",
+     "song !sON? Song; Lied"
+    ],
+    [
+     "S1",
+     "coach !kEUtS? Trainer/-in"
+    ],
+    [
+     "S1",
+     "dinner !*dInE? Abendessen"
+    ],
+    [
+     "S1",
+     "dance move !*dA:ns +mu:v? Tanzschritt"
+    ],
+    [
+     "S1",
+     "to talk about !*tC:k-EbaUt? sprechen über; erzählen von"
+    ],
+    [
+     "S1",
+     "to go to bed !9GEU tE *bed? ins Bett gehen"
+    ],
+    [
+     "S1",
+     "last !lA:st? letzte/-r/-s"
+    ],
+    [
+     "S2",
+     "She gets on my nerves. !Si: +Gets-On maI *n3:vz? Sie geht mir auf die Nerven."
+    ],
+    [
+     "S2",
+     "granny !*Grxni? Oma; Omi"
+    ],
+    [
+     "S2",
+     "to look after !9lUk-*A:ftE? aufpassen auf; hüten; sich kümmern um"
+    ],
+    [
+     "S2",
+     "to look !lUk? schauen; sehen; aussehen"
+    ],
+    [
+     "S2",
+     "to ask !A:sk? fragen; bitten"
+    ],
+    [
+     "S2",
+     "to talk !tC:k? sprechen; reden"
+    ],
+    [
+     "S2",
+     "together !tE*GeDE? zusammen; miteinander; gemeinsam"
+    ],
+    [
+     "S2",
+     "to chat !tSxt? plaudern; chatten (sich online unterhalten)"
+    ],
+    [
+     "S2",
+     "to explain !Ik*spleIn? erklären"
+    ],
+    [
+     "S2",
+     "even !*i:vn? sogar; selbst"
+    ],
+    [
+     "S2",
+     "friendly !*frendli? freundlich; nett"
+    ],
+    [
+     "S2",
+     "to leave !li:v? verlassen; lassen; abfahren"
+    ],
+    [
+     "S2",
+     "work !w3:k? Arbeit"
+    ],
+    [
+     "S2",
+     "vet !vet? Tierarzt/Tierärztin"
+    ],
+    [
+     "S2",
+     "neighbour !*neIbE? Nachbar/-in"
+    ],
+    [
+     "S2",
+     "to take !teIk? nehmen; mitnehmen; wegnehmen; bringen; mitbringen"
+    ],
+    [
+     "S2",
+     "surgery !*s3:dZEri? Arztpraxis; Praxis; Praxisräume"
+    ],
+    [
+     "S2",
+     "why !waI? warum"
+    ],
+    [
+     "S2",
+     "surprise !sE*praIz? Überraschung"
+    ],
+    [
+     "S2",
+     "to sleep !sli:p? schlafen"
+    ],
+    [
+     "S2",
+     "cooking !*kUkIN? Kochen"
+    ],
+    [
+     "S2",
+     "routine !ru:*ti:n? Routine"
+    ],
+    [
+     "S2",
+     "speaker !*spi:kE? Redner/-in; Sprecher/-in"
+    ],
+    [
+     "S2",
+     "to be about !bi-E*baUt? sich handeln um; handeln von"
+    ],
+    [
+     "S2",
+     "clever !*klevE? schlau; klug"
+    ],
+    [
+     "S2",
+     "owner !*EUnE? Besitzer/-in"
+    ],
+    [
+     "SK2",
+     "clear !klIE? klar; deutlich"
+    ],
+    [
+     "SK2",
+     "No way! !9nEU *weI? Auf keinen Fall!; keineswegs"
+    ],
+    [
+     "ST",
+     "to wash !wOS? waschen; sich waschen"
+    ],
+    [
+     "ST",
+     "face !feIs? Gesicht"
+    ],
+    [
+     "ST",
+     "goodbye !GUd*baI? auf Wiedersehen"
+    ],
+    [
+     "ST",
+     "to bark !bA:k? bellen"
+    ],
+    [
+     "ST",
+     "to be scared (of) !bi *skeEd-Ev? Angst haben (vor)"
+    ],
+    [
+     "ST",
+     "to run away !+r0n-E*weI? wegrennen"
+    ],
+    [
+     "ST",
+     "to have fun !9hxv *f0n? Spaß haben; sich amüsieren"
+    ],
+    [
+     "ST",
+     "to learn !l3:n? lernen"
+    ],
+    [
+     "ST",
+     "to listen for !*lIsn fE? horchen auf"
+    ],
+    [
+     "ST",
+     "word !w3:d? Wort"
+    ],
+    [
+     "ST",
+     "Sit! !sIt? Sitz! (Befehl für Hunde); Platz! (Befehl für Hunde)"
+    ],
+    [
+     "ST",
+     "around !E*raUnd? um … herum; umher"
+    ],
+    [
+     "ST",
+     "to chase !tSeIs? jagen; nachjagen"
+    ],
+    [
+     "ST",
+     "tail !teIl? Schwanz; Schweif"
+    ],
+    [
+     "ST",
+     "You've got a lot to learn! !juv +GOt E +lOt tE *l3:n? Du musst (noch) viel lernen."
+    ],
+    [
+     "ST",
+     "a lot !E *lOt? viel; oft"
+    ],
+    [
+     "ST",
+     "picnic !*pIknIk? Picknick"
+    ],
+    [
+     "ST",
+     "drink !drINk? Getränk"
+    ],
+    [
+     "ST",
+     "to fall over !+fC:l-*EUvE? hinfallen; umkippen"
+    ],
+    [
+     "ST",
+     "to throw (at) !TrEU? werfen (nach)"
+    ],
+    [
+     "ST",
+     "to fall asleep !+fC:l-E*sli:p? einschlafen"
+    ],
+    [
+     "FP",
+     "heading !*hedIN? Überschrift; Titel"
+    ],
+    [
+     "FP",
+     "3D !Tri:*di:? 3D- 3D"
+    ],
+    [
+     "FP",
+     "surprising !sE*praIzIN? überraschend"
+    ],
+    [
+     "FP",
+     "weather !*weDE? Wetter"
+    ],
+    [
+     "FP",
+     "transport !*trxnspC:t? Verkehrsmittel; Transport"
+    ],
+    [
+     "FP",
+     "map !mxp? Stadtplan; Landkarte"
+    ],
+    [
+     "FP",
+     "studying !*st0diIN? Lernen; Studieren"
+    ],
+    [
+     "CO",
+     "first !f3:st? zuerst; als Erstes"
+    ]
+   ]
+  },
+  {
+   "num": 6,
+   "title": "AC1 · Across cultures 1",
+   "words": [
+    [
+     "how to …",
+     "wie man …"
+    ],
+    [
+     "to visit",
+     "besichtigen; besuchen"
+    ],
+    [
+     "country, countries (pl)",
+     "Land"
+    ],
+    [
+     "important",
+     "wichtig"
+    ],
+    [
+     "English-speaking",
+     "englischsprachig"
+    ],
+    [
+     "smile",
+     "Lächeln"
+    ],
+    [
+     "Here you go.",
+     "Bitte schön!; Bitte sehr!"
+    ],
+    [
+     "to open",
+     "öffnen; aufmachen"
+    ],
+    [
+     "window",
+     "Fenster"
+    ],
+    [
+     "I'm cold.",
+     "Mir ist kalt."
+    ],
+    [
+     "of course",
+     "natürlich; selbstverständlich"
+    ],
+    [
+     "may",
+     "(vielleicht) können; dürfen"
+    ],
+    [
+     "No idea.",
+     "Keine Ahnung."
+    ],
+    [
+     "to need",
+     "brauchen; benötigen"
+    ],
+    [
+     "Excuse me …",
+     "Entschuldigung!; Entschuldigen Sie!"
+    ],
+    [
+     "to have (a sweet)",
+     "(ein Bonbon) nehmen; (ein Bonbon) essen"
+    ],
+    [
+     "You're welcome.",
+     "Bitte schön.; Nichts zu danken.; Gern geschehen."
+    ],
+    [
+     "lemonade",
+     "Limonade"
+    ],
+    [
+     "bus station",
+     "Busbahnhof"
+    ],
+    [
+     "timetable",
+     "Stundenplan; Fahrplan"
+    ],
+    [
+     "to be in the way",
+     "im Weg sein/stehen"
+    ],
+    [
+     "person, people (pl)",
+     "Person; Mensch"
+    ],
+    [
+     "train",
+     "Zug"
+    ],
+    [
+     "to hold",
+     "halten; festhalten"
+    ],
+    [
+     "open",
+     "offen; geöffnet; aufgeschlagen"
+    ],
+    [
+     "woman, women (pl)",
+     "Frau"
+    ],
+    [
+     "man, men (pl)",
+     "Mann"
+    ],
+    [
+     "to jump the queue",
+     "sich vordrängeln"
+    ],
+    [
+     "British",
+     "britisch; Brite/Britin"
+    ],
+    [
+     "escalator",
+     "Rolltreppe"
+    ],
+    [
+     "to stand",
+     "stehen"
+    ],
+    [
+     "on the right",
+     "auf der rechten Seite; rechts"
+    ],
+    [
+     "on the left",
+     "auf der linken Seite; links"
+    ],
+    [
+     "to walk",
+     "gehen; laufen"
+    ]
+   ]
+  },
+  {
+   "num": 7,
+   "title": "U4 · Unit 4",
+   "words": [
+    [
+     "S1",
+     "at the weekend !Et DE +wi:k*end? am Wochenende"
+    ],
+    [
+     "S1",
+     "special !*speSl? besonders; speziell"
+    ],
+    [
+     "S1",
+     "What time? !9wOt *taIm? Um wie viel Uhr?"
+    ],
+    [
+     "S1",
+     "fine !faIn? gut; in Ordnung; schön"
+    ],
+    [
+     "S1",
+     "See you! !*si: 9jE? Bis dann!; Bis ..."
+    ],
+    [
+     "S1",
+     "to happen !*hxpn? geschehen; passieren"
+    ],
+    [
+     "S1",
+     "to close !klEUz? schließen; zumachen"
+    ],
+    [
+     "S1",
+     "enough !I*n0f? genug; genügend"
+    ],
+    [
+     "S2",
+     "to spell !spel? buchstabieren"
+    ],
+    [
+     "S2",
+     "at last !Et *lA:st? endlich; schließlich"
+    ],
+    [
+     "S2",
+     "half-sister !*hA:f+sIstE? Halbschwester"
+    ],
+    [
+     "S2",
+     "to get to !*Get tE? kommen zu; kommen nach; erreichen"
+    ],
+    [
+     "S2",
+     "us !0s? uns"
+    ],
+    [
+     "S2",
+     "to answer !*A:nsE? antworten; beantworten"
+    ],
+    [
+     "S2",
+     "bad !bxd? schlecht; böse; schlimm (ugs.)"
+    ],
+    [
+     "S2",
+     "to keep your fingers crossed !9ki:p jC: +fINGEz *krCst? die Daumen drücken"
+    ],
+    [
+     "S2",
+     "spider !*spaIdE? Spinne"
+    ],
+    [
+     "S2",
+     "to stay !steI? bleiben"
+    ],
+    [
+     "S2",
+     "brochure !*brEUSE? Broschüre; Prospekt"
+    ],
+    [
+     "S2",
+     "to get !Get? holen; bringen; bekommen"
+    ],
+    [
+     "S2",
+     "Dear … !dIE? Lieber …; Liebe …"
+    ],
+    [
+     "S2",
+     "visitor !*vIzItE? Besucher/-in"
+    ],
+    [
+     "S2",
+     "to sell !sel? verkaufen"
+    ],
+    [
+     "S2",
+     "perfect !*p3:fIkt? perfekt; vollkommen"
+    ],
+    [
+     "S2",
+     "to talk to !*tC:k tE? reden mit"
+    ],
+    [
+     "S2",
+     "difficult !*dIfIklt? schwierig"
+    ],
+    [
+     "S2",
+     "German !*dZ3:mEn? deutsch; Deutsch; aus Deutschland; Deutsche/-r"
+    ],
+    [
+     "S2",
+     "to say hello (to) !+seI hel*EU (tE)? grüßen"
+    ],
+    [
+     "S3",
+     "to mean !mi:n? bedeuten; meinen"
+    ],
+    [
+     "S3",
+     "winner !*wInE? Gewinner/-in; Sieger/-in"
+    ],
+    [
+     "S3",
+     "tourist !*tC:rIst? Tourist/-in"
+    ],
+    [
+     "S3",
+     "line !laIn? Zeile; Linie"
+    ],
+    [
+     "S3",
+     "to turn (into) !t3:n-*IntE? einbiegen; abbiegen"
+    ],
+    [
+     "S3",
+     "left !left? (nach) links; linke/-r/-s"
+    ],
+    [
+     "S3",
+     "right !raIt? (nach) rechts; rechte/-r/-s"
+    ],
+    [
+     "S3",
+     "straight on !streIt-*On? geradeaus"
+    ],
+    [
+     "S3",
+     "I don't know! !+aI 9dEUnt *nEU? Ich weiß (es) nicht!"
+    ],
+    [
+     "S3",
+     "stop !stOp? Halt; Stopp"
+    ],
+    [
+     "S3",
+     "tourist information centre !+tC:rIst InfE*meISn 9sentE? Touristeninformation"
+    ],
+    [
+     "S3",
+     "market !*mA:kIt? Markt"
+    ],
+    [
+     "SK2",
+     "to go down !+GEU *daUn? entlanggehen; hinuntergehen; nach unten gehen"
+    ],
+    [
+     "SK2",
+     "past !pA:st? vorbei (an); vorüber (an)"
+    ],
+    [
+     "SK2",
+     "opposite !*OpEzIt? gegenüber; auf der anderen Seite von"
+    ],
+    [
+     "SK2",
+     "café !*kxfeI? Café"
+    ],
+    [
+     "SK2",
+     "theatre !*TIEtE? Theater"
+    ],
+    [
+     "SK2",
+     "shopping !*SOpIN? Einkaufen; Einkäufe"
+    ],
+    [
+     "SK2",
+     "cinema !*sInEmE? Kino"
+    ],
+    [
+     "SK2",
+     "church !tS3:tS? Kirche"
+    ],
+    [
+     "UT",
+     "survey !*s3:veI? Umfrage; Studie"
+    ],
+    [
+     "UT",
+     "to think of !*TINk-Ev? halten von; denken über"
+    ],
+    [
+     "UT",
+     "help !help? Hilfe"
+    ],
+    [
+     "UT",
+     "some !s0m; sEm? einige; ein paar; etwas"
+    ],
+    [
+     "ST",
+     "captain !*kxptIn? Kapitän/-in; Mannschaftsführer/-in"
+    ],
+    [
+     "ST",
+     "cabin boy !*kxbIn +bCI? Schiffsjunge"
+    ],
+    [
+     "ST",
+     "sea !si:? Meer"
+    ],
+    [
+     "ST",
+     "sound !saUnd? Ton; Geräusch; Klang"
+    ],
+    [
+     "ST",
+     "aboard !E*bC:d? an Bord"
+    ],
+    [
+     "ST",
+     "sailor !*seIlE? Seemann; Matrose"
+    ],
+    [
+     "ST",
+     "tea !ti:? Tee"
+    ],
+    [
+     "ST",
+     "land !lxnd? Land"
+    ],
+    [
+     "ST",
+     "storm !stC:m? Sturm"
+    ],
+    [
+     "ST",
+     "wave !weIv? Welle"
+    ],
+    [
+     "ST",
+     "wheel !wi:l? Rad; Steuerrad; Steuer"
+    ],
+    [
+     "ST",
+     "to reef the sails !+ri:f DE *seIlz? die Segel einholen"
+    ],
+    [
+     "ST",
+     "to climb !klaIm? klettern; besteigen; steigen"
+    ],
+    [
+     "ST",
+     "rigging !*rIGIN? Takelage"
+    ],
+    [
+     "ST",
+     "dangerous !*deIndZrEs? gefährlich"
+    ],
+    [
+     "ST",
+     "slow !slEU? langsam"
+    ],
+    [
+     "ST",
+     "brave !breIv? mutig; tapfer"
+    ],
+    [
+     "ST",
+     "to come down !+k0m *daUn? herunterkommen"
+    ],
+    [
+     "ST",
+     "mate !meIt? Schiffsoffizier; Maat"
+    ],
+    [
+     "ST",
+     "to drink !drINk? trinken"
+    ],
+    [
+     "ST",
+     "back !bxk? zurück"
+    ],
+    [
+     "ST",
+     "just then !+dZ0st *Den? genau in dem Moment"
+    ],
+    [
+     "ST",
+     "to hit !hIt? schlagen; treffen"
+    ],
+    [
+     "ST",
+     "to fall !fC:l? fallen; hinfallen"
+    ],
+    [
+     "ST",
+     "to save !seIv? retten; bergen"
+    ],
+    [
+     "ST",
+     "lifebuoy !*laIfbCI? Rettungsring"
+    ],
+    [
+     "ST",
+     "lifeboat !*laIfbEUt? Rettungsboot"
+    ],
+    [
+     "ST",
+     "to jump !dZ0mp? springen"
+    ],
+    [
+     "ST",
+     "that's how !Dxts *haU? so"
+    ],
+    [
+     "ST",
+     "to find out !+faInd-*aUt? herausfinden"
+    ],
+    [
+     "ST",
+     "to be wrong !bi *rON? unrecht haben; sich irren"
+    ],
+    [
+     "ST",
+     "to be sorry !bi *sOri? leid tun"
+    ],
+    [
+     "ST",
+     "to make !meIk? hier: ergeben"
+    ],
+    [
+     "ST",
+     "very much !+veri *m0tS? sehr"
+    ],
+    [
+     "ST",
+     "to remember !rI*membE? sich erinnern (an); sich merken; denken an"
+    ],
+    [
+     "FP",
+     "trip !trIp? Trip; Reise; Ausflug; Fahrt"
+    ],
+    [
+     "FP",
+     "geocaching !*dZi:EUkxSIN? Geocaching"
+    ],
+    [
+     "FP",
+     "GPS device !dZi:pi:+es dI*vaIs? GPS-Gerät"
+    ],
+    [
+     "FP",
+     "cache !kxS? Versteck; geheimes Lager"
+    ],
+    [
+     "FP",
+     "out !aUt? außerhalb; heraus; hinaus; nach draußen"
+    ],
+    [
+     "FP",
+     "coin !kCIn? Münze"
+    ],
+    [
+     "FP",
+     "first aid kit !+f3:st-eId *kIt? Erste-Hilfe-Kasten"
+    ],
+    [
+     "FP",
+     "I'd like to … (= I would like to) !aId *laIk tE? Ich möchte …; Ich würde gern …"
+    ],
+    [
+     "CO",
+     "to fall off !9fC:l-*Of? herunterfallen; hinunterfallen"
+    ],
+    [
+     "CO",
+     "to need to (do) !ni:d tE? (tun) müssen"
+    ]
+   ]
+  },
+  {
+   "num": 8,
+   "title": "U5 · Unit 5",
+   "words": [
+    [
+     "S1",
+     "glass !GlA:s? Glas"
+    ],
+    [
+     "S1",
+     "orange !*OrIndZ? Orange"
+    ],
+    [
+     "S1",
+     "juice !dZu:s? Saft"
+    ],
+    [
+     "S1",
+     "at the moment !Et DE *mEUmEnt? im Moment; gerade"
+    ],
+    [
+     "S1",
+     "sad !sxd? traurig"
+    ],
+    [
+     "S1",
+     "like that !+laIk *Dxt? so"
+    ],
+    [
+     "S1",
+     "to earn !3:n? verdienen"
+    ],
+    [
+     "S1",
+     "flea market !*fli: +mA:kIt? Flohmarkt"
+    ],
+    [
+     "S1",
+     "community centre !kE*mju:nEti +sentE? Gemeindezentrum"
+    ],
+    [
+     "S1",
+     "year !jIE? Jahr"
+    ],
+    [
+     "S1",
+     "to add !xd? hinzufügen; ergänzen; addieren"
+    ],
+    [
+     "S1",
+     "to make money !+meIk *m0ni? Geld verdienen"
+    ],
+    [
+     "S1",
+     "charity (no pl) !*tSxrIti? Wohltätigkeitsverein; wohltätige Zwecke; Wohlfahrt"
+    ],
+    [
+     "S1",
+     "DVD !+di:vi:*di:? DVD"
+    ],
+    [
+     "S1",
+     "to clear out !9klIEr-*aUt? ausräumen; entrümpeln"
+    ],
+    [
+     "S1",
+     "garage !*GxrA:Z? Garage"
+    ],
+    [
+     "S1",
+     "to feel !fi:l? fühlen; sich fühlen"
+    ],
+    [
+     "S1",
+     "hopeful !*hEUpfl? hoffnungsvoll"
+    ],
+    [
+     "S1",
+     "pair !peE? Paar"
+    ],
+    [
+     "S1",
+     "to ring !rIN? klingeln; läuten"
+    ],
+    [
+     "S1",
+     "advice (no pl) !Ed*vaIs? Rat; Ratschlag"
+    ],
+    [
+     "S1",
+     "should !SUd? sollte/-st/-t/-n"
+    ],
+    [
+     "S1",
+     "full (of) !fUl (-Ev)? voll (mit/von)"
+    ],
+    [
+     "S1",
+     "to throw away !+TrEU-E*weI? wegwerfen"
+    ],
+    [
+     "S1",
+     "coffee !*kOfi? Kaffee"
+    ],
+    [
+     "S1",
+     "charity shop !*tSxrIti SOp? Second-Hand-Laden (für wohltätige Zwecke)"
+    ],
+    [
+     "S1",
+     "any !*eni? irgendein/-e/-er; irgendwelche"
+    ],
+    [
+     "S2",
+     "That's what friends are for. !+Dxts wOt *frendz-A: +fC:? Dafür sind Freunde da."
+    ],
+    [
+     "S2",
+     "must !m0st? müssen"
+    ],
+    [
+     "S2",
+     "to be worth !bi *w3:T? wert sein"
+    ],
+    [
+     "S2",
+     "How many …? !+haU *meni? Wie viele …?"
+    ],
+    [
+     "S2",
+     "about !E*baUt? ungefähr; circa; etwa"
+    ],
+    [
+     "S2",
+     "stuff (no pl) !st0f? Zeug"
+    ],
+    [
+     "S2",
+     "not … any !nOt-eni? kein/-e/-en"
+    ],
+    [
+     "S2",
+     "a lot of !E *lOt-Ev? viel/-e; eine Menge"
+    ],
+    [
+     "S2",
+     "a couple of !E *k0pl-Ev? ein paar"
+    ],
+    [
+     "S2",
+     "everything !*evriTIN? alles"
+    ],
+    [
+     "S2",
+     "to ask for !*A:sk fE? fragen nach; bitten um"
+    ],
+    [
+     "S2",
+     "bargain !*bA:GIn? Schnäppchen"
+    ],
+    [
+     "S2",
+     "a little !E *lItl? ein wenig; etwas"
+    ],
+    [
+     "S2",
+     "in the end !+In Di-*end? schließlich; zum Schluss"
+    ],
+    [
+     "S2",
+     "size !saIz? Größe; Kleidergröße"
+    ],
+    [
+     "S2",
+     "another !E*n0DE? ein/-e andere/-r/-s; noch ein/-e"
+    ],
+    [
+     "S2",
+     "to take !teIk? dauern; (Zeit) brauchen"
+    ],
+    [
+     "S2",
+     "to call !kC:l? anrufen; rufen"
+    ],
+    [
+     "S2",
+     "sunny !*s0ni? sonnig"
+    ],
+    [
+     "S2",
+     "to check !tSek? überprüfen; prüfen; kontrollieren"
+    ],
+    [
+     "S2",
+     "to have a break !+hxv-E *breIk? eine Pause machen"
+    ],
+    [
+     "S2",
+     "sugar !*SUGE? Zucker"
+    ],
+    [
+     "S2",
+     "milk !mIlk? Milch"
+    ],
+    [
+     "S2",
+     "disgusting !dIs*G0stIN? ekelhaft; widerlich"
+    ],
+    [
+     "S2",
+     "fruit !fru:t? Frucht; Obst"
+    ],
+    [
+     "S2",
+     "apple !*xpl? Apfel"
+    ],
+    [
+     "S2",
+     "would like !wUd *laIk? würde/-st/-n/-t gern; hätte/-st/-n/- t gern"
+    ],
+    [
+     "S2",
+     "crisp !krIsp? Kartoffelchip"
+    ],
+    [
+     "S2",
+     "not any more !+nOt-eni *mC:? nicht mehr"
+    ],
+    [
+     "S2",
+     "buyer !*baIE? Käufer/-in"
+    ],
+    [
+     "S2",
+     "seller !*selE? Verkäufer/-in (auf einem Flohmarkt)"
+    ],
+    [
+     "S2",
+     "chips (pl) !tSIps? Pommes frites"
+    ],
+    [
+     "SK2",
+     "voice message !*vCIs 9mesIdZ? Sprachnachricht"
+    ],
+    [
+     "SK2",
+     "phone call !*fEUn +kC:l? Anruf; Telefonanruf"
+    ],
+    [
+     "SK2",
+     "to speak (to) !*spi:k (tE)? sprechen (mit)"
+    ],
+    [
+     "SK2",
+     "tomorrow !tE*mOrEU? morgen"
+    ],
+    [
+     "SK2",
+     "left !left? übrig"
+    ],
+    [
+     "SK2",
+     "hour !aUE? Stunde"
+    ],
+    [
+     "SK2",
+     "to take a message !+teIk-E *mesIdZ? eine Nachricht entgegennehmen; jmdm. etw. ausrichten"
+    ],
+    [
+     "ST",
+     "lucky … !*l0ki? … der/die Glückliche"
+    ],
+    [
+     "ST",
+     "wine !waIn? Wein"
+    ],
+    [
+     "ST",
+     "raffle !*rxfl? Tombola"
+    ],
+    [
+     "ST",
+     "prize !praIz? Preis; Gewinn"
+    ],
+    [
+     "ST",
+     "ticket !*tIkIt? Los; Ticket; Eintrittskarte"
+    ],
+    [
+     "ST",
+     "each !i:tS? pro Person; pro Stück"
+    ],
+    [
+     "ST",
+     "to hope !hEUp? hoffen"
+    ],
+    [
+     "ST",
+     "to pull !pUl? ziehen"
+    ],
+    [
+     "ST",
+     "piece !pi:s? Stück"
+    ],
+    [
+     "ST",
+     "broken !*brEUkn? gebrochen; kaputt"
+    ],
+    [
+     "ST",
+     "horrified !*hOrIfaId? entsetzt"
+    ],
+    [
+     "ST",
+     "rubbish !*r0bIS? Müll; Gerümpel"
+    ],
+    [
+     "ST",
+     "as … as !Ez-Ez? so … wie"
+    ],
+    [
+     "ST",
+     "not … anything !+nOt *eniTIN? nichts"
+    ],
+    [
+     "ST",
+     "more … than !*mC: DEn? mehr … als"
+    ],
+    [
+     "ST",
+     "half !hA:f? halb"
+    ],
+    [
+     "ST",
+     "sovereign !*sOvrIn? historische Münze"
+    ],
+    [
+     "ST",
+     "head !hed? Kopf"
+    ],
+    [
+     "ST",
+     "to believe !bI*li:v? glauben"
+    ],
+    [
+     "ST",
+     "to hug !h0G? umarmen"
+    ],
+    [
+     "ST",
+     "disappointed !+dIsE*pCIntId? enttäuscht"
+    ],
+    [
+     "ST",
+     "helpful !*helpfl? hilfsbereit; hilfreich"
+    ],
+    [
+     "ST",
+     "thankful !*TxNkfl? dankbar"
+    ],
+    [
+     "ST",
+     "excited !Ik*saItId? aufgeregt; begeistert"
+    ],
+    [
+     "ST",
+     "helpless !*helplEs? hilflos"
+    ],
+    [
+     "FP",
+     "out and about !+aUt-En-E*baUt? unterwegs"
+    ],
+    [
+     "FP",
+     "post office !*pEUst-+OfIs? Postamt"
+    ],
+    [
+     "FP",
+     "gift !GIft? Geschenk"
+    ],
+    [
+     "FP",
+     "bus stop !*b0s +stOp? Bushaltestelle"
+    ],
+    [
+     "FP",
+     "Too bad! !+tu: *bxd? Zu dumm!; Schade!"
+    ],
+    [
+     "CO",
+     "tomato, tomatoes (pl) !tE*mA:tEU; tE*mA:tEUz? Tomate"
+    ],
+    [
+     "CO",
+     "yoghurt !*jOGEt? Joghurt"
+    ]
+   ]
+  },
+  {
+   "num": 9,
+   "title": "AC2 · Across cultures 2",
+   "words": [
+    [
+     "culture",
+     "Kultur"
+    ],
+    [
+     "quick",
+     "schnell"
+    ],
+    [
+     "contest",
+     "Wettkampf; Wettbewerb"
+    ],
+    [
+     "bacon",
+     "Schinkenspeck; Speck"
+    ],
+    [
+     "bread",
+     "Brot"
+    ],
+    [
+     "cake",
+     "Kuchen; Torte"
+    ],
+    [
+     "egg",
+     "Ei"
+    ],
+    [
+     "fish, fish (pl)",
+     "Fisch"
+    ],
+    [
+     "pie",
+     "Kuchen; Pastete"
+    ],
+    [
+     "strange",
+     "fremd; seltsam; merkwürdig"
+    ],
+    [
+     "cereal (no pl)",
+     "Frühstückszerealie; Getreideprodukt (z. B. Cornflakes"
+    ],
+    [
+     "chocolate",
+     "Schokolade"
+    ],
+    [
+     "nut",
+     "Nuss"
+    ],
+    [
+     "healthy",
+     "gesund"
+    ],
+    [
+     "supermarket",
+     "Supermarkt"
+    ],
+    [
+     "to go together",
+     "zueinander passen; zueinander gehören"
+    ],
+    [
+     "baked beans (pl)",
+     "weiße Bohnen in Tomatensoße"
+    ],
+    [
+     "banana",
+     "Banane"
+    ],
+    [
+     "ready meal",
+     "Fertiggericht"
+    ],
+    [
+     "salad",
+     "Salat"
+    ],
+    [
+     "Indian",
+     "Inder/-in; indisch"
+    ],
+    [
+     "chicken tikka masala",
+     "indisches Hühnchengericht"
+    ],
+    [
+     "young",
+     "jung"
+    ]
+   ]
+  }
+ ]
+}

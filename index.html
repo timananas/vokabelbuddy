@@ -389,6 +389,14 @@ body{overflow-x:hidden}
       <button class="msave" id="mSave">Speichern</button>
     </div>
     </div><!-- /adminZone -->
+    <div style="border-top:1px solid var(--line); margin-top:12px; padding-top:12px">
+      <div style="font-weight:800; font-size:.95rem">Vokabelheft (Reihe)</div>
+      <div style="display:flex; gap:8px; margin-top:8px">
+        <select id="seriesSel" style="flex:1"></select>
+        <button class="msave" id="seriesSave" style="width:auto; padding:10px 14px">Wechseln</button>
+      </div>
+      <div class="mdone" id="seriesNote"></div>
+    </div>
     <div class="mrow" style="margin-top:12px; border-top:1px solid var(--line); padding-top:12px; flex-direction:column; align-items:stretch">
       <div class="acct-head" style="font-weight:800; font-size:.95rem">Konto</div>
       <div id="pwForm" style="display:grid; gap:8px; margin-top:4px">
@@ -759,6 +767,28 @@ document.addEventListener('click', async e=>{
     else { $('paNote').textContent=`${pa}: ${r.kids.length?r.kids.join(', '):'keine Kinder'} zugewiesen`; }
   }catch(e){ b.classList.toggle('on'); $('paNote').textContent='Offline'; }
 });
+async function loadSeries(){
+  if(!META || !META.series) return;
+  const sel=$('seriesSel'); if(!sel) return;
+  sel.innerHTML=META.series.map(s=>`<option value="${esc(s.id)}"${s.id===(META.series_current||'access')?' selected':''}>${esc(s.name)}</option>`).join('');
+  $('seriesSave').onclick=async()=>{
+    $('seriesNote').textContent='…';
+    try{
+      const r=await (await fetch('/api/series',{method:'POST',headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({series:$('seriesSel').value})})).json();
+      if(r.ok){
+        $('seriesNote').textContent='✅ Reihe gewechselt — Bücher werden geladen…';
+        // META neu (neue Bücher) + Kapitel/Bücher neu zeichnen + book korrigieren:
+        META=await (await fetch('/api/meta')).json();
+        book = META.books.some(b=>b.id===book) ? book : (META.books[0]?.id||book);
+        localStorage.setItem('vb_book', book);
+        chapters=[]; sel.clear(); drawBooks(); loadChapters();
+        $('seriesNote').textContent='✅ '+ (META.books[0]?META.books[0].name:'') +' aktiv — Reihe '+(META.series_current||'');
+        $('adminOverlay').classList.add('hidden');
+      } else $('seriesNote').textContent=r.error||'Fehler';
+    }catch(e){ $('seriesNote').textContent='Server nicht erreichbar'; }
+  };
+}
 async function loadAccount(){
   if(!('acSave' in {})) {}
   const note=$('acNote'); note.textContent='';
@@ -1460,6 +1490,7 @@ async function openAdmin(){
   $('mDone').textContent='';
   $('mTitle').value=''; $('mWords').value=''; $('mNum').value='';
   loadAccount();
+  loadSeries();
   loadParents();  // intern: nur bei ME.role==='admin' sichtbar/aktiv
   const isAdmin = ME && ME.role==='admin';
   for(const id of ['adminZone','adminOnlyZone','adminKidsZone','adminResetZone'])

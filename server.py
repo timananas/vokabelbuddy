@@ -89,8 +89,9 @@ def auth_load():
                                if float(v) > time.time()}
         AUTH_MEM['trust_users'] = {str(k): str(v) for k, v in (d.get('trust_users') or {}).items()
                                    if str(k) in AUTH_MEM['trusted']}
+        AUTH_MEM['user_series'] = {str(k): str(v) for k, v in (d.get('user_series') or {}).items()}
     except Exception:
-        AUTH_MEM.update({'users': {}, 'trusted': {}, 'trust_users': {}})
+        AUTH_MEM.update({'users': {}, 'trusted': {}, 'trust_users': {}, 'user_series': {}})
 
 
 def auth_save():
@@ -98,7 +99,8 @@ def auth_save():
         d = {'users': AUTH_MEM['users'],
              'trusted': {k: v for k, v in AUTH_MEM['trusted'].items() if float(v) > time.time()},
              'trust_users': {k: AUTH_MEM.get('trust_users', {}).get(k, '')
-                             for k in AUTH_MEM['trusted']}}
+                             for k in AUTH_MEM['trusted']},
+             'user_series': AUTH_MEM.get('user_series', {})}
         tmp = AUTH_PATH + '.tmp'
         with open(tmp, 'w') as f:
             json.dump(d, f)
@@ -1027,8 +1029,16 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
                 extra_kids = [{'id': uid, 'name': uid.capitalize(), 'color': '#a78bfa'}
                               for uid, u in AUTH_MEM.get('users', {}).items()
                               if u.get('role') == 'kid' and not any(k['id'] == uid for k in KIDS)]
-                self._json({'version': VERSION, 'books': BOOKS, 'kids': KIDS + extra_kids,
-                            'default_book': DEFAULT_BOOKS})
+                # Reihen-Wahl: user-bound (auth.json # user_series) — admin/parent stellen pro
+                # KIND, kid für SICH, default 'access' (Bestand).
+                me = self._session_user()
+                us = AUTH_MEM.get('user_series', {})
+                chosen = us.get(me['id'] if me else '', 'access')
+                books = [b for b in BOOKS if b.get('series', 'access') == chosen]
+                self._json({'version': VERSION, 'books': books, 'kids': KIDS + extra_kids,
+                            'series': SERIES, 'series_current': chosen,
+                            'default_book': {k: (v if v.startswith(chosen) else books[0]['id'] if books else 'access1')
+                                             for k, v in DEFAULT_BOOKS.items()}})
             elif r == '/api/chapters':
                 self.api_chapters(q)
             elif r == '/api/quiz':
@@ -1466,6 +1476,19 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
                                             'totp_secret': None, 'totp_enabled': False}
                 auth_save()
                 self._json({'ok': True, 'user': puser, 'kids': kids})
+                return
+            if r == '/api/series':
+                me = self._session_user()
+                if not me:
+                    self._json({'auth': True}, 401)
+                    return
+                want = _norm(body.get('series'))
+                if want not in ('access', 'greenline'):
+                    self._json({'error': 'Unbekannte Reihe'}, 400)
+                    return
+                AUTH_MEM.setdefault('user_series', {})[me['id']] = want
+                auth_save()
+                self._json({'ok': True, 'series': want})
                 return
             if r == '/api/account/password':
                 me = self._session_user()

@@ -1,0 +1,2733 @@
+{
+ "book": "greenline3",
+ "chapters": [
+  {
+   "num": 1,
+   "title": "CI · Check-in",
+   "words": [
+    [
+     "personality",
+     "Persönlichkeit; Charakter"
+    ],
+    [
+     "to agree",
+     "zustimmen; einer Meinung sein; sich einigen"
+    ],
+    [
+     "to disagree",
+     "anderer Meinung sein; nicht einverstanden sein"
+    ],
+    [
+     "to compromise",
+     "einen Kompromiss eingehen"
+    ],
+    [
+     "smart type",
+     "Lerntyp; Intelligenztyp"
+    ],
+    [
+     "smart",
+     "schlau; klug; intelligent"
+    ],
+    [
+     "body",
+     "Körper"
+    ],
+    [
+     "self",
+     "das Selbst"
+    ],
+    [
+     "logic",
+     "Logik"
+    ],
+    [
+     "saying",
+     "Sprichwort; Redensart"
+    ],
+    [
+     "to judge",
+     "beurteilen; bewerten"
+    ],
+    [
+     "cover",
+     "Titelseite; Einband; Cover"
+    ],
+    [
+     "It doesn't matter.",
+     "es spielt keine Rolle; das macht nichts; das ist nicht wichtig"
+    ],
+    [
+     "practice",
+     "Übung; Training"
+    ],
+    [
+     "call-in",
+     "Sendung, bei der sich das Publikum telefonisch beteiligen kann"
+    ],
+    [
+     "imagination",
+     "Fantasie; Vorstellungskraft"
+    ],
+    [
+     "to communicate",
+     "kommunizieren; sich verständigen"
+    ],
+    [
+     "to compete (with)",
+     "konkurrieren (mit); sich messen (mit); in Wettbewerb treten (mit)"
+    ],
+    [
+     "imaginative",
+     "einfallsreich; fantasievoll"
+    ],
+    [
+     "doubt",
+     "Zweifel"
+    ],
+    [
+     "themselves",
+     "sie (selbst); sich (selbst); selbst; selber"
+    ],
+    [
+     "to learn about, learnt about, learnt",
+     "about !*l3:n-E+baUt; *l3:nt-E+baUt; *l3:nt- E+baUt? erfahren über"
+    ],
+    [
+     "songwriter",
+     "Liedermacher/-in; Songschreiber/- in"
+    ],
+    [
+     "poet",
+     "Dichter/-in"
+    ],
+    [
+     "concert",
+     "Konzert"
+    ],
+    [
+     "shape poem",
+     "Formgedicht; Gestaltgedicht"
+    ],
+    [
+     "nursery rhyme",
+     "Kinderreim; Kinderlied"
+    ],
+    [
+     "poetry",
+     "Lyrik; Poesie; Dichtung; Gedichte"
+    ],
+    [
+     "to get ready",
+     "sich vorbereiten; sich fertig machen"
+    ],
+    [
+     "to entertain sb",
+     "jmdn. unterhalten; jmdn. beschäftigen"
+    ],
+    [
+     "literature",
+     "Literatur"
+    ],
+    [
+     "emotion",
+     "Gefühl; Emotion"
+    ],
+    [
+     "occasion",
+     "Anlass; Ereignis; Gelegenheit"
+    ],
+    [
+     "historic",
+     "historisch"
+    ],
+    [
+     "traditional",
+     "traditionell"
+    ],
+    [
+     "to be like sb/sth",
+     "wie jmd./etw. sein"
+    ],
+    [
+     "haggis",
+     "Haggis (schottisches Gericht aus in einem Schafsmagen gekochten"
+    ],
+    [
+     "tartan",
+     "Schottenkaro (bestimmtes Muster eines Clans); karierter"
+    ],
+    [
+     "kilt",
+     "Kilt; Schottenrock"
+    ],
+    [
+     "bagpipes (pl)",
+     "Dudelsack"
+    ],
+    [
+     "loch",
+     "See (in Schottland)"
+    ],
+    [
+     "What was ... like?",
+     "Wie war ... ?"
+    ],
+    [
+     "object",
+     "Gegenstand; Objekt"
+    ],
+    [
+     "period",
+     "Periode; Zeitspanne; Zeitraum"
+    ],
+    [
+     "Ice Age",
+     "Eiszeit"
+    ],
+    [
+     "to flood",
+     "überfluten; fluten; überschwemmen"
+    ],
+    [
+     "to rise, rose, risen",
+     "steigen; sich erheben; aufstehen"
+    ],
+    [
+     "sea level",
+     "Meeresspiegel"
+    ],
+    [
+     "to disappear",
+     "verschwinden"
+    ],
+    [
+     "BC (= before Christ)",
+     "vor Christus"
+    ],
+    [
+     "Celt",
+     "Kelte/Keltin"
+    ],
+    [
+     "AD (= Anno Domini)",
+     "nach Christus"
+    ],
+    [
+     "western",
+     "westlich; West-"
+    ],
+    [
+     "tribe",
+     "Stamm; Volksstamm"
+    ],
+    [
+     "round",
+     "rund"
+    ],
+    [
+     "metal",
+     "Metall"
+    ],
+    [
+     "leather",
+     "Leder"
+    ],
+    [
+     "to conquer",
+     "erobern"
+    ],
+    [
+     "to found",
+     "gründen"
+    ],
+    [
+     "palace",
+     "Palast"
+    ],
+    [
+     "fort",
+     "Fort; Festung"
+    ],
+    [
+     "peace",
+     "Frieden"
+    ],
+    [
+     "empire",
+     "Reich; Kaiserreich"
+    ],
+    [
+     "Picts",
+     "Pikten (schottischer Volksstamm)"
+    ],
+    [
+     "to begin, began, begun",
+     "anfangen; beginnen"
+    ],
+    [
+     "to attack",
+     "angreifen"
+    ],
+    [
+     "to say goodbye (to)",
+     "sich verabschieden (von)"
+    ],
+    [
+     "Anglo-Saxon",
+     "Angelsachse; Angelsächsin; angelsächsisch"
+    ],
+    [
+     "Germanic",
+     "germanisch"
+    ],
+    [
+     "people (pl)",
+     "Volk"
+    ],
+    [
+     "rule",
+     "Herrschaft; Regierungszeit"
+    ],
+    [
+     "peaceful",
+     "in Frieden; friedlich"
+    ],
+    [
+     "to burn, burnt, burnt",
+     "brennen; verbrennen"
+    ],
+    [
+     "to divide (up/into)",
+     "aufteilen (in)"
+    ],
+    [
+     "kingdom",
+     "Königreich"
+    ],
+    [
+     "complete",
+     "vollständig; komplett; völlig"
+    ],
+    [
+     "Latin",
+     "Latein; lateinisch"
+    ],
+    [
+     "bible",
+     "Bibel"
+    ],
+    [
+     "to date back to",
+     "zurückgehen auf; stammen aus"
+    ],
+    [
+     "Norman",
+     "Normanne/Normannin; normannisch"
+    ],
+    [
+     "leader",
+     "Führer/-in; Anführer/-in"
+    ],
+    [
+     "duke",
+     "Herzog"
+    ],
+    [
+     "Saxon",
+     "Sachse/Sächsin; sächsisch"
+    ],
+    [
+     "battle",
+     "Schlacht; Kampf"
+    ],
+    [
+     "to this day",
+     "bis heute"
+    ],
+    [
+     "at this time",
+     "zu dieser Zeit"
+    ],
+    [
+     "lord",
+     "Lord; Herr"
+    ],
+    [
+     "Tudor",
+     "Tudor; Tudor-"
+    ],
+    [
+     "monarch",
+     "Monarch/-in"
+    ],
+    [
+     "daughter",
+     "Tochter"
+    ],
+    [
+     "to divorce",
+     "sich scheiden lassen"
+    ],
+    [
+     "to marry",
+     "heiraten"
+    ],
+    [
+     "the Pope",
+     "der Papst"
+    ],
+    [
+     "reign",
+     "Herrschaft; Regierungszeit"
+    ],
+    [
+     "golden age",
+     "goldenes Zeitalter"
+    ],
+    [
+     "Spanish",
+     "spanisch; Spanisch; die Spanier"
+    ],
+    [
+     "Victorian",
+     "viktorianisch; Viktorianer/-in"
+    ],
+    [
+     "Industrial Revolution",
+     "die industrielle Revolution"
+    ],
+    [
+     "by hand",
+     "von Hand; manuell"
+    ],
+    [
+     "however",
+     "jedoch"
+    ],
+    [
+     "number",
+     "Anzahl"
+    ],
+    [
+     "factory",
+     "Fabrik; Werk"
+    ],
+    [
+     "goods (pl)",
+     "Güter; Waren"
+    ],
+    [
+     "seaside",
+     "Küste; Meeresküste"
+    ],
+    [
+     "colony",
+     "Kolonie"
+    ],
+    [
+     "raw material",
+     "Rohstoff; Rohmaterial"
+    ],
+    [
+     "independent",
+     "unabhängig"
+    ],
+    [
+     "political",
+     "politisch"
+    ],
+    [
+     "view",
+     "Ansicht; Einstellung; Standpunkt"
+    ],
+    [
+     "influence",
+     "Einfluss"
+    ],
+    [
+     "to vote",
+     "abstimmen; wählen"
+    ],
+    [
+     "rather than",
+     "eher als"
+    ],
+    [
+     "exit",
+     "Ausgang; Abgang; Ausfahrt; Ausfahrt"
+    ],
+    [
+     "embroidery",
+     "Stickerei"
+    ],
+    [
+     "to connect (to)",
+     "verbinden (mit); vermitteln; anschließen"
+    ],
+    [
+     "Viking",
+     "Wikinger"
+    ],
+    [
+     "Middle Ages",
+     "Mittelalter"
+    ],
+    [
+     "revolution",
+     "Revolution"
+    ],
+    [
+     "valuable",
+     "wertvoll"
+    ],
+    [
+     "to be made of",
+     "bestehen aus; gemacht sein aus; hergestellt sein aus"
+    ],
+    [
+     "calendar",
+     "Kalender"
+    ],
+    [
+     "axe",
+     "Axt"
+    ],
+    [
+     "mirror",
+     "Spiegel"
+    ],
+    [
+     "necklace",
+     "Halskette"
+    ],
+    [
+     "sandal",
+     "Sandale"
+    ],
+    [
+     "hairbrush",
+     "Haarbürste"
+    ],
+    [
+     "informal",
+     "informell; zwanglos; inoffiziell"
+    ],
+    [
+     "to be related to",
+     "sich beziehen auf; verwandt sein mit"
+    ],
+    [
+     "destination",
+     "Ziel; Reiseziel"
+    ],
+    [
+     "direct",
+     "direkt; unmittelbar"
+    ],
+    [
+     "to inform",
+     "informieren"
+    ],
+    [
+     "Yours sincerely,",
+     "Mit freundlichen Grüßen"
+    ],
+    [
+     "head teacher",
+     "Schulleiter/-in"
+    ],
+    [
+     "on the move",
+     "unterwegs"
+    ],
+    [
+     "travel",
+     "Reise-"
+    ],
+    [
+     "itinerary",
+     "Reiseplan; Reiseroute; Reiseweg"
+    ],
+    [
+     "foreign language",
+     "Fremdsprache"
+    ],
+    [
+     "seasick",
+     "seekrank"
+    ],
+    [
+     "luggage (no pl)",
+     "Gepäck"
+    ],
+    [
+     "flying",
+     "Fliegen"
+    ],
+    [
+     "to miss",
+     "verpassen; versäumen"
+    ],
+    [
+     "plane",
+     "Flugzeug"
+    ],
+    [
+     "departure lounge",
+     "Abflughalle"
+    ],
+    [
+     "passport",
+     "Pass; Reisepass"
+    ],
+    [
+     "boarding card",
+     "Bordkarte"
+    ],
+    [
+     "desk",
+     "Schalter; Schreibtisch"
+    ],
+    [
+     "visa, visas (pl)",
+     "Visum, Visa (Pl.); Einreisebewilligung"
+    ],
+    [
+     "passenger",
+     "Passagier/-in; Fahrgast"
+    ],
+    [
+     "flight attendant",
+     "Flugbegleiter/-in"
+    ],
+    [
+     "customs (sg)",
+     "Zoll"
+    ],
+    [
+     "suitcase",
+     "Koffer"
+    ],
+    [
+     "airport",
+     "Flughafen"
+    ],
+    [
+     "ferry",
+     "Fähre"
+    ],
+    [
+     "control",
+     "Kontrolle"
+    ],
+    [
+     "arrivals hall",
+     "Ankunftshalle"
+    ],
+    [
+     "foreign",
+     "ausländisch; fremd"
+    ],
+    [
+     "currency",
+     "Währung"
+    ],
+    [
+     "environmentally friendly",
+     "umweltfreundlich"
+    ],
+    [
+     "CO2 (carbon dioxide)",
+     "Kohlendioxid; CO2"
+    ],
+    [
+     "emission",
+     "Emission; Ausstoß"
+    ],
+    [
+     "holidays (pl)",
+     "Ferien; Schulferien"
+    ],
+    [
+     "means of transport (sg or pl)",
+     "Transportmittel; Verkehrsmittel"
+    ],
+    [
+     "convenience",
+     "Zweckmäßigkeit; Annehmlichkeit; Komfort"
+    ]
+   ]
+  },
+  {
+   "num": 2,
+   "title": "U1 · Unit 1",
+   "words": [
+    [
+     "S1",
+     "environmental issues !In+vaIrnmentl *ISu:z? Umweltprobleme"
+    ],
+    [
+     "S1",
+     "technical !*teknIkl? technisch; fachlich; handwerklich"
+    ],
+    [
+     "S1",
+     "topic !*tOpIk? Thema"
+    ],
+    [
+     "S1",
+     "to focus (on) !*fEUkEs (-On)? sich konzentrieren (auf)"
+    ],
+    [
+     "S1",
+     "channel !*tSxnl? Kanal (TV); Programm (Radio)"
+    ],
+    [
+     "S1",
+     "to be concerned (about) !bi kEn*s3:nd (-E+baUt)? besorgt sein (um); beunruhigt sein (wegen)"
+    ],
+    [
+     "S1",
+     "climate change !*klaImEt 9tSeIndZ? Klimawandel"
+    ],
+    [
+     "S1",
+     "to produce !prE*dju:s? produzieren; erzeugen; herstellen"
+    ],
+    [
+     "S1",
+     "waste !weIst? Abfall; Müll; Verschwendung"
+    ],
+    [
+     "S1",
+     "to attract !E*trxkt? anziehen; anlocken"
+    ],
+    [
+     "S1",
+     "to trust !tr0st? vertrauen"
+    ],
+    [
+     "S1",
+     "especially !I*speSli? besonders; vor allem"
+    ],
+    [
+     "S1",
+     "to be involved !bi-In*vOlvd? beteiligt sein; involviert sein"
+    ],
+    [
+     "S1",
+     "company !*k0mpEni? Gesellschaft; Firma; Unternehmen"
+    ],
+    [
+     "S1",
+     "to recommend !+rekE*mend? empfehlen"
+    ],
+    [
+     "S1",
+     "product !*prOd0kt? Produkt; Erzeugnis"
+    ],
+    [
+     "S1",
+     "to make sure, made sure, made sure !9meIk *SC:; 9meId *SC:; 9meId *SC:? sichergehen; achten auf"
+    ],
+    [
+     "S1",
+     "Thank you very much! !+TxNk ju veri *m0tS? Vielen Dank!; Herzlichen Dank!"
+    ],
+    [
+     "S1",
+     "to subscribe !sEb*skraIb? abonnieren"
+    ],
+    [
+     "S1",
+     "role model !*rEUl +mOdl? Vorbild"
+    ],
+    [
+     "S1",
+     "tap !txp? Wasserhahn"
+    ],
+    [
+     "S1",
+     "to turn down !9t3:n *daUn? abdrehen; niedriger stellen"
+    ],
+    [
+     "S1",
+     "heating !*hi:tIN? Heizung"
+    ],
+    [
+     "S1",
+     "bin !bIn? Mülleimer; Abfalleimer; Mülltonne"
+    ],
+    [
+     "S1",
+     "rainwater !*reIn+wC:tE? Regenwasser"
+    ],
+    [
+     "S1",
+     "to flush !fl0S? spülen; die Wasserspülung betätigen"
+    ],
+    [
+     "S1",
+     "rain !reIn? Regen"
+    ],
+    [
+     "S2",
+     "millionaire !+mIljE*neE? Millionär/-in"
+    ],
+    [
+     "S2",
+     "rich !rItS? reich"
+    ],
+    [
+     "S2",
+     "age !eIdZ? Alter; Zeitalter"
+    ],
+    [
+     "S2",
+     "to design !dI*zaIn? entwerfen; gestalten"
+    ],
+    [
+     "S2",
+     "success !sEk*ses? Erfolg"
+    ],
+    [
+     "S2",
+     "to be stressed out !bi +strest-*aUt? völlig gestresst sein"
+    ],
+    [
+     "S2",
+     "a million !E *mIljEn? Million"
+    ],
+    [
+     "S2",
+     "lead part !9li:d *pA:t? Hauptrolle"
+    ],
+    [
+     "S2",
+     "backing dancer !*bxkIN +dA:nsE? Backgroundtänzer/-in"
+    ],
+    [
+     "S2",
+     "lead dancer !*li:d +dA:nsE? Vortänzer/-in"
+    ],
+    [
+     "S2",
+     "to grow, grew, grown !GrEU; Gru:; GrEUn? wachsen; anbauen; züchten"
+    ],
+    [
+     "S2",
+     "to want sb to do sth !+wOnt tE *du:? wollen, dass jmd. etw. tut"
+    ],
+    [
+     "S2",
+     "mark !mA:k? Note"
+    ],
+    [
+     "S2",
+     "laid-back !leId*bxk? entspannt; locker"
+    ],
+    [
+     "S2",
+     "to drop out (of) !9drOp *aUt (-Ev)? abbrechen; ausscheiden; aussteigen"
+    ],
+    [
+     "S2",
+     "modelling !*mOdElIN? Modeln"
+    ],
+    [
+     "S2",
+     "to rely (on) !rI*laI (-On)? sich verlassen (auf); vertrauen (auf)"
+    ],
+    [
+     "S2",
+     "looks (pl) !lUks? Aussehen"
+    ],
+    [
+     "S2",
+     "to study !*st0di? lernen; studieren"
+    ],
+    [
+     "S2",
+     "career !kE*rIE? Beruf; Laufbahn; Karriere"
+    ],
+    [
+     "S2",
+     "in ... shoes !In *Su:z? an ... Stelle"
+    ],
+    [
+     "S2",
+     "to give up, gave up, given up !9GIv-*0p; 9GeIv-*0p; 9GIvn-*0p? aufgeben"
+    ],
+    [
+     "S2",
+     "successful !sEk*sesfl? erfolgreich"
+    ],
+    [
+     "S2",
+     "audition !C:*dISn? Vorsprechen; Vorsingen; Vortanzen; Vorspielen"
+    ],
+    [
+     "S2",
+     "ugly !*0Gli? hässlich; scheußlich; übel"
+    ],
+    [
+     "S2",
+     "comfortable !*k0mftEbl? bequem; komfortabel"
+    ],
+    [
+     "S2",
+     "dress !dres? Kleid"
+    ],
+    [
+     "S2",
+     "trainer !*treInE? Turnschuh"
+    ],
+    [
+     "S2",
+     "to perform !pE*fC:m? auftreten; etw. vorführen; aufführen; vortragen; spielen"
+    ],
+    [
+     "S3",
+     "to push oneself !*pUS w0n+self? sich alles abverlangen; sich Mühe geben"
+    ],
+    [
+     "S3",
+     "messy !*mesi? unordentlich"
+    ],
+    [
+     "S3",
+     "bossy !*bOsi? bestimmend; rechthaberisch; herrisch"
+    ],
+    [
+     "S3",
+     "recorder !rI*kC:dE? Flöte"
+    ],
+    [
+     "S3",
+     "exactly !IG*zxktli? genau"
+    ],
+    [
+     "S3",
+     "to enjoy oneself !In*dZCI? Spaß haben; sich amüsieren"
+    ],
+    [
+     "S3",
+     "to decide (on) !dI*saId (-On)? (sich) entscheiden (für)"
+    ],
+    [
+     "S3",
+     "to be saved by the bell !bi *seIvd baI DE +bel? noch mal Glück haben"
+    ],
+    [
+     "S3",
+     "to give sb funny looks !+GIv f0ni *lUks? jmdn. schief anschauen; jmdn. komisch anschauen"
+    ],
+    [
+     "S3",
+     "each other !9i:tS-*0DE? einander; sich; sich gegenseitig"
+    ],
+    [
+     "S3",
+     "funny !*f0ni? komisch; merkwürdig; seltsam"
+    ],
+    [
+     "S3",
+     "to behave !bI*heIv? sich benehmen; sich verhalten"
+    ],
+    [
+     "S3",
+     "opinion !E*pInjEn? Meinung; Ansicht; Einstellung"
+    ],
+    [
+     "S3",
+     "What's up? !9wOts-*0p? Was ist los?"
+    ],
+    [
+     "S3",
+     "to be in charge (of) !bi-9In *tSA:dZ (-Ev)? zuständig sein (für); die Verantwortung tragen (für)"
+    ],
+    [
+     "S3",
+     "to react !ri*xkt? reagieren"
+    ],
+    [
+     "S3",
+     "to be hard on sb !bi *hA:d-On? streng mit jmdm. sein"
+    ],
+    [
+     "S3",
+     "Stay the way you are. !+steI DE weI ju *A:? Bleib wie du bist."
+    ],
+    [
+     "S3",
+     "Miss !mIs? Fräulein (veraltete Anrede)"
+    ],
+    [
+     "S3",
+     "per cent !pE *sent? Prozent"
+    ],
+    [
+     "SK1",
+     "to have a point !+hxv-E *pCInt? nicht ganz Unrecht haben"
+    ],
+    [
+     "SK1",
+     "necessary !*nesEsri? nötig; notwendig; erforderlich"
+    ],
+    [
+     "SK1",
+     "possible !*pOsEbl? möglich"
+    ],
+    [
+     "SK1",
+     "simple !*sImpl? einfach; simpel"
+    ],
+    [
+     "SK1",
+     "to meet halfway !9mi:t hA:f*weI? sich auf halbem Weg treffen"
+    ],
+    [
+     "SK1",
+     "I don't mind (+ ...ing) !+aI dEUnt *maInd? Ich habe nichts dagegen (zu ...); Mir macht es nichts aus (zu ...)"
+    ],
+    [
+     "SK1",
+     "misunderstood !+mIs0ndE*stUd? missverstanden"
+    ],
+    [
+     "SK1",
+     "to end !end? enden; beenden"
+    ],
+    [
+     "SK1",
+     "decision !dI*sIZn? Entscheidung"
+    ],
+    [
+     "SK1",
+     "conflict !*kOnflIkt? Konflikt; Auseinandersetzung"
+    ],
+    [
+     "SK1",
+     "to blame !bleIm? verantwortlich machen; beschuldigen"
+    ],
+    [
+     "UT1",
+     "storyboard !*stC:ribC:d? Szenenbuch; Storyboard"
+    ],
+    [
+     "UT1",
+     "stud !st0d? Stecker"
+    ],
+    [
+     "UT1",
+     "facial expression !+feISl Ik*spreSn? Gesichtsausdruck"
+    ],
+    [
+     "UT1",
+     "body language !*bOdi +lxNGwIdZ? Körpersprache"
+    ],
+    [
+     "ST1",
+     "to hang out (with), hung out (with), hung out (with) (infml) !+hxN-*aUt (wID); +h0N-*aUt (wID); +h0N-*aUt (wID)? rumhängen (mit); sich herumtreiben (mit)"
+    ],
+    [
+     "ST1",
+     "instead !In*sted? stattdessen"
+    ],
+    [
+     "ST1",
+     "to get into trouble !9Get-IntE *tr0bl? in Schwierigkeiten geraten"
+    ],
+    [
+     "ST1",
+     "to be fed up (with) !bi fed-*0p (wID)? sauer sein (auf); die Nase voll haben (von)"
+    ],
+    [
+     "ST1",
+     "argument !*A:GjEmEnt? Auseinandersetzung; Streit"
+    ],
+    [
+     "ST1",
+     "these days !+Di:z *deIz? heute; heutzutage; zurzeit"
+    ],
+    [
+     "ST1",
+     "to be allowed to (do sth) !bi-E*laUd tE? dürfen"
+    ],
+    [
+     "ST1",
+     "to be grounded !bi *GraUndId? Hausarrest haben"
+    ],
+    [
+     "ST1",
+     "to put on, put on, put on !9pUt-*On; 9pUt-*On; 9pUt-*On? anziehen"
+    ],
+    [
+     "ST1",
+     "freedom (no pl) !*fri:dEm? Freiheit; Unabhängigkeit"
+    ],
+    [
+     "ST1",
+     "in-crowd !*InkraUd? die Angesagten; die Beliebten; Szene"
+    ],
+    [
+     "ST1",
+     "blond !blOnd? blond"
+    ],
+    [
+     "ST1",
+     "the high street !DE *haI 9stri:t? die Haupteinkaufsstraße"
+    ],
+    [
+     "ST1",
+     "bloke (fam) !blEUk? Typ (ugs.)"
+    ],
+    [
+     "ST1",
+     "to be able to (do sth) !bi-*eIbl tE? fähig sein zu; können; dürfen"
+    ],
+    [
+     "ST1",
+     "overnight !+EUvE*naIt? über Nacht"
+    ],
+    [
+     "ST1",
+     "back !bxk? Rücken; Rückseite"
+    ],
+    [
+     "ST1",
+     "usual !*ju:Zl? üblich"
+    ],
+    [
+     "ST1",
+     "to treat !tri:t? behandeln"
+    ],
+    [
+     "ST1",
+     "to ignore !IG*nC:? ignorieren; außer Acht lassen"
+    ],
+    [
+     "ST1",
+     "pretty !*prIti? hübsch"
+    ],
+    [
+     "ST1",
+     "to come up to sb, came up to, come up to !k0m-*0p tE; keIm-*0p tE; k0m-*0p tE? auf jmdn. zukommen"
+    ],
+    [
+     "ST1",
+     "poor !pC:; pUE? arm"
+    ],
+    [
+     "ST1",
+     "mummy !*m0mi? Mama; Mami; Mutti"
+    ],
+    [
+     "ST1",
+     "piece of junk !+pi:s-Ev *dZ0Nk? Stück Schrott"
+    ],
+    [
+     "ST1",
+     "anger (no pl) !*xNGE? Zorn; Wut"
+    ],
+    [
+     "ST1",
+     "peer pressure !*pIE +preSE? Gruppenzwang"
+    ],
+    [
+     "ST1",
+     "to fit in !+fIt-*In? dazupassen; sich einfügen"
+    ],
+    [
+     "ST1",
+     "excitement (no pl) !Ik*saItmEnt? Aufregung"
+    ],
+    [
+     "ST1",
+     "confused !kEn*fju:zd? verwirrt; wirr; konfus"
+    ],
+    [
+     "ST1",
+     "honest !*OnIst? ehrlich"
+    ],
+    [
+     "ST1",
+     "turning point !*t3:nIN +pCInt? Wendepunkt"
+    ],
+    [
+     "ST1",
+     "to make a decision !+meIk-E dI*sIZn? eine Entscheidung treffen"
+    ],
+    [
+     "FP",
+     "to tease sb !ti:z? jmdn. aufziehen; jmdn. hänseln; jmdn. ärgern"
+    ],
+    [
+     "FP",
+     "sense of humour (no pl) !+sens-Ev *hju:mE? Sinn für Humor"
+    ],
+    [
+     "FP",
+     "to feel sorry for, felt sorry for, felt sorry for !+fi:l *sOri fC:; +felt *sOri fC:; +felt *sOri fC:? Mitleid haben mit; bedauern"
+    ],
+    [
+     "FP",
+     "optimistic !+OptI*mIstIk? optimistisch"
+    ],
+    [
+     "FP",
+     "to cheer sb up !9tSIEr-*0p? jmdn. aufheitern"
+    ],
+    [
+     "FP",
+     "show-off !*SEU-Of? Angeber/-in"
+    ],
+    [
+     "FP",
+     "to apologise !E*pOlEdZaIz? sich entschuldigen"
+    ],
+    [
+     "FP",
+     "to delete !dI*li:t? löschen"
+    ],
+    [
+     "FP",
+     "wall !wC:l? hier: Online-Pinnwand"
+    ],
+    [
+     "FP",
+     "account settings !E*kaUnt +setINz? Profileinstellungen"
+    ],
+    [
+     "FP",
+     "bench !benS? Bank; Sitzbank"
+    ],
+    [
+     "FP",
+     "to work out !+w3:k-*aUt? funktionieren; klappen"
+    ],
+    [
+     "CO",
+     "founder !*faUndE? Gründer/-in"
+    ],
+    [
+     "CO",
+     "to develop !dI*velEp? (sich) entwickeln"
+    ],
+    [
+     "CO",
+     "a billion !E *bIliEn? Milliarde"
+    ],
+    [
+     "CO",
+     "to pay attention, paid attention, paid attention !+peI-E*tenSn; +peId-E*tenSn; +peId- E*tenSn? aufmerksam sein; aufpassen; jmdn./etw. beachten"
+    ],
+    [
+     "CO",
+     "underground !*0ndEGraUnd? U-Bahn"
+    ]
+   ]
+  },
+  {
+   "num": 3,
+   "title": "AC1 · Across cultures 1",
+   "words": [
+    [
+     "plate",
+     "Teller"
+    ],
+    [
+     "mug",
+     "Becher"
+    ],
+    [
+     "cup",
+     "Tasse"
+    ],
+    [
+     "bread roll",
+     "Brötchen"
+    ],
+    [
+     "butter",
+     "Butter"
+    ],
+    [
+     "marmalade",
+     "Orangenmarmelade"
+    ],
+    [
+     "honey",
+     "Honig"
+    ],
+    [
+     "muesli",
+     "Müsli"
+    ],
+    [
+     "ham",
+     "Schinken"
+    ],
+    [
+     "sausage",
+     "Wurst; Bratwurst"
+    ],
+    [
+     "host family",
+     "Gastfamilie"
+    ],
+    [
+     "exchange student",
+     "Austauschschüler/-in"
+    ],
+    [
+     "unfamiliar",
+     "nicht vertraut; unbekannt"
+    ],
+    [
+     "appropriate",
+     "angemessen"
+    ],
+    [
+     "to make sb angry",
+     "jmdn. wütend machen; jmdn. verärgern"
+    ],
+    [
+     "to upset, upset, upset",
+     "aus der Fassung bringen"
+    ],
+    [
+     "gratitude",
+     "Dankbarkeit"
+    ],
+    [
+     "impolite",
+     "unhöflich"
+    ],
+    [
+     "hot",
+     "heiß"
+    ],
+    [
+     "this early",
+     "so früh"
+    ],
+    [
+     "that much",
+     "so viel"
+    ],
+    [
+     "to be used to",
+     "gewöhnt sein an; gewohnt sein"
+    ]
+   ]
+  },
+  {
+   "num": 4,
+   "title": "U2 · Unit 2",
+   "words": [
+    [
+     "S1",
+     "meat (no pl) !mi:t? Fleisch"
+    ],
+    [
+     "S1",
+     "son !s0n? Sohn"
+    ],
+    [
+     "S1",
+     "large !lA:dZ? groß; riesig"
+    ],
+    [
+     "S1",
+     "vegetable !*vedZtEbl? Gemüse"
+    ],
+    [
+     "S1",
+     "vegetarian !+vedZI*teEriEn? Vegetarier/-in"
+    ],
+    [
+     "S1",
+     "thousands of !*TaUzndz-Ev? tausende (von)"
+    ],
+    [
+     "S1",
+     "to pull down !9pUl-*daUn? abreißen"
+    ],
+    [
+     "S1",
+     "musical !*mju:zIkl? musikalisch; Musik-"
+    ],
+    [
+     "S1",
+     "shipbuilding !*SIpbIldIN? Schiffsbau"
+    ],
+    [
+     "S1",
+     "industry !*IndEstri? Industrie; Branche; Gewerbe"
+    ],
+    [
+     "S1",
+     "midnight !*mIdnaIt? Mitternacht"
+    ],
+    [
+     "S1",
+     "to set off fireworks !set-+Of *faIEw3:ks? ein Feuerwerk zünden"
+    ],
+    [
+     "S1",
+     "bun !b0n? Brötchen; Gebäckstück"
+    ],
+    [
+     "S1",
+     "coal !kEUl? Kohle"
+    ],
+    [
+     "S1",
+     "government !*G0vnmEnt? Regierung"
+    ],
+    [
+     "S1",
+     "to grant !GrA:nt? gewähren; zusprechen; geben"
+    ],
+    [
+     "S1",
+     "Scot !skOt? Schotte/Schottin"
+    ],
+    [
+     "S1",
+     "invention !In*venSn? Erfindung"
+    ],
+    [
+     "S1",
+     "discovery !dI*sk0vri? Entdeckung"
+    ],
+    [
+     "S1",
+     "by !baI? von"
+    ],
+    [
+     "S1",
+     "to clone !klEUn? klonen"
+    ],
+    [
+     "S1",
+     "scientist !*saIEntIst? Wissenschaftler/-in"
+    ],
+    [
+     "S1",
+     "to invent !In*vent? erfinden"
+    ],
+    [
+     "S1",
+     "steam engine !*sti:m-+endZIn? Dampfmaschine"
+    ],
+    [
+     "S1",
+     "television !*telIvIZn? Fernsehen; Fernseher"
+    ],
+    [
+     "S1",
+     "station !*steISn? Sender"
+    ],
+    [
+     "S1",
+     "to start !stA:t? hier: gründen"
+    ],
+    [
+     "S1",
+     "to fill !fIl? füllen"
+    ],
+    [
+     "S1",
+     "vegetarian !+vedZI*teEriEn? vegetarisch"
+    ],
+    [
+     "S1",
+     "option !*OpSn? Möglichkeit; Option; Wahl"
+    ],
+    [
+     "S1",
+     "mashed potatoes (pl) !+mxSt pE*teItEUz? Kartoffelpüree; Kartoffelbrei"
+    ],
+    [
+     "S1",
+     "sauce !sC:s? Soße"
+    ],
+    [
+     "S1",
+     "to ban !bxn? bannen; verbieten; sperren"
+    ],
+    [
+     "S1",
+     "decade !*dekeId? Jahrzehnt"
+    ],
+    [
+     "S1",
+     "hundreds of !*h0ndrEdz-Ev? hunderte (von)"
+    ],
+    [
+     "S1",
+     "narrow !*nxrEU? eng; schmal"
+    ],
+    [
+     "S1",
+     "close !klEUs? schmaler Durchgang"
+    ],
+    [
+     "S1",
+     "to name !neIm? nennen; benennen"
+    ],
+    [
+     "S1",
+     "to die !daI? sterben"
+    ],
+    [
+     "S1",
+     "to leave behind !9li:v-bI*haInd? zurücklassen"
+    ],
+    [
+     "S2",
+     "update !*0pdeIt? Aktualisierung; Update"
+    ],
+    [
+     "S2",
+     "latest !*leItIst? neueste/-r/-s"
+    ],
+    [
+     "S2",
+     "pic (= picture) !pIk? Foto"
+    ],
+    [
+     "S2",
+     "actually !*xktSuEli? tatsächlich; wirklich; eigentlich"
+    ],
+    [
+     "S2",
+     "in fact !In *fxkt? tatsächlich; eigentlich; genau genommen"
+    ],
+    [
+     "S2",
+     "south !saUT? südlich; im Süden"
+    ],
+    [
+     "S2",
+     "to hold, held, held !hEUld; held; held? abhalten"
+    ],
+    [
+     "S2",
+     "gentleman, gentlemen (pl) !*dZentlmEn; *dZentlmen? Gentleman; feiner Herr"
+    ],
+    [
+     "S2",
+     "clan !klxn? Clan; Sippe"
+    ],
+    [
+     "S2",
+     "ben !ben? hoher Berg"
+    ],
+    [
+     "S2",
+     "glen !Glen? Schlucht"
+    ],
+    [
+     "S2",
+     "recipe !*resIpi? Rezept"
+    ],
+    [
+     "S2",
+     "ceilidh !*keIli? schottisches Fest, bei dem getanzt und musiziert wird"
+    ],
+    [
+     "S2",
+     "official !E*fISl? offiziell"
+    ],
+    [
+     "S2",
+     "national anthem !+nxSnl *xnTEm? Nationalhymne"
+    ],
+    [
+     "S2",
+     "unofficial !+0nE*fISl? inoffiziell"
+    ],
+    [
+     "S2",
+     "to defeat !dI*fi:t? besiegen"
+    ],
+    [
+     "S2",
+     "soldier !*sEUldZE? Soldat/-in"
+    ],
+    [
+     "S2",
+     "web !web? Netz; Spinnennetz"
+    ],
+    [
+     "SK1",
+     "final !*faInl? letzte/-r/-s"
+    ],
+    [
+     "SK1",
+     "further !*f3:DE? weiter (weg)"
+    ],
+    [
+     "SK1",
+     "north !nC:T? nördlich; im Norden"
+    ],
+    [
+     "SK1",
+     "fascinating !*fxsIneItIN? faszinierend"
+    ],
+    [
+     "SK1",
+     "extremely !Ik*stri:mli? äußerst; sehr"
+    ],
+    [
+     "SK1",
+     "present !*preznt? heutig; Gegenwarts-"
+    ],
+    [
+     "SK1",
+     "huge !hju:dZ? riesig; riesengroß; gewaltig"
+    ],
+    [
+     "SK1",
+     "to improve !Im*pru:v? (sich) verbessern"
+    ],
+    [
+     "SK1",
+     "tiny !*taIni? klein; winzig"
+    ],
+    [
+     "SK1",
+     "crane !kreIn? Kran"
+    ],
+    [
+     "SK1",
+     "engineer !+endZI*nIE? Ingenieur/-in; Techniker/-in"
+    ],
+    [
+     "UT1",
+     "to appeal to sb !E*pi:l tE? jmdm. zusagen; jmdm. gefallen; jmdn. ansprechen; jmdn. reizen"
+    ],
+    [
+     "UT1",
+     "convincing !kEn*vInsIN? überzeugend"
+    ],
+    [
+     "ST1",
+     "sky !skaI? Himmel"
+    ],
+    [
+     "ST1",
+     "entrance !*entrEns? Eingang; Eintritt"
+    ],
+    [
+     "ST1",
+     "ticket office !*tIkIt +OfIs? Kartenausgabestelle; Vorverkaufsschalter"
+    ],
+    [
+     "ST1",
+     "stone !stEUn? Stein; Stein-"
+    ],
+    [
+     "ST1",
+     "pocket !*pOkIt? Tasche; Hosentasche"
+    ],
+    [
+     "ST1",
+     "signal !*sIGnl? Empfang; Signal; Zeichen"
+    ],
+    [
+     "ST1",
+     "thick !TIk? dick"
+    ],
+    [
+     "ST1",
+     "perhaps !pE*hxps? vielleicht"
+    ],
+    [
+     "ST1",
+     "to go round in circles !GEU +raUnd In *s3:klz? sich im Kreis drehen"
+    ],
+    [
+     "ST1",
+     "wounded !*wu:ndId? verletzt; verwundet"
+    ],
+    [
+     "ST1",
+     "tower !taUE? Turm"
+    ],
+    [
+     "ST1",
+     "moonlight !*mu:nlaIt? Mondlicht"
+    ],
+    [
+     "ST1",
+     "stairs (pl) !steEz? Treppe"
+    ],
+    [
+     "ST1",
+     "wooden !*wUdn? hölzern; aus Holz"
+    ],
+    [
+     "ST1",
+     "to cry !kraI? weinen"
+    ],
+    [
+     "ST1",
+     "to look up !9lUk-*0p? aufschauen; hochschauen"
+    ],
+    [
+     "ST1",
+     "to fall down !+fC:l-*daUn? einstürzen; zusammenfallen; hinunterfallen"
+    ],
+    [
+     "ST1",
+     "danger !*deIndZE? Gefahr"
+    ],
+    [
+     "ST1",
+     "to keep out (of) !9ki:p-*aUt (-Ev)? draußen bleiben (von); draußen halten (von)"
+    ],
+    [
+     "ST1",
+     "cracking !*krxkIN? knackend; brechend"
+    ],
+    [
+     "ST1",
+     "to realise !*rIElaIz? erkennen; realisieren"
+    ],
+    [
+     "ST1",
+     "key ring !*ki: 9rIN? Schlüsselbund; Schlüsselanhänger"
+    ],
+    [
+     "ST1",
+     "to tie (to) !*taI (tE)? binden (an); festbinden (an)"
+    ],
+    [
+     "ST1",
+     "rope !rEUp? Seil"
+    ],
+    [
+     "ST1",
+     "to hold onto !9hEUld-*OntE? (sich) festhalten an"
+    ],
+    [
+     "ST1",
+     "crack !krxk? Knacken; Krachen"
+    ],
+    [
+     "ST1",
+     "wood !wUd? Holz"
+    ],
+    [
+     "ST1",
+     "below !bI*lEU? unten; unter; unterhalb (von)"
+    ],
+    [
+     "ST1",
+     "gig !GIG? Auftritt; Gig"
+    ],
+    [
+     "ST1",
+     "definitely !*defInEtli? definitiv; bestimmt; eindeutig"
+    ],
+    [
+     "ST1",
+     "climax !*klaImxks? Höhepunkt"
+    ],
+    [
+     "FP",
+     "to help out !+help-*aUt? aushelfen"
+    ],
+    [
+     "FP",
+     "neighbourhood !*neIbEhUd? Nachbarschaft; Viertel"
+    ],
+    [
+     "FP",
+     "to do the shopping !+du: DE *SOpIN? einkaufen; einkaufen gehen"
+    ],
+    [
+     "FP",
+     "elderly !*eldEli? ältere/-r/-s"
+    ],
+    [
+     "FP",
+     "inventor !In*ventE? Erfinder/-in"
+    ],
+    [
+     "FP",
+     "tin can !*tIn kxn? Blechdose"
+    ],
+    [
+     "FP",
+     "switch !swItS? Schalter"
+    ],
+    [
+     "FP",
+     "versus (vs.) !*v3:sEs? gegen"
+    ],
+    [
+     "FP",
+     "rotary phone !*rEUtri fEUn? Telefon mit Wählscheibe"
+    ],
+    [
+     "CO",
+     "fall !fC:l? Sturz"
+    ],
+    [
+     "CO",
+     "natural !*nxtSrl? natürlich; Natur-"
+    ],
+    [
+     "CO",
+     "to rent (out) !+rent (-*aUt)? (ver)mieten"
+    ],
+    [
+     "CO",
+     "thistle !*TIsl? Distel"
+    ],
+    [
+     "CO",
+     "to kiss !kIs? (sich) küssen"
+    ],
+    [
+     "CO",
+     "to be known (as) !bi *nEUn (-Ez)? bekannt sein (als)"
+    ]
+   ]
+  },
+  {
+   "num": 5,
+   "title": "AC2 · Across cultures 2",
+   "words": [
+    [
+     "to get to know",
+     "kennen lernen"
+    ],
+    [
+     "light",
+     "leicht"
+    ],
+    [
+     "pattern",
+     "Muster"
+    ],
+    [
+     "talker",
+     "Sprecher/-in"
+    ],
+    [
+     "to hog a conversation",
+     "ein Gespräch für sich in Beschlag nehmen; ein Gespräch dominieren"
+    ],
+    [
+     "to keep the ball bouncing",
+     "hier: das Gespräch am Laufen halten"
+    ],
+    [
+     "to move in/into",
+     "einziehen in"
+    ],
+    [
+     "next door",
+     "(von) nebenan"
+    ],
+    [
+     "to bounce",
+     "springen; hüpfen"
+    ],
+    [
+     "to check out (coll)",
+     "abchecken; auschecken; prüfen"
+    ],
+    [
+     "to feel like (+ -ing)",
+     "Lust haben (auf/zu)"
+    ],
+    [
+     "Cheers!",
+     "Danke!"
+    ],
+    [
+     "to catch, caught, caught",
+     "mitbekommen (ugs.); mitkriegen (ugs.)"
+    ],
+    [
+     "student exchange",
+     "Schüleraustausch"
+    ],
+    [
+     "stage direction",
+     "Regieanweisung"
+    ],
+    [
+     "hint",
+     "Hinweis; Andeutung; Tipp"
+    ],
+    [
+     "to the point",
+     "prägnant; treffend"
+    ]
+   ]
+  },
+  {
+   "num": 6,
+   "title": "U3 · Unit 3",
+   "words": [
+    [
+     "S1",
+     "which !wItS? der; die; das; dem; den (Relativpronomen)"
+    ],
+    [
+     "S1",
+     "characteristic !+kxrEktE*rIstIk? Eigenschaft; typisches Merkmal"
+    ],
+    [
+     "S1",
+     "that !Dxt? der; dem; den; die; das (Relativpronomen)"
+    ],
+    [
+     "S1",
+     "who !hu:? der; dem; den; die (Relativpronomen)"
+    ],
+    [
+     "S1",
+     "to photograph (sb/sth) !*fEUtEGrA:ft? jmdn./etw. fotografieren"
+    ],
+    [
+     "S1",
+     "lady-in-waiting !+leIdiIn*weItIN? Hofdame"
+    ],
+    [
+     "S1",
+     "potato, potatoes (pl) !pE*teItEU; pE*teItEUz? Kartoffel"
+    ],
+    [
+     "S1",
+     "tobacco (no pl) !tE*bxkEU? Tabak"
+    ],
+    [
+     "S1",
+     "to kill !kIl? töten; umbringen"
+    ],
+    [
+     "S1",
+     "bald !bC:ld? glatzköpfig; kahl"
+    ],
+    [
+     "S1",
+     "term !t3:m? Trimester; Semester; Halbjahr"
+    ],
+    [
+     "S1",
+     "to invade !In*veId? einmarschieren (in); einfallen in"
+    ],
+    [
+     "S1",
+     "bowls !*bEUlz? Bowling"
+    ],
+    [
+     "S1",
+     "to destroy !dI*strCI? zerstören; vernichten; auslöschen"
+    ],
+    [
+     "S1",
+     "relaxed !rI*lxkst? entspannt; locker; gelassen"
+    ],
+    [
+     "S1",
+     "whom !hu:m? der; die; das"
+    ],
+    [
+     "S1",
+     "instead of !In*sted-Ev? statt; anstatt; an Stelle von"
+    ],
+    [
+     "S1",
+     "to control !kEn*trEUl? kontrollieren; beherrschen; steuern"
+    ],
+    [
+     "S1",
+     "explorer !Ik*splC:rE? Forscher/-in; Forschungsreisende/- r"
+    ],
+    [
+     "S1",
+     "charm !tSA:m? Charme"
+    ],
+    [
+     "S1",
+     "colonist !*kOlEnIst? Siedler/-in; Kolonist/-in"
+    ],
+    [
+     "S1",
+     "to settle !*setl? siedeln; sich niederlassen"
+    ],
+    [
+     "S1",
+     "play !pleI? Theaterstück"
+    ],
+    [
+     "S2",
+     "murder !*m3:dE? Mord"
+    ],
+    [
+     "S2",
+     "to rebuild, rebuilt, rebuilt !+ri:*bIld; +ri:*bIlt; +ri:*bIlt? wieder aufbauen"
+    ],
+    [
+     "S2",
+     "actor/actress !*xktE? Schauspieler/Schauspielerin"
+    ],
+    [
+     "S2",
+     "Elizabethan !I+lIzE*bi:Tn? Elisabethaner/-in; elisabethanisch"
+    ],
+    [
+     "S2",
+     "to turn back !t3:n *bxk? umkehren; zurückgehen"
+    ],
+    [
+     "S2",
+     "What luck! !wOt *l0k? Was für ein Glück!"
+    ],
+    [
+     "S2",
+     "blood !bl0d? Blut"
+    ],
+    [
+     "S2",
+     "dressed !drest? angezogen; gekleidet; angekleidet"
+    ],
+    [
+     "S2",
+     "silence (no pl) !*saIlEns? Stille; Schweigen; Ruhe"
+    ],
+    [
+     "S2",
+     "to shine, shone, shone !SaIn; SOn; SOn? glänzen; scheinen"
+    ],
+    [
+     "S2",
+     "pipe !paIp? Pfeife"
+    ],
+    [
+     "S2",
+     "Guess what! !Ges *wOt? Stell dir vor!; Rate mal!"
+    ],
+    [
+     "S2",
+     "to hire !haIE? mieten; ausleihen"
+    ],
+    [
+     "SK1",
+     "entertainment (no pl) !+entE*teInmEnt? Unterhaltung"
+    ],
+    [
+     "SK1",
+     "to reign !reIn? herrschen; regieren"
+    ],
+    [
+     "SK1",
+     "to be born !bi *bC:n? geboren werden"
+    ],
+    [
+     "SK1",
+     "to burn down !+b3:n *daUn? abbrennen; niederbrennen"
+    ],
+    [
+     "SK1",
+     "description !dI*skrIpSn? Beschreibung"
+    ],
+    [
+     "SK1",
+     "biographical !9baIEU*GrxfIkl? biografisch"
+    ],
+    [
+     "SK1",
+     "quill !kwIl? Federkiel"
+    ],
+    [
+     "ST1",
+     "mystery !*mIstri? Geheimnis; Rätsel"
+    ],
+    [
+     "ST1",
+     "photoshoot !*fEUtEUSu:t? Fotoshooting; Fotoaufnahmen"
+    ],
+    [
+     "ST1",
+     "chaos !*keIOs? Chaos; Durcheinander; Unordnung"
+    ],
+    [
+     "ST1",
+     "to mix (up) !mIks (-*0p)? mischen; vermischen"
+    ],
+    [
+     "ST1",
+     "to take care of sb/sth !9teIk-*keEr-Ev? sich um jmdn./etw. kümmern; für jmdn. sorgen"
+    ],
+    [
+     "ST1",
+     "drama queen (coll) !*drA:mE +kwi:n? Tussi (abwertend); Zicke (abwertend)"
+    ],
+    [
+     "ST1",
+     "plaster cast !*plA:stE kA:st? Gipsverband"
+    ],
+    [
+     "ST1",
+     "to zoom in (on) !9zu:m-*In (On)? heranzoomen (auf)"
+    ],
+    [
+     "ST1",
+     "to roll one's eyes !+rEUl w0nz-*aIz? die Augen verdrehen"
+    ],
+    [
+     "ST1",
+     "half an hour !+hA:f-En-*aUEr? eine halbe Stunde"
+    ],
+    [
+     "ST1",
+     "out of focus !+aUt-Ev *fEUkEs? unscharf"
+    ],
+    [
+     "ST1",
+     "to photobomb !*fEUtEUbOm? ins Foto laufen"
+    ],
+    [
+     "ST1",
+     "flash !flxS? Blitz; Lichtblitz"
+    ],
+    [
+     "ST1",
+     "nurse !n3:s? Krankenschwester; Krankenpfleger"
+    ],
+    [
+     "ST1",
+     "boot !bu:t? Kofferraum"
+    ],
+    [
+     "ST1",
+     "hospital !*hOspItl? Krankenhaus; Hospital"
+    ],
+    [
+     "ST1",
+     "to drive off !draIv-*Of? wegfahren"
+    ],
+    [
+     "ST1",
+     "to edit out !+edIt-*aUt? herausschneiden"
+    ],
+    [
+     "ST1",
+     "to crop (a photo) !krOp? (ein Foto) zurechtschneiden"
+    ],
+    [
+     "ST1",
+     "to crash (into) !+krxS (*IntE)? zusammenstoßen (mit)"
+    ],
+    [
+     "ST1",
+     "ambulance !*xmbjElEns? Krankenwagen"
+    ],
+    [
+     "ST1",
+     "to lighten !*laItn? aufhellen"
+    ],
+    [
+     "ST1",
+     "flashback !*flxSbxk? Rückblende; Flashback"
+    ],
+    [
+     "FP",
+     "I'd rather !aId *rA:DE? ich würde lieber"
+    ],
+    [
+     "FP",
+     "to identify (with) !aI*dentIfaI (wID)? sich identifizieren (mit)"
+    ],
+    [
+     "FP",
+     "pawn shop !*pC:n SOp? Pfandhaus; Pfandleihe"
+    ],
+    [
+     "FP",
+     "school fees (pl) !*sku:l fi:z? Schulgeld; Schulgebühren"
+    ],
+    [
+     "FP",
+     "teabag !*ti:bxG? Teebeutel"
+    ],
+    [
+     "FP",
+     "pineapple !*paInxpl? Ananas"
+    ],
+    [
+     "FP",
+     "vitamin !*vItEmIn? Vitamin"
+    ],
+    [
+     "FP",
+     "sequence !*si:kwEns? Sequenz; Szene"
+    ],
+    [
+     "FP",
+     "blurred !bl3:d? verschwommen; verwischt"
+    ],
+    [
+     "FP",
+     "to wake up, woke up, woken up !+weIk-*0p; +wEUk-*0p; +wEUkn-*0p? aufwachen; aufwecken"
+    ],
+    [
+     "CO",
+     "patent !*peItnt? patentieren"
+    ],
+    [
+     "CO",
+     "light bulb !*laIt 9b0lb? Glühbirne"
+    ],
+    [
+     "CO",
+     "umbrella !0m*brelE? Regenschirm"
+    ],
+    [
+     "CO",
+     "to brush !br0S? bürsten"
+    ]
+   ]
+  },
+  {
+   "num": 7,
+   "title": "AC3 · Across cultures 3",
+   "words": [
+    [
+     "dos and don'ts",
+     "Ge- und Verbote; was man tun und was man nicht tun sollte"
+    ],
+    [
+     "behaviour (no pl)",
+     "Verhalten; Benehmen; Betragen"
+    ],
+    [
+     "to hold open",
+     "aufhalten"
+    ],
+    [
+     "to litter",
+     "verschmutzen; Müll herumliegen lassen; verunreinigen"
+    ],
+    [
+     "among",
+     "unter; inmitten"
+    ],
+    [
+     "odd",
+     "seltsam; komisch"
+    ],
+    [
+     "to go on",
+     "geschehen; los sein; ablaufen"
+    ],
+    [
+     "to guess",
+     "annehmen; annehmen; raten; erraten"
+    ],
+    [
+     "custom",
+     "Gewohnheit; Brauch; Sitte"
+    ],
+    [
+     "icebreaker",
+     "Eisbrecher (Sätze, um mit jmdm. ins Gespräch zu kommen)"
+    ],
+    [
+     "glad",
+     "froh; dankbar"
+    ],
+    [
+     "crowded",
+     "überfüllt"
+    ],
+    [
+     "chapter",
+     "Kapitel"
+    ],
+    [
+     "travel guide",
+     "Reiseführer"
+    ],
+    [
+     "manners (pl)",
+     "Manieren; Benehmen"
+    ]
+   ]
+  },
+  {
+   "num": 8,
+   "title": "U4 · Unit 4",
+   "words": [
+    [
+     "S1",
+     "coast !kEUst? Küste"
+    ],
+    [
+     "S1",
+     "enthusiasm !In*Tju:zixzm? Begeisterung; Enthusiasmus"
+    ],
+    [
+     "S1",
+     "holiday home !*hOlEdeI +heUm? Ferienhaus"
+    ],
+    [
+     "S1",
+     "local time !*lEUkl +taIm? Ortszeit"
+    ],
+    [
+     "S1",
+     "ahead !E*hed? vor; vorn; voraus"
+    ],
+    [
+     "S1",
+     "port !pC:t? Hafen"
+    ],
+    [
+     "S1",
+     "to mumble !*m0mbl? murmeln; nuscheln"
+    ],
+    [
+     "S1",
+     "to dial !*daIEl? wählen"
+    ],
+    [
+     "S1",
+     "flight !flaIt? Flug"
+    ],
+    [
+     "S2",
+     "to fly, flew, flown !flaI; flu:; flEUn? fliegen"
+    ],
+    [
+     "S2",
+     "document !*dOkjEment? Dokument; Urkunde"
+    ],
+    [
+     "S2",
+     "to continue !kEn*tInju:? fortfahren; andauern; weitermachen"
+    ],
+    [
+     "S2",
+     "valid !*vxlId? gültig"
+    ],
+    [
+     "S2",
+     "to expire !Ik*spaIE? ablaufen"
+    ],
+    [
+     "S2",
+     "to insist (on) !In*sIst (On)? bestehen (auf); insistieren"
+    ],
+    [
+     "S2",
+     "to apply for !E*plaI fE? beantragen; sich bewerben um"
+    ],
+    [
+     "S2",
+     "regulation !+reGjE*leISn? Vorschrift; Regelung; Regulierung"
+    ],
+    [
+     "S2",
+     "awake !E*weIk? wach"
+    ],
+    [
+     "S2",
+     "to frown !fraUn? die Stirn runzeln"
+    ],
+    [
+     "S2",
+     "to enter !*entE? einreisen; hineingehen; betreten; eintreten; mitmachen"
+    ],
+    [
+     "S2",
+     "side room !*saId +rUm? Nebenraum"
+    ],
+    [
+     "S2",
+     "luckily !*l0kIli? glücklicherweise"
+    ],
+    [
+     "S2",
+     "immigration officer !ImI*GreISn +OfIsE? Grenzschutzbeamter/-beamtin; Einwanderungsbeamter/-beamtin"
+    ],
+    [
+     "S2",
+     "relief !rI*li:f? Erleichterung; Linderung"
+    ],
+    [
+     "S2",
+     "traffic !*trxfIk? Verkehr"
+    ],
+    [
+     "S2",
+     "to bargain !*bA:GIn? verhandeln"
+    ],
+    [
+     "S2",
+     "research (no pl) !rI*s3:tS? Recherche; Forschung; Untersuchung"
+    ],
+    [
+     "S2",
+     "truth !tru:T? Wahrheit"
+    ],
+    [
+     "S2",
+     "Bengali !beN*GC:li? Bengale/Bengalin; bengalisch"
+    ],
+    [
+     "S2",
+     "European !+jUErE*pi:En? Europäer/-in; europäisch; aus Europa"
+    ],
+    [
+     "SK1",
+     "tour operator !*tUEr-+OpreItE? Reiseveranstalter"
+    ],
+    [
+     "SK1",
+     "flexible !*fleksIbl? flexibel"
+    ],
+    [
+     "SK1",
+     "practical !*prxktIkl? praktisch"
+    ],
+    [
+     "SK1",
+     "wasteful !*weIstfl? verschwenderisch"
+    ],
+    [
+     "SK1",
+     "illness !*IlnEs? Krankheit"
+    ],
+    [
+     "SK1",
+     "local !*lEUkl? Ortsansässige/-r; Einheimische/-r"
+    ],
+    [
+     "SK1",
+     "package tour !*pxkIdZ +tUE? Pauschalreise"
+    ],
+    [
+     "SK1",
+     "perspective !pE*spektIv? Perspektive; Blickwinkel"
+    ],
+    [
+     "SK1",
+     "mix !mIks? Mischung"
+    ],
+    [
+     "SK1",
+     "unforgettable !+0nfE*GetEbl? unvergesslich"
+    ],
+    [
+     "SK1",
+     "arrival !E*raIvl? Ankunft"
+    ],
+    [
+     "SK1",
+     "pace !peIs? Geschwindigkeit; Gangart"
+    ],
+    [
+     "SK1",
+     "overall !+EUvr*C:l? allgemein; Gesamt-"
+    ],
+    [
+     "SK1",
+     "tasty !*teIsti? lecker; schmackhaft"
+    ],
+    [
+     "SK1",
+     "a must-see !E +m0st *si:? unbedingt empfehlenswert"
+    ],
+    [
+     "SK1",
+     "prisoner !*prIznE? Gefangene/-r; Häftling; Sträfling"
+    ],
+    [
+     "SK1",
+     "death !deT? Tod"
+    ],
+    [
+     "SK1",
+     "stall !stC:l? Stand; Bude"
+    ],
+    [
+     "UT1",
+     "catalogue !*kxtlOG? Katalog; Broschüre"
+    ],
+    [
+     "UT1",
+     "to require !rI*kwaIE? benötigen; erfordern"
+    ],
+    [
+     "UT1",
+     "based on !*beIst-On? basierend auf; beruhend auf"
+    ],
+    [
+     "UT1",
+     "criterion, criteria (pl) !kraI*tIEriEn; kraI*tIEriE? Kriterium, Kriterien (Pl.)"
+    ],
+    [
+     "UT1",
+     "alternative !C:l*t3:nEtIv? Alternative"
+    ],
+    [
+     "UT1",
+     "to draw up, drew up, drawn up !drC: *0p; dru: *0p; drC:n *0p? entwerfen"
+    ],
+    [
+     "UT1",
+     "introduction !+IntrE*d0kSn? Einführung; Einleitung"
+    ],
+    [
+     "ST1",
+     "where I belong !+weEr-aI bI*lON? wo ich hingehöre"
+    ],
+    [
+     "ST1",
+     "to lead, led, led !li:d; led; led? führen; anführen"
+    ],
+    [
+     "ST1",
+     "responsible !rIs*pOnsEbl? verantwortlich; zuständig"
+    ],
+    [
+     "ST1",
+     "to change one's mind !+tSeIndZ w0nz *maInd? seine Meinung ändern"
+    ],
+    [
+     "ST1",
+     "to accept !Ek*sept? akzeptieren; hinnehmen; annehmen"
+    ],
+    [
+     "ST1",
+     "mask !mA:sk? Maske"
+    ],
+    [
+     "ST1",
+     "smuggler !*sm0GlE? Schmuggler/-in"
+    ],
+    [
+     "ST1",
+     "overloaded !+EUvE*lEUdId? überladen"
+    ],
+    [
+     "ST1",
+     "shark !SA:k? Hai"
+    ],
+    [
+     "ST1",
+     "crushed !kr0St? eingequetscht; eingeklemmt"
+    ],
+    [
+     "ST1",
+     "to rock !rOk? schaukeln"
+    ],
+    [
+     "ST1",
+     "to smash !smxS? zerschlagen; zerschmettern"
+    ],
+    [
+     "ST1",
+     "to survive !sE*vaIv? überleben"
+    ],
+    [
+     "ST1",
+     "to close oneself away from !+klEUz E*weI frEm? sich abschotten von"
+    ],
+    [
+     "ST1",
+     "to give sb a piggyback !GIv-E *pIGibxk? jmdn. Huckepack nehmen"
+    ],
+    [
+     "ST1",
+     "checkpoint !*tSekpCInt? Kontrollpunkt"
+    ],
+    [
+     "ST1",
+     "to concentrate (on) !*kOnsntreIt (On)? (sich) konzentrieren (auf)"
+    ],
+    [
+     "ST1",
+     "steady !*stedi? kontinuierlich; unaufhörlich"
+    ],
+    [
+     "ST1",
+     "depressing !dI*presIN? deprimierend; bedrückend"
+    ],
+    [
+     "ST1",
+     "drizzle !*drIzl? Nieselregen"
+    ],
+    [
+     "ST1",
+     "to cover !*k0vE? abdecken; bedecken; zudecken"
+    ],
+    [
+     "ST1",
+     "concrete !*kONkri:t? Beton"
+    ],
+    [
+     "ST1",
+     "official !E*fISl? Beamter/Beamtin"
+    ],
+    [
+     "ST1",
+     "useless !*ju:slEs? nutzlos"
+    ],
+    [
+     "ST1",
+     "invisible !In*vIzEbl? unsichtbar"
+    ],
+    [
+     "ST1",
+     "phone box !*fEUn +bOks? Telefonzelle"
+    ],
+    [
+     "ST1",
+     "to fetch !fetS? holen; abholen"
+    ],
+    [
+     "ST1",
+     "on one's own !9On w0nz-*EUn? allein; für sich"
+    ],
+    [
+     "ST1",
+     "to press !pres? drücken; pressen"
+    ],
+    [
+     "ST1",
+     "button !*b0tn? Knopf"
+    ],
+    [
+     "ST1",
+     "Somali !sE*mA:li? Somali; somalisch"
+    ],
+    [
+     "ST1",
+     "straight !streIt? gerade; direkt; geradewegs"
+    ],
+    [
+     "ST1",
+     "to hesitate !*hezIteIt? zögern"
+    ],
+    [
+     "ST1",
+     "refugee !+refjU*dZi:? Flüchtling"
+    ],
+    [
+     "ST1",
+     "narrator !nE*reItE? Erzähler/-in"
+    ],
+    [
+     "ST1",
+     "gadget !*GxdZIt? Gerät; technische Spielerei"
+    ],
+    [
+     "ST1",
+     "climate !*klaImEt? Klima"
+    ],
+    [
+     "ST1",
+     "to be homesick !bi *hEUmsIk? Heimweh haben"
+    ],
+    [
+     "FP",
+     "guitar !GI*tA:? Gitarre"
+    ],
+    [
+     "FP",
+     "I go wherever the wind takes me. !aI +GEU weE+revE DE wInd *teIks mi:? Ich lasse mich treiben."
+    ],
+    [
+     "FP",
+     "future !*fju:tSE? zukünftig; Zukunfts-"
+    ],
+    [
+     "FP",
+     "origin !*OrIdZIn? Ursprung; Herkunft; Abstammung"
+    ],
+    [
+     "FP",
+     "outgoing !*aUt+GEUIN? kontaktfreudig"
+    ],
+    [
+     "FP",
+     "easy-going !*i:zi+GEUIN? locker; unkompliziert"
+    ],
+    [
+     "FP",
+     "genre !*ZR:nrE? Gattung; Genre"
+    ],
+    [
+     "FP",
+     "to be set in !bi *set-In? spielen in"
+    ],
+    [
+     "FP",
+     "unreal !+0n*rIEl? unwirklich"
+    ],
+    [
+     "FP",
+     "romance !*rEmxns? Liebesgeschichte; Liebesfilm"
+    ],
+    [
+     "FP",
+     "specific !spE*sIfIk? spezifisch; speziell"
+    ],
+    [
+     "FP",
+     "era !*IErE? Ära; Zeitalter"
+    ],
+    [
+     "FP",
+     "lavish !*lxvIS? üppig; verschwenderisch"
+    ],
+    [
+     "FP",
+     "magic !*mxdZIk? Magie; Zauberei"
+    ],
+    [
+     "FP",
+     "supernatural !+su:pE*nxtSrl? übernatürlich"
+    ],
+    [
+     "FP",
+     "force !fC:s? Kraft; Macht"
+    ],
+    [
+     "FP",
+     "mythical !*mITIkl? sagenhaft; sagenumwoben"
+    ],
+    [
+     "CO",
+     "the rest !rest? der Rest"
+    ],
+    [
+     "CO",
+     "emergency !I*m3:dZnsi? Notfall; Notlage"
+    ],
+    [
+     "CO",
+     "booklet !*bUklEt? Broschüre; Heft"
+    ],
+    [
+     "CO",
+     "to sort !sC:t? sortieren"
+    ]
+   ]
+  }
+ ]
+}
