@@ -485,8 +485,41 @@ window.fetch = function(...args){
 };
 
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-let META=null, book=localStorage.getItem('vb_book')||'access1', kid=localStorage.getItem('vb_kid')||'';
+let META=null, book='', kid='';  // Kontext kommt in init() aus dem Per-User-Speicher (_ctxGet)
 let ME=null; // {user, role, kid} vom Server (Auth) — Kids-Pflichtkontext
+// ---- PER-USER-KONTEXT (Leichen-Schutz): kid/book hängen an DEM ANGEMELDETEN USER —
+// key = vb_ctx_<user>. Stale-Auswahl eines anderen Kontos ist strukturell unmöglich;
+// Validierung gegen META (Reihe) + ME (Berechtigung) passiert an EINER Stelle.
+function _ctxKey(){ return 'vb_ctx_' + ((ME && ME.user) || 'anon'); }
+function _ctxGet(){
+  try{ const c=JSON.parse(localStorage.getItem(_ctxKey())||'{}'); return {kid:c.kid||'', book:c.book||''}; }
+  catch(e){ return {kid:'', book:''}; }
+}
+function _ctxSet(patch){
+  try{ const cur=_ctxGet(); const c=Object.assign(cur, patch||{});
+    localStorage.setItem(_ctxKey(), JSON.stringify(c)); }catch(e){}
+}
+function _ctxClearAll(){
+  // alle vb_ctx_* weg (Logout — sonst kein Account-Fragment in der nächsten Session):
+  try{
+    const drop=[];
+    for(let i=0;i<localStorage.length;i++){ const k=localStorage.key(i); if(k && k.indexOf('vb_ctx_')===0) drop.push(k); }
+    drop.forEach(k=>localStorage.removeItem(k));
+  }catch(e){}
+}
+// alte flachen Keys MIGRIEREN (einmal-Übergang): vb_kid/vb_book in den Per-User-Kontext:
+function _ctxMigrate(){
+  try{
+    const kid=localStorage.getItem('vb_kid'), book=localStorage.getItem('vb_book');
+    if(kid!=null || book!=null){
+      const c=_ctxGet();
+      if(kid!=null && !c.kid) c.kid=kid;
+      if(book!=null && !c.book) c.book=book;
+      localStorage.setItem(_ctxKey(), JSON.stringify(c));
+      localStorage.removeItem('vb_kid'); localStorage.removeItem('vb_book');
+    }
+  }catch(e){}
+}
 let chapters=[], sel=new Set(), mode='home'; // home|quiz
 let quiz=null, qix=0, score=0, answered=false;
 
@@ -527,37 +560,35 @@ async function init(){
     if(ar.setup){ location.href='/setup'; return; }
     if(!ar.auth || !ar.user){ location.href='/login'; return; }  // 401-ghost vermeiden
     ME = ar;
-    if(ar.kid){ kid = ar.kid; localStorage.setItem('vb_kid', ar.kid); }
   }catch(e){}
+  _ctxMigrate();   // alte flache Keys (vb_kid/vb_book) einmalig in den Per-User-Kontext
   try{
+    const ctx=_ctxGet();
+    kid = ctx.kid || (ME && ME.kid) || '';
+    book = ctx.book || '';
     const mq = kid ? ('?kid='+encodeURIComponent(kid)) : '';
     META=await (await fetch('/api/meta'+mq)).json();
   }catch(e){
     $('subtitle').textContent='Server nicht erreichbar'; return;
   }
-  // Die gewählte Kid MUSS zum eingeloggten Konto passen (stale localStorage von
-  // anderem Account → amelia stand sonst bei juliane, bevor sie luis wählte — und
-  // umgekehrt daniel/juliane nach Account-Wechsel):
+  // ⭐️ ZENTRALES KONTEXT-GATE — der EINZIGE Ort, der kid+book gegen Berechtigung
+  // + aktuelle Reihe validiert (Konto-/Reihen-Leichen strukturell unmöglich):
   const _allowed = ME ? (ME.role==='admin' ? META.kids.map(k=>k.id)
                   : ME.role==='parent' ? (ME.kids||[])
                   : [ME.kid]) : META.kids.map(k=>k.id);
   if(!_allowed.includes(kid)) kid = _allowed[0] || '';
   if(!_allowed.includes(kid) || !META.kids.some(k=>k.id===kid)) kid = (META.kids[0]?.id||'');
-  // Buch: nur ein Band der AKTUELLEN Reihe — stale Bänder aus der anderen Reihe/Account
-  // fliegen (sonst 'refreshen nötig' nach jedem Account-Wechsel):
   if(!META.books.some(b=>b.id===book)){
     book = (META.default_book||{})[kid];
-    if(!META.books.some(b=>b.id===book)) book = (META.books[0]||{}).id||'';
-    localStorage.setItem('vb_book', book);
+    if(!book || !META.books.some(b=>b.id===book)) book = (META.books[0]||{}).id||'';
   }
-  const db=(META.default_book||{})[kid];
-  if(db&&META.books.some(b=>b.id===db) && !localStorage.getItem('vb_book')){ book=db; localStorage.setItem('vb_book',book); }
+  _ctxSet({kid, book});
   $('subtitle').textContent = (ME && ME.user) ? `Angemeldet: ${ME.user}${ME.role==='admin'?' (Admin-Account)':(ME.role==='parent'?' (Eltern-Account)':'')}` : 'Wähle, wer übt';
   drawKids(); drawBooks();
   themeApply();  // setzt Logo/banner-correct für gespeichertes Theme + setzt theme-color
   themeBtnLabel();
   $('adminBtn').onclick=openAdmin;
-$('logoutBtn').onclick=()=>{ try{ localStorage.removeItem('vb_kid'); localStorage.removeItem('vb_book'); }catch(e){} location.href='/logout'; };
+$('logoutBtn').onclick=()=>{ _ctxClearAll(); location.href='/logout'; };
   $('themeBtn').onclick=()=>{ const dark=document.documentElement.classList.contains('dark');
     document.documentElement.classList.toggle('dark', !dark); themeApply(); };
   $('resetSel').onclick=()=>{
@@ -863,7 +894,7 @@ async function loadParentSeries(){
           if(kid===kidId){
             META=await (await fetch('/api/meta?kid='+encodeURIComponent(kidId))).json();
             book = META.books.some(b=>b.id===book) ? book : (META.books[0]?.id||book);
-            localStorage.setItem('vb_book', book);
+            _ctxSet({book});
             chapters=[]; sel.clear(); drawBooks(); loadChapters();
             $('seriesNote').textContent='✅ '+ (META.books[0]?META.books[0].name:'') +' aktiv für '+kidId;
           }
@@ -894,7 +925,7 @@ async function loadSeries(){
         // META neu (neue Bücher) + Kapitel/Bücher neu zeichnen + book korrigieren:
         META=await (await fetch('/api/meta')).json();
         book = META.books.some(b=>b.id===book) ? book : (META.books[0]?.id||book);
-        localStorage.setItem('vb_book', book);
+        _ctxSet({book});
         chapters=[]; sel.clear(); drawBooks(); loadChapters();  // sel = globales Kapitel-Set
         $('seriesNote').textContent='✅ '+ (META.books[0]?META.books[0].name:'') +' aktiv — Reihe '+(META.series_current||'');
         $('adminOverlay').classList.add('hidden');
@@ -1007,12 +1038,13 @@ function drawKids(){
     if(k.id===kid) b.style.background=k.color;
     b.onclick=async()=>{
       if(ME && ME.role==='kid') return;  // Kinder sind fix
-      kid=k.id; localStorage.setItem('vb_kid',kid);
+      kid=k.id; _ctxSet({kid});
       // Reihen-Reload (die Reihe ist pro Kind) — META je Kid ziehen:
       try{ META=await (await fetch('/api/meta?kid='+encodeURIComponent(kid))).json(); }catch(e){}
       const db=(META.default_book||{})[kid];
-      if(db&&META.books.some(x=>x.id===db)){ book=db; localStorage.setItem('vb_book',book); }
+      if(db&&META.books.some(x=>x.id===db)){ book=db; }
       else book = META.books.some(x=>x.id===book) ? book : (META.books[0]?.id||book);
+      _ctxSet({kid, book});
       drawKids(); drawBooks(); loadChapters();
     };
     host.appendChild(b);
@@ -1024,7 +1056,7 @@ function drawBooks(){
     const el=document.createElement('button');
     el.className='book'+(b.id===book?' on':'');
     el.innerHTML=`<b>${esc(b.name)}</b><small>${esc(b.desc||'')}</small>`;
-    el.onclick=()=>{ book=b.id; localStorage.setItem('vb_book',book); drawBooks(); loadChapters(); };
+    el.onclick=()=>{ book=b.id; _ctxSet({book}); drawBooks(); loadChapters(); };
     $('books').appendChild(el);
   }
 }
