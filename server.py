@@ -395,7 +395,8 @@ def _login_html(msg='', pre_user=''):
 
 def _mfa_html(msg=''):
     warn = f'<p class="msg">{msg}</p>' if msg else ''
-    body = ('<h1>Prüfcode eingeben</h1>'
+    body = ('<div class="bigbrand"><img class="biglogo" src="/assets/logo-banner-white.png" alt="VokabelBuddy"></div>'
+            '<h1>Prüfcode eingeben</h1>'
             '<form method="POST" action="/mfa">' + warn +
             '<input type="text" name="code" inputmode="numeric" pattern="[0-9]*" '
             'autocomplete="one-time-code" autofocus maxlength="6" '
