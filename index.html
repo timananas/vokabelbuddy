@@ -839,8 +839,12 @@ $('acSave').onclick=async()=>{
   try{
     const r=await (await fetch('/api/account/password',{method:'POST',headers:{'Content-Type':'application/json'},
       body:JSON.stringify({current:$('acCur').value, new:$('acNew').value, new2:$('acNew2').value})})).json();
-    $('acNote').textContent = r.ok ? '✅ Kennwort geändert.' : (r.error||'Fehler');
-    if(r.ok){ $('acCur').value=$('acNew').value=$('acNew2').value=''; }
+    if(r.ok){
+      $('acNote').textContent='✅ Kennwort geändert — du wirst zum Login weitergeleitet…';
+      setTimeout(()=>{ location.href='/logout'; }, 1600);
+      return;
+    }
+    else $('acNote').textContent = r.error||'Fehler';
   }catch(e){ $('acNote').textContent='Server nicht erreichbar'; }
 };
 $('mfaBtnStart').onclick=async()=>{

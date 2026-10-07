@@ -1522,8 +1522,18 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
                     return
                 u['salt'] = list(os.urandom(16))
                 u['password_hash'] = _pbkdf2(n1, u['salt'])
+                # Sicherheit: PW-Änderung killt ALLE Sessions + Trust dieses Users
+                # (sonst bleiben alte Geräte/Geräusche aktiv — inkl. Tims „altes PW akzeptiert"-Eindruck:
+                # der Trust-Autologin hielt die Geräte-Session am Leben).
+                me_id = me['id']
+                AUTH_MEM['sessions'] = {k: v for k, v in AUTH_MEM.get('sessions', {}).items()
+                                        if v.get('user') != me_id}
+                AUTH_MEM['trusted'] = {k: v for k, v in AUTH_MEM.get('trusted', {}).items()
+                                       if AUTH_MEM.get('trust_users', {}).get(k) != me_id}
+                AUTH_MEM['trust_users'] = {k: v for k, v in AUTH_MEM.get('trust_users', {}).items()
+                                           if v != me_id}
                 auth_save()
-                self._json({'ok': True})
+                self._json({'ok': True, 'logged_out': True})
                 return
             if r == '/api/account/status':
                 me = self._session_user()
