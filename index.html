@@ -853,7 +853,7 @@ $('mfaBtnStart').onclick=async()=>{
     if(r.secret){ paintMfa(false, r.secret);
       $('mfaNote').textContent='Schlüssel in die Authenticator-App eintragen, dann Code.';
       if(mo) mo.scrollTop=st;   // kein Sprung nach dem Erscheinen der Felder
-      $('mfaCode').focus();
+      $('mfaCode').focus({preventScroll:true});
     }
     else $('mfaNote').textContent=r.error||'Fehler';
   }catch(e){ $('mfaNote').textContent='Server nicht erreichbar'; }
