@@ -679,9 +679,9 @@ def _make_quiz(book, kid, chapters, qtype, count, nonce, from_n=None, to_n=None)
     return _quiz_core(pool, dpool, kid, qtype, count, nonce)
 
 
-def _make_mixed_session(book, kid, chapters, qtype, count, nonce, from_n=None, to_n=None):
-    """Mixed-Test: eine gewichtete Auswahl wird zufällig auf MC / Schreiben / (später: Karte)
-    verteilt. Fragen und Schreib-Items teilen sich dieselbe Session — Antwort je Typ endpoint."""
+def _make_mixed_session(book, kid, chapters, qtype, count, nonce, from_n=None, to_n=None, kinds_wanted=None):
+    """Custom-Test: eine gewichtete Auswahl wird auf die GEWÄHLTEN Modi (mc/write/cards) verteilt.
+    kinds_wanted = geordnete/geshuffelte Liste — Tim wählt aus, was abgefragt wird."""
     pool = _pool(book, chapters, from_n, to_n)
     if not pool:
         return None
@@ -694,10 +694,15 @@ def _make_mixed_session(book, kid, chapters, qtype, count, nonce, from_n=None, t
     with _lock:
         _gc_sessions(now)
         _sessions[nonce] = {'created': now, 'questions': {}, 'written': {}}
-    kinds = (['mc', 'write', 'mc', 'cards'] * 4)[:len(picked)] if len(picked) >= 8 else ['mc', 'write', 'cards']
-    rng.shuffle(kinds)
-    while len(kinds) < len(picked):
-        kinds.append(rng.choice(['mc', 'write', 'cards']))
+    kinds = [k for k in (kinds_wanted or []) if k in ('mc', 'write', 'cards')]
+    if not kinds:
+        kinds = ['mc', 'write', 'cards']
+    # gleichmäßig füllen: zyklisch + shuffeln (bei 12 und 2 Modi = 6/6):
+    base = (kinds * 4)[:len(picked)]
+    rng.shuffle(base)
+    while len(base) < len(picked):
+        base.append(rng.choice(kinds))
+    kinds = base
     out = []
     for i, (item, kind) in enumerate(zip(picked, kinds)):
         d = dirs[i % len(dirs)]
@@ -1106,6 +1111,7 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
                            ('Set-Cookie', _set_cookie(TRUST_COOKIE, '', 0, secure=self._is_https())),
                            ('Refresh', '3; url=/login')]
                 _page(self, _AUTH_WRAP.replace('{t}', 'Abgemeldet').replace('{b}',
+                      '<div class="bigbrand"><img class="biglogo" src="/assets/logo-banner-white.png" alt="VokabelBuddy"></div>'
                       '<h1>Abgemeldet</h1>'
                       '<p style="color:#8FA6C4; text-align:center">Du wirst zur Anmeldeseite weitergeleitet…</p>'
                       '<p style="text-align:center; margin-top:14px"><a href="/login" style="color:#2E8BFF; font-weight:700">Sofort weiter</a></p>'),
@@ -1347,6 +1353,33 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
                 auth_save()
                 self._json({'ok': True, 'user': puser, 'kids': kids})
                 return
+            if r == '/api/account/reset':
+                me = self._session_user()
+                if not me or me.get('role') != 'admin':
+                    self._json({'error': 'Nur der Admin darf Kennwörter zurücksetzen'}, 403)
+                    return
+                tgt = _norm(body.get('user')).lower()
+                pw = _norm(body.get('password'))
+                u = AUTH_MEM['users'].get(tgt)
+                if not u:
+                    self._json({'error': 'Benutzer unbekannt'}, 400)
+                    return
+                if len(pw) < 4:
+                    self._json({'error': 'Kennwort: mindestens 4 Zeichen'}, 400)
+                    return
+                u['salt'] = list(os.urandom(16))
+                u['password_hash'] = _pbkdf2(pw, u['salt'])
+                # alle Sessions + Trust des Users killen (Sicherheit):
+                for k, v in list(AUTH_MEM.get('sessions', {}).items()):
+                    if v.get('user') == tgt:
+                        AUTH_MEM['sessions'].pop(k, None)
+                for k, v in list(AUTH_MEM.get('trust_users', {}).items()):
+                    if v == tgt:
+                        AUTH_MEM['trust_users'].pop(k, None)
+                        AUTH_MEM['trusted'].pop(k, None)
+                auth_save()
+                self._json({'ok': True, 'user': tgt})
+                return
             if r == '/api/child/create':
                 me = self._session_user()
                 if not me or me.get('role') != 'admin':
@@ -1560,7 +1593,9 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
             self._json({'error': 'Kein Kapitel gewählt'}, 400)
             return
         if qtype == 'mixed':
-            items = _make_mixed_session(book, kid, chapters, qtype, (q.get('count') or ['12'])[0], nonce, from_n, to_n)
+            # Gewählte Modi (kommagetrennt: mc,write,cards) — Tim wählt aus, was gefragt wird:
+            raw_kinds = [k.strip() for k in ((q.get('modes') or [''])[0].split(',')) if k.strip()]
+            items = _make_mixed_session(book, kid, chapters, qtype, (q.get('count') or ['12'])[0], nonce, from_n, to_n, raw_kinds)
             if items is None:
                 self._json({'error': 'Keine Vokabeln in diesem Bereich'}, 404)
                 return
