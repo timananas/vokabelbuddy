@@ -291,6 +291,7 @@ body{overflow-x:hidden}
         <button data-dv="de2en">DE → EN</button>
       </div>
     </div>
+    <button class="back" id="resetSel" type="button" style="width:100%; margin-bottom:10px; padding:9px">↺ Auswahl zurücksetzen</button>
     <button class="start" id="startBtn" disabled>Start</button>
   </section>
 
@@ -407,7 +408,10 @@ body{overflow-x:hidden}
         <div class="mdone" id="acNote"></div>
       </div>
       <div style="border-top:1px solid var(--line); margin-top:10px; padding-top:10px">
-        <div style="font-weight:800; font-size:.95rem">Zwei-Faktor (MFA)</div>
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:10px">
+          <img class="mfa-logo" src="/assets/logo-banner-dark.png" alt="" style="height:34px; width:auto; flex:none">
+          <div style="font-weight:800; font-size:.95rem">Zwei-Faktor (MFA)</div>
+        </div>
         <div id="mfaState" style="font-size:.88rem; color:var(--muted); margin:6px 0">—</div>
         <div id="mfaSecretBox" class="hidden" style="background:var(--bg); border:1px solid var(--line); border-radius:9px; padding:10px; font-family:ui-monospace,Menlo,monospace; font-size:.9rem; text-align:center; letter-spacing:.08em; margin-bottom:6px"></div>
         <div style="display:flex; gap:8px">
@@ -543,7 +547,25 @@ async function init(){
 $('logoutBtn').onclick=()=>{ location.href='/logout'; };
   $('themeBtn').onclick=()=>{ const dark=document.documentElement.classList.contains('dark');
     document.documentElement.classList.toggle('dark', !dark); themeApply(); };
-  $('startBtn').onclick=startQuiz;
+  $('resetSel').onclick=()=>{
+  // ① Kapitelwahl leeren:
+  sel.clear();
+  for(const el of document.querySelectorAll('#chapters .ch')) el.classList.remove('on');
+  // ② Modus → nur MC; ③ Richtung → gemischt:
+  window._modeSet=new Set(['mc']);
+  if(window._syncModeSet) window._syncModeSet();
+  else { shim('modeSel','mc'); shim('modesSel','mc'); for(const b of document.querySelectorAll('#modeSeg button[data-mv]')) b.classList.toggle('on', b.dataset.mv==='mc'); }
+  vDir='both'; syncSeg(dirSeg,'both','dv','dirSel'); localStorage.setItem('vb_dir','both');
+  // ④ Bereich leeren:
+  shim('fromSel',''); shim('toSel','');
+  $('fromSel').value=''; $('toSel').value='';
+  document.querySelectorAll('.ddbtn .lbl').forEach(l=>{ if(/Von:|Bis:/.test(l.textContent||'')) l.textContent = l.textContent.startsWith('Von')?'Von: Anfang':'Bis: Ende'; });
+  $('vbRange').textContent=''; $('vbRange').classList.remove('on');
+  // ⑤ Start disabled + UI updaten:
+  $('startBtn').disabled=true;
+  loadChapters();  // Kapitel-Kacheln neu (Stats-Zeilen bleiben korrekt)
+};
+$('startBtn').onclick=startQuiz;
   $('quitBtn').onclick=goHome;
   $('homeBtn').onclick=goHome;
   $('againBtn').onclick=()=>{ $('result').classList.add('hidden'); $('qbox').classList.remove('hidden'); startQuiz(); };
@@ -824,19 +846,33 @@ $('acSave').onclick=async()=>{
   }catch(e){ $('acNote').textContent='Server nicht erreichbar'; }
 };
 $('mfaBtnStart').onclick=async()=>{
+  const mo=document.querySelector('#adminOverlay .modal');
+  const st=mo?mo.scrollTop:0;
   try{
     const r=await (await fetch('/mfa/start',{method:'POST'})).json();
-    if(r.secret){ paintMfa(false, r.secret); $('mfaNote').textContent='Schlüssel in die Authenticator-App eintragen, dann Code.'; }
+    if(r.secret){ paintMfa(false, r.secret);
+      $('mfaNote').textContent='Schlüssel in die Authenticator-App eintragen, dann Code.';
+      if(mo) mo.scrollTop=st;   // kein Sprung nach dem Erscheinen der Felder
+      $('mfaCode').focus();
+    }
     else $('mfaNote').textContent=r.error||'Fehler';
   }catch(e){ $('mfaNote').textContent='Server nicht erreichbar'; }
 };
 $('mfaConfirm').onclick=async()=>{
+  // Modal-Scroll-Position merken (der Layout-Sprung nach Ein-/Ausblenden sonst!)
+  const mo=document.querySelector('#adminOverlay .modal');
+  const scrollTop=mo?mo.scrollTop:0;
   try{
     const r=await (await fetch('/mfa/confirm-json',{method:'POST',headers:{'Content-Type':'application/json'},
       body:JSON.stringify({code:$('mfaCode').value})})).json();
-    if(r.ok){ paintMfa(true, null); $('mfaNote').textContent='✅ Zwei-Faktor aktiv.'; }
-    else { $('mfaNote').textContent=(r.error||'Code falsch')+' — bitte prüfen und erneut senden.'; }
-  }catch(e){ $('mfaNote').textContent='Server nicht erreichbar'; }
+    if(r.ok){
+      paintMfa(true, null);
+      $('mfaNote').textContent='✅ Zwei-Faktor aktiv.';
+      if(mo) mo.scrollTop=scrollTop;   // kein Sprung
+      $('mfaCode').value='';
+    }
+    else { $('mfaNote').textContent=(r.error||'Code falsch')+' — bitte prüfen und erneut senden.'; if(mo) mo.scrollTop=scrollTop; }
+  }catch(e){ $('mfaNote').textContent='Server nicht erreichbar'; if(mo) mo.scrollTop=scrollTop; }
 };
 $('mfaBtnOff').onclick=async()=>{
   try{
