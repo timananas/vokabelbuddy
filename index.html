@@ -774,8 +774,9 @@ async function loadSeries(){
   $('seriesSave').onclick=async()=>{
     $('seriesNote').textContent='…';
     try{
-      const r=await (await fetch('/api/series',{method:'POST',headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({series:$('seriesSel').value})})).json();
+      const resp=await fetch('/api/series',{method:'POST',headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({series:$('seriesSel').value})});
+      const r=await resp.json().catch(()=>({}));
       if(r.ok){
         $('seriesNote').textContent='✅ Reihe gewechselt — Bücher werden geladen…';
         // META neu (neue Bücher) + Kapitel/Bücher neu zeichnen + book korrigieren:
