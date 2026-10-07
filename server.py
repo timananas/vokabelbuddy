@@ -601,7 +601,10 @@ def _build_question(item, dpool, direction, rng):
 
 
 def _weighted_pick(pool, kid, count):
-    """Gewichtete Auswahl (nie gesehen zuerst) — geteilt von MC-Quiz und Karteikarten."""
+    """Gewichtete Auswahl (nie gesehen zuerst) — geteilt von MC-Quiz und Karteikarten.
+    count='all' (case-insensitiv) = kompletter Pool (max 250)."""
+    if str(count).strip().lower() == 'all':
+        count = 250
     st = _stats()
     seen_map = st['kid_seen'].get(kid, {})
     rng = random.Random()
@@ -1671,7 +1674,9 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
         if book not in _book_ids() or not _kid_ok(kid) or not (6 <= len(nonce) <= 64) or not chapters:
             self._json({'error': 'Parameter fehlen'}, 400)
             return
-        items = _make_write_session(book, kid, chapters, qtype, (q.get('count') or ['12'])[0], nonce, from_n, to_n)
+        raw_w = (q.get('count') or ['12'])[0]
+        count_w = 250 if str(raw_w).strip().lower() == 'all' else raw_w
+        items = _make_write_session(book, kid, chapters, qtype, count_w, nonce, from_n, to_n)
         if items is None:
             self._json({'error': 'Keine Vokabeln in diesem Bereich'}, 404)
             return
@@ -1752,7 +1757,7 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
         if not pool:
             self._json({'error': 'Keine Vokabeln in diesem Bereich'}, 404)
             return
-        picked = _weighted_pick(pool, kid, (q.get('count') or ['12'])[0])
+        picked = _weighted_pick(pool, kid, (q.get('count') or ['12'])[0])  # 'all' in _weighted_pick
         rng = random.Random()
         dirs = (['en2de', 'de2en'] if qtype == 'both'
                 else [qtype] if qtype in ('en2de', 'de2en')
