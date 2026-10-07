@@ -131,6 +131,50 @@ def auth_save():
             pass
 
 
+# ----------------- BACKUP (täglich, rotierend) -----------------
+BACKUP_DIR = os.path.join(DATA_DIR, 'backup')
+BACKUP_KEEP = 14          # 14 Tage-Backups
+BACKUP_EVERY = 24 * 3600  # 1 Tag
+_backup_state = {'last': 0.0}
+
+
+def _backup_once():
+    """Ein tar.gz der gesamten data/-Ebene (auth+stats+edited books) in data/backup/.
+    Rotation: nur die letzten BACKUP_KEEP-Stück bleiben. Fehler NIEMALS fatal (der
+    Server läuft weiter — der Backup-Misserfolg nur im Log)."""
+    try:
+        with _lock:
+            os.makedirs(BACKUP_DIR, exist_ok=True)
+            stamp = datetime.now().strftime('%Y%m%d-%H%M%S')
+            # tar via tarfile (stdlib — kein pip):
+            import tarfile
+            out = os.path.join(BACKUP_DIR, f'vb-data-{stamp}.tar.gz')
+            with tarfile.open(out, 'w:gz') as tf:
+                for fn in sorted(os.listdir(DATA_DIR)):
+                    p = os.path.join(DATA_DIR, fn)
+                    if fn == 'backup' or not os.path.isfile(p):
+                        continue
+                    tf.add(p, arcname=fn)
+            # Rotation:
+            backs = sorted(f for f in os.listdir(BACKUP_DIR) if f.startswith('vb-data-') and f.endswith('.tar.gz'))
+            for old in backs[:-BACKUP_KEEP]:
+                try: os.remove(os.path.join(BACKUP_DIR, old))
+                except OSError: pass
+            _backup_state['last'] = time.time()
+            print(f'BACKUP ok: {out} ({len(backs)} vorhanden)', flush=True)
+    except Exception as e:
+        print(f'BACKUP fehlgeschlagen: {e}', flush=True)
+
+
+def _backup_maybe():
+    """Beim Boot (state.last=0) + max. alle BACKUP_EVERY Sekunden (pro request geprüft —
+    billig: ein Zeit-Vergleich)."""
+    if time.time() - _backup_state['last'] < BACKUP_EVERY:
+        return
+    _backup_state['last'] = time.time()   # sofort setzen (keine doppelte Parallelläufe)
+    threading.Thread(target=_backup_once, daemon=True).start()
+
+
 def auth_has_password():
     # Setup fertig, sobald mind. EIN Admin-User existiert
     return any(u.get('role') == 'admin' for u in AUTH_MEM.get('users', {}).values())
@@ -1028,6 +1072,7 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
         q = parse_qs(u.query)
         r = u.path
         try:
+            _backup_maybe()   # täglicher rotierender Backup-Takt
             # ---- AUTH-GATE ----
             if r == '/setup' and not auth_has_password():
                 _page(self, _setup_html())
@@ -2141,6 +2186,7 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
 
 def main():
     os.makedirs(DATA_DIR, exist_ok=True)
+    _backup_once()   # Start-Backup (schreibt die letzte bekannte Datenlage fest)
     httpd = ThreadingHTTPServer(('0.0.0.0', PORT), Handler)
     print(f'Vokabelbuddy {VERSION} auf 0.0.0.0:{PORT}, Daten: {DATA_DIR}', flush=True)
     httpd.serve_forever()
