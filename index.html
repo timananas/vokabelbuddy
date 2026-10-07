@@ -564,9 +564,11 @@ async function init(){
     ME = ar;
   }catch(e){}
   _ctxMigrate();   // alte flache Keys (vb_kid/vb_book) einmalig in den Per-User-Kontext
+  let kidInit='';
   try{
     const ctx=_ctxGet();
-    kid = ctx.kid || (ME && ME.kid) || '';
+    kidInit = ctx.kid || (ME && ME.kid) || '';  // was der Meta-Fetch GEFRAGT hat
+    kid = kidInit;
     book = ctx.book || '';
     const mq = kid ? ('?kid='+encodeURIComponent(kid)) : '';
     META=await (await fetch('/api/meta'+mq)).json();
@@ -580,9 +582,15 @@ async function init(){
                   : [ME.kid]) : META.kids.map(k=>k.id);
   if(!_allowed.includes(kid)) kid = _allowed[0] || '';
   if(!_allowed.includes(kid) || !META.kids.some(k=>k.id===kid)) kid = (META.kids[0]?.id||'');
+  // ⭐️ META-NACHZUG: wenn das Gate das Kid geändert hat ODER der erste Meta-Fetch
+  // OHNE Kid lief (dann stand in META die Bestands-Reihe, nicht die des Kindes) —
+  // Meta zum AUFGELOESTEN Kid holen (die Bücherliste MUSS die Kind-Reihe tragen):
+  if(kid !== kidInit || !kidInit){
+    try{ META = await (await fetch('/api/meta?kid='+encodeURIComponent(kid))).json(); }catch(e){}
+  }
   if(!META.books.some(b=>b.id===book)){
-    book = (META.default_book||{})[kid];
-    if(!book || !META.books.some(b=>b.id===book)) book = (META.books[0]||{}).id||'';
+    // Band 1 der Kind-Reihe (NICHT default_book — der kann Alt-Reihen-Werte halten):
+    book = (META.books[0]||{}).id||'';
   }
   _ctxSet({kid, book});
   $('subtitle').textContent = (ME && ME.user) ? `Angemeldet: ${ME.user}${ME.role==='admin'?' (Admin-Account)':(ME.role==='parent'?' (Eltern-Account)':'')}` : 'Wähle, wer übt';
