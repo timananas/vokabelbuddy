@@ -448,8 +448,10 @@ body{overflow-x:hidden}
       <div style="font-weight:800; font-size:.95rem">Kinder-Accounts</div>
       <div id="kidList" style="display:flex; flex-direction:column; gap:6px; margin-top:8px"></div>
       <div style="display:flex; gap:8px; margin-top:10px">
-        <input id="kcUser" type="text" placeholder="Neuer Kinder-Benutzer" autocapitalize="none" style="flex:1">
+        <input id="kcUser" type="text" placeholder="Benutzername" autocapitalize="none" style="flex:1">
+        <input id="kcName" type="text" placeholder="Vorname (angezeigt)" maxlength="40" style="flex:1">
         <input id="kcPw" type="text" placeholder="Kennwort" autocomplete="off" style="flex:1">
+        <input id="kcColor" type="color" value="#3fb27f" title="Farbe der Kind-Kachel" style="width:46px; padding:2px; border-radius:10px; background:var(--card)">
         <button class="msave" id="kcAdd" style="width:auto; padding:10px 14px">Anlegen</button>
       </div>
       <div class="mdone" id="kcNote"></div>
@@ -741,12 +743,15 @@ function renderParents(parents){
   // ALLE Kids (Stamm + neu angelegte Kid-Accounts): window.__allKids (in loadParents befüllt):
   const allKids = (window.__allKids && window.__allKids.length)
     ? window.__allKids : (META.kids||[]).map(k=>k.id);
+  const km = window.__kidMeta || {};
+  const kLabel = id => (km[id]||{}).name || ((META.kids.find(x=>x.id===id)||{}).name) || id;
+  const kColor = id => (km[id]||{}).color || ((META.kids.find(x=>x.id===id)||{}).color) || '#a78bfa';
   host.innerHTML=parents.map(p=>`
     <div class="detail-item" style="display:flex; gap:10px; align-items:center">
       <span style="font-weight:800; min-width:110px">${esc(p.user)}</span>
       <span style="flex:1; display:flex; gap:6px; flex-wrap:wrap">
         ${allKids.map(kid=>`<button class="kid pchk ${p.kids.includes(kid)?'on':''}" data-pa="${esc(p.user)}" data-kid="${esc(kid)}"
-          style="padding:4px 12px; font-size:.8rem">${esc(((META.kids.find(x=>x.id===kid)||{}).name)||kid)}</button>`).join('')}
+          style="padding:4px 12px; font-size:.8rem${p.kids.includes(kid)?`; background:${esc(kColor(kid))}`:''}">${esc(kLabel(kid))}</button>`).join('')}
       </span>
     </div>`).join('');
   // Handler (delegation — neu-gerenderte buttons brauchen einen FRISchen Bind):
@@ -774,7 +779,7 @@ function renderKidAccounts(kids){
   if(!extras.length){ host.innerHTML='<div class="sub" style="margin:0">Nur luis + carlotta (Stammkinder). Weitere unten anlegen.</div>'; return; }
   host.innerHTML=extras.map(k=>`
     <div class="detail-item" style="display:flex; gap:10px; align-items:center">
-      <span style="font-weight:800; min-width:110px">${esc(k.user)}</span>
+      <span style="font-weight:800; min-width:110px">${esc((k.name||k.user))}<small style="color:var(--muted); font-weight:400"> (${esc(k.user)})</small></span>
       <button class="kid pchk delkid" data-kc="${esc(k.user)}" style="padding:4px 12px; font-size:.8rem">löschen</button>
     </div>`).join('');
 }
@@ -785,6 +790,8 @@ function loadParents(){
   try{
     fetch('/api/auth/parents').then(r=>r.json()).then(j=>{
       window.__parents=j.parents||[];
+      window.__kidMeta={}; (j.kids||[]).forEach(k=>{ window.__kidMeta[k.user]={name:k.name, color:k.color}; });
+      window.__allKids=(j.kids||[]).map(k=>k.user);   // STAMM + Kid-Accounts (für renderParents)
       renderParents(window.__parents);
       renderKidAccounts(j.kids||[]);
       if(window.__fillReset) window.__fillReset();  // Reset-Select mit Eltern nachladen
@@ -815,7 +822,8 @@ function loadParents(){
     $('kcNote').textContent='…';
     try{
       const r=await (await fetch('/api/child/create',{method:'POST',headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({user:$('kcUser').value.trim(), password:$('kcPw').value, book:''})})).json();
+        body:JSON.stringify({user:$('kcUser').value.trim(), password:$('kcPw').value, book:'',
+                             name:$('kcName').value.trim(), color:$('kcColor').value})})).json();
       if(r.ok){ $('kcNote').textContent=`✅ ${r.user} angelegt`; $('kcUser').value=$('kcPw').value=''; loadParents(); }
       else $('kcNote').textContent=r.error||'Fehler';
     }catch(e){ $('kcNote').textContent='Server nicht erreichbar'; }

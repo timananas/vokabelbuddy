@@ -77,8 +77,14 @@ def _b64(s):
     return base64.urlsafe_b64encode(s).decode().rstrip('=')
 
 
-def _pbkdf2(password, salt):
-    return hashlib.pbkdf2_hmac('sha256', password.encode(), bytes(salt), 200_000).hex()
+# OWASP 2024: PBKDF2-HMAC-SHA256 ≥ 600.000 Iterationen (alt: 200k — Hashes werden
+# beim nächsten Login transparent neu gehasht, siehe _maybe_rehash).
+PBKDF2_ITERS = 600_000
+PBKDF2_ITERS_LEGACY = 200_000
+
+
+def _pbkdf2(password, salt, iters=PBKDF2_ITERS):
+    return hashlib.pbkdf2_hmac('sha256', password.encode(), bytes(salt), iters).hex()
 
 
 DEFAULT_USERS = {'luis': {'pw': 'luis', 'role': 'kid'}, 'carlotta': {'pw': 'carlotta', 'role': 'kid'}}
@@ -86,7 +92,7 @@ DEFAULT_USERS = {'luis': {'pw': 'luis', 'role': 'kid'}, 'carlotta': {'pw': 'carl
 
 def _user_entry(pw, role):
     salt = list(os.urandom(16))
-    return {'password_hash': _pbkdf2(pw, salt), 'salt': salt, 'role': role,
+    return {'password_hash': _pbkdf2(pw, salt), 'salt': salt, 'iters': PBKDF2_ITERS, 'role': role,
             'totp_secret': None, 'totp_enabled': False}
 
 
@@ -256,19 +262,25 @@ class _AuthGateMixin:
         except Exception:
             return '?'
 
-    def _rate_limited(self, ip):
+    def _rate_limited(self, key):
+        # key = IP ODER 'user:<name>' — 5 Fehlversuche / 15 min je Schlüssel:
         now = time.time()
-        fails = [t for t in LOGIN_FAILS.get(ip, []) if now - t < 900]
-        LOGIN_FAILS[ip] = fails
+        fails = [t for t in LOGIN_FAILS.get(key, []) if now - t < 900]
+        LOGIN_FAILS[key] = fails
         return len(fails) >= 5
 
-    def _record_fail(self, ip):
-        # GC: ältere Einträge weg + die Liste nicht unendlich wachsen lassen (Memory-Hygiene):
+    def _record_fail(self, ip, auser=None):
+        # GC (Memory-Hygiene): tote Keys weg, Cap 4000:
         now = time.time()
-        for k in [k for k, v in LOGIN_FAILS.items()
-                  if not v or now - v[-1] > 1800] or (['x'] if len(LOGIN_FAILS) > 4000 else []):
+        stale = [k for k, v in LOGIN_FAILS.items() if not v or now - v[-1] > 1800]
+        if len(LOGIN_FAILS) - len(stale) > 4000:
+            stale += sorted((k for k in LOGIN_FAILS if k not in stale),
+                            key=lambda k: LOGIN_FAILS[k][-1])[:len(LOGIN_FAILS) - 4000]
+        for k in stale:
             LOGIN_FAILS.pop(k, None)
         LOGIN_FAILS.setdefault(ip, []).append(now)
+        if auser:
+            LOGIN_FAILS.setdefault(f'user:{auser}', []).append(now)
 
 
     def _forced_kid(self, asked):
@@ -1045,7 +1057,9 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
             if r == '/api/health':
                 self._json({'ok': True, 'version': VERSION})
             elif r == '/api/meta':
-                extra_kids = [{'id': uid, 'name': uid.capitalize(), 'color': '#a78bfa'}
+                extra_kids = [{'id': uid,
+                               'name': (u.get('name') or uid.capitalize()),
+                               'color': (u.get('color') or '#a78bfa')}
                               for uid, u in AUTH_MEM.get('users', {}).items()
                               if u.get('role') == 'kid' and not any(k['id'] == uid for k in KIDS)]
                 me = self._session_user()            # {id, role, kid}
@@ -1264,13 +1278,31 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
                 auser = _norm(body.get('username')).lower()
                 pw = _norm(body.get('password'))
                 u = AUTH_MEM['users'].get(auser)
-                okpw = bool(u) and hmac.compare_digest(
-                    str(u.get('password_hash') or ''), _pbkdf2(pw, u.get('salt') or [0]*16))
+                # Konto-Limit: ein Ziel-Name mit 5 Fehlversuchen ist 15 min zu — egal
+                # von welcher IP (Proxy-IP-bucket blockt sonst ALLE öffentlichen Logins):
+                if self._rate_limited(f'user:{auser}') or self._rate_limited(ip):
+                    self._record_fail(ip, auser)
+                    _page(self, _login_html('Zu viele Versuche – bitte 15 Minuten warten.'))
+                    return
+                okpw = False
+                if u:
+                    iters = int(u.get('iters') or PBKDF2_ITERS_LEGACY)
+                    okpw = hmac.compare_digest(str(u.get('password_hash') or ''),
+                                               _pbkdf2(pw, u.get('salt') or [0]*16, iters))
+                    # Transparente Upgrade-Migration: legacy-200k-Hash → 600k beim
+                    # ERFOLGREICHEN Login neu rechnen (Kennwort bleibt gleich für den User):
+                    if okpw and iters != PBKDF2_ITERS:
+                        u['salt'] = list(os.urandom(16))
+                        u['password_hash'] = _pbkdf2(pw, u['salt'])
+                        u['iters'] = PBKDF2_ITERS
+                        with _lock:
+                            auth_save()
                 if not okpw:
-                    self._record_fail(ip)
+                    self._record_fail(ip, auser)
                     _page(self, _login_html('Benutzername oder Kennwort falsch.', pre_user=auser))
                     return
                 LOGIN_FAILS[ip] = []
+                LOGIN_FAILS.pop(f'user:{auser}', None)  # Konto-Counter resets bei Erfolg
                 if u.get('totp_enabled'):
                     pend_tok = _new_token()
                     AUTH_MEM.setdefault('mfa_pending', {})[pend_tok] = {
@@ -1375,6 +1407,24 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
                 _runs_add(rec)
                 self._json({'ok': True})
                 return
+            if r == '/api/child/update':
+                # Admin: Name/Farbe eines Kid-Accounts nachtragen/anpassen:
+                me = self._session_user()
+                if not me or me.get('role') != 'admin':
+                    self._json({'error': 'Nur der Admin'}, 403)
+                    return
+                cuser = _norm(body.get('user')).lower()
+                u = AUTH_MEM['users'].get(cuser)
+                if not u or u.get('role') != 'kid':
+                    self._json({'error': 'Kid unbekannt'}, 400)
+                    return
+                if _norm(body.get('name')):
+                    u['name'] = _norm(body.get('name'))[:40]
+                if _norm(body.get('color')):
+                    u['color'] = _norm(body.get('color'))[:16]
+                auth_save()
+                self._json({'ok': True, 'user': cuser, 'name': u.get('name'), 'color': u.get('color')})
+                return
             if r == '/api/parent/kids':
                 me = self._session_user()
                 if not me or me.get('role') != 'admin':
@@ -1438,7 +1488,10 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
                     book = ''
                 salt = list(os.urandom(16))
                 AUTH_MEM['users'][cuser] = {'password_hash': _pbkdf2(pw, salt), 'salt': salt,
+                                            'iters': PBKDF2_ITERS,
                                             'role': 'kid', 'book': book,
+                                            'name': cname or cuser.capitalize(),
+                                            'color': ccolor or '#a78bfa',
                                             'totp_secret': None, 'totp_enabled': False}
                 if book: DEFAULT_BOOKS[cuser] = book
                 # neue Kids in das Frontend-KIDS-Array (Basis-Anzeige, Farb-Auto):
@@ -1929,10 +1982,14 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
             return
         out = [{'user': uid, 'kids': (u.get('kids') or [])}
                for uid, u in AUTH_MEM['users'].items() if u.get('role') == 'parent']
-        kids_out = [{'user': uid, 'book': (u.get('book') or '')}
+        kids_out = [{'user': uid, 'book': (u.get('book') or ''),
+                     'name': (u.get('name') or uid.capitalize()),
+                     'color': (u.get('color') or '#a78bfa')}
                     for uid, u in AUTH_MEM['users'].items()
                     if u.get('role') == 'kid' and not any(k['id'] == uid for k in KIDS)]
-        base_kids = [{'user': k['id'], 'book': ''} for k in KIDS]
+        base_kids = [{'user': k['id'], 'book': '',
+                      'name': k.get('name') or k['id'].capitalize(),
+                      'color': k.get('color') or '#5b8def'} for k in KIDS]
         self._json({'parents': out, 'kids': base_kids + kids_out})
 
     def api_history(self, q):
