@@ -1428,7 +1428,8 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
                 n1 = _norm(body.get('new'))
                 n2 = _norm(body.get('new2'))
                 u = AUTH_MEM['users'].get(me['id'], {})
-                if u.get('password_hash') != _pbkdf2(cur, u.get('salt') or [0]*16):
+                if not hmac.compare_digest(str(u.get('password_hash') or ''),
+                                           _pbkdf2(cur, u.get('salt') or [0]*16)):
                     self._json({'error': 'Aktuelles Kennwort ist falsch'}, 403)
                     return
                 if len(n1) < 4:

@@ -247,10 +247,7 @@ body{overflow-x:hidden}
       <button class="iconbtn" id="reportBtn" title="Auswertung" aria-label="Auswertung">
         <svg class="ico-ink" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="20" x2="5" y2="12"/><line x1="12" y1="20" x2="12" y2="6"/><line x1="19" y1="20" x2="19" y2="10"/></svg>
       </button>
-      <button class="iconbtn" id="kidLogoutBtn" title="Abmelden" aria-label="Abmelden" style="display:none">
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
-      </button>
-      <button class="iconbtn" id="adminBtn" title="Vokabeln verwalten" aria-label="Vokabeln verwalten">
+            <button class="iconbtn" id="adminBtn" title="Vokabeln verwalten" aria-label="Vokabeln verwalten">
         <svg class="ico-ink" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h0a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51h0a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v0a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
       </button>
     </div>
@@ -366,7 +363,9 @@ body{overflow-x:hidden}
 
 <div class="overlay hidden" id="adminOverlay">
   <div class="modal">
-    <h3>Vokabeln verwalten</h3>
+    <h3 id="mTitleHead">Einstellungen</h3>
+    <div id="adminZone">
+    <div style="font-weight:800; font-size:.95rem; margin-bottom:10px">Vokabeln verwalten</div>
     <label>Buch</label>
     <select id="mBook"></select>
     <label>Kapitelnummer</label>
@@ -405,6 +404,7 @@ body{overflow-x:hidden}
         </div>
         <div class="mdone" id="mfaNote"></div>
       </div>
+    </div>
     </div>
     <div id="adminOnlyZone" class="hidden" style="border-top:1px solid var(--line); margin-top:12px; padding-top:12px">
       <div style="font-weight:800; font-size:.95rem">Eltern-Accounts</div>
@@ -517,12 +517,6 @@ async function init(){
   themeBtnLabel();
   $('adminBtn').onclick=openAdmin;
 $('logoutBtn').onclick=()=>{ location.href='/logout'; };
-  // Kinder + Eltern: Zahnrad weg; Logout-Icon statt Namenschip
-  if(ME && (ME.role==='kid' || ME.role==='parent')){
-    $('adminBtn').classList.add('gone');
-    $('kidLogoutBtn').style.display='grid';
-    $('kidLogoutBtn').onclick=()=>{ location.href='/logout'; };
-  }
   $('themeBtn').onclick=()=>{ const dark=document.documentElement.classList.contains('dark');
     document.documentElement.classList.toggle('dark', !dark); themeApply(); };
   $('startBtn').onclick=startQuiz;
@@ -1381,9 +1375,18 @@ $('rpClose').onclick=()=>$('reportOverlay').classList.add('hidden');
 // ---------- Admin ----------
 async function openAdmin(){
   $('mDone').textContent='';
-  $('mNum').value=''; $('mTitle').value=''; $('mWords').value='';
+  $('mTitle').value=''; $('mWords').value=''; $('mNum').value='';
   loadAccount();
-  loadParents();
+  loadParents();  // intern: nur bei ME.role==='admin' sichtbar/aktiv
+  const isAdmin = ME && ME.role==='admin';
+  for(const id of ['adminZone','adminOnlyZone','adminKidsZone'])
+    { const el=document.getElementById(id); if(el) el.classList.toggle('hidden', !isAdmin); }
+  // MFA-Sektion: Kids ohne MFA (Rollen-Design) — ausblenden (Sektion = Nachfolger von #pwForm)
+  const pf=document.getElementById('pwForm');
+  const mfaBox=pf? pf.nextElementSibling : null;
+  if(mfaBox) mfaBox.classList.toggle('hidden', ME && ME.role==='kid');
+  const th=document.getElementById('mTitleHead');
+  if(th) th.textContent = ME && ME.role==='admin' ? 'Einstellungen' : 'Mein Konto';
   const mb=$('mBook');
   if(mb.options.length!==META.books.length)
     mb.innerHTML=META.books.map(b=>`<option value="${esc(b.id)}">${esc(b.name)}</option>`).join('');
