@@ -1,7 +1,7 @@
 /* Vokabelbuddy Service Worker — v1
    App-Shell cache-first, /api/* IMMER Netz (bei Offline Fallback auf Cache für GET),
    POST nie cachen. */
-const CACHE = 'vokabelbuddy-v35';
+const CACHE = 'vokabelbuddy-v36';
 const SHELL = [
   '/',
   '/index.html',
@@ -61,7 +61,27 @@ self.addEventListener('fetch', e => {
     return;
   }
 
-  // App-Shell: cache-first, im Hintergrund aktualisieren (stale-while-revalidate)
+  // App-Shell: stale-while-revalidate — ABER auth-Seiten (/login, /mfa, /setup, /logout,
+  // /) IMMER network-first (die zeigen je Session-Status verschiedene Inhalte; ein stale
+  // Cache-Eintrag verursacht sonst das kurze 'Seite nicht erreichbar'-Blitz nach dem
+  // MFA-Code-POST → 303 → /):
+  const AUTH_PAGES = ['/login', '/mfa', '/setup', '/logout', '/'];
+  if (AUTH_PAGES.includes(url.pathname)) {
+    e.respondWith((async () => {
+      try {
+        const fresh = await fetch(e.request);
+        if (fresh && fresh.ok && url.pathname === '/') {
+          caches.open(CACHE).then(c => c.put(e.request, fresh.clone()));
+        }
+        return fresh;
+      } catch (err) {
+        const cached = await caches.match(e.request);
+        return cached || new Response('offline', { status: 503 });
+      }
+    })());
+    return;
+  }
+  // statisch (assets): cache-first, im Hintergrund aktualisieren (stale-while-revalidate)
   e.respondWith((async () => {
     const cached = await caches.match(e.request);
     const refresh = fetch(e.request).then(res => {

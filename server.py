@@ -387,7 +387,7 @@ def _login_html(msg='', pre_user=''):
             '<img class="biglogo" src="/assets/logo-banner-white.png" alt="VokabelBuddy">'
             '</div>'
             '<form method="POST" action="/login">' + warn +
-            f'<input type="text" name="username" placeholder="Benutzername (z.B. luis)"{pre} autocapitalize="none" autofocus>'
+            f'<input type="text" name="username" placeholder="Benutzername"{pre} autocapitalize="none" autofocus>'
             '<input type="password" name="password" placeholder="Kennwort">'
             '<label class="chk"><input type="checkbox" name="trust" value="1" checked> '
             'Diesem Gerät 30 Tage vertrauen</label>'
