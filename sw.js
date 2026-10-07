@@ -1,7 +1,7 @@
 /* Vokabelbuddy Service Worker — v1
    App-Shell cache-first, /api/* IMMER Netz (bei Offline Fallback auf Cache für GET),
    POST nie cachen. */
-const CACHE = 'vokabelbuddy-v28';
+const CACHE = 'vokabelbuddy-v29';
 const SHELL = [
   '/',
   '/index.html',
