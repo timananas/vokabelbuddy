@@ -404,6 +404,11 @@ body{overflow-x:hidden}
     <div class="mrow" style="margin-top:12px; border-top:1px solid var(--line); padding-top:12px; flex-direction:column; align-items:stretch">
       <div class="acct-head" style="font-weight:800; font-size:.95rem">Konto</div>
       <div id="pwForm" style="display:grid; gap:8px; margin-top:4px">
+        <div style="display:flex; gap:8px; align-items:center; margin-bottom:8px">
+          <input id="acEmail" type="email" placeholder="E-Mail (für Kennwort-Reset)" autocapitalize="none" style="flex:1">
+          <button class="msave" id="acEmailSave" style="width:auto; padding:10px 14px">Speichern</button>
+        </div>
+        <div class="mdone" id="acEmailNote"></div>
         <input id="acCur" type="password" placeholder="Aktuelles Kennwort" autocomplete="current-password">
         <input id="acNew" type="password" placeholder="Neues Kennwort (mind. 6 Z.)" autocomplete="new-password">
         <input id="acNew2" type="password" placeholder="Neues Kennwort wiederholen" autocomplete="new-password">
@@ -1009,6 +1014,16 @@ $('mfaConfirm').onclick=async()=>{
     }
     else { $('mfaNote').textContent=(r.error||'Code falsch')+' — bitte prüfen und erneut senden.'; if(mo) mo.scrollTop=scrollTop; }
   }catch(e){ $('mfaNote').textContent='Server nicht erreichbar'; if(mo) mo.scrollTop=scrollTop; }
+};
+// E-Mail für Kennwort-Reset (user-scoped):
+$('acEmailSave').onclick=async()=>{
+  $('acEmailNote').textContent='…';
+  try{
+    const r=await (await fetch('/api/account/email',{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({email:$('acEmail').value.trim()})})).json();
+    $('acEmailNote').textContent = r.ok ? (r.email? '✅ E-Mail gespeichert.' : 'E-Mail entfernt.') : (r.error||'Fehler');
+    if(r.ok && ME) ME.email=r.email||'';
+  }catch(e){ $('acEmailNote').textContent='Server nicht erreichbar'; }
 };
 $('mfaBtnOff').onclick=async()=>{
   try{
@@ -1673,6 +1688,7 @@ $('rpClose').onclick=()=>$('reportOverlay').classList.add('hidden');
 async function openAdmin(){
   $('mDone').textContent='';
   $('mTitle').value=''; $('mWords').value=''; $('mNum').value='';
+  const ae=$('acEmail'); if(ae) ae.value=(ME && ME.email)||'';
   loadAccount();
   loadSeries();
   loadParents();  // intern: nur bei ME.role==='admin' sichtbar/aktiv
