@@ -513,6 +513,7 @@ async function init(){
   }
   $('subtitle').textContent = (ME && ME.user) ? `Angemeldet: ${ME.user}${ME.role==='admin'?' (Admin-Account)':(ME.role==='parent'?' (Eltern-Account)':'')}` : 'Wähle, wer übt';
   drawKids(); drawBooks();
+  themeApply();  // setzt Logo/banner-correct für gespeichertes Theme + setzt theme-color
   themeBtnLabel();
   $('adminBtn').onclick=openAdmin;
 $('logoutBtn').onclick=()=>{ location.href='/logout'; };

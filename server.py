@@ -60,7 +60,7 @@ SESSION_TTL = 12 * 3600
 TRUST_TTL = 30 * 86400
 MFA_PENDING_TTL = 300
 LOGIN_FAILS = {}  # ip -> [timestamps]
-AUTH_MEM = {'users': {}, 'trusted': {}, 'sessions': {}, 'mfa_pending': {}}
+AUTH_MEM = {'users': {}, 'trusted': {}, 'trust_users': {}, 'sessions': {}, 'mfa_pending': {}}
 
 
 def _b64(s):
@@ -87,14 +87,18 @@ def auth_load():
         AUTH_MEM['users'] = d.get('users') or {}
         AUTH_MEM['trusted'] = {str(k): v for k, v in (d.get('trusted') or {}).items()
                                if float(v) > time.time()}
+        AUTH_MEM['trust_users'] = {str(k): str(v) for k, v in (d.get('trust_users') or {}).items()
+                                   if str(k) in AUTH_MEM['trusted']}
     except Exception:
-        AUTH_MEM.update({'users': {}, 'trusted': {}})
+        AUTH_MEM.update({'users': {}, 'trusted': {}, 'trust_users': {}})
 
 
 def auth_save():
     with _lock:
         d = {'users': AUTH_MEM['users'],
-             'trusted': {k: v for k, v in AUTH_MEM['trusted'].items() if float(v) > time.time()}}
+             'trusted': {k: v for k, v in AUTH_MEM['trusted'].items() if float(v) > time.time()},
+             'trust_users': {k: AUTH_MEM.get('trust_users', {}).get(k, '')
+                             for k in AUTH_MEM['trusted']}}
         tmp = AUTH_PATH + '.tmp'
         with open(tmp, 'w') as f:
             json.dump(d, f)
@@ -153,6 +157,21 @@ def totp_verify(secret, code):
     return any(_totp_now(secret, t + off) == code for off in (-30, 0, 30))
 
 
+TRUST_USERS_FILE = 'trust_users'  # in AUTH_MEM (mit auth.json persistiert)
+
+
+def _gc_trusted():
+    now = time.time()
+    trusted = AUTH_MEM.setdefault('trusted', {})
+    tusers = AUTH_MEM.setdefault('trust_users', {})
+    stale = [t for t, exp in trusted.items() if float(exp) < now]
+    for t in stale:
+        trusted.pop(t, None)
+        tusers.pop(t, None)
+    if stale:
+        auth_save()
+
+
 def _check_trust_token(tok):
     if not tok:
         return False
@@ -166,9 +185,11 @@ def _new_token():
     return secrets.token_urlsafe(32)
 
 
-def _set_cookie(name, value, max_age, path='/'):
+def _set_cookie(name, value, max_age, path='/', secure=False):
     parts = [f'{name}={value}', 'Path=' + path, f'Max-Age={max_age}',
              'HttpOnly', 'SameSite=Lax']
+    if secure:
+        parts.append('Secure')
     return '; '.join(parts)
 
 
@@ -195,6 +216,10 @@ class _AuthGateMixin:
     def _is_authed(self):
         return self._session_user() is not None
 
+    def _is_https(self):
+        return (self.headers.get('X-Forwarded-Proto') or '').lower() == 'https' \
+            or self.headers.get('X-Forwarded-Ssl') == 'on'
+
     def _auth_redirect(self, to):
         self.send_response(303)
         self.send_header('Location', to)
@@ -202,6 +227,18 @@ class _AuthGateMixin:
         self.end_headers()
 
     def _client_ip(self):
+        # Hinter NPM/OpenResty: echte Client-IP aus X-Forwarded-For (erster Hop),
+        # sonst Socket-IP (LAN-Direktzugriff).
+        try:
+            xff = self.headers.get('X-Forwarded-For')
+            if xff:
+                # Letzter Hop = vom eigenen Proxy hinzugefügt (nicht spoofbar); X-Real-IP setzt NPM.
+                return (xff.split(',')[-1].strip() or self.headers.get('X-Real-IP') or '?')[:64]
+            xr = self.headers.get('X-Real-IP')
+            if xr:
+                return xr.strip()[:64]
+        except Exception:
+            pass
         try:
             return self.client_address[0]
         except Exception:
@@ -250,8 +287,8 @@ class _AuthGateMixin:
         if r.startswith('/assets/') or r.startswith('/favicon') or r in ('/manifest.json', '/sw.js'):
             return True
         pub = PUBLIC_GET if self.command in ('GET', 'HEAD') else PUBLIC_POST
-        if r in pub:
-            return True
+        if r in pub or r == '/logout':
+            return True  # Logout IMMER: muss Cookies/Trust auch bei abgelaufener Session löschen können
         if self._is_authed():
             return True
         if r.startswith('/api/'):
@@ -261,12 +298,26 @@ class _AuthGateMixin:
         return False
 
 
+SECURITY_HEADERS = [
+    ('X-Content-Type-Options', 'nosniff'),
+    ('X-Frame-Options', 'SAMEORIGIN'),
+    ('Referrer-Policy', 'same-origin'),
+    ('Permissions-Policy', 'camera=(), microphone=(), geolocation=()'),
+    ('Content-Security-Policy',
+     "default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; "
+     "font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; "
+     "connect-src 'self'; frame-ancestors 'self' https://homeassistant.henskes.cloud; "
+     "base-uri 'self'; form-action 'self'"),
+]
+
+
 def _page(self, body, code=200, extra_headers=None):
     self.send_response(code)
     self.send_header('Content-Type', 'text/html; charset=utf-8')
     self.send_header('Content-Length', str(len(body)))
     self.send_header('Cache-Control', 'no-store')
-    self.send_header('X-Content-Type-Options', 'nosniff')
+    for k, v in SECURITY_HEADERS:
+        self.send_header(k, v)
     for k, v in (extra_headers or []):
         self.send_header(k, v)
     self.end_headers()
@@ -995,6 +1046,22 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
                 if self._is_authed():
                     self._auth_redirect('/')
                     return
+                # „30 Tage vertrauen“: gültiges Trust-Cookie erstellt eine neue Session ohne PW
+                # — ABER NUR bei Usern OHNE MFA (sonst würde Trust den 2. Faktor umgehen!)
+                tk = self._cookies().get(TRUST_COOKIE)
+                if tk and _check_trust_token(tk):
+                    uid = (AUTH_MEM.get('trust_users') or {}).get(tk)
+                    uu = AUTH_MEM['users'].get(uid) if uid else None
+                    if uu and not uu.get('totp_enabled'):
+                        sess = _new_token()
+                        with _lock:
+                            AUTH_MEM.setdefault('sessions', {})[sess] = {'exp': time.time() + SESSION_TTL, 'user': uid}
+                        self.send_response(303)
+                        self.send_header('Location', '/')
+                        self.send_header('Set-Cookie', _set_cookie(SESSION_COOKIE, sess, SESSION_TTL, secure=self._is_https()))
+                        self.send_header('Content-Length', '0')
+                        self.end_headers()
+                        return
                 _page(self, _login_html())
             elif r == '/mfa':
                 ck = self._cookies()
@@ -1027,10 +1094,16 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
             elif r == '/logout':
                 ck = self._cookies()
                 sess = ck.get(SESSION_COOKIE)
-                if sess:
-                    AUTH_MEM.setdefault('sessions', {}).pop(sess, None)
-                headers = [('Set-Cookie', _set_cookie(SESSION_COOKIE, '', 0)),
-                           ('Set-Cookie', _set_cookie(TRUST_COOKIE, '', 0)),
+                with _lock:
+                    if sess:
+                        AUTH_MEM.setdefault('sessions', {}).pop(sess, None)
+                    # Trust-Cookie serverseitig INVALIDIEREN (nicht nur Browser-Cookie löschen):
+                    trust = ck.get(TRUST_COOKIE)
+                    if trust:
+                        AUTH_MEM.setdefault('trusted', {}).pop(trust, None)
+                        auth_save()
+                headers = [('Set-Cookie', _set_cookie(SESSION_COOKIE, '', 0, secure=self._is_https())),
+                           ('Set-Cookie', _set_cookie(TRUST_COOKIE, '', 0, secure=self._is_https())),
                            ('Refresh', '3; url=/login')]
                 _page(self, _AUTH_WRAP.replace('{t}', 'Abgemeldet').replace('{b}',
                       '<h1>Abgemeldet</h1>'
@@ -1081,9 +1154,14 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
         r = u.path
         try:
             ip = self._client_ip()
-            if self._rate_limited(ip) and r not in ('/logout',):
-                _page(self, _login_html('Zu viele Versuche – bitte 15 Minuten warten.'))
-                return
+            if self._rate_limited(ip) and r not in ('/logout', '/login'):
+                # API-POSTs während eines Login-Bans NICHT blocken (App bleibt bedienbar);
+                # nur nicht-/login-SeitenPOSTs bekommen die Hinweisseite.
+                if r.startswith('/api/'):
+                    pass  # API geht durch — Gate prüft Auth normal
+                else:
+                    _page(self, _login_html('Zu viele Versuche – bitte 15 Minuten warten.'))
+                    return
             body = self._body()
             if r == '/setup':
                 if auth_has_password():
@@ -1128,8 +1206,8 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
                 auth_save()
                 self.send_response(303)
                 self.send_header('Location', '/')
-                self.send_header('Set-Cookie', _set_cookie(SESSION_COOKIE, tok, SESSION_TTL))
-                self.send_header('Set-Cookie', _set_cookie(TRUST_COOKIE, trust, TRUST_TTL))
+                self.send_header('Set-Cookie', _set_cookie(SESSION_COOKIE, tok, SESSION_TTL, secure=self._is_https()))
+                self.send_header('Set-Cookie', _set_cookie(TRUST_COOKIE, trust, TRUST_TTL, secure=self._is_https()))
                 self.send_header('Content-Length', '0')
                 self.end_headers()
                 return
@@ -1137,10 +1215,14 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
                 if not auth_has_password():
                     self._auth_redirect('/setup')
                     return
+                if self._rate_limited(ip):
+                    _page(self, _login_html('Zu viele Versuche – bitte 15 Minuten warten.'))
+                    return
                 auser = _norm(body.get('username')).lower()
                 pw = _norm(body.get('password'))
                 u = AUTH_MEM['users'].get(auser)
-                okpw = bool(u) and u.get('password_hash') == _pbkdf2(pw, u.get('salt') or [0]*16)
+                okpw = bool(u) and hmac.compare_digest(
+                    str(u.get('password_hash') or ''), _pbkdf2(pw, u.get('salt') or [0]*16))
                 if not okpw:
                     self._record_fail(ip)
                     _page(self, _login_html('Benutzername oder Kennwort falsch.', pre_user=auser))
@@ -1161,12 +1243,14 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
                 sess = _new_token()
                 AUTH_MEM.setdefault('sessions', {})[sess] = {'exp': time.time() + SESSION_TTL, 'user': auser}
                 _gc_sessions_auth()
-                headers = [('Set-Cookie', _set_cookie(SESSION_COOKIE, sess, SESSION_TTL))]
+                headers = [('Set-Cookie', _set_cookie(SESSION_COOKIE, sess, SESSION_TTL, secure=self._is_https()))]
                 if _norm(body.get('trust')):
                     trust = _new_token()
-                    AUTH_MEM.setdefault('trusted', {})[trust] = time.time() + TRUST_TTL
-                    auth_save()
-                    headers.append(('Set-Cookie', _set_cookie(TRUST_COOKIE, trust, TRUST_TTL)))
+                    with _lock:
+                        AUTH_MEM.setdefault('trusted', {})[trust] = time.time() + TRUST_TTL
+                        AUTH_MEM.setdefault('trust_users', {})[trust] = auser
+                        auth_save()
+                    headers.append(('Set-Cookie', _set_cookie(TRUST_COOKIE, trust, TRUST_TTL, secure=self._is_https())))
                 self.send_response(303)
                 self.send_header('Location', '/')
                 for k, v in headers:
@@ -1192,13 +1276,15 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
                 sess = _new_token()
                 AUTH_MEM.setdefault('sessions', {})[sess] = {'exp': time.time() + SESSION_TTL, 'user': auser}
                 _gc_sessions_auth()
-                headers = [('Set-Cookie', _set_cookie(SESSION_COOKIE, sess, SESSION_TTL)),
+                headers = [('Set-Cookie', _set_cookie(SESSION_COOKIE, sess, SESSION_TTL, secure=self._is_https())),
                            ('Set-Cookie', _set_cookie(MFA_COOKIE, '', 0))]
                 if entry.get('trust'):
                     trust = _new_token()
-                    AUTH_MEM.setdefault('trusted', {})[trust] = time.time() + TRUST_TTL
-                    auth_save()
-                    headers.append(('Set-Cookie', _set_cookie(TRUST_COOKIE, trust, TRUST_TTL)))
+                    with _lock:
+                        AUTH_MEM.setdefault('trusted', {})[trust] = time.time() + TRUST_TTL
+                        AUTH_MEM.setdefault('trust_users', {})[trust] = auser
+                        auth_save()
+                    headers.append(('Set-Cookie', _set_cookie(TRUST_COOKIE, trust, TRUST_TTL, secure=self._is_https())))
                 self.send_response(303)
                 self.send_header('Location', '/')
                 for k, v in headers:
