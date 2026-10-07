@@ -1599,8 +1599,11 @@ async function openAdmin(){
   loadSeries();
   loadParents();  // intern: nur bei ME.role==='admin' sichtbar/aktiv
   const isAdmin = ME && ME.role==='admin';
-  for(const id of ['adminZone','adminOnlyZone','adminKidsZone','adminResetZone','seriesZone'])
+  for(const id of ['adminZone','adminOnlyZone','adminKidsZone','adminResetZone'])
     { const el=document.getElementById(id); if(el) el.classList.toggle('hidden', !isAdmin); }
+  // Reihen-Wahl: admin + parent (die inneren Zeilen steuert loadSeries) — kid niemals:
+  const sz=document.getElementById('seriesZone');
+  if(sz) sz.classList.toggle('hidden', !(ME && (ME.role==='admin' || ME.role==='parent')));
   // MFA-Sektion: Kids ohne MFA (Rollen-Design) — ausblenden (Sektion = Nachfolger von #pwForm)
   const pf=document.getElementById('pwForm');
   const mfaBox=pf? pf.nextElementSibling : null;
