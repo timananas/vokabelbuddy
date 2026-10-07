@@ -697,14 +697,35 @@ function reportRun(mode, n){
 function renderParents(parents){
   const host=$('parentList'); if(!host) return;
   if(!parents.length){ host.innerHTML='<div class="sub" style="margin:0">Noch keine Eltern-Accounts.</div>'; return; }
+  // ALLE Kids (Stamm + neu angelegte Kid-Accounts): window.__allKids (in loadParents befüllt):
+  const allKids = (window.__allKids && window.__allKids.length)
+    ? window.__allKids : (META.kids||[]).map(k=>k.id);
   host.innerHTML=parents.map(p=>`
     <div class="detail-item" style="display:flex; gap:10px; align-items:center">
       <span style="font-weight:800; min-width:110px">${esc(p.user)}</span>
       <span style="flex:1; display:flex; gap:6px; flex-wrap:wrap">
-        ${['luis','carlotta'].map(kid=>`<button class="kid pchk ${p.kids.includes(kid)?'on':''}" data-pa="${esc(p.user)}" data-kid="${kid}"
-          style="padding:4px 12px; font-size:.8rem">${esc((META.kids.find(x=>x.id===kid)||{}).name||kid)}</button>`).join('')}
+        ${allKids.map(kid=>`<button class="kid pchk ${p.kids.includes(kid)?'on':''}" data-pa="${esc(p.user)}" data-kid="${esc(kid)}"
+          style="padding:4px 12px; font-size:.8rem">${esc(((META.kids.find(x=>x.id===kid)||{}).name)||kid)}</button>`).join('')}
       </span>
     </div>`).join('');
+  // Handler (delegation — neu-gerenderte buttons brauchen einen FRISchen Bind):
+  host.querySelectorAll('.pchk').forEach(btn=>{
+    btn.onclick=async()=>{
+      const pa=btn.getAttribute('data-pa'), kid=btn.getAttribute('data-kid');
+      const turnOn=!btn.classList.contains('on');
+      const p=(window.__parents||[]).find(x=>x.user===pa);
+      let target=(p?p.kids:[]).slice();
+      if(turnOn && !target.includes(kid)) target.push(kid);
+      if(!turnOn) target=target.filter(x=>x!==kid);
+      btn.style.opacity='.45';
+      try{
+        const r=await (await fetch('/api/parent/kids',{method:'POST',headers:{'Content-Type':'application/json'},
+          body:JSON.stringify({user:pa, kids:target})})).json();
+        if(r.ok){ btn.classList.toggle('on', turnOn); $('paNote').textContent=`✅ ${kid} ${turnOn?'→':'von'} ${pa} ${turnOn?'zugewiesen':'entfernt'}`; }
+        else { $('paNote').textContent=r.error||'Fehler'; btn.style.opacity=''; }
+      }catch(e){ $('paNote').textContent='Server nicht erreichbar'; btn.style.opacity=''; }
+    };
+  });
 }
 function renderKidAccounts(kids){
   const host=$('kidList'); if(!host) return;
