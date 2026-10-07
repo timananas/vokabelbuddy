@@ -1558,6 +1558,13 @@ document.addEventListener('click', e=>{
 // ---------- Service Worker (nur Secure Context: HTTPS oder localhost) ----------
 if('serviceWorker' in navigator && (location.protocol==='https:' || ['localhost','127.0.0.1'].includes(location.hostname))){
   navigator.serviceWorker.register('/sw.js').catch(()=>{});
+  // ⭐️ SW-Update-Aktivierung: wenn ein NEUER SW die Kontrolle übernimmt (Deploy!), die
+  // Seite SOFORT neu laden (einmalig) — sonst läuft nach jedem Deploy noch eine Runde
+  // die ALTE App-Logik = 'Fragmente, die erst nach Refresh verschwinden':
+  let _swRefreshed=false;
+  navigator.serviceWorker.addEventListener('controllerchange', ()=>{
+    if(_swRefreshed) return; _swRefreshed=true; location.reload();
+  });
 }
 
 $('skipBtn').onclick=skipCurrent;
