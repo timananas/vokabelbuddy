@@ -535,25 +535,29 @@ async function init(){
   }catch(e){
     $('subtitle').textContent='Server nicht erreichbar'; return;
   }
-  book = META.books.some(b=>b.id===book) ? book : META.books[0].id;
   // Die gewählte Kid MUSS zum eingeloggten Konto passen (stale localStorage von
-  // anderem Account → amelia stand sonst bei juliane, bevor sie luis wählte):
+  // anderem Account → amelia stand sonst bei juliane, bevor sie luis wählte — und
+  // umgekehrt daniel/juliane nach Account-Wechsel):
   const _allowed = ME ? (ME.role==='admin' ? META.kids.map(k=>k.id)
                   : ME.role==='parent' ? (ME.kids||[])
                   : [ME.kid]) : META.kids.map(k=>k.id);
   if(!_allowed.includes(kid)) kid = _allowed[0] || '';
   if(!_allowed.includes(kid) || !META.kids.some(k=>k.id===kid)) kid = (META.kids[0]?.id||'');
-  // Default-Band je Kind — aber nur beim ERSTEN Besuch (kein gespeicherter Band)
-  if(!localStorage.getItem('vb_book')){
-    const db=(META.default_book||{})[kid];
-    if(db&&META.books.some(b=>b.id===db)){ book=db; localStorage.setItem('vb_book',book); }
+  // Buch: nur ein Band der AKTUELLEN Reihe — stale Bänder aus der anderen Reihe/Account
+  // fliegen (sonst 'refreshen nötig' nach jedem Account-Wechsel):
+  if(!META.books.some(b=>b.id===book)){
+    book = (META.default_book||{})[kid];
+    if(!META.books.some(b=>b.id===book)) book = (META.books[0]||{}).id||'';
+    localStorage.setItem('vb_book', book);
   }
+  const db=(META.default_book||{})[kid];
+  if(db&&META.books.some(b=>b.id===db) && !localStorage.getItem('vb_book')){ book=db; localStorage.setItem('vb_book',book); }
   $('subtitle').textContent = (ME && ME.user) ? `Angemeldet: ${ME.user}${ME.role==='admin'?' (Admin-Account)':(ME.role==='parent'?' (Eltern-Account)':'')}` : 'Wähle, wer übt';
   drawKids(); drawBooks();
   themeApply();  // setzt Logo/banner-correct für gespeichertes Theme + setzt theme-color
   themeBtnLabel();
   $('adminBtn').onclick=openAdmin;
-$('logoutBtn').onclick=()=>{ location.href='/logout'; };
+$('logoutBtn').onclick=()=>{ try{ localStorage.removeItem('vb_kid'); localStorage.removeItem('vb_book'); }catch(e){} location.href='/logout'; };
   $('themeBtn').onclick=()=>{ const dark=document.documentElement.classList.contains('dark');
     document.documentElement.classList.toggle('dark', !dark); themeApply(); };
   $('resetSel').onclick=()=>{
