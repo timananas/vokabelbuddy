@@ -1337,11 +1337,17 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
                     return
                 okpw = False
                 if u:
-                    iters = int(u.get('iters') or PBKDF2_ITERS_LEGACY)
+                    # iters-FELD fehlt (Konten ohne Marker) → BEIDE-Stufen probieren
+                    # (600k zuerst; legacy-200k als Fallback für alte Konten):
+                    iters = int(u.get('iters') or PBKDF2_ITERS)
                     okpw = hmac.compare_digest(str(u.get('password_hash') or ''),
                                                _pbkdf2(pw, u.get('salt') or [0]*16, iters))
-                    # Transparente Upgrade-Migration: legacy-200k-Hash → 600k beim
-                    # ERFOLGREICHEN Login neu rechnen (Kennwort bleibt gleich für den User):
+                    if not okpw and not u.get('iters'):
+                        # Fallback: die Konten-Daten könnten 200k-Ära-Hashes ohne Marker sein:
+                        iters = PBKDF2_ITERS_LEGACY
+                        okpw = hmac.compare_digest(str(u.get('password_hash') or ''),
+                                                   _pbkdf2(pw, u.get('salt') or [0]*16, iters))
+                    # Transparente Upgrade-Migration → 600k beim ERFOLGREICHEN Login:
                     if okpw and iters != PBKDF2_ITERS:
                         u['salt'] = list(os.urandom(16))
                         u['password_hash'] = _pbkdf2(pw, u['salt'])
@@ -1507,6 +1513,7 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
                     return
                 u['salt'] = list(os.urandom(16))
                 u['password_hash'] = _pbkdf2(pw, u['salt'])
+                u['iters'] = PBKDF2_ITERS   # ⚠️ sonst rechnet der Login mit 200k-Legacy → immer 'falsch'
                 # alle Sessions + Trust des Users killen (Sicherheit):
                 for k, v in list(AUTH_MEM.get('sessions', {}).items()):
                     if v.get('user') == tgt:
