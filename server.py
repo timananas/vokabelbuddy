@@ -107,6 +107,9 @@ def auth_load():
                                    if str(k) in AUTH_MEM['trusted']}
         AUTH_MEM['user_series'] = {str(k): str(v) for k, v in (d.get('user_series') or {}).items()}
         AUTH_MEM['kid_series'] = {str(k): str(v) for k, v in (d.get('kid_series') or {}).items()}
+        now = time.time()
+        AUTH_MEM['sessions'] = {str(k): v for k, v in (d.get('sessions') or {}).items()
+                                if isinstance(v, dict) and v.get('exp', 0) > now}
     except Exception as e:
         # FAILOPEN-Verbot: leere NIEMALS die RAM-users (sonst Setup-Modus → Tim-Reset!) —
         # der RAM-stand bleibt; die Datei ist ggf. defekt (log reicht):
@@ -120,7 +123,9 @@ def auth_save():
              'trust_users': {k: AUTH_MEM.get('trust_users', {}).get(k, '')
                              for k in AUTH_MEM['trusted']},
              'user_series': AUTH_MEM.get('user_series', {}),
-             'kid_series': AUTH_MEM.get('kid_series', {})}
+             'kid_series': AUTH_MEM.get('kid_series', {}),
+             'sessions': {k: v for k, v in AUTH_MEM.get('sessions', {}).items()
+                          if v.get('exp', 0) > time.time()}}
         tmp = AUTH_PATH + '.tmp'
         with open(tmp, 'w') as f:
             json.dump(d, f)
@@ -1521,6 +1526,8 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
                 cuser = _norm(body.get('user')).lower()
                 pw = _norm(body.get('password'))
                 book = _norm(body.get('book'))
+                cname = _norm(body.get('name'))[:40]    # echter Vorname (Kapsel-Label)
+                ccolor = _norm(body.get('color'))[:16]  # Farbe der Kid-Kapsel
                 if not re.fullmatch(r'[a-z0-9_]{3,20}', cuser or ''):
                     self._json({'error': 'Kinder-Benutzername: 3–20 Zeichen (a–z 0–9 _)'}, 400)
                     return
