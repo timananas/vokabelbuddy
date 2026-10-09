@@ -237,7 +237,10 @@ body{overflow-x:hidden}
   .dd{flex:1 1 100%; min-width:0}
   .dash{display:none}
   #rbClear{flex:none; padding:10px 14px}
-  .seg button{font-size:.84rem; padding:10px 4px}
+  /* Modus/Richtung: Segmente 2×2 statt gequetschter 4er-Reihe — voller Text, kein „…" */
+  .seg{flex-wrap:wrap; gap:8px}
+  .seg button{flex:1 1 46%; min-width:46%; white-space:normal; text-align:center;
+    font-size:.85rem; padding:10px 8px; overflow:visible; text-overflow:clip; hyphens:auto}
 }
 </style>
 </head>
