@@ -1802,6 +1802,8 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
                 'seen_n': a.get('n', 0), 'seen_right': a.get('right', 0),
                 'best_streak': a.get('streak', 0),
             })
+        chapters.sort(key=lambda c: int(c['num']) if str(c['num']).isdigit() else 999)
+        self._json({'book': book, 'kid': kid, 'chapters': chapters})
 
     def api_quiz(self, q):
         book = (q.get('book') or [''])[0]
