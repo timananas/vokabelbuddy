@@ -1,14 +1,14 @@
 /* Vokabelbuddy Service Worker — v1
    App-Shell cache-first, /api/* IMMER Netz (bei Offline Fallback auf Cache für GET),
    POST nie cachen. */
-const CACHE = 'vokabelbuddy-v55';
+const CACHE = 'vokabelbuddy-v56';
 const SHELL = [
   '/',
   '/index.html',
   '/manifest.json',
-  '/assets/app-icon-192.png',
-  '/assets/app-icon-512.png',
-  '/assets/apple-touch-icon.png',
+  '/assets/app-icon-192v2.png',
+  '/assets/app-icon-512v2.png',
+  '/assets/apple-touch-icon2.png',
   '/assets/favicon-32.png',
   '/assets/favicon-16.png',
   '/assets/logo-white.svg',
