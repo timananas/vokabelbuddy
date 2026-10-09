@@ -618,17 +618,25 @@ def _chapter_stats(st, kid):
 
 def _pool(book, chapters, from_n=None, to_n=None):
     """Wörter der gewählten Kapitel (dedupliziert, casefold).
+    dedup = BUCHWEIT (gleiche Semantik wie der Kapitel-Badge in api_chapters):
+    ein (en, de)-Casefold-Paar zählt nur beim ERSTEN Vorkommen im Buch — auch in
+    einer Teilauswahl (z. B. nur Kapitel 9) wird ein bereits in Kapitel 1–8
+    gesehenes Paar geskippt, damit Quiz/Cards/Write exakt die Badges spiegeln.
     pos = 1-basierte Position INNERHALB des Kapitels (Buch-Reihenfolge, für Anzeige).
     gpos = fortlaufende Nummer über ALLE gewählten Kapitel (buchsortiert);
     from_n/to_n filtern auf gpos — bei einem Kapitel identisch mit pos."""
     data = _qdata(book)
-    chs = sorted((ch for ch in data['chapters'] if str(ch.get('num')) in chapters),
-                 key=lambda c: int(c['num']) if str(c.get('num', 0)).isdigit() else 999)
+    _all_chs = sorted(data['chapters'],
+                      key=lambda c: int(c.get('num')) if str(c.get('num', 0)).isdigit() else 999)
     pool = []
     seen = set()
     gpos = 0
-    for ch in chs:
+    # EIN Durchlauf über das GANZE Buch in Reihenfolge: Jedes (en,de)-Paar zählt beim
+    # ERSTEN Vorkommen (buchweit, == Badge-Dedup), aber nur GEWÄHLTE Kapitel liefern
+    # Einträge in den Pool. Nicht gewählte Kapitel setzen seen/gpos fort (Anker).
+    for ch in _all_chs:
         chnum = str(ch.get('num'))
+        in_sel = chnum in chapters
         words = ch.get('words') if isinstance(ch.get('words'), list) else []
         for pos, w in enumerate(words, 1):
             if not isinstance(w, (list, tuple)) or len(w) < 2:
@@ -641,6 +649,8 @@ def _pool(book, chapters, from_n=None, to_n=None):
                 continue
             seen.add(key)
             gpos += 1
+            if not in_sel:
+                continue
             if from_n and gpos < from_n:
                 continue
             if to_n and gpos > to_n:
