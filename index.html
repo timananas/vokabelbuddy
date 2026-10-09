@@ -465,8 +465,26 @@ body{overflow-x:hidden}
 <script>
 'use strict';
 const $=id=>document.getElementById(id);
+// ---- FETCH-WATCHDOG: hängende API-Calls brechen nach 8 s ab (Fix "nach der letzten Frage passiert nichts mehr")
+// Grund: Safari/Hintergrund-Tab kann fetch hängen lassen; ohne Timeout bleibt answered=true und der Screen friert ein.
+function apiFetch(url, opts={}, ms=8000){
+  return new Promise((resolve, reject)=>{
+    const ac = ('AbortController' in window) ? new AbortController() : null;
+    let done=false;
+    const timer=setTimeout(()=>{
+      if(done) return; done=true;
+      try{ ac && ac.abort(); }catch(_){}
+      reject(new Error('timeout'));
+    }, ms);
+    (_origFetch)(url, ac ? {...opts, signal: ac.signal} : opts).then(
+      resp=>{ if(done) return; done=true; clearTimeout(timer); resolve(resp); },
+      err=>{ if(done) return; done=true; clearTimeout(timer); reject(err); }
+    );
+  });
+}
 // ---- AUTH: 401 -> Login; Setup-Fall -> Setup-Seite ----
 window._authChecked = false;
+const _origFetch = window.fetch;
 (async function(){
   try{
     const r = await fetch('/api/meta');
@@ -476,7 +494,6 @@ window._authChecked = false;
   }catch(e){ /* Server nicht erreichbar — init() zeigt es */ }
   window._authChecked = true;
 })();
-const _origFetch = window.fetch;
 window.fetch = function(...args){
   const p = _origFetch.apply(this, args);
   return p.then(resp => {
@@ -747,7 +764,7 @@ function show(a,b){ $(b).classList.add('hidden'); $(a).classList.remove('hidden'
 function reportRun(mode, n){
   try{
     const chapts=[...sel].join(',');
-    fetch('/api/run',{method:'POST',headers:{'Content-Type':'application/json'},
+    apiFetch('/api/run',{method:'POST',headers:{'Content-Type':'application/json'},
       body:JSON.stringify({kid, book, chapters:chapts, mode, n,
         score:score, detail:(window._runDetail||[]).slice(0,40),
         wrong:(window._lastWrong||[]).slice(-40)})}).catch(()=>{});
@@ -1151,6 +1168,38 @@ async function startQuiz(){
   $('cardbox').classList.add('hidden'); $('cardResult').classList.add('hidden');
   $('writebox').classList.add('hidden'); $('writeResult').classList.add('hidden');
   window._lastWrong=[]; window._isCards=false; window._skipped=[];
+  // Watchdog: falls ein Screen hängt (hängender fetch/Timer-Loss), advance erzwingen
+  if(window._wdTimer) clearInterval(window._wdTimer);
+  window._wdTimer=setInterval(()=>{
+    if(mode!=='quiz'){ return; }
+    // Finale sichtbar (je Modus) → kein Eingriff + Watchdog-Reset:
+    const finaleOn = (!$('result').classList.contains('hidden'))
+      || (!$('writeResult').classList.contains('hidden'))
+      || (!$('cardResult').classList.contains('hidden'));
+    if(finaleOn){ window._wdFinger='finale'; return; }
+    // Fortschritts-Fingerprint: qix + score + angezeigter Text
+    const st=$('quizState') ? $('quizState').textContent : '';
+    const finger=qix+'|'+score+'|'+st;
+    const inWrite = !$('writebox').classList.contains('hidden');
+    // Eingabefelder zeigen User-Aktivität (Schreiben/Tippen) → Finger mit Eingabewert:
+    const wv=($('wInput') && inWrite && !$('wInput').closest('.hidden')) ? $('wInput').value.length : -1;
+    const full=qix+'|'+score+'|'+st+'|'+wv;
+    if(full===window._wdFinger){
+      if(!window._wdSince) window._wdSince=Date.now();
+      if(Date.now()-window._wdSince>14000){
+        // 14 s IDENTISCHER Zustand = echtes Hängen → answered-Klemme lösen (re-show aktuelle Frage)
+        console.warn('VB-Watchdog: Stillstand >14 s, Frage neu aufbauen');
+        window._wdFinger=''; window._wdSince=0;
+        try{
+          if(window._isCards){ renderCard(); }
+          else if(inWrite){ renderWrite(); }
+          else { renderQ(); }
+        }catch(e){}
+      }
+    } else {
+      window._wdFinger=full; window._wdSince=Date.now();
+    }
+  }, 3000);
   window._skipPhase=false; window._skipQueue=[]; window._rix=0;
   $('skipBtn').classList.remove('hidden');
   score=0; qix=0; answered=false;
@@ -1202,7 +1251,7 @@ function quizAdvance(){
   $('pfill').style.width=`${(qix/quiz.questions.length)*100}%`; renderQ();
 }
 function renderQ(){
-  answered=false;
+  answered=false; window._qStart=Date.now();
   const n=quiz.questions.length;
   let q, label, pct;
   if(window._skipPhase){
@@ -1234,7 +1283,7 @@ function renderQ(){
       if(!text.trim()||answered) return; answered=true;
       inp.disabled=true;
       let r;
-      try{ r=await (await fetch('/api/write/check',{method:'POST',headers:{'Content-Type':'application/json'},
+      try{ r=await (await apiFetch('/api/write/check',{method:'POST',headers:{'Content-Type':'application/json'},
         body:JSON.stringify({kid,nonce:window._nonce,key:q.id+'|'+q.direction,text})})).json(); }
       catch(e){ r={correct:false,answer:''}; }
       const good=!!r.correct, half=!!r.half;
@@ -1287,8 +1336,8 @@ function renderQ(){
 async function mixedCardVerdict(knew, q){
   if(answered) return; answered=true;
   $('mxForgot').disabled=true; $('mxKnew').disabled=true;
-  try{ await fetch('/api/card/answer',{method:'POST',headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({kid,nonce:window._nonce,qid:q.id,direction:q.direction,verdict:knew?'knew':'forgot'})}); }catch(e){}
+  try{ apiFetch('/api/card/answer',{method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({kid,nonce:window._nonce,qid:q.id,direction:q.direction,verdict:knew?'knew':'forgot'})}).catch(()=>{}); }catch(e){}
   (window._runDetail=window._runDetail||[]).push({prompt:q.front, given:knew?'✓ gewusst':'✗ nicht', answer:q.back, verdict:knew?'right':'wrong', caps:false});
   if(knew) score++;
   else window._lastWrong.push({qid:q.id, prompt:q.front, answer:q.back});
@@ -1305,7 +1354,7 @@ async function answer(i,btn,q){
   if(answered) return; answered=true;
   const body={kid,qid:q.id,direction:q.direction,nonce:window._nonce,choice:i};
   let r;
-  try{ r=await (await fetch('/api/answer',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)})).json(); }
+  try{ r=await (await apiFetch('/api/answer',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)})).json(); }
   catch(e){ r={correct:false,answer:q.answer}; }
   const good=!!r.correct;
   (window._runDetail=window._runDetail||[]).push({prompt:q.prompt, given:q.choices[i], answer:r.answer||'',
@@ -1367,7 +1416,7 @@ function renderDetailTable(detail, hostEl){
 async function retryWrong(){
   if(!window._lastWrong||!window._lastWrong.length) return;
   try{
-    const r=await (await fetch('/api/quiz/wrong',{method:'POST',headers:{'Content-Type':'application/json'},
+    const r=await (await apiFetch('/api/quiz/wrong',{method:'POST',headers:{'Content-Type':'application/json'},
       body:JSON.stringify({book,kid,nonce:window._nonce})})).json();
     if(r.error||!(r.questions||[]).length){ $('resNote').textContent=r.error||'Keine falschen mehr offen.'; return; }
     quiz=r; window._lastWrong=[]; score=0; qix=0; answered=false;
@@ -1411,7 +1460,7 @@ function renderWrite(){
   const items=window._wItems||[];
   if(qix>=items.length){ writeFinish(); return; }
   const it=items[qix];
-  answered=false;
+  answered=false; window._qStart=Date.now();
   $('wInput').value=''; $('wInput').className=''; $('wInput').disabled=false;
   $('wFeedback').textContent=''; $('wFeedback').className='wfb';
   $('wPrompt').textContent=it.prompt;
@@ -1426,7 +1475,7 @@ async function checkWrite(){
   const text=$('wInput').value.trim();
   let r;
   try{
-    r=await (await fetch('/api/write/check',{method:'POST',headers:{'Content-Type':'application/json'},
+    r=await (await apiFetch('/api/write/check',{method:'POST',headers:{'Content-Type':'application/json'},
       body:JSON.stringify({kid,nonce:window._nonce,key:it.id+'|'+it.direction,text})})).json();
   }catch(e){ r={correct:false,answer:it.prompt}; }
   const good=!!r.correct, half=!!r.half;
@@ -1515,7 +1564,7 @@ function renderCard(){
   const cards=window._cards||[];
   if(qix>=cards.length){ cardFinish(); return; }
   const c=cards[qix];
-  answered=false;
+  answered=false; window._qStart=Date.now();
   // iOS-Paint-Race: Transition aus, Zustand hart setzen, Reflow erzwingen, Transition wieder an
   const card=$('card');
   card.classList.add('noanim');
@@ -1544,8 +1593,8 @@ async function cardVerdict(knew){
     window._lastWrongCards.push({qid:c.id, prompt:c.front, answer:c.back});
     window._lastWrong.push({qid:c.id, prompt:c.front, answer:c.back});
   } else score++;
-  try{ await fetch('/api/card/answer',{method:'POST',headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({kid,qid:c.id,direction:c.direction,nonce:window._nonce,verdict:knew?'knew':'forgot'})}); }catch(e){}
+  try{ apiFetch('/api/card/answer',{method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({kid,qid:c.id,direction:c.direction,nonce:window._nonce,verdict:knew?'knew':'forgot'})}).catch(()=>{}); }catch(e){}
   qix++;
   setTimeout(()=>{ if(qix<(window._cards||[]).length){ renderCard(); } else { cardFinish(); } }, 250);
 }
