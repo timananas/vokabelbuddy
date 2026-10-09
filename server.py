@@ -1775,17 +1775,33 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
         data = _qdata(book)
         agg = _chapter_stats(_stats(), kid)
         chapters = []
+        # Dedup-Count je Kapitel (gleiche Semantik wie _pool: casefolds über Buch-Grenzen;
+        # der Badge soll dieselbe Zahl zeigen, die Quiz/Cards/Write wirklich servieren).
+        _sorted_chs = sorted(data['chapters'],
+                             key=lambda c: int(c.get('num')) if str(c.get('num', 0)).isdigit() else 999)
+        _dedup_seen = set()
+        _dedup_counts = {}
+        for ch in _sorted_chs:
+            raw = ch.get('words') or []
+            n_dd = 0
+            for w in raw:
+                if not isinstance(w, (list, tuple)) or len(w) < 2:
+                    continue
+                en_n, de_n = _norm(w[0]).casefold(), _norm(w[1]).casefold()
+                if not en_n or not de_n or (en_n, de_n) in _dedup_seen:
+                    continue
+                _dedup_seen.add((en_n, de_n))
+                n_dd += 1
+            _dedup_counts[str(ch.get('num'))] = n_dd
         for ch in data['chapters']:
             key = f'{book}|{ch.get("num")}'
             a = agg.get(key, {})
             chapters.append({
                 'num': ch.get('num'), 'title': ch.get('title', ''),
-                'count': len(ch.get('words') or []),
+                'count': _dedup_counts.get(str(ch.get('num')), len(ch.get('words') or [])),
                 'seen_n': a.get('n', 0), 'seen_right': a.get('right', 0),
                 'best_streak': a.get('streak', 0),
             })
-        chapters.sort(key=lambda c: int(c['num']) if str(c['num']).isdigit() else 999)
-        self._json({'book': book, 'kid': kid, 'chapters': chapters})
 
     def api_quiz(self, q):
         book = (q.get('book') or [''])[0]
@@ -2088,6 +2104,15 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
         self._json({'kid': kid or None, 'runs': runs[:limit]})
 
     def api_export(self, q):
+        kid = (q.get('kid') or [''])[0]
+        fkid = self._forced_kid(kid) if auth_has_password() else kid
+        if auth_has_password() and fkid is None:
+            self._json({'error': 'Parameter fehlen'}, 400)
+            return
+        kid = fkid
+        if not _kid_ok(kid):
+            self._json({'error': 'kid unbekannt'}, 400)
+            return
         book = (q.get('book') or [''])[0]
         if book not in _book_ids():
             self._json({'error': 'book unbekannt'}, 400)
