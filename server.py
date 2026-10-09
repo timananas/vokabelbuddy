@@ -369,7 +369,7 @@ class _AuthGateMixin:
         if not auth_has_password():
             return True  # Setup-Modus offen
         # Statische Branding-Assets IMMER frei (Login-Seite braucht sie!)
-        if r.startswith('/assets/') or r.startswith('/favicon') or r in ('/manifest.json', '/sw.js'):
+        if r.startswith('/assets/') or r.startswith('/favicon') or r.startswith('/apple-touch-icon') or r in ('/manifest.json', '/sw.js'):
             return True
         pub = PUBLIC_GET if self.command in ('GET', 'HEAD') else PUBLIC_POST
         if r in pub or r == '/logout':
@@ -435,10 +435,10 @@ _AUTH_WRAP = ('<!DOCTYPE html><html lang="de"><head><meta charset="utf-8">'
               '<meta name="viewport" content="width=device-width, initial-scale=1">'
               '<meta name="theme-color" content="#2E8BFF">'
               '<link rel="icon" type="image/png" sizes="32x32" href="/assets/mascot-32.png">'
-              '<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon2.png">'
-              '<link rel="apple-touch-icon" sizes="152x152" href="/assets/apple-touch-icon2.png">'
-              '<link rel="apple-touch-icon" sizes="167x167" href="/assets/apple-touch-icon2.png">'
-              '<link rel="apple-touch-icon" href="/assets/apple-touch-icon2.png">'
+              '<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon3.png">'
+              '<link rel="apple-touch-icon" sizes="152x152" href="/assets/apple-touch-icon3.png">'
+              '<link rel="apple-touch-icon" sizes="167x167" href="/assets/apple-touch-icon3.png">'
+              '<link rel="apple-touch-icon" href="/assets/apple-touch-icon3.png">'
               '<link rel="manifest" href="/manifest.json">'
               '<title>{t}</title><style>' + _AUTH_CSS + '</style></head><body>'
               '<div class="authcol"><div class="card">{b}</div></div></body></html>')
@@ -1059,6 +1059,14 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
                 self._send(200, b'<h1>Vokabelbuddy</h1><p>index.html fehlt</p>', 'text/html; charset=utf-8')
             return True
         # PWA: Manifest, SW, Assets (weißliste, sandboxed auf ROOT)
+        # iOS fragt KONVENTIONS-Root-Pfade (/apple-touch-icon.png …) ohne <link>-Zwang:
+        m_apple = {}
+        am = re.match(r'^/apple-touch-icon(?:-(?:precomposed|\d+x\d+))?\.png$', path)
+        if am:
+            p = os.path.join(ROOT, 'assets', 'apple-touch-icon2.png')
+            if os.path.exists(p):
+                self._send(200, open(p, 'rb').read(), 'image/png')
+                return True
         m = {'/manifest.json': 'application/manifest+json', '/sw.js': 'application/javascript',
              '/favicon.ico': 'image/x-icon', '/favicon-32.png': 'image/png', '/favicon-16.png': 'image/png'}
         a = {'.png': 'image/png', '.svg': 'image/svg+xml', '.ico': 'image/x-icon'}
