@@ -2,9 +2,347 @@
  "version": 1,
  "chapters": [
   {
-   "num": 1,
-   "title": "English G Headlight 6 – Vocabulary",
+   "num": 0,
+   "title": "English connects (Vorspann)",
    "words": [
+    [
+     "und stehen",
+     "nie sie haben keinen Plural"
+    ],
+    [
+     "mit a/an oder Zahlwörtern",
+     "I need some information about …"
+    ],
+    [
+     "active",
+     "Aktiv"
+    ],
+    [
+     "adjective",
+     "Adjektiv"
+    ],
+    [
+     "adverb",
+     "Adverb"
+    ],
+    [
+     "adverb of frequency",
+     "Häufigkeitsadverb"
+    ],
+    [
+     "adverb of manner",
+     "[ædvɜːb əv ˈmænə] Adverb der Art und Weise"
+    ],
+    [
+     "article",
+     "Artikel"
+    ],
+    [
+     "auxiliary",
+     "Hilfsverb (zur Bildung von Frage- sätzen, Zeitformen usw.)"
+    ],
+    [
+     "backshift of tenses",
+     "Rückverschiebung der Zeitformen"
+    ],
+    [
+     "comparison",
+     "[kəmˈpærɪsn] Steigerung"
+    ],
+    [
+     "conditional sentence",
+     "Bedingungssatz"
+    ],
+    [
+     "contact clause",
+     "[ˈkɒntækt klɔːz] Relativsatz ohne Relativpronomen"
+    ],
+    [
+     "defining relative clause",
+     "bestimmender Relativsatz"
+    ],
+    [
+     "direct speech",
+     "[ˌdaɪrekt ˈspiːtʃ] direkte Rede"
+    ],
+    [
+     "future",
+     "Zukunft, Futur"
+    ],
+    [
+     "gerund",
+     "Gerundium, -ing -Form"
+    ],
+    [
+     "going to -future",
+     "[ˈɡəʊɪŋ tʊ fjuːtʃə] Futur mit going to"
+    ],
+    [
+     "if -clause",
+     "if -Satz, Nebensatz mit"
+    ],
+    [
+     "imperative",
+     "Imperativ (Befehlsform)"
+    ],
+    [
+     "indirect speech",
+     "[ˌɪndərekt ˈspiːtʃ] indirekte Rede"
+    ],
+    [
+     "infinitive",
+     "Grundform des Verbs, Infinitiv"
+    ],
+    [
+     "ing -form",
+     "Gerundium, -ing -Form"
+    ],
+    [
+     "irregular verb",
+     "[ɪˈregjələ ˈvɜːb] unregelmäßiges Verb"
+    ],
+    [
+     "main clause",
+     "[ˌmeɪn ˈklɔːz] Hauptsatz"
+    ],
+    [
+     "modal verb",
+     "Modalverb, modales Hilfsverb"
+    ],
+    [
+     "negative statement",
+     "verneinter Aussagesatz"
+    ],
+    [
+     "noun",
+     "Nomen, Substantiv"
+    ],
+    [
+     "object",
+     "Objekt"
+    ],
+    [
+     "object question",
+     "Objektfrage, Frage nach dem Objekt"
+    ],
+    [
+     "participle clause",
+     "Partizipialsatz"
+    ],
+    [
+     "passive",
+     "Passiv"
+    ],
+    [
+     "past participle",
+     "Partizip Perfekt, 3. Form des Verbs"
+    ],
+    [
+     "past perfect",
+     "past perfect (Vorvergangenheit, Plusquamperfekt)"
+    ],
+    [
+     "past progressive",
+     "Verlaufsform der Vergangenheit"
+    ],
+    [
+     "personal pronoun",
+     "Personalpronomen"
+    ],
+    [
+     "plural",
+     "Plural, Mehrzahl"
+    ],
+    [
+     "positive statement",
+     "bejahter Aussagesatz"
+    ],
+    [
+     "possessive determiner",
+     "Possessivbegleiter"
+    ],
+    [
+     "possessive pronoun",
+     "Possessivpronomen"
+    ],
+    [
+     "preposition",
+     "Präposition"
+    ],
+    [
+     "present participle",
+     "Partizip Präsens"
+    ],
+    [
+     "present perfect",
+     "present perfect"
+    ],
+    [
+     "present perfect progressive",
+     "Verlaufsform des"
+    ],
+    [
+     "present progressive",
+     "Verlaufsform der Gegenwart"
+    ],
+    [
+     "pronoun",
+     "Pronomen, Fürwort"
+    ],
+    [
+     "question",
+     "Frage(satz)"
+    ],
+    [
+     "question tag",
+     "Frageanhängsel"
+    ],
+    [
+     "question word",
+     "Fragewort"
+    ],
+    [
+     "reflexive pronoun",
+     "Reflexivpronomen"
+    ],
+    [
+     "regular verb",
+     "regelmäßiges Verb"
+    ],
+    [
+     "relative clause",
+     "Relativsatz"
+    ],
+    [
+     "relative pronoun",
+     "Relativpronomen"
+    ],
+    [
+     "short answer",
+     "Kurzantwort"
+    ],
+    [
+     "simple past",
+     "einfache Form der Vergangenheit"
+    ],
+    [
+     "simple present",
+     "einfache Form der Gegenwart"
+    ],
+    [
+     "singular",
+     "Singular, Einzahl"
+    ],
+    [
+     "statement",
+     "Aussage(satz)"
+    ],
+    [
+     "subject",
+     "Subjekt"
+    ],
+    [
+     "subject question",
+     "Subjektfrage"
+    ],
+    [
+     "substitute",
+     "Ersatzverb (anstelle v. Modalverb)"
+    ],
+    [
+     "superlative",
+     "Superlativ, höchste Steigerungsform"
+    ],
+    [
+     "tense",
+     "Zeitform des Verbs"
+    ],
+    [
+     "time word/",
+     "Zeitangabe"
+    ],
+    [
+     "verb",
+     "1. Verb 2. Prädikat"
+    ],
+    [
+     "will -future",
+     "Futur mit will"
+    ],
+    [
+     "yes / no -question",
+     "Entscheidungsfrage"
+    ],
+    [
+     "word order",
+     "Wortstellung (im Satz)"
+    ],
+    [
+     "Dictionary English – German English connects",
+     "auf den Seiten 234–270 verwenden."
+    ],
+    [
+     "entertainment",
+     "Unterhaltung"
+    ],
+    [
+     "politics",
+     "Politik"
+    ]
+   ]
+  },
+  {
+   "num": 1,
+   "title": "Unit 1 A diverse nation",
+   "words": [
+    [
+     "engineering",
+     "Ingenieurwesen, Maschinen- bau, Technik"
+    ],
+    [
+     "multicultural",
+     "multikulturell"
+    ],
+    [
+     "rainbow",
+     "Regenbogen"
+    ],
+    [
+     "diversity",
+     "Vielfalt"
+    ],
+    [
+     "Dutch",
+     "holländisch, niederländisch; Niederländisch"
+    ],
+    [
+     "colonize",
+     "kolonisieren"
+    ],
+    [
+     "diamond",
+     "Diamant"
+    ],
+    [
+     "religion",
+     "Religion"
+    ],
+    [
+     "multilingual",
+     "mehrsprachig"
+    ],
+    [
+     "vegetation",
+     "Vegetation"
+    ],
+    [
+     "wildlife",
+     "Tiere (in freier Wildbahn) , Tierwelt"
+    ],
+    [
+     "anti-",
+     "anti-, gegen-"
+    ],
     [
      "free sb.",
      "jn. befreien"
@@ -20,6 +358,10 @@
     [
      "election",
      "Wahl (Abstimmung)"
+    ],
+    [
+     "elect sb. (to be) sth.",
+     "jn. zu etwas wählen"
     ],
     [
      "in (the) case of",
@@ -58,18 +400,6 @@
      "aufführen; durchführen; auftreten (Künstler/in)"
     ],
     [
-     "performer – performance – performing arts",
-     "(pl)"
-    ],
-    [
-     "performer",
-     "Künstler/in street"
-    ],
-    [
-     "performing arts (pl)",
-     "darstellende Kunst"
-    ],
-    [
      "document",
      "dokumentieren"
     ],
@@ -99,7 +429,7 @@
     ],
     [
      "transformation",
-     "Umwandlung, Veränderung,"
+     "Umwandlung, Veränderung, Umgestaltung"
     ],
     [
      "process",
@@ -114,12 +444,8 @@
      "wenige"
     ],
     [
-     "(a) little steht mit",
-     "nicht zählbaren Nomen wie"
-    ],
-    [
-     "Beachte die Unterschiede",
-     "We had very little money"
+     "few steht mit dem Plural von",
+     "zählbaren Nomen ."
     ],
     [
      "zwischen little und a little",
@@ -142,7 +468,7 @@
      "Antwort"
     ],
     [
-     "athlete 208",
+     "athlete",
      "(Leicht-)Athlet/in, Sportler/in"
     ],
     [
@@ -182,16 +508,12 @@
      "Fragezeichen"
     ],
     [
-     "Punctuation",
-     "(Zeichensetzung)"
+     "punctuation",
+     "Zeichensetzung"
     ],
     [
-     "full stop Punkt .",
-     "? question mark"
-    ],
-    [
-     "comma Komma ,",
-     "! exclamation mark"
+     "full stop",
+     "Punkt ."
     ],
     [
      ": colon",
@@ -204,10 +526,6 @@
     [
      "in fact",
      "eigentlich, um genau zu sein"
-    ],
-    [
-     "mark Text",
-     "(Schul-)Note, Zensur"
     ],
     [
      "tunnel",
@@ -250,10 +568,6 @@
      "sicher(lich), gewiss"
     ],
     [
-     "Inversion (Wortstellung",
-     "verb – subject )"
-    ],
-    [
      "Nach Adverbien mit Wortstellung:",
      "negativer oder einschränkender"
     ],
@@ -266,24 +580,12 @@
      "simple past musst du do/does oder"
     ],
     [
-     "I am not happy. – I am not",
-     "happy either ."
-    ],
-    [
      "Cycling keeps",
      "the air clean and is good for your"
     ],
     [
      "This would not help us",
      "in any way ."
-    ],
-    [
-     "I had never heard",
-     "of such a thing."
-    ],
-    [
-     "We only found out",
-     "about this later ."
     ],
     [
      "straight",
@@ -299,7 +601,7 @@
     ],
     [
      "leftover pizza/cake/…",
-     "übrig gebliebene Pizza/"
+     "übrig gebliebene Pizza/Kuchen/…"
     ],
     [
      "turn yellow",
@@ -310,7 +612,7 @@
      "Olive"
     ],
     [
-     "pineapple 210",
+     "pineapple",
      "Ananas"
     ],
     [
@@ -470,7 +772,7 @@
      "Hosenschlitz"
     ],
     [
-     "do sth. up 212",
+     "do sth. up",
      "etwas zumachen (Kleidung)"
     ],
     [
@@ -496,22 +798,6 @@
     [
      "care about sth. care (about)",
      "etwas wichtig nehmen"
-    ],
-    [
-     "Does anybody care about",
-     "our oceans?"
-    ],
-    [
-     "I didn’t care about",
-     "money when I was younger."
-    ],
-    [
-     "You should care about",
-     "your health."
-    ],
-    [
-     "I don’t eat meat. I really care about",
-     "animals."
     ],
     [
      "space",
@@ -546,7 +832,7 @@
      "Reaktion, Antwort (auf)"
     ],
     [
-     "impression Skills training",
+     "impression",
      "Eindruck"
     ],
     [
@@ -578,20 +864,22 @@
      "Reaktion (auf)"
     ],
     [
-     "stick , stuck, stuck",
+     "stick, stuck, stuck",
      "(haften) bleiben"
-    ],
+    ]
+   ]
+  },
+  {
+   "num": 2,
+   "title": "Unit 2 Take a stand!",
+   "words": [
     [
      "technique",
      "Methode, Technik"
     ],
     [
-     "take a stand (on/against",
-     "Stellung beziehen (zu/gegen"
-    ],
-    [
-     "sth. )",
-     "etwas)"
+     "take a stand (on/against sth.)",
+     "Stellung beziehen (zu/gegen etwas)"
     ],
     [
      "create",
@@ -630,7 +918,7 @@
      "Unterschrift"
     ],
     [
-     "power 214",
+     "power",
      "Macht, Kraft, Stärke"
     ],
     [
@@ -650,7 +938,7 @@
      "Internet-Mem, Internetphänomen"
     ],
     [
-     "series , pl series",
+     "series, pl series",
      "Serie; (Sende-)Reihe"
     ],
     [
@@ -679,11 +967,7 @@
     ],
     [
      "troll",
-     "Troll, Kobold; (in Online-Medi-"
-    ],
-    [
-     "en)",
-     "Provokateur/in"
+     "Troll, Kobold; (in Online-Medien) Provokateur/in"
     ],
     [
      "hurtful",
@@ -774,7 +1058,7 @@
      "etwas/jn. melden, anzeigen (bei) (z.B. bei der Polizei)"
     ],
     [
-     "be in progress 216",
+     "be in progress",
      "im Gange sein"
     ],
     [
@@ -802,10 +1086,6 @@
      "hinterher, danach"
     ],
     [
-     "drop Text",
-     "fallen; fallen lassen"
-    ],
-    [
      "cut through sth.",
      "etwas durchqueren; eine Abkürzung durch … nehmen"
     ],
@@ -826,20 +1106,16 @@
      "kreischen; (Reifen, Bremsen) quietschen"
     ],
     [
-     "come sb.’s way way",
-     "auf jn. zu kommen"
-    ],
-    [
-     "1. Art und Weise I like the",
-     "way they dance in the video."
+     "come sb.’s way",
+     "auf jn. zukommen"
     ],
     [
      "2. Weg the station?",
      "Excuse me, can you tell us the way to"
     ],
     [
-     "We have to go",
-     "this way ."
+     "3. Richtung",
+     "Stop! You’re going the wrong way ."
     ],
     [
      "headlight",
@@ -870,7 +1146,7 @@
      "wahnsinnig, verrückt"
     ],
     [
-     "speed , sped, sped",
+     "speed, sped, sped",
      "rasen, zu schnell fahren"
     ],
     [
@@ -890,7 +1166,7 @@
      "Bulle (Polizist/in)"
     ],
     [
-     "flash 218",
+     "flash",
      "blinken, leuchten"
     ],
     [
@@ -1026,7 +1302,7 @@
      "beweisen; nachweisen"
     ],
     [
-     "stereotype 220",
+     "stereotype",
      "Stereotyp, Klischee(vorstellung)"
     ],
     [
@@ -1060,7 +1336,13 @@
     [
      "rescue",
      "retten"
-    ],
+    ]
+   ]
+  },
+  {
+   "num": 3,
+   "title": "Unit 3 Future visions",
+   "words": [
     [
      "bomb",
      "Bombe"
@@ -1126,28 +1408,24 @@
      "Psychologie"
     ],
     [
-     "wireless (-less)",
+     "wireless -less („-los“)",
      "drahtlos, Funk-"
     ],
     [
-     "driverless fahrerlos,",
+     "driverless fahrerlos",
      "helpless hilflos"
     ],
     [
-     "führerlos",
-     "homeless obdachlos"
+     "homeless",
+     "obdachlos"
     ],
     [
-     "endless endlos",
-     "hopeless hoffnungslos"
+     "endless",
+     "endlos"
     ],
     [
      "saving",
      "Einsparung, Ersparnis"
-    ],
-    [
-     "pass sth. on (to sb. )",
-     "etwas weitergeben (an jn.)"
     ],
     [
      "consumer",
@@ -1178,7 +1456,7 @@
      "landwirtschaftlich, Agrar-"
     ],
     [
-     "region 222",
+     "region",
      "Region, Gegend"
     ],
     [
@@ -1215,7 +1493,7 @@
     ],
     [
      "head-mounted display",
-     "Datenhelm, Datenbrille,"
+     "Datenhelm, Datenbrille"
     ],
     [
      "tense",
@@ -1242,6 +1520,14 @@
      "weitermachen"
     ],
     [
+     "2. keep sth. up",
+     "You’re doing a good job. Keep it up!"
+    ],
+    [
+     "keep (on) We",
+     "kept (on) walking till we got to a village."
+    ],
+    [
      "doing sth.",
      "I tried to talk to him, but he kept shouting"
     ],
@@ -1260,6 +1546,14 @@
     [
      "billion",
      "Milliarde"
+    ],
+    [
+     "7000 BC",
+     "7000 v. Chr."
+    ],
+    [
+     "1000 AD",
+     "1000 n. Chr."
     ],
     [
      "graph , BE auch:",
@@ -1286,16 +1580,12 @@
      "schiefgehen"
     ],
     [
-     "controversial 224",
+     "controversial",
      "kontrovers, umstritten"
     ],
     [
      "prediction",
      "Vorhersage, Voraussage"
-    ],
-    [
-     "by 8 pm/by next year/",
-     "bis 20 Uhr/bis nächstes Jahr/"
     ],
     [
      "by 2030/…",
@@ -1350,10 +1640,6 @@
      "Reiseziel, Fahrtziel"
     ],
     [
-     "unfortunately Text",
-     "unglücklicherweise, leider"
-    ],
-    [
      "global warming",
      "Erderwärmung"
     ],
@@ -1382,12 +1668,28 @@
      "(sich) verlangsamen, langsamer werden"
     ],
     [
-     "put sth. off put",
+     "put sth. off",
      "etwas verschieben, hinauszögern"
+    ],
+    [
+     "put sth. in Please",
+     "put in (= fill in) your name and address."
+    ],
+    [
+     "put sth. off",
+     "Do it now. Don’t put it off till tomorrow."
+    ],
+    [
+     "put sth. on",
+     "It’s cold outside. I’d put on a pullover."
     ],
     [
      "The driver",
      "put on the police car’s siren."
+    ],
+    [
+     "put sth. up",
+     "Can you help me to put up this picture?"
     ],
     [
      "row",
@@ -1398,8 +1700,8 @@
      "Einzelgänger/in"
     ],
     [
-     "hang around (infml) , hung, 226",
-     "herumhängen"
+     "… whom you could trust.",
+     "..., wem man trauen konnte."
     ],
     [
      "mob",
@@ -1450,63 +1752,35 @@
      "Atem"
     ],
     [
-     "Wenn man beschreiben will, was",
-     "früher"
-    ],
-    [
-     "dann kann man used to …",
-     "verwenden:"
-    ],
-    [
-     "We used to live",
-     "in Manchester."
-    ],
-    [
-     "Manchester United",
-     "used to be my favourite"
-    ],
-    [
      "kann man auch would …",
      "benutzen:"
-    ],
-    [
-     "Grandpa would visit",
-     "us every Sunday after"
-    ],
-    [
-     "We would often go",
-     "for long walks in the woods."
     ],
     [
      "bath",
      "Bad; Badewanne"
     ],
     [
-     "backwards",
-     "rückwärts; nach hinten"
-    ],
-    [
-     "It's the way you do it.",
+     "It’s the way you do it. German ”man“",
      "So macht man das."
     ],
     [
-     "you You should wash",
-     "your hands before every meal."
+     "they They",
+     "say it always rains in England, but that’s not true."
     ],
     [
-     "passive Nothing",
-     "could be done ."
+     "people People",
+     "say it always rains in England, but that’s not true."
     ],
     [
-     "facing forwards/",
-     "nach vorn/hinten schauend; mit"
+     "the The boy",
+     "was taken to hospital, but it was too late."
     ],
     [
-     "backwards",
-     "dem Gesicht nach vorn/hinten"
+     "facing forwards/backwards",
+     "nach vorn/hinten schauend; mit dem Gesicht nach vorn/hinten"
     ],
     [
-     "narrator 228",
+     "narrator",
      "Erzähler/in"
     ],
     [
@@ -1542,10 +1816,6 @@
      "Batterie, Akku"
     ],
     [
-     "poor ,",
-     "schlecht, schwach, minderwertig"
-    ],
-    [
      "in addition",
      "außerdem"
     ],
@@ -1559,7 +1829,7 @@
     ],
     [
      "refund",
-     "Rückzahlung, (Kosten-) Erstattung"
+     "Rückzahlung, (Kosten-)erstattung"
     ],
     [
      "attach (to)",
@@ -1602,11 +1872,11 @@
      "Halbtotale (Film)"
     ],
     [
-     "close-up MORE CHALLENGE 1",
+     "close-up",
      "Nahaufnahme (Film)"
     ],
     [
-     "°poach",
+     "poach",
      "wildern, unerlaubt jagen"
     ],
     [
@@ -1624,10 +1894,6 @@
     [
      "notably",
      "insbesondere, hauptsächlich"
-    ],
-    [
-     "rhino , pl rhinos (infml)",
-     "Nashorn"
     ],
     [
      "extinction",
@@ -1652,10 +1918,6 @@
     [
      "armed",
      "bewaffnet"
-    ],
-    [
-     "confront sb. 230",
-     "jn. konfrontieren, jm. entgegentreten"
     ],
     [
      "leopard",
@@ -1686,12 +1948,8 @@
      "put it more simply ?"
     ],
     [
-     "As my brother put it",
-     ", ”You can’t have everything.“"
-    ],
-    [
-     "I often find it difficult to",
-     "put my feelings into words ."
+     "To put it mildly",
+     ", the service at the hotel was a disaster."
     ],
     [
      "unemployment",
@@ -1710,7 +1968,7 @@
      "trotz"
     ],
     [
-     "°poverty",
+     "poverty",
      "Armut"
     ],
     [
@@ -1718,7 +1976,7 @@
      "(Natur-)Schutz, Erhaltung, Bewahrung"
     ],
     [
-     "°bicycle",
+     "bicycle",
      "Fahrrad"
     ],
     [
@@ -1738,7 +1996,7 @@
      "js. Aufmerksamkeit auf"
     ],
     [
-     "steer (to) sth.",
+     "to sth.",
      "etwas lenken"
     ],
     [
@@ -1782,10 +2040,6 @@
      "schließen, schlussfolgern"
     ],
     [
-     "If he were to …",
-     "Wenn/Falls er …"
-    ],
-    [
      "retreat",
      "sich zurückziehen"
     ],
@@ -1814,11 +2068,11 @@
      "Bedenken"
     ],
     [
-     "°enrich",
+     "enrich",
      "bereichern, anreichern"
     ],
     [
-     "°referendum (on sth.)",
+     "referendum (on sth.)",
      "Volksentscheid (über etwas)"
     ],
     [
@@ -1846,8 +2100,88 @@
      "jn./etwas abschneiden, abkap- seln von"
     ],
     [
-     "form 232",
-     "(sich) formen, bilden"
+     "change one’s mind",
+     "es sich anders überlegen"
+    ],
+    [
+     "builder MORE CHALLENGE 3",
+     "Bauarbeiter/in"
+    ],
+    [
+     "graduate (from)",
+     "den Abschluss machen (an)"
+    ],
+    [
+     "fellow student",
+     "Mitschüler/in"
+    ],
+    [
+     "memory (of)",
+     "Gedächtnis, Erinnerung (an)"
+    ],
+    [
+     "rhetorical question",
+     "rhetorische Frage"
+    ],
+    [
+     "repetition",
+     "Wiederholung"
+    ],
+    [
+     "provoke",
+     "provozieren"
+    ],
+    [
+     "successively",
+     "hintereinander, nacheinander"
+    ],
+    [
+     "clarify",
+     "klären, klarstellen"
+    ],
+    [
+     "passage",
+     "Passage (z.B. Text, Musikstück)"
+    ],
+    [
+     "found",
+     "gründen; gefunden (find)"
+    ],
+    [
+     "patience",
+     "Geduld"
+    ],
+    [
+     "bore sb.",
+     "jn. langweilen"
+    ],
+    [
+     "embarrass sb.",
+     "jn. in Verlegenheit bringen"
+    ],
+    [
+     "have bumps",
+     "holprig sein"
+    ],
+    [
+     "senior",
+     "Schüler/in im letzten Schuljahr"
+    ],
+    [
+     "expression",
+     "Ausdruck"
+    ],
+    [
+     "decorate",
+     "dekorieren, schmücken"
+    ],
+    [
+     "ceremony",
+     "Feier, Zeremonie"
+    ],
+    [
+     "colour",
+     "färben"
     ]
    ]
   }

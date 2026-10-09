@@ -2,8 +2,38 @@
  "version": 1,
  "chapters": [
   {
+   "num": 0,
+   "title": "Vorspann / Warm-up",
+   "words": [
+    [
+     "Hier siehst du, wie das",
+     "Vocabulary aufgebaut ist: have to do sth. etwas tun müssen"
+    ],
+    [
+     "Diese Zahl gibt die Seite",
+     "an, auf der die Die Lautschrift"
+    ],
+    [
+     "Wörter zum ersten Mal vorkommen.",
+     "class [klɑːs] Unterricht; Kurs"
+    ],
+    [
+     "Das rote Ausrufezeichen Vorsicht, hier macht man leicht Fehler!",
+     "act bedeutet: [ækt] Theater spielen, schauspielern"
+    ],
+    [
+     "ausspricht, dann solltest du das",
+     "Dictionary"
+    ],
+    [
+     "Englisch heißt, dann kann dir das",
+     "Dictionary"
+    ]
+   ]
+  },
+  {
    "num": 1,
-   "title": "English G Headlight 2 – Vocabulary",
+   "title": "Unit 1 - Together again",
    "words": [
     [
      "mountain",
@@ -30,10 +60,6 @@
      "umhergehen"
     ],
     [
-     "they weren’t (= were not )",
-     "sie waren nicht"
-    ],
-    [
      "so great",
      "so toll"
     ],
@@ -42,7 +68,7 @@
      "Wetter"
     ],
     [
-     "warm cold kalt",
+     "warm",
      "warm"
     ],
     [
@@ -68,10 +94,6 @@
     [
      "go: I went",
      "gehen: ich ging / ich bin gegangen"
-    ],
-    [
-     "I didn’t want to … (= did not )",
-     "ich wollte nicht …"
     ],
     [
      "stay: I stayed",
@@ -118,8 +140,8 @@
      "gelangweilt"
     ],
     [
-     "get (got)",
-     "bekommen"
+     "get: she got",
+     "bekommen: sie bekam, sie hat bekommen"
     ],
     [
      "its name",
@@ -158,16 +180,12 @@
      "Kricket (Mannschaftssportart)"
     ],
     [
-     "act",
-     "Theater spielen, schauspielern"
-    ],
-    [
      "Christmas",
      "Weihnachten"
     ],
     [
      "Christmas pantomime",
-     "(BE) Theaterstück zur"
+     "(BE) Theaterstück zur Weihnachtszeit"
     ],
     [
      "healthy",
@@ -194,16 +212,16 @@
      "Welcher Klub?"
     ],
     [
+     "Which club did you join?",
+     "In welchen Klub bist du einge- du dich angeschlossen?"
+    ],
+    [
      "circle",
      "Kreis"
     ],
     [
      "channel",
      "Kanal"
-    ],
-    [
-     "drive , simple past: drove",
-     "(mit dem Auto) fahren"
     ],
     [
      "be/feel homesick",
@@ -218,27 +236,27 @@
      "infinitive"
     ],
     [
-     "be was, were",
-     "sein go"
+     "be (was, were)",
+     "sein"
     ],
     [
-     "do (did)",
-     "tun, machen"
+     "do did",
+     "tun, machen make"
     ],
     [
-     "feel felt",
-     "(sich) fühlen meet"
+     "feel (felt)",
+     "(sich) fühlen"
     ],
     [
-     "find found",
-     "finden read"
+     "find (found)",
+     "finden"
     ],
     [
-     "get got",
-     "bekommen write"
+     "get (got)",
+     "bekommen"
     ],
     [
-     "rule sentence Satz",
+     "rule",
      "Regel"
     ],
     [
@@ -254,7 +272,7 @@
      "Gewinner/in"
     ],
     [
-     "each",
+     "each Story",
      "jeder/jede/jedes (einzelne)"
     ],
     [
@@ -326,6 +344,10 @@
      "Auge"
     ],
     [
+     "What’s the matter?",
+     "Was ist denn? / Was ist los?"
+    ],
+    [
      "die",
      "sterben"
     ],
@@ -334,19 +356,15 @@
      "deshalb, darum"
     ],
     [
-     "cry",
-     "weinen"
-    ],
-    [
      "thank sb.",
      "sich bei jm. bedanken"
     ],
     [
-     "unfriendly Skills training",
+     "unfriendly",
      "unfreundlich"
     ],
     [
-     "collect tip Tipp",
+     "collect",
      "sammeln"
     ],
     [
@@ -354,12 +372,16 @@
      "Gegenteil"
     ],
     [
-     "finish Opposites with ’un-’",
+     "finish",
      "beenden, zu Ende machen"
     ],
     [
      "cool – uncool",
      "uncool interesting"
+    ],
+    [
+     "friendly – unfriendly",
+     "unfreundlich sure"
     ],
     [
      "happy – unhappy",
@@ -368,14 +390,6 @@
     [
      "healthy – unhealthy",
      "ungesund"
-    ],
-    [
-     "wear , simple past:",
-     "tragen, anhaben (Kleidung)"
-    ],
-    [
-     "scarf, pl scarves ,",
-     "Schal"
     ],
     [
      "strange",
@@ -390,27 +404,33 @@
      "wütend"
     ],
     [
-     "buy bought",
-     "kaufen have"
+     "buy (bought)",
+     "kaufen"
     ],
     [
-     "come came",
-     "kommen say"
+     "come (came)",
+     "kommen"
     ],
     [
-     "drink drank",
-     "trinken see"
+     "drink (drank)",
+     "trinken"
     ],
     [
-     "eat ate",
-     "essen sit"
+     "eat (ate)",
+     "essen"
+    ]
+   ]
+  },
+  {
+   "num": 2,
+   "title": "Unit 2 - Neighbours",
+   "words": [
+    [
+     "give (gave)",
+     "geben"
     ],
     [
-     "give gave",
-     "geben understand"
-    ],
-    [
-     "pp.28/29 neighbour",
+     "neighbour",
      "Nachbar/in"
     ],
     [
@@ -450,8 +470,8 @@
      "Frisör/in"
     ],
     [
-     "wird ’s",
-     "an die Berufsbezeichnung angehängt. The"
+     "Who did Adam meet?",
+     "Wen hat Adam getroffen? / Wen traf Adam?"
     ],
     [
      "bus stop",
@@ -468,10 +488,6 @@
     [
      "neighbourhood",
      "Nachbarschaft, Gegend, Viertel"
-    ],
-    [
-     "we don’t have any …",
-     "wir haben kein/e …"
     ],
     [
      "festival",
@@ -498,8 +514,8 @@
      "Möchtest du (etwas) Tee / (ein"
     ],
     [
-     "chips ?",
-     "paar) Pommes frites?"
+     "chips (pl)",
+     "Pommes frites"
     ],
     [
      "I’ll have …",
@@ -512,6 +528,10 @@
     [
      "collar",
      "Halsband"
+    ],
+    [
+     "Good boy. / Good dog.",
+     "Braver Junge. / Braver Hund."
     ],
     [
      "suddenly",
@@ -528,14 +548,6 @@
     [
      "Get lost!",
      "Verschwinde(t)!"
-    ],
-    [
-     "run , simple past: ran",
-     "rennen, laufen"
-    ],
-    [
-     "as fast as he could",
-     "so schnell (wie) er konnte"
     ],
     [
      "be scared (of)",
@@ -562,16 +574,8 @@
      "Schwanz"
     ],
     [
-     "tell (about) ,",
-     "erzählen (von), berichten"
-    ],
-    [
-     "simple past: told",
-     "(über)"
-    ],
-    [
-     "a dog that could be Buster",
-     "ein Hund, der Buster sein könnte"
+     "tell (told, told)",
+     "erzählen, berichten (über)"
     ],
     [
      "he could",
@@ -582,12 +586,8 @@
      "natürlich, selbstverständlich"
     ],
     [
-     "this morning/afternoon/",
-     "heute Morgen/Nachmittag/"
-    ],
-    [
-     "evening",
-     "Abend"
+     "this morning/afternoon/evening",
+     "heute Morgen/Nachmittag/Abend"
     ],
     [
      "I see.",
@@ -610,7 +610,7 @@
      "Zug, Eisenbahn"
     ],
     [
-     "(train) station ear Ohr",
+     "(train) station",
      "Bahnhof"
     ],
     [
@@ -690,7 +690,7 @@
      "Geheimnis"
     ],
     [
-     "someone ( or:",
+     "someone ( or: Story",
      "jemand"
     ],
     [
@@ -714,24 +714,12 @@
      "Kopf"
     ],
     [
-     "smile",
-     "lächeln"
+     "answer",
+     "1. (be)antworten; 2. Antwort"
     ],
     [
-     "answer 1. (be)antworten;",
-     "2. Antwort smile"
-    ],
-    [
-     "cook 1. kochen; 2.",
-     "Koch, Köchin text"
-    ],
-    [
-     "help 1. helfen; 2. Hilfe",
-     "walk"
-    ],
-    [
-     "rain 1. regnen; 2. Regen",
-     "work"
+     "cook",
+     "1. kochen; 2. Koch, Köchin"
     ],
     [
      "along the road",
@@ -810,14 +798,6 @@
      "die Jungen dort, jene Jungen"
     ],
     [
-     "verwendet man eher",
-     "this und these . I’ll take this book"
-    ],
-    [
-     "verwendet man eher",
-     "that und those ."
-    ],
-    [
      "only",
      "erst"
     ],
@@ -826,7 +806,7 @@
      "Hand"
     ],
     [
-     "danger Skills training",
+     "danger",
      "Gefahr"
     ],
     [
@@ -882,19 +862,25 @@
      "fallen"
     ],
     [
-     "hear heard",
-     "[hɜːd] hören sing"
+     "hear (heard)",
+     "hören"
     ],
     [
      "lose lost",
      "verlieren"
-    ],
+    ]
+   ]
+  },
+  {
+   "num": 3,
+   "title": "Unit 3 - Teen talk",
+   "words": [
     [
      "put put",
      "stellen, legen win"
     ],
     [
-     "pp.48/49 teen talk",
+     "teen talk",
      "etwa: Teenagergespräche"
     ],
     [
@@ -908,10 +894,6 @@
     [
      "chill (infml)",
      "relaxen, sich ausruhen"
-    ],
-    [
-     "stuff (infml)",
-     "Zeug, Kram"
     ],
     [
      "ski",
@@ -928,10 +910,6 @@
     [
      "survey",
      "Umfrage"
-    ],
-    [
-     "How much?",
-     "Wie viel?"
     ],
     [
      "go out",
@@ -966,8 +944,8 @@
      "frustriert"
     ],
     [
-     "until bis",
-     "(zeitlich)"
+     "until",
+     "bis (zeitlich)"
     ],
     [
      "if",
@@ -990,16 +968,12 @@
      "Geschirrspülmaschine"
     ],
     [
-     "empty empty leer",
-     "leeren"
+     "empty",
+     "1. leeren; 2. leer"
     ],
     [
      "enough",
      "genug"
-    ],
-    [
-     "cut , simple past: cut",
-     "schneiden; (Rasen) mähen"
     ],
     [
      "grass",
@@ -1086,10 +1060,6 @@
      "Bluse"
     ],
     [
-     "boot",
-     "Stiefel"
-    ],
-    [
      "activity",
      "Aktivität, Tätigkeit"
     ],
@@ -1142,12 +1112,8 @@
      "(wunder)schön"
     ],
     [
-     "grow , simple past: grew",
-     "wachsen"
-    ],
-    [
-     "Money doesn’t grow on",
-     "(etwa) Das Geld liegt nicht"
+     "Money doesn’t grow on trees.",
+     "(etwa) Das Geld liegt nicht auf der Straße."
     ],
     [
      "trees. part Teil",
@@ -1235,14 +1201,14 @@
     ],
     [
      "spend time/money (on)",
-     "Geld ausgeben (für);"
+     "Geld ausgeben (für); Zeit verbringen (mit)"
     ],
     [
      ", simple past: spent",
      "Zeit verbringen (mit)"
     ],
     [
-     "task Skills Training",
+     "task",
      "Aufgabe"
     ],
     [
@@ -1264,10 +1230,6 @@
     [
      "relaxing",
      "entspannend, beruhigend"
-    ],
-    [
-     "relax",
-     "sich entspannen"
     ],
     [
      "gear",
@@ -1307,7 +1269,7 @@
     ],
     [
      "find out about sth.",
-     "sich über etwas informieren,"
+     "sich über etwas informieren, etwas herausfinden"
     ],
     [
      "interested (in)",
@@ -1322,13 +1284,19 @@
      "Leiter/in, (An-)Führer/in"
     ],
     [
-     "hide hid",
-     "(sich) verstecken speak"
+     "hide (hid, hidden)",
+     "(sich) verstecken"
     ],
     [
-     "leave left",
-     "weggehen, abfahren swim"
-    ],
+     "leave (left)",
+     "weggehen, abfahren"
+    ]
+   ]
+  },
+  {
+   "num": 4,
+   "title": "Unit 4 - Feeling good",
+   "words": [
     [
      "set the table set the table",
      "[set] den Tisch decken think"
@@ -1338,24 +1306,8 @@
      "deine Lebensweise (die Art, wie du lebst)"
     ],
     [
-     "how many? much („viel“) – many („viele“)",
-     "wie viele?"
-    ],
-    [
-     "„viel“ How much",
-     "coffee do we need? – We do n’t need"
-    ],
-    [
-     "Wie viel Kaffee …?",
-     "– nicht viel"
-    ],
-    [
      "„viele“ How many",
      "DVDs do you have? – I do n’t have many"
-    ],
-    [
-     "Wie viele DVDs …?",
-     "– nicht viele"
     ],
     [
      "less than",
@@ -1427,7 +1379,7 @@
     ],
     [
      "baked potato",
-     "Ofenkartoffel (in der Schale"
+     "Ofenkartoffel (in der Schale gebackene Kartoffel)"
     ],
     [
      "bake",
@@ -1470,16 +1422,8 @@
      "eine Packung/Tüte Chips"
     ],
     [
-     "chance",
-     "Chance, Gelegenheit"
-    ],
-    [
      "doctor",
      "Arzt, Ärztin"
-    ],
-    [
-     "the good news is that …",
-     "die gute Nachricht ist, dass …"
     ],
     [
      "dark",
@@ -1530,7 +1474,7 @@
      "Bauch; Magen"
     ],
     [
-     "have a stomach ache ,",
+     "have a stomach ache",
      "Bauchschmerzen haben"
     ],
     [
@@ -1544,10 +1488,6 @@
     [
      "move (to)",
      "(um)ziehen (nach)"
-    ],
-    [
-     "I have a sore throat. throat Hals",
-     "Ich habe Halsschmerzen. /"
     ],
     [
      "sore",
@@ -1594,20 +1534,8 @@
      "waschen; sauber machen"
     ],
     [
-     "already already • not … yet • never • just • before",
-     "schon"
-    ],
-    [
-     "already",
-     "Ellie and Mia have already"
-    ],
-    [
      "not … yet",
      "I’ve tidied my room, but I have n’t"
-    ],
-    [
-     "never I’ve",
-     "never played basketball."
     ],
     [
      "just",
@@ -1618,7 +1546,7 @@
      "Try my lasagne. – Thank you. I have n’t"
     ],
     [
-     "everything",
+     "everything Story",
      "alles"
     ],
     [
@@ -1651,7 +1579,7 @@
     ],
     [
      "miss/like/love sb. so much",
-     "jn. so sehr vermissen/mögen/"
+     "jn. so sehr vermissen/mögen/lieben"
     ],
     [
      "helpless",
@@ -1662,16 +1590,16 @@
      "so etwas"
     ],
     [
+     "Go on.",
+     "Ach, komm! / Na los, mach schon!"
+    ],
+    [
      "have a chat",
      "eine Unterhaltung führen, sich unterhalten"
     ],
     [
      "forget about sth.",
      "(etwas) vergessen, nicht mehr an etwas denken"
-    ],
-    [
-     "situation",
-     "Situation"
     ],
     [
      "tall",
@@ -1774,36 +1702,34 @@
      "Judo"
     ],
     [
-     "choose , chose , chosen",
-     "(aus)wählen"
-    ],
-    [
      "outdoor sport",
      "Sport für draußen / im Freien"
     ],
     [
-     "bring brought",
-     "brought (mit)bringen"
+     "bring (brought)",
+     "(mit)bringen"
     ],
     [
-     "buy bought",
-     "bought kaufen"
+     "cut cut",
+     "cut schneiden"
     ],
     [
-     "do (did)",
-     "tun, machen"
+     "do did",
+     "done [ʌ] tun, machen"
     ],
     [
-     "find found",
-     "found finden"
-    ],
+     "forget (forgot, forgotten)",
+     "vergessen"
+    ]
+   ]
+  },
+  {
+   "num": 5,
+   "title": "Unit 5 - Dartmoor adventures",
+   "words": [
     [
-     "forget forgot",
-     "forgotten vergessen"
-    ],
-    [
-     "go went",
-     "gone [ɒ] gehen"
+     "go (went, gone)",
+     "gehen"
     ],
     [
      "mud",
@@ -1832,10 +1758,6 @@
     [
      "everywhere",
      "überall(hin)"
-    ],
-    [
-     "bite , bit , bitten",
-     "beißen"
     ],
     [
      "drive carefully",
@@ -1874,24 +1796,12 @@
      "das Wetter wird gut sein"
     ],
     [
-     "it won’t rain (= it will not rain )",
-     "es wird nicht regnen"
-    ],
-    [
      "forecast ( kurz für weather forecast)",
      "(Wetter-)Vorhersage"
     ],
     [
      "foggy",
      "nebelig"
-    ],
-    [
-     "fog",
-     "Nebel"
-    ],
-    [
-     "take , took ,",
-     "(mit)nehmen; bringen"
     ],
     [
      "useful",
@@ -1914,22 +1824,6 @@
      "Creme"
     ],
     [
-     "Your pyjamas are nice.",
-     "Are they new? Dein"
-    ],
-    [
-     "My trousers/jeans are new.",
-     "They’re cool. Meine"
-    ],
-    [
-     "These tights are nice. How much",
-     "are they ?"
-    ],
-    [
-     "I need my glasses/scissors",
-     ". Where are they ?"
-    ],
-    [
      "hairdryer",
      "Föhn, Haartrockner"
     ],
@@ -1950,8 +1844,8 @@
      "Anfang, Start"
     ],
     [
-     "finish Ziel",
-     "(beim Sport)"
+     "finish",
+     "Ziel (beim Sport)"
     ],
     [
      "clear",
@@ -2070,14 +1964,6 @@
      "eisig, eiskalt"
     ],
     [
-     "freeze , froze , frozen",
-     "(ge)frieren"
-    ],
-    [
-     "minus",
-     "minus"
-    ],
-    [
      "bridge",
      "Brücke"
     ],
@@ -2086,7 +1972,7 @@
      "Häuschen, Hütte"
     ],
     [
-     "stand , stood, stood",
+     "stand (stood, stood)",
      "stehen; sich (hin)stellen"
     ],
     [
@@ -2098,16 +1984,24 @@
      "Preis, Gewinn"
     ],
     [
-     "The two-tor adventure",
-     "(pp.97–99 and pp.124–125)"
-    ],
-    [
      "get (to) get, got, got",
      "gelangen, (hin)kommen (nach)"
     ],
     [
      "1. bekommen",
      "He got a job in London."
+    ],
+    [
+     "2.werden",
+     "It got very hot in the room."
+    ],
+    [
+     "3.holen, besorgen",
+     "Can you go and get some milk?"
+    ],
+    [
+     "4.gelangen, (hin)kommen",
+     "How can we get to the cottage?"
     ],
     [
      "ground",
@@ -2138,7 +2032,7 @@
      "rufen"
     ],
     [
-     "voice Skills training",
+     "voice",
      "Stimme"
     ],
     [
@@ -2186,7 +2080,7 @@
      "Unfall"
     ],
     [
-     "hurt , hurt, hurt",
+     "hurt (hurt, hurt)",
      "verletzen; wehtun"
     ],
     [
@@ -2230,29 +2124,31 @@
      "Happy End (glückliches Ende)"
     ],
     [
-     "be was /were been",
-     "sein say"
+     "be (was/were, been)",
+     "sein"
     ],
     [
-     "fall fell fallen",
-     "(hin)fallen shut up"
+     "fall (fell, fallen)",
+     "(hin)fallen"
     ],
     [
-     "feel felt felt",
-     "(sich) fühlen sleep"
+     "feel (felt, felt)",
+     "(sich) fühlen"
     ],
     [
-     "hide hid",
-     "hidden [ɪ] (sich) verstecken spend"
+     "know (knew, known)",
+     "wissen, kennen"
     ],
     [
-     "know knew",
-     "known wissen, kennen swim"
-    ],
-    [
-     "read read read",
-     "[e] lesen wear"
-    ],
+     "read (read, read)",
+     "lesen"
+    ]
+   ]
+  },
+  {
+   "num": 6,
+   "title": "Unit 6 - A journey in time",
+   "words": [
     [
      "ride rode",
      "ridden [ɪ] reiten; (Rad) write fahren"
@@ -2264,10 +2160,6 @@
     [
      "pilgrim",
      "Pilger/in"
-    ],
-    [
-     "Protestant",
-     "Protestant/in; protestantisch, evangelisch"
     ],
     [
      "sail",
@@ -2298,7 +2190,7 @@
      "spanisch; Spanisch"
     ],
     [
-     "fight , fought, fought",
+     "fight (fought, fought)",
      "kämpfen"
     ],
     [
@@ -2342,7 +2234,7 @@
      "überall im Land, im ganzen Land"
     ],
     [
-     "living history Theme",
+     "living history",
      "etwa: Geschichte zum Anfassen"
     ],
     [
@@ -2402,7 +2294,7 @@
      "Kapitän/in"
     ],
     [
-     "boat",
+     "boat Story",
      "Boot; Schiff"
     ],
     [
@@ -2458,8 +2350,268 @@
      "Da bist du nicht der/die Einzige."
     ],
     [
-     "whisper",
-     "flüstern"
+     "explain sth. to sb.",
+     "jm. etwas erklären"
+    ],
+    [
+     "drummer",
+     "Trommler/in"
+    ],
+    [
+     "by mistake",
+     "aus Versehen"
+    ],
+    [
+     "What a mess!",
+     "Was für ein Durcheinander/ Chaos!"
+    ],
+    [
+     "sky",
+     "Himmel"
+    ],
+    [
+     "rhyme",
+     "Reim"
+    ],
+    [
+     "rhyme",
+     "(sich) reimen"
+    ],
+    [
+     "carriage",
+     "Kutsche"
+    ],
+    [
+     "horse",
+     "Pferd"
+    ],
+    [
+     "switch sth. on/off",
+     "etwas einschalten/ausschalten"
+    ],
+    [
+     "magic",
+     "Zauberei, Magie"
+    ],
+    [
+     "build , built, built",
+     "bauen"
+    ],
+    [
+     "step",
+     "Stufe"
+    ],
+    [
+     "bowls (pl)",
+     "Rasenbowling (Spiel)"
+    ],
+    [
+     "destroy",
+     "zerstören, vernichten"
+    ],
+    [
+     "ruins (pl)",
+     "Ruine"
+    ],
+    [
+     "cave",
+     "Höhle"
+    ],
+    [
+     "sir",
+     "mein Herr"
+    ],
+    [
+     "transport (no pl)",
+     "Fortbewegungsmittel; Beförderung"
+    ],
+    [
+     "silly",
+     "dumm, blöd; albern"
+    ],
+    [
+     "lighthouse",
+     "Leuchtturm"
+    ],
+    [
+     "magical",
+     "magisch; zauberhaft"
+    ],
+    [
+     "view",
+     "(An-)Blick, (Aus-)Sicht"
+    ],
+    [
+     "statue",
+     "Statue"
+    ],
+    [
+     "fat",
+     "dick, fett"
+    ],
+    [
+     "hold , held, held",
+     "halten"
+    ],
+    [
+     "prepare (for)",
+     "vorbereiten; sich vorbereiten (auf)"
+    ],
+    [
+     "expert",
+     "Experte, Expertin"
+    ],
+    [
+     "research",
+     "erforschen, untersuchen, recherchieren"
+    ],
+    [
+     "illustration",
+     "Abbildung, Illustration"
+    ],
+    [
+     "the most interesting infor-",
+     "die interessanteste Information"
+    ],
+    [
+     "mation to me",
+     "für mich"
+    ],
+    [
+     "island",
+     "Insel"
+    ],
+    [
+     "come came come",
+     "kommen show"
+    ],
+    [
+     "drive drove driven",
+     "[ɪ] fahren sing"
+    ],
+    [
+     "fly flew flown",
+     "[əʊ] fliegen take"
+    ],
+    [
+     "give gave given",
+     "[ɪ] geben tell"
+    ],
+    [
+     "mean meant meant",
+     "[e] bedeuten; meinen think"
+    ],
+    [
+     "Das DICTIONARY besteht aus",
+     "zwei alphabetischen Wörterlisten"
+    ],
+    [
+     "English – German (S.231–249)",
+     "und German – English (S.250–265)"
+    ],
+    [
+     "Im Dictionary werden folgende",
+     "Abkürzungen und Symbole verwendet:"
+    ],
+    [
+     "Tipps zur Arbeit mit einem Wörterbuch",
+     "findest du im Skills file auf Seite 189."
+    ],
+    [
+     "aboard an Bord I",
+     "afternoon [ɑːftəˈnuːn] Nachmittag"
+    ],
+    [
+     "about :",
+     "in the afternoon am Nachmittag"
+    ],
+    [
+     "1. ungefähr I",
+     "again [əˈɡen] wieder, noch einmal"
+    ],
+    [
+     "2. über I",
+     "against [əˈɡenst] gegen"
+    ],
+    [
+     "Haus I What about you?",
+     "vor langer Zeit II 6 (112)"
+    ],
+    [
+     "above oben; über, ober-",
+     "jm. zustimmen; mit etwas einver-"
+    ],
+    [
+     "halb (von)",
+     "standen sein II 1 (9)"
+    ],
+    [
+     "accident Unfall",
+     "sich einigen auf"
+    ],
+    [
+     "II 5 (100)",
+     "°ahead [əˈhed] : (the road) ahead"
+    ],
+    [
+     "across Dartmoor (quer)",
+     "air [eə] Luft II 4 (73)"
+    ],
+    [
+     "act :",
+     "alive [əˈlaɪv] lebendig, am Leben"
+    ],
+    [
+     "1. Theater spielen, schauspielern",
+     "II 6 (111) come alive"
+    ],
+    [
+     "II 1 (12)",
+     "werden, (wieder) aufleben"
+    ],
+    [
+     "2. aufführen, spielen",
+     "II 6 (111)"
+    ],
+    [
+     "Aktion",
+     "country überall im Land, im"
+    ],
+    [
+     "activity Aktivität, Tä-",
+     "summer den ganzen Sommer"
+    ],
+    [
+     "tigkeit II 3 (54)",
+     "alone [əˈləʊn] allein II 1 (11)"
+    ],
+    [
+     "add hinzufügen, addieren",
+     "along [əˈlɒŋ] : along the road"
+    ],
+    [
+     "address Adresse I",
+     "Straße entlang II 2 (37)"
+    ],
+    [
+     "adopt adoptieren; (Tier)",
+     "along with mitsingen bei"
+    ],
+    [
+     "adventure Abenteuer",
+     "I also [ˈɔːlsəʊ] auch II 3 (48/49)"
+    ],
+    [
+     "advert Anzeige, Wer-",
+     "always [ˈɔːlweɪz] immer I"
+    ],
+    [
+     "Ratschläge II 4 (69)",
+     "vormittags I"
+    ],
+    [
+     "Africa Afrika I",
+     "amazing [əˈmeɪzɪŋ] erstaunlich II 6 (112)"
     ]
    ]
   }

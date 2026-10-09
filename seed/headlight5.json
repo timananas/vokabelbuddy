@@ -2,9 +2,105 @@
  "version": 1,
  "chapters": [
   {
-   "num": 1,
-   "title": "English G Headlight 5 – Vocabulary",
+   "num": 0,
+   "title": "Vorspann / Warm-up",
    "words": [
+    [
+     "und stehen keinen Plural",
+     "nie I need some information about …"
+    ],
+    [
+     "wie",
+     ". Grammatical terms (Grammatische Fachbegriffe)"
+    ],
+    [
+     "active",
+     "Aktiv"
+    ],
+    [
+     "adjective",
+     "[ˈædʒɪktɪv] Adjektiv"
+    ],
+    [
+     "adverb",
+     "Adverb"
+    ],
+    [
+     "adverb of frequency",
+     "[ˈfriːkwənsi] Häufigkeitsadverb"
+    ],
+    [
+     "adverb of manner",
+     "[ædvɜːb əv ˈmænə] Adverb der Art und Weise"
+    ],
+    [
+     "article",
+     "Artikel"
+    ],
+    [
+     "backshift of tenses",
+     "Rückverschiebung der Zeitformen"
+    ],
+    [
+     "comparison",
+     "[kəmˈpærɪsn] Steigerung"
+    ],
+    [
+     "conditional sentence",
+     "Bedingungssatz"
+    ],
+    [
+     "contact clause",
+     "[ˈkɒntækt klɔːz] Relativsatz ohne Relativpronomen"
+    ],
+    [
+     "defining relative clause",
+     "[dɪˈfaɪnɪŋ] bestimmender Relativsatz"
+    ],
+    [
+     "direct speech",
+     "[ˌdaɪrekt ˈspiːtʃ] direkte Rede"
+    ],
+    [
+     "future",
+     "Zukunft, Futur"
+    ],
+    [
+     "gerund",
+     "[ˈdʒerənd] Gerundium, -ing"
+    ],
+    [
+     "going to -future",
+     "[ˈɡəʊɪŋ tʊ fjuːtʃə] Futur mit going to"
+    ],
+    [
+     "if -clause",
+     "if -Satz, Nebensatz mit"
+    ],
+    [
+     "imperative",
+     "[ɪmˈperətɪv] Imperativ (Befehlsform)"
+    ],
+    [
+     "indirect speech",
+     "[ˌɪndərekt ˈspiːtʃ] indirekte Rede"
+    ],
+    [
+     "infinitive",
+     "[ɪnˈfɪnətɪv] Grundform des Verbs, Infinitiv"
+    ],
+    [
+     "ing -form",
+     "Gerundium, -ing"
+    ],
+    [
+     "irregular verb",
+     "[ɪˈregjələ ˈvɜːb] unregelmäßiges Verb"
+    ],
+    [
+     "main clause",
+     "[ˌmeɪn ˈklɔːz] Hauptsatz"
+    ],
     [
      "modal verb",
      "Modalverb, modales Hilfsverb"
@@ -39,7 +135,7 @@
     ],
     [
      "past perfect",
-     "Vorvergangenheit, Plusquamperfekt"
+     "past perfect (Vorvergangenheit, Plusquamperfekt)"
     ],
     [
      "past progressive",
@@ -75,7 +171,7 @@
     ],
     [
      "present perfect",
-     "present perfect"
+     "Verbindung von Vergangenheit und Gegenwart"
     ],
     [
      "present progressive",
@@ -143,14 +239,14 @@
     ],
     [
      "superlative",
-     "Superlativ"
+     "Superlativ, höchste Steigerungsform"
     ],
     [
      "tense",
      "Zeitform des Verbs"
     ],
     [
-     "time word/",
+     "time word/phrase",
      "Zeitangabe"
     ],
     [
@@ -162,16 +258,26 @@
      "Futur mit will"
     ],
     [
-     "yes / no -question",
-     "Entscheidungsfrage/Frage ohne Fragewort/Ja-/Nein-Frage"
-    ],
-    [
      "word order",
      "Wortstellung (im Satz)"
     ],
     [
      "Im Vocabulary werden folgende",
      "Abkürzungen verwendet:"
+    ],
+    [
+     "sb. = somebody",
+     "sth. = something jn. = jemanden"
+    ]
+   ]
+  },
+  {
+   "num": 1,
+   "title": "Unit 1 Life down under",
+   "words": [
+    [
+     "pl = plural (Mehrzahl)",
+     "BE = British English AE = American English"
     ],
     [
      "kangaroo",
@@ -246,7 +352,7 @@
      "Hai"
     ],
     [
-     "spider 206",
+     "spider",
      "Spinne"
     ],
     [
@@ -342,16 +448,20 @@
      "bluten"
     ],
     [
-     "redness -ness",
-     "Rötung, Röte"
+     "redness",
+     "Roetung, Roete"
     ],
     [
-     "cleverness Schlauheit",
-     "friendliness Freundlichkeit"
+     "cleverness",
+     "Schlauheit"
     ],
     [
      "darkness Dunkelheit",
      "happiness Glück"
+    ],
+    [
+     "fitness Fitness",
+     "illness Krankheit"
     ],
     [
      "take sb.’s temperature",
@@ -383,14 +493,14 @@
     ],
     [
      "inland",
-     "landeinwärts, im Landesinne- ren/ins Landesinnere"
+     "landeinwärts, im Landesinneren/ins Landesinnere"
     ],
     [
      "gather",
      "sammeln; (sich) versammeln"
     ],
     [
-     "disease 208",
+     "disease",
      "Krankheit"
     ],
     [
@@ -426,12 +536,12 @@
      "Pflanze"
     ],
     [
-     "dig , dug, dug",
-     "graben"
+     "fantastic",
+     "fantastisch, wunderschoen"
     ],
     [
-     "fantastic Background theme",
-     "fantastisch, wunderschön"
+     "Sydney rocks. (infml)",
+     "Sydney bringt‘s. / In Sydney geht die Post ab."
     ],
     [
      "architecture",
@@ -510,12 +620,8 @@
      "einfach, simpel"
     ],
     [
-     "panic Text",
-     "in Panik geraten"
-    ],
-    [
      "swerve",
-     "ausweichen, herumreißen (Lenkrad)"
+     "(das Auto/Steuer) herumreißen, (mit dem Auto) ausweichen"
     ],
     [
      "adapted from",
@@ -534,10 +640,6 @@
      "auftauchen, erscheinen"
     ],
     [
-     "be familiar (to sb. /with sth. )",
-     "(jm.) vertraut sein / (mit etwas)"
-    ],
-    [
      "chin",
      "Kinn"
     ],
@@ -550,32 +652,28 @@
      "Streifen"
     ],
     [
-     "whose 210",
+     "whose",
      "wessen"
     ],
     [
-     "his Possessivpronomen (possessive pronouns)",
+     "his",
      "seiner, seine, seins (zu „he“)"
     ],
     [
-     "I my dog mine",
-     "meiner, meine, meins we our"
+     "mine",
+     "meiner, meine, meins"
     ],
     [
-     "you your dog yours",
-     "deiner, deine, deins you"
+     "yours",
+     "deiner, deine, deins"
     ],
     [
-     "he his dog his",
-     "seiner, seine, seins they"
+     "his",
+     "seiner, seine, seins"
     ],
     [
-     "she her dog hers",
+     "hers",
      "ihrer, ihre, ihrs"
-    ],
-    [
-     "be up for sth. (infml)",
-     "bei etwas dabei sein, mitmachen"
     ],
     [
      "risk",
@@ -594,8 +692,8 @@
      "auftauchen, erscheinen; (zu sein/tun) scheinen"
     ],
     [
-     "overtake , overtaken",
-     "überholen"
+     "overtake , overtook, overtaken",
+     "ueberholen"
     ],
     [
      "pull over",
@@ -620,10 +718,6 @@
     [
      "engine",
      "Motor"
-    ],
-    [
-     "sink , sank ,",
-     "sinken"
     ],
     [
      "fuel",
@@ -678,17 +772,19 @@
      "darauf achten, dass …; dafür sorgen, dass …"
     ],
     [
-     "visuals (pl) ( kurz für : visual materials)",
-     "visuelle Materialien/Hilfsmittel"
-    ],
-    [
      "audience",
      "Publikum; Zuschauer/innen, Zuhörer/innen"
     ],
     [
      "presenter",
      "Referent/in"
-    ],
+    ]
+   ]
+  },
+  {
+   "num": 2,
+   "title": "Unit 2 Respect",
+   "words": [
     [
      "screen",
      "Leinwand; Bildschirm"
@@ -726,11 +822,11 @@
      "schrecklich"
     ],
     [
-     "deal with sth. , dealt,",
+     "deal with sth. , dealt",
      "umgehen mit etwas, mit etwas"
     ],
     [
-     "dealt",
+     "deal (with) , dealt, dealt",
      "fertigwerden, klarkommen"
     ],
     [
@@ -754,10 +850,6 @@
      "(nur) zum Spaß"
     ],
     [
-     "tease sb. 212",
-     "jn. hänseln, sich über jn. lustig machen"
-    ],
-    [
      "novel",
      "Roman"
     ],
@@ -768,10 +860,6 @@
     [
      "act act",
      "handeln, sich verhalten; so tun, als ob"
-    ],
-    [
-     "I acted stupid. (= I acted as if I was stupid.)",
-     "so tun, als ob"
     ],
     [
      "lose weight",
@@ -826,12 +914,8 @@
      "veranschaulichen; illustrieren, bebildern"
     ],
     [
-     "discrimination ( against",
-     "Diskriminierung (eines"
-    ],
-    [
-     "sb.)",
-     "Menschen)"
+     "discrimination (against sb.)",
+     "Diskriminierung (eines Menschen)"
     ],
     [
      "prejudice",
@@ -866,6 +950,10 @@
      "Kampagne"
     ],
     [
+     "Don’t be a pain.",
+     "Nerv nicht. / Geh mir/uns nicht auf die Nerven."
+    ],
+    [
      "walk sb. home",
      "jn. zu Fuß nach Hause begleiten"
     ],
@@ -898,10 +986,6 @@
      "stattdessen"
     ],
     [
-     "copy Text",
-     "kopieren, abschreiben"
-    ],
-    [
      "extract",
      "Auszug (aus einem Buch, Film)"
     ],
@@ -918,7 +1002,7 @@
      "(Un-)Kraut"
     ],
     [
-     "front garden 214",
+     "front garden",
      "Vorgarten"
     ],
     [
@@ -932,10 +1016,6 @@
     [
      "warn sb. ( about/against/",
      "jn. warnen (vor etwas / davor,"
-    ],
-    [
-     "of sth. )",
-     "etwas zu tun)"
     ],
     [
      "See for yourself.",
@@ -974,16 +1054,20 @@
      "Schlafenszeit"
     ],
     [
+     "Off you go!",
+     "Dann mal los! / Ab mit dir!"
+    ],
+    [
      "this bad , that bad",
      "so schlecht/schlimm"
     ],
     [
      "college",
-     "höhere Schule, Fach(hoch-) schule"
+     "höhere Schule, Fach(hoch)schule"
     ],
     [
      "backpack",
-     "als Rucksacktourist/in unter- wegs sein"
+     "als Rucksacktourist/in unterwegs sein"
     ],
     [
      "builder",
@@ -994,16 +1078,12 @@
      "hin und her"
     ],
     [
-     "blow , blew ,",
-     "blasen (in); wehen (Wind)"
-    ],
-    [
      "setting",
      "Schauplatz (z.B. Film/ Geschichte)"
     ],
     [
-     "plot Speaking course",
-     "Handlung(sverlauf) (z.B. Film/"
+     "plot",
+     "Handlung(sverlauf) (z.B. Film/Geschichte)"
     ],
     [
      "conversation",
@@ -1032,7 +1112,13 @@
     [
      "sometime",
      "irgendwann"
-    ],
+    ]
+   ]
+  },
+  {
+   "num": 3,
+   "title": "Unit 3 Looking forward",
+   "words": [
     [
      "paraphrase",
      "umschreiben, mit anderen Worten sagen"
@@ -1066,10 +1152,6 @@
      "Staubsauger"
     ],
     [
-     "iron 216",
-     "bügeln"
-    ],
-    [
      "earn",
      "verdienen (Geld)"
     ],
@@ -1082,8 +1164,8 @@
      "haushalten (sparsam sein)"
     ],
     [
-     "overspend (on sth. )",
-     "zu viel Geld ausgeben (für"
+     "overspend (on sth.)",
+     "zu viel Geld ausgeben (fuer)"
     ],
     [
      ", overspent, overspent",
@@ -1099,7 +1181,7 @@
     ],
     [
      "work experience",
-     "Praktikum/Praktika;"
+     "Praktikum/Praktika"
     ],
     [
      "criticism",
@@ -1147,7 +1229,7 @@
     ],
     [
      "communication",
-     "Kommunikation,"
+     "Kommunikation"
     ],
     [
      "(working) hours (pl)",
@@ -1174,32 +1256,8 @@
      "Karriere; (schulischer/ beruflicher) Werdegang"
     ],
     [
-     "up to German „bis“",
+     "up to",
      "bis (zu)"
-    ],
-    [
-     "zeitlich meist:",
-     "until"
-    ],
-    [
-     "„bis jetzt“ :",
-     "up to now/ so far"
-    ],
-    [
-     "„von … bis …“ :",
-     "from … to …"
-    ],
-    [
-     "„bis zu“ + Menge/Zahl:",
-     "up to"
-    ],
-    [
-     "räumlich meist:",
-     "as far as /up to"
-    ],
-    [
-     "CV (= curriculum vitae) (BE)",
-     "Lebenslauf"
     ],
     [
      "trainee",
@@ -1222,7 +1280,7 @@
      "Lehrling, Auszubildende/r"
     ],
     [
-     "organization 218",
+     "organization",
      "Organisation"
     ],
     [
@@ -1235,7 +1293,7 @@
     ],
     [
      "knowledge (of/about)",
-     "Wissen (von/über),"
+     "Wissen (von/ueber)"
     ],
     [
      "flexible",
@@ -1283,7 +1341,7 @@
     ],
     [
      "key",
-     "Schlüssel; Schlüssel-"
+     "Schluessel; Schluessel-"
     ],
     [
      "achievement",
@@ -1303,7 +1361,7 @@
     ],
     [
      "Dear Sir/Madam",
-     "Sehr geehrte Damen und"
+     "Sehr geehrte Damen und Herren"
     ],
     [
      "enclose",
@@ -1314,14 +1372,6 @@
      "Mit freundlichen Grüßen You start with:"
     ],
     [
-     "If you know the person’s name:",
-     "Dear Ms Jones Dear Mr Brown"
-    ],
-    [
-     "If you don’t know the person’s name:",
-     "Dear Sir/Madam"
-    ],
-    [
      "responsibility",
      "Aufgabe, Zuständigkeit"
     ],
@@ -1330,7 +1380,7 @@
      "Voraussetzung, Anforderung"
     ],
     [
-     "attitude (to/towards) Background theme",
+     "attitude (to/towards)",
      "Einstellung, (Geistes-)Haltung"
     ],
     [
@@ -1355,7 +1405,7 @@
     ],
     [
      "people with special needs",
-     "Menschen mit besonderen"
+     "Menschen mit besonderen Beduerfnissen"
     ],
     [
      "assist (with)",
@@ -1390,8 +1440,12 @@
      "Kamel"
     ],
     [
-     "explore 220",
+     "explore",
      "erforschen, erkunden"
+    ],
+    [
+     "be (good) friends with sb.",
+     "mit jm. (gut) befreundet sein"
     ],
     [
      "… though.",
@@ -1412,10 +1466,6 @@
     [
      "She’s …, isn’t she?",
      "Sie ist …, nicht wahr?"
-    ],
-    [
-     "interviewer Text",
-     "Interviewer/in"
     ],
     [
      "blurb",
@@ -1455,7 +1505,7 @@
     ],
     [
      "application form",
-     "Bewerbungsformular,"
+     "Bewerbungsformular"
     ],
     [
      "on one’s own",
@@ -1464,10 +1514,6 @@
     [
      "boardwalk",
      "Steg, Uferpromenade (aus Holz)"
-    ],
-    [
-     "a friend of Cindy’s / of",
-     "ein/e Freund/in von Cindy /"
     ],
     [
      "hers / of mine",
@@ -1534,7 +1580,7 @@
      "ans Telefon gehen"
     ],
     [
-     "slam 222",
+     "slam",
      "(zu-, hin)knallen"
     ],
     [
@@ -1558,7 +1604,7 @@
      "töricht, dumm"
     ],
     [
-     "appearance Speaking course",
+     "appearance",
      "Erscheinung(sbild), Aussehen"
     ],
     [
@@ -1588,14 +1634,16 @@
     [
      "greet",
      "begrüßen"
-    ],
+    ]
+   ]
+  },
+  {
+   "num": 4,
+   "title": "Unit 4 Generation like",
+   "words": [
     [
      "contact sb.",
      "Kontakt aufnehmen zu, sich melden bei"
-    ],
-    [
-     "Unit 4: Generation",
-     "like"
     ],
     [
      "argument",
@@ -1674,10 +1722,6 @@
      "etwas (in soziale Medien)"
     ],
     [
-     "media)",
-     "(ein)stellen"
-    ],
-    [
      "vain",
      "eitel"
     ],
@@ -1706,7 +1750,7 @@
      "modern, von heute"
     ],
     [
-     "although 224",
+     "although",
      "obwohl"
     ],
     [
@@ -1746,12 +1790,8 @@
      "Muster, Probe(exemplar)"
     ],
     [
-     "advertising adverts and advertising",
+     "advertising",
      "Werbung, Reklame"
-    ],
-    [
-     "advertisement, infml auch:",
-     "ad, advert"
     ],
     [
      "irritate",
@@ -1759,7 +1799,7 @@
     ],
     [
      "gatecrash (a party)",
-     "(bei einer Party) ungebeten"
+     "(bei einer Party) ungebeten kommen"
     ],
     [
      "control",
@@ -1794,12 +1834,8 @@
      "Nachrichten schicken/ austauschen"
     ],
     [
-     "crash (into) Text",
-     "einen Unfall haben, zusam- menstoßen (mit)"
-    ],
-    [
      "heavyweight",
-     "Schwergewicht; Schwergewichts-"
+     "Schwergewicht; Schwergewicht-"
     ],
     [
      "virtual",
@@ -1826,12 +1862,8 @@
      "Virus"
     ],
     [
-     "spread (sth.) ,",
-     "etwas verbreiten (Virus, Krank-"
-    ],
-    [
-     "spread, spread",
-     "heit) ; sich ausbreiten"
+     "spread , spread, spread",
+     "sich ausbreiten; Ausbreitung (einer Krankheit)"
     ],
     [
      "go crazy",
@@ -1854,7 +1886,7 @@
      "das realistischste Spiel, das es je gegeben hat"
     ],
     [
-     "energy 226",
+     "energy",
      "Energie"
     ],
     [
@@ -1906,10 +1938,6 @@
      "Finder/in"
     ],
     [
-     "creep up ( on sb.) ,",
-     "sich heranschleichen (an jn.)"
-    ],
-    [
      "pick on sb.",
      "auf jm. herumhacken, jn. drangsalieren"
     ],
@@ -1920,6 +1948,10 @@
     [
      "weapon",
      "Waffe"
+    ],
+    [
+     "… is bad news.",
+     "… ist gefährlich. / … ist (gar) nicht gut."
     ],
     [
      "close",
@@ -1946,11 +1978,7 @@
      "(jn. an)grinsen"
     ],
     [
-     "no need for … / no need to",
-     "kein Grund für … / kein"
-    ],
-    [
-     "do sth.",
+     "reason to do sth.",
      "Grund, etwas zu tun"
     ],
     [
@@ -1998,23 +2026,15 @@
      "anders als, im Gegensatz zu"
     ],
     [
-     "come true German „werden“",
+     "come true",
      "wahr werden"
     ],
     [
-     "Man verwendet am häufigsten",
-     "get oder"
+     "Das Verb get als become .",
+     "ist etwas umgangssprachlicher"
     ],
     [
-     "Vor Nomen wird nur",
-     "become verwendet. She became"
-    ],
-    [
-     "Wenn es um Farben oder Verschlechterungen",
-     "food can"
-    ],
-    [
-     "orphan 228",
+     "orphan",
      "Waise"
     ],
     [
@@ -2022,8 +2042,8 @@
      "Charakterisierung"
     ],
     [
-     "characterize Speaking course",
-     "charakteristisch sein für; beschreiben, darstellen"
+     "characterize",
+     "charakteristisch sein fuer; beschreiben, darstellen"
     ],
     [
      "shocking",
@@ -2086,7 +2106,7 @@
      "überreden, überzeugen"
     ],
     [
-     "°spare room",
+     "spare room",
      "Gästezimmer"
     ],
     [
@@ -2122,7 +2142,7 @@
      "Redewendung"
     ],
     [
-     "°run (a program)",
+     "run (a program)",
      "(ein Programm) anbieten, abhalten"
     ],
     [
@@ -2154,8 +2174,244 @@
      "(auf)bauen, konstruieren"
     ],
     [
-     "gap 230",
-     "Lücke; Kluft"
+     "few",
+     "wenige"
+    ],
+    [
+     "normally",
+     "normalerweise"
+    ],
+    [
+     "risky",
+     "riskant"
+    ],
+    [
+     "chief",
+     "Haupt-; leitende/r"
+    ],
+    [
+     "be/feel uncomfortable",
+     "sich unbehaglich fühlen"
+    ],
+    [
+     "moon MORE CHALLENGE 2",
+     "Mond"
+    ],
+    [
+     "elementary school (AE)",
+     "Grundschule"
+    ],
+    [
+     "middle school (AE)",
+     "Mittelschule (für 11- bis"
+    ],
+    [
+     "abroad",
+     "im/ins Ausland"
+    ],
+    [
+     "call sb. names",
+     "jn. beschimpfen"
+    ],
+    [
+     "beyond",
+     "über … hinaus, weiter als"
+    ],
+    [
+     "hardship",
+     "Not, Mühsal, harte Umstände"
+    ],
+    [
+     "able-bodied",
+     "(körperlich) gesund"
+    ],
+    [
+     "rare",
+     "selten"
+    ],
+    [
+     "condition",
+     "Leiden, Erkrankung"
+    ],
+    [
+     "properly",
+     "richtig, ordentlich, korrekt"
+    ],
+    [
+     "display",
+     "zeigen, zur Schau stellen"
+    ],
+    [
+     "rather than",
+     "anstelle von, (an)statt"
+    ],
+    [
+     "admit",
+     "zugeben, (ein)gestehen"
+    ],
+    [
+     "doorway",
+     "Eingang (Tür)"
+    ],
+    [
+     "barrier",
+     "Barriere"
+    ],
+    [
+     "replace (with)",
+     "ersetzen, austauschen"
+    ],
+    [
+     "dock",
+     "Dock, Hafen, Mole"
+    ],
+    [
+     "encourage",
+     "ermutigen, unterstützen"
+    ],
+    [
+     "rather MORE CHALLENGE 3",
+     "ziemlich"
+    ],
+    [
+     "overseas",
+     "Übersee-, Auslands-"
+    ],
+    [
+     "congratulations ( on sth.)",
+     "herzlichen Glückwunsch (zu"
+    ],
+    [
+     "set sth. up",
+     "etwas einrichten, aufbauen"
+    ],
+    [
+     "palm (tree)",
+     "Palme"
+    ],
+    [
+     "sandy",
+     "sandig, Sand-"
+    ],
+    [
+     "imagination",
+     "Fantasie, Vorstellungskraft"
+    ],
+    [
+     "minor character [maɪnə",
+     "Nebenfigur (in Roman, Film"
+    ],
+    [
+     "ˈkærəktə]",
+     "usw.)"
+    ],
+    [
+     "flatmate",
+     "Mitbewohner/in"
+    ],
+    [
+     "interview",
+     "befragen, interviewen"
+    ],
+    [
+     "work long hours MORE CHALLENGE 4",
+     "lange arbeiten, Überstunden machen"
+    ],
+    [
+     "analysis , pl analyses",
+     "Analyse"
+    ],
+    [
+     "location",
+     "Ort (Standort; Einsatzort)"
+    ],
+    [
+     "reaction (to)",
+     "Reaktion (auf)"
+    ],
+    [
+     "gift",
+     "Geschenk"
+    ],
+    [
+     "lively",
+     "lebendig, lebhaft"
+    ],
+    [
+     "get lucky",
+     "Glück haben"
+    ],
+    [
+     "sell, sold, sold",
+     "sich verkaufen (lassen)"
+    ],
+    [
+     "even though",
+     "auch wenn, obwohl (betont)"
+    ],
+    [
+     "sum",
+     "Summe, Betrag"
+    ],
+    [
+     "hint",
+     "Hinweis"
+    ],
+    [
+     "in fact",
+     "eigentlich, um genau zu sein"
+    ],
+    [
+     "make sth. up",
+     "etwas erfinden, sich etwas ausdenken"
+    ],
+    [
+     "entertaining",
+     "unterhaltsam"
+    ],
+    [
+     "aspect",
+     "Aspekt"
+    ],
+    [
+     "recommend sth. (to sb. )",
+     "(jm.) etwas empfehlen"
+    ],
+    [
+     "poetry",
+     "Dichtung, Lyrik, Poesie"
+    ],
+    [
+     "rose",
+     "Rose"
+    ],
+    [
+     "violet",
+     "Veilchen (Blume)"
+    ],
+    [
+     "brick",
+     "Ziegel(-)"
+    ],
+    [
+     "but nur",
+     "(formell, gehoben)"
+    ],
+    [
+     "within",
+     "innerhalb (von), in"
+    ],
+    [
+     "intelligent",
+     "intelligent"
+    ],
+    [
+     "cultured",
+     "kultiviert, gebildet"
+    ],
+    [
+     "regret",
+     "bedauern, bereuen"
     ]
    ]
   }

@@ -2,233 +2,9 @@
  "version": 1,
  "chapters": [
   {
-   "num": 1,
-   "title": "English G Headlight 1 – Vocabulary",
+   "num": 0,
+   "title": "Nice to meet you! (Vorspann)",
    "words": [
-    [
-     "Hier siehst du, wie das Vocabulary",
-     "aufgebaut ist:"
-    ],
-    [
-     "Diese Zahl gibt die Seite",
-     "an, auf der die Die Lautschrift"
-    ],
-    [
-     "Nice to meet you.",
-     "Freut mich, dich/euch/Sie kennenzulernen."
-    ],
-    [
-     "nice",
-     "nett, schön"
-    ],
-    [
-     "meet",
-     "kennenlernen; treffen"
-    ],
-    [
-     "you",
-     "du; dich; dir; ihr; euch; Sie; Ihnen"
-    ],
-    [
-     "Hi.",
-     "Hallo."
-    ],
-    [
-     "I’m (= I am)",
-     "ich bin"
-    ],
-    [
-     "the crab",
-     "der Krebs"
-    ],
-    [
-     "What’s your name?",
-     "Wie heißt du? ( wörtlich : Was"
-    ],
-    [
-     "what?",
-     "was?"
-    ],
-    [
-     "your",
-     "dein/e; euer/eure; Ihr/e"
-    ],
-    [
-     "name",
-     "Name"
-    ],
-    [
-     "one",
-     "5 five"
-    ],
-    [
-     "two",
-     "6 six 10 ten"
-    ],
-    [
-     "three",
-     "7 seven"
-    ],
-    [
-     "four",
-     "8 eight"
-    ],
-    [
-     "How old are you?",
-     "Wie alt bist du?"
-    ],
-    [
-     "you’re (= you are )",
-     "du bist; ihr seid; Sie sind"
-    ],
-    [
-     "from Plymouth",
-     "aus Plymouth"
-    ],
-    [
-     "in England",
-     "in England"
-    ],
-    [
-     "Where are you from?",
-     "Wo kommst du her?"
-    ],
-    [
-     "where?",
-     "wo? / wohin?"
-    ],
-    [
-     "Germany",
-     "Deutschland"
-    ],
-    [
-     "class",
-     "Klasse"
-    ],
-    [
-     "game",
-     "Spiel"
-    ],
-    [
-     "I can see …",
-     "ich kann … sehen"
-    ],
-    [
-     "can",
-     "können"
-    ],
-    [
-     "and",
-     "und"
-    ],
-    [
-     "a beach",
-     "ein Strand"
-    ],
-    [
-     "Cyril’s song",
-     "Cyrils Lied"
-    ],
-    [
-     "my",
-     "mein/e"
-    ],
-    [
-     "favourite colour",
-     "Lieblingsfarbe"
-    ],
-    [
-     "colour",
-     "Farbe"
-    ],
-    [
-     "place",
-     "Ort, Platz"
-    ],
-    [
-     "love",
-     "lieben, sehr mögen"
-    ],
-    [
-     "aquarium",
-     "Aquarium"
-    ],
-    [
-     "fish, pl fish",
-     "Fisch; Fische"
-    ],
-    [
-     "great",
-     "toll, großartig"
-    ],
-    [
-     "all",
-     "alle(s)"
-    ],
-    [
-     "sweets (pl)",
-     "Bonbons, Süßigkeiten"
-    ],
-    [
-     "Welcome to Plymouth .",
-     "Willkommen in Plymouth."
-    ],
-    [
-     "red rot",
-     "brown [braʊn] braun"
-    ],
-    [
-     "yellow gelb",
-     "orange [ˈɒrɪndʒ] orange"
-    ],
-    [
-     "blue blau",
-     "grey [greɪ] grau"
-    ],
-    [
-     "green grün",
-     "pink [pɪŋk] pink, rosa"
-    ],
-    [
-     "like",
-     "mögen"
-    ],
-    [
-     "I don’t like …",
-     "ich mag … nicht"
-    ],
-    [
-     "My favourite colour is …",
-     "Meine Lieblingsfarbe ist …"
-    ],
-    [
-     "sport",
-     "Sport; Sportart"
-    ],
-    [
-     "hobby",
-     "Hobby"
-    ],
-    [
-     "football",
-     "Fußball"
-    ],
-    [
-     "music",
-     "Musik"
-    ],
-    [
-     "I like watching TV.",
-     "Ich sehe gern fern."
-    ],
-    [
-     "TV",
-     "Fernseher"
-    ],
-    [
-     "too",
-     "auch"
-    ],
     [
      "dance",
      "tanzen"
@@ -264,6 +40,10 @@
     [
      "number",
      "Zahl, Ziffer, Nummer"
+    ],
+    [
+     "What about you?",
+     "Und du? / Was ist mit dir?"
     ],
     [
      "but",
@@ -342,7 +122,7 @@
      "(Haus-)Tier"
     ],
     [
-     "wild",
+     "wild 192 one hundred and ninety-two",
      "wild"
     ],
     [
@@ -354,7 +134,7 @@
      "es ist ( bei Dingen und Tieren auch: er ist, sie ist)"
     ],
     [
-     "it has wheel Rad",
+     "it has",
      "es (er, sie) hat"
     ],
     [
@@ -366,7 +146,7 @@
      "gehen; fahren"
     ],
     [
-     "to on auf",
+     "to",
      "zu, nach"
     ],
     [
@@ -386,7 +166,7 @@
      "groß"
     ],
     [
-     "camera with mit",
+     "camera",
      "Fotoapparat; Kamera"
     ],
     [
@@ -410,7 +190,7 @@
      "der letzte Tag der Ferien /"
     ],
     [
-     "holidays",
+     "the last day of the holidays",
      "der letzte Ferientag"
     ],
     [
@@ -422,7 +202,7 @@
      "Hallo."
     ],
     [
-     "It’s me. no nein",
+     "It’s me.",
      "Ich bin’s."
     ],
     [
@@ -452,7 +232,13 @@
     [
      "Yippee!",
      "Hurra!"
-    ],
+    ]
+   ]
+  },
+  {
+   "num": 1,
+   "title": "Unit 1 Welcome to our school",
+   "words": [
     [
      "chant",
      "Sprechgesang"
@@ -510,6 +296,10 @@
      "Nun, …/ Also, …/ Na ja, …"
     ],
     [
+     "Have a good day.",
+     "Ich wünsche dir einen schönen Tag. / Schönen Tag (noch)."
+    ],
+    [
      "good",
      "gut"
     ],
@@ -534,6 +324,10 @@
      "Englisch; englisch"
     ],
     [
+     "Who are you?",
+     "Wer bist du? / Wer seid ihr?"
+    ],
+    [
      "village",
      "Dorf"
     ],
@@ -550,7 +344,7 @@
      "Bruder"
     ],
     [
-     "sister",
+     "sister 194 one hundred and ninety-four",
      "Schwester"
     ],
     [
@@ -570,10 +364,6 @@
      "auf/an dieser Schule"
     ],
     [
-     "they aren’t … (= they are …",
-     "sie sind nicht …; sie sind keine"
-    ],
-    [
      "I’m not … …",
      "ich bin nicht …; ich bin kein/e"
     ],
@@ -584,14 +374,6 @@
     [
      "she’s (= she is)",
      "sie ist"
-    ],
-    [
-     "he/she/it isn’t …",
-     "er/sie/es ist nicht …"
-    ],
-    [
-     "(= is not)",
-     "er/sie/es ist kein/e …"
     ],
     [
      "ride a bike/a BMX",
@@ -616,10 +398,6 @@
     [
      "at school",
      "in der Schule"
-    ],
-    [
-     "a tour of the school",
-     "ein Rundgang durch die Schule"
     ],
     [
      "canteen",
@@ -658,12 +436,8 @@
      "nun, jetzt"
     ],
     [
-     "ICT (Information and",
-     "Informations- und"
-    ],
-    [
-     "Communication techno- logy)",
-     "Kommunikationstechnologie"
+     "ICT (Information and communication technology)",
+     "Informations- und Kommunikationstechnologie"
     ],
     [
      "I’m not lost.",
@@ -684,22 +458,6 @@
     [
      "time",
      "Zeit; Uhrzeit"
-    ],
-    [
-     "Monday ,",
-     "Montag"
-    ],
-    [
-     "Tuesday ,",
-     "Dienstag"
-    ],
-    [
-     "Wednesday ,",
-     "Mittwoch"
-    ],
-    [
-     "Thursday ,",
-     "Donnerstag"
     ],
     [
      "assembly",
@@ -774,7 +532,7 @@
      "Klassenzimmer"
     ],
     [
-     "positive",
+     "positive 196 one hundred and ninety-six",
      "positiv"
     ],
     [
@@ -790,16 +548,16 @@
      "Frau Ford"
     ],
     [
-     "fifteen",
-     "20 twenty"
+     "15 fifteen",
+     "20 twenty [ˈtwenti]"
     ],
     [
-     "sixteen",
-     "21 twenty-one"
+     "16 sixteen",
+     "21 twenty-one [twentiˈwʌn]"
     ],
     [
-     "17 seventeen 18 eighteen",
-     "22 twenty-two [twentiˈtuː] …"
+     "seventeen; eighteen",
+     "siebzehn; achtzehn"
     ],
     [
      "say",
@@ -808,10 +566,6 @@
     [
      "people",
      "Leute, Menschen"
-    ],
-    [
-     "Mr Brown",
-     "Herr Brown"
     ],
     [
      "before",
@@ -852,6 +606,10 @@
     [
      "trousers (pl)",
      "(eine) Hose"
+    ],
+    [
+     "Ellie is in trouble.",
+     "Ellie hat Ärger. / Ellie ist in Schwierigkeiten."
     ],
     [
      "trouble",
@@ -922,6 +680,10 @@
      "wissen; kennen"
     ],
     [
+     "Look, Adam.",
+     "Sieh mal, Adam. / Schau mal, Adam."
+    ],
+    [
      "bad",
      "schlecht; schlimm"
     ],
@@ -978,7 +740,7 @@
      "langweilig"
     ],
     [
-     "theatre Skills training",
+     "theatre",
      "Theater"
     ],
     [
@@ -986,7 +748,7 @@
      "Broschüre, Prospekt"
     ],
     [
-     "shop",
+     "shop 198 one hundred and ninety-eight",
      "Laden, Geschäft"
     ],
     [
@@ -1118,6 +880,10 @@
      "auf Englisch"
     ],
     [
+     "How are you?",
+     "Wie geht’s? / Wie geht es dir/ euch/Ihnen?"
+    ],
+    [
      "I’m fine.",
      "Mir geht es gut."
     ],
@@ -1136,7 +902,13 @@
     [
      "sure",
      "sicher"
-    ],
+    ]
+   ]
+  },
+  {
+   "num": 2,
+   "title": "Unit 2 At home with Ellie",
+   "words": [
     [
      "Here you are.",
      "Bitte schön. / Hier, bitte."
@@ -1218,10 +990,6 @@
      "Bett"
     ],
     [
-     "sofa",
-     "Sofa"
-    ],
-    [
      "live",
      "leben, wohnen"
     ],
@@ -1246,6 +1014,10 @@
      "Bad(ezimmer)"
     ],
     [
+     "end",
+     "Ende"
+    ],
+    [
      "toilet",
      "Toilette"
     ],
@@ -1258,15 +1030,11 @@
      "Familie"
     ],
     [
-     "Singular + Apostroph + s: eine",
-     "Person Plural -s + Apostroph:"
-    ],
-    [
      "the girl’s bike",
-     "the girls’ bikes"
+     "das Fahrrad des Mädchens"
     ],
     [
-     "das Fahrrad des Mädchens",
+     "the girls’ bikes",
      "die Fahrräder der Mädchen"
     ],
     [
@@ -1386,10 +1154,6 @@
      "Problem"
     ],
     [
-     "share a room with …",
-     "sich ein Zimmer mit … teilen"
-    ],
-    [
      "yours",
      "deine, deiner, deins"
     ],
@@ -1406,14 +1170,6 @@
      "herrisch, rechthaberisch"
     ],
     [
-     "I can’t (= cannot) do my",
-     "Ich kann meine Hausaufgaben"
-    ],
-    [
-     "homework.",
-     "nicht machen."
-    ],
-    [
      "do",
      "machen, tun"
     ],
@@ -1422,16 +1178,16 @@
      "zu alt/groß/…"
     ],
     [
+     "The kitchen is too busy.",
+     "In der Küche ist zu viel los."
+    ],
+    [
      "work",
      "arbeiten"
     ],
     [
      "noisy",
      "laut, voller Lärm"
-    ],
-    [
-     "dream",
-     "Traum"
     ],
     [
      "rug",
@@ -1486,7 +1242,7 @@
      "gemein, fies"
     ],
     [
-     "easy",
+     "easy Story",
      "einfach, leicht"
     ],
     [
@@ -1566,6 +1322,10 @@
      "Sie hat Geburtstag."
     ],
     [
+     "Be quiet.",
+     "Sei still. / Sei leise. / Sei ruhig."
+    ],
+    [
      "in town",
      "in der Stadt"
     ],
@@ -1586,24 +1346,28 @@
      "von Montag bis Freitag"
     ],
     [
-     "lots of Skills training",
+     "lots of",
      "viel/e"
     ],
     [
      "mind map",
-     "Gedankenkarte, Wörternetz, Mindmap"
+     "Gedankenkarte, Wortnetz, Mindmap"
     ],
     [
      "on the beach",
      "am Strand"
     ],
     [
-     "good about my house",
-     "gut an meinem Haus"
+     "What’s it like?",
+     "Wie ist es? / Wie sieht es aus?"
     ],
     [
      "go with",
      "passen zu, gehören zu"
+    ],
+    [
+     "It’s your turn.",
+     "Du bist dran. / Du bist an der Reihe."
     ],
     [
      "close",
@@ -1618,16 +1382,20 @@
      "Was haben wir als Hausaufgabe(n) auf?"
     ],
     [
+     "What page is it?",
+     "Auf welcher Seite sind wir? / Auf welcher Seite steht das?"
+    ],
+    [
      "board",
      "Tafel"
     ],
     [
      "I forgot my homework.",
-     "Ich habe meine Hausaufgaben"
+     "Ich habe meine Hausaufgaben vergessen."
     ],
     [
-     "alphabet",
-     "Alphabet"
+     "ist das Betonungszeichen",
+     ". Es steht immer vor der betonten Silbe."
     ],
     [
      "address",
@@ -1636,7 +1404,13 @@
     [
      "phone number",
      "Telefonnummer"
-    ],
+    ]
+   ]
+  },
+  {
+   "num": 3,
+   "title": "Unit 3 My Plymouth",
+   "words": [
     [
      "spell",
      "buchstabieren"
@@ -1754,10 +1528,6 @@
      "Abend"
     ],
     [
-     "in the morning",
-     "morgens, am Morgen"
-    ],
-    [
      "in the afternoon",
      "nachmittags, am Nachmittag"
     ],
@@ -1778,12 +1548,8 @@
      "sie mag ... nicht"
     ],
     [
-     "have breakfast;",
-     "frühstücken;"
-    ],
-    [
-     "have lunch",
-     "(zu) Mittag essen"
+     "have breakfast / lunch",
+     "frühstücken / (zu) Mittag essen"
     ],
     [
      "present",
@@ -1810,16 +1576,16 @@
      "hassen"
     ],
     [
-     "forty",
-     "80 eighty"
+     "40 forty",
+     "80 eighty [ˈeɪti]"
     ],
     [
-     "fifty",
-     "90 ninety"
+     "50 fifty",
+     "90 ninety [ˈnaɪnti]"
     ],
     [
-     "sixty",
-     "100 a hundred/one hundred ,"
+     "60 sixty",
+     "100 a hundred/one hundred [əˈhʌndrəd], [wʌnˈhʌndrəd]"
     ],
     [
      "go swimming",
@@ -1832,38 +1598,6 @@
     [
      "visit",
      "besuchen"
-    ],
-    [
-     "have a party",
-     "eine Party feiern"
-    ],
-    [
-     "Einzahl Mehrzahl",
-     "Einzahl Mehrzahl"
-    ],
-    [
-     "(Singular) (Plural)",
-     "(Singular) (Plural)"
-    ],
-    [
-     "baby babies",
-     "hobby hobbies"
-    ],
-    [
-     "city cities",
-     "party parties"
-    ],
-    [
-     "diary diaries",
-     "pony ponies"
-    ],
-    [
-     "family families",
-     "story stories"
-    ],
-    [
-     "12 December Dezember November 10 October Oktober",
-     "[dɪˈsembə] The months [mʌnθs] (Die Monate)"
     ],
     [
      "date",
@@ -1970,12 +1704,12 @@
      "etwas sein wollen"
     ],
     [
-     "outdoors",
+     "outdoors Story",
      "im Freien, draußen"
     ],
     [
      "Happy birthday!",
-     "Herzlichen Glückwunsch zum"
+     "Herzlichen Glückwunsch zum Geburtstag."
     ],
     [
      "let’s (= let us)",
@@ -1996,10 +1730,6 @@
     [
      "Shut up! (infml)",
      "Halt den Mund!"
-    ],
-    [
-     "concert",
-     "Konzert"
     ],
     [
      "excited",
@@ -2054,7 +1784,7 @@
      "Krankenhaus"
     ],
     [
-     "something Skills training",
+     "something",
      "etwas"
     ],
     [
@@ -2064,6 +1794,10 @@
     [
      "sale",
      "Verkauf; Schlussverkauf"
+    ],
+    [
+     "The posters are £ 2.50.",
+     "Die Poster kosten £ 2,50."
     ],
     [
      "50p",
@@ -2082,20 +1816,16 @@
      "Entschuldigung, … / Entschuldigen Sie, …"
     ],
     [
-     "How much is /",
-     "Was (Wie viel) kostet /"
-    ],
-    [
-     "How much are …?",
-     "Was (Wie viel) kosten …?"
-    ],
-    [
      "man, pl men",
      "Mann, Männer"
     ],
     [
      "yeah (infml)",
      "ja"
+    ],
+    [
+     "It’s good value.",
+     "Es ist sein Geld wert. / Es ist preiswert."
     ],
     [
      "the same",
@@ -2120,7 +1850,13 @@
     [
      "advert",
      "Anzeige, Werbung"
-    ],
+    ]
+   ]
+  },
+  {
+   "num": 4,
+   "title": "Unit 4 Berry's world",
+   "words": [
     [
      "guess",
      "(er)raten"
@@ -2198,10 +1934,6 @@
      "Schwein"
     ],
     [
-     "sheep, pl sheep",
-     "Schaf, Schafe"
-    ],
-    [
      "alarm clock",
      "Wecker"
     ],
@@ -2228,18 +1960,6 @@
     [
      "quarter What’s the time? (Wie spät ist es?)",
      "Viertel to"
-    ],
-    [
-     "It’s quarter It’s half",
-     "It’s quarter"
-    ],
-    [
-     "past 6. past 6.",
-     "to 7."
-    ],
-    [
-     "( oder: 6.15) ( oder: 6.30)",
-     "( oder 6.45)"
     ],
     [
      "inside",
@@ -2274,16 +1994,8 @@
      "Dialog"
     ],
     [
-     "in Aufforderungen und Bitten:",
-     "please"
-    ],
-    [
-     "wenn sich jemand bedankt hat:",
-     "You’re welcome."
-    ],
-    [
-     "wenn du jemandem etwas gibst:",
-     "Here you are."
+     "You’re welcome. „bitte“",
+     "Bitte, gern geschehen. / Nichts zu danken."
     ],
     [
      "feeling",
@@ -2394,15 +2106,11 @@
      "Nuss"
     ],
     [
-     "find",
-     "finden"
-    ],
-    [
      "a person who ...",
      "eine Person, die …"
     ],
     [
-     "interesting",
+     "interesting Story",
      "interessant"
     ],
     [
@@ -2451,10 +2159,10 @@
     ],
     [
      "worry (about)",
-     "sich Sorgen machen (wegen,"
+     "sich Sorgen machen (wegen, um)"
     ],
     [
-     "her wet nass",
+     "her",
      "sie; ihr"
     ],
     [
@@ -2464,14 +2172,6 @@
     [
      "that field this – that",
      "das Feld (dort), jenes Feld I like"
-    ],
-    [
-     "verwendet man eher this",
-     "(„dies hier“)."
-    ],
-    [
-     "verwendet man eher that",
-     "(„das dort“)."
     ],
     [
      "through",
@@ -2530,10 +2230,6 @@
      "geschehen, passieren"
     ],
     [
-     "time to eat Skills training",
-     "Zeit zu essen"
-    ],
-    [
      "sign",
      "Schild; Zeichen"
     ],
@@ -2562,11 +2258,7 @@
      "9 Uhr morgens /vormittags"
     ],
     [
-     "I’d love to come. (= I would",
-     "Ich komme sehr gern. /"
-    ],
-    [
-     "love to come.)",
+     "I’d love to come.",
      "Ich würde sehr gern kommen."
     ],
     [
@@ -2580,7 +2272,13 @@
     [
      "dictionary",
      "Wörterbuch, (alphabetisches) Wörterverzeichnis"
-    ],
+    ]
+   ]
+  },
+  {
+   "num": 5,
+   "title": "Unit 5 All about Adam",
+   "words": [
     [
      "poem",
      "Gedicht"
@@ -2592,10 +2290,6 @@
     [
      "maybe",
      "vielleicht"
-    ],
-    [
-     "woman, pl women",
-     "Frau, Frauen"
     ],
     [
      "on the left",
@@ -2654,16 +2348,20 @@
      "Wasser"
     ],
     [
+     "omelette tea Tee",
+     "Omelett"
+    ],
+    [
      "scone",
      "kleines rundes Milchbrötchen, leicht süß, oft mit Rosinen"
     ],
     [
-     "I’d like … (= I would like)",
-     "Ich hätte gern … / Ich möch-"
-    ],
-    [
      "Next, please.",
      "Der/die Nächste, bitte."
+    ],
+    [
+     "Would you like anything",
+     "Möchten Sie sonst noch"
     ],
     [
      "else?",
@@ -2786,20 +2484,12 @@
      "Zentrum, (Stadt-)Mitte"
     ],
     [
-     "join a club",
-     "sich einem Klub anschließen; in einen Klub eintreten"
-    ],
-    [
      "set the table",
      "den Tisch decken"
     ],
     [
      "them",
      "sie, ihnen"
-    ],
-    [
-     "Personal pronouns",
-     "(Personalpronomen)"
     ],
     [
      "I (ich) – me",
@@ -2846,7 +2536,7 @@
      "Essen, Lebensmittel; Futter"
     ],
     [
-     "window",
+     "window Story",
      "Fenster"
     ],
     [
@@ -2864,10 +2554,6 @@
     [
      "it was Friday",
      "es war Freitag"
-    ],
-    [
-     "on the way to …",
-     "auf dem Weg zu/nach …"
     ],
     [
      "some",
@@ -2914,16 +2600,12 @@
      "(fester) Freund"
     ],
     [
-     "Any ideas ?",
+     "Any ideas?",
      "Irgendwelche Ideen?"
     ],
     [
      "battle",
      "Wettstreit, Battle (im Rap)"
-    ],
-    [
-     "he thought",
-     "er dachte; er hat gedacht"
     ],
     [
      "show",
@@ -2950,10 +2632,6 @@
      "falsch, unrichtig"
     ],
     [
-     "he wasn’t (= was not) Skills training",
-     "er war nicht"
-    ],
-    [
      "describe",
      "beschreiben"
     ],
@@ -2970,16 +2648,8 @@
      "vor"
     ],
     [
-     "behind in front of",
-     "on under"
-    ],
-    [
-     "the TV the TV",
-     "the TV the TV"
-    ],
-    [
-     "apple",
-     "Apfel"
+     "behind",
+     "hinter"
     ],
     [
      "text (message)",
@@ -3008,7 +2678,13 @@
     [
      "jam",
      "Marmelade"
-    ],
+    ]
+   ]
+  },
+  {
+   "num": 6,
+   "title": "Unit 6 School is out - for summer",
+   "words": [
     [
      "cream",
      "Sahne"
@@ -3028,10 +2704,6 @@
     [
      "trip",
      "Ausflug; Reise"
-    ],
-    [
-     "I’m going to bring …",
-     "ich werde … mitbringen"
     ],
     [
      "swimming trunks (pl)",
@@ -3142,16 +2814,120 @@
      "lecker"
     ],
     [
-     "take me to the theatre",
-     "mit mir ins Theater gehen"
-    ],
-    [
-     "practise",
+     "practise Story",
      "üben"
     ],
     [
-     "aboard",
-     "an Bord"
+     "message in a bottle",
+     "Flaschenpost"
+    ],
+    [
+     "message",
+     "Nachricht, Mitteilung"
+    ],
+    [
+     "smuggler",
+     "Schmuggler/in"
+    ],
+    [
+     "put",
+     "(etwas wohin) tun, legen, stellen, stecken"
+    ],
+    [
+     "better",
+     "besser"
+    ],
+    [
+     "the sea’s coming in",
+     "die Flut kommt; das Wasser steigt"
+    ],
+    [
+     "minute",
+     "Minute"
+    ],
+    [
+     "square",
+     "Platz (in der Stadt)"
+    ],
+    [
+     "exciting",
+     "aufregend"
+    ],
+    [
+     "map",
+     "Landkarte, Stadtplan"
+    ],
+    [
+     "another",
+     "ein/e andere/r/s; noch ein/e"
+    ],
+    [
+     "follow",
+     "folgen; verfolgen"
+    ],
+    [
+     "quick",
+     "schnell"
+    ],
+    [
+     "push",
+     "schieben"
+    ],
+    [
+     "rest",
+     "Pause, Rast"
+    ],
+    [
+     "fresh",
+     "frisch"
+    ],
+    [
+     "slow",
+     "langsam"
+    ],
+    [
+     "hot",
+     "heiß"
+    ],
+    [
+     "ice cream",
+     "(Speise-)Eis"
+    ],
+    [
+     "daughter",
+     "Tochter"
+    ],
+    [
+     "sand",
+     "Sand"
+    ],
+    [
+     "out of …",
+     "aus … (heraus/hinaus)"
+    ],
+    [
+     "scary",
+     "unheimlich, beängstigend, gruselig"
+    ],
+    [
+     "fly",
+     "fliegen"
+    ],
+    [
+     "all summer",
+     "den ganzen Sommer"
+    ],
+    [
+     "Spain",
+     "Spanien"
+    ],
+    [
+     "granny",
+     "Oma"
+    ],
+    [
+     "Turkey",
+     "(die) Türkei"
     ]
    ]
   }

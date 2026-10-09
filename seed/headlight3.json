@@ -2,8 +2,226 @@
  "version": 1,
  "chapters": [
   {
+   "num": 0,
+   "title": "Vorspann / Warm-up",
+   "words": [
+    [
+     "adjective",
+     "Adjektiv"
+    ],
+    [
+     "adverb of manner",
+     "Adverb der Art und Weise"
+    ],
+    [
+     "adverb of frequency",
+     "Häufigkeitsadverb"
+    ],
+    [
+     "comparative",
+     "Komparativ, 1. Steigerungsform"
+    ],
+    [
+     "comparison",
+     "Steigerung"
+    ],
+    [
+     "conditional sentence",
+     "Bedingungssatz"
+    ],
+    [
+     "contact clause",
+     "Relativsatz ohne Relativpronomen"
+    ],
+    [
+     "future",
+     "Zukunft, Futur"
+    ],
+    [
+     "going to -future",
+     "Futur mit going to"
+    ],
+    [
+     "if -clause",
+     "if -Satz, Nebensatz mit"
+    ],
+    [
+     "infinitive",
+     "Grundform des Verbs, Infinitiv"
+    ],
+    [
+     "irregular verb",
+     "unregelmäßiges Verb"
+    ],
+    [
+     "linking word",
+     "Bindewort (Konjunktion)"
+    ],
+    [
+     "main clause",
+     "Hauptsatz"
+    ],
+    [
+     "modal verb",
+     "Modalverb, modales Hilfsverb"
+    ],
+    [
+     "negative statement",
+     "verneinte Aussage"
+    ],
+    [
+     "noun",
+     "Nomen, Hauptwort, Substantiv"
+    ],
+    [
+     "object",
+     "Objekt"
+    ],
+    [
+     "past participle",
+     "Partizip Perfekt, 3. Form des Verbs"
+    ],
+    [
+     "past progressive",
+     "Verlaufsform der Vergangenheit"
+    ],
+    [
+     "personal pronoun",
+     "Personalpronomen"
+    ],
+    [
+     "plural",
+     "Plural, Mehrzahl"
+    ],
+    [
+     "positive statement",
+     "bejahte Aussage"
+    ],
+    [
+     "possessive determiner",
+     "Possessivbegleiter"
+    ],
+    [
+     "possessive pronoun",
+     "Possessivpronomen"
+    ],
+    [
+     "preposition",
+     "Präposition"
+    ],
+    [
+     "present perfect",
+     "present perfect"
+    ],
+    [
+     "present progressive",
+     "Verlaufsform der Gegenwart"
+    ],
+    [
+     "pronoun",
+     "Pronomen, Fürwort"
+    ],
+    [
+     "question",
+     "Frage(satz)"
+    ],
+    [
+     "question word",
+     "Fragewort"
+    ],
+    [
+     "reflexive pronoun",
+     "Reflexivpronomen"
+    ],
+    [
+     "relative clause",
+     "Relativsatz"
+    ],
+    [
+     "relative pronoun",
+     "Relativpronomen"
+    ],
+    [
+     "regular verb",
+     "regelmäßiges Verb"
+    ],
+    [
+     "short answer",
+     "Kurzantwort"
+    ],
+    [
+     "simple past",
+     "einfache Form der Vergangenheit"
+    ],
+    [
+     "simple present",
+     "einfache Form der Gegenwart"
+    ],
+    [
+     "singular",
+     "Singular, Einzahl"
+    ],
+    [
+     "statement",
+     "Aussage(satz)"
+    ],
+    [
+     "subject",
+     "Subjekt"
+    ],
+    [
+     "substitute (verb)",
+     "Ersatzform eines modalen Hilfsverbs"
+    ],
+    [
+     "superlative",
+     "Superlativ, höchste Steigerungsform"
+    ],
+    [
+     "tense",
+     "Zeitform"
+    ],
+    [
+     "time word /",
+     "Zeitangabe"
+    ],
+    [
+     "will -future",
+     "Futur mit will"
+    ],
+    [
+     "wh-question",
+     "[dʌbljuː ˈeɪtʃ kwestʃən] Frage mit Fragewort"
+    ],
+    [
+     "Hier siehst du, wie das",
+     "Vocabulary aufgebaut ist: have to do sth. etwas tun müssen"
+    ],
+    [
+     "Diese Zahl gibt die Seite",
+     "an, auf der die Die Lautschrift"
+    ],
+    [
+     "Wörter zum ersten Mal vorkommen.",
+     "class [klɑːs] Unterricht; Kurs"
+    ],
+    [
+     "Das rote Ausrufezeichen Vorsicht, hier macht man leicht Fehler!",
+     "act bedeutet: [ækt] Theater spielen, schauspielern"
+    ],
+    [
+     "ausspricht, dann solltest du das",
+     "Dictionary"
+    ],
+    [
+     "Englisch heißt, dann kann dir das",
+     "Dictionary"
+    ]
+   ]
+  },
+  {
    "num": 1,
-   "title": "English G Headlight 3 – Vocabulary",
+   "title": "Unit 1 - I love London",
    "words": [
     [
      "palace",
@@ -86,6 +304,10 @@
      "Reporter/in"
     ],
     [
+     "I’ve lived here all my life.",
+     "Ich wohne hier schon mein ganzes Leben (lang)."
+    ],
+    [
      "not … anywhere",
      "nirgendwo(hin)"
     ],
@@ -134,18 +356,6 @@
      "schottisch, aus Schottland"
     ],
     [
-     "huge big – huge – tall",
-     "riesig, Riesen-"
-    ],
-    [
-     "big „groß“ – a",
-     "big family; a very"
-    ],
-    [
-     "tall „groß (gewachsen)“",
-     "(bei Personen) a tall"
-    ],
-    [
      "crowded",
      "überfüllt, vollgestopft"
     ],
@@ -178,20 +388,12 @@
      "Hauptstraße (mit vielen Geschäften)"
     ],
     [
-     "over 300",
-     "über / mehr als 300"
-    ],
-    [
      "discuss",
      "diskutieren"
     ],
     [
      "write sth. down",
      "etwas aufschreiben"
-    ],
-    [
-     "caption",
-     "Bildunterschrift"
     ],
     [
      "present sth. (to sb. )",
@@ -247,11 +449,7 @@
     ],
     [
      "youth",
-     "Jugend, Jugend-"
-    ],
-    [
-     "pay (for sth. ) ,",
-     "(etwas be)zahlen"
+     "Jugend; Jugendliche(r)"
     ],
     [
      "escalator",
@@ -286,7 +484,7 @@
      "Check-in, (das) Einchecken"
     ],
     [
-     "check in",
+     "check in Story",
      "einchecken"
     ],
     [
@@ -295,7 +493,7 @@
     ],
     [
      "solve",
-     "lösen (Rätsel, Problem) , lüften (Geheimnis)"
+     "lösen (Rätsel, Problem)"
     ],
     [
      "natural history",
@@ -318,6 +516,10 @@
      "planen"
     ],
     [
+     "Take it easy. (infml)",
+     "Reg dich nicht auf. / Bleib mal locker."
+    ],
+    [
      "change (trains)",
      "umsteigen (Zug)"
     ],
@@ -334,20 +536,8 @@
      "U-Bahn-Linie"
     ],
     [
-     "sell , sold , sold",
-     "verkaufen"
-    ],
-    [
      "typical (of)",
      "typisch (für)"
-    ],
-    [
-     "around … around",
-     "in … umher"
-    ],
-    [
-     "„herum…“/ They",
-     "walked around and chatted."
     ],
     [
      "million",
@@ -370,18 +560,6 @@
      "tot"
     ],
     [
-     "guard",
-     "Wärter/in; Wache"
-    ],
-    [
-     "catch , caught ,",
-     "(ein)fangen, erwischen"
-    ],
-    [
-     "point of view Skills training",
-     "Standpunkt"
-    ],
-    [
      "course",
      "Kurs(us)"
     ],
@@ -392,10 +570,6 @@
     [
      "kilometres per hour (kph)",
      "Kilometer pro Stunde (km/h)"
-    ],
-    [
-     "per hour/person ,",
-     "pro Stunde/Person"
     ],
     [
      "hotel",
@@ -440,7 +614,13 @@
     [
      "cathedral",
      "Kathedrale, Dom"
-    ],
+    ]
+   ]
+  },
+  {
+   "num": 2,
+   "title": "Unit 2 - Country life",
+   "words": [
     [
      "ringtone",
      "Klingelton (Handy)"
@@ -460,10 +640,6 @@
     [
      "nowhere",
      "nirgendwo(hin)"
-    ],
-    [
-     "in the middle of nowhere",
-     "am Ende der Welt"
     ],
     [
      "try to do sth.",
@@ -500,10 +676,6 @@
     [
      "sound",
      "klingen"
-    ],
-    [
-     "keep , kept ,",
-     "aufbewahren; (be)halten"
     ],
     [
      "Keep me posted!",
@@ -550,10 +722,6 @@
      "reagieren"
     ],
     [
-     "chase",
-     "verfolgen, jagen"
-    ],
-    [
      "recently",
      "in letzter Zeit; vor Kurzem"
     ],
@@ -562,7 +730,7 @@
      "aktuell, jüngst"
     ],
     [
-     "PC (= police",
+     "PC (= police constable)",
      "Polizeimeister/in"
     ],
     [
@@ -608,6 +776,10 @@
     [
      "son",
      "Sohn"
+    ],
+    [
+     "Have you ever been …?",
+     "Hast du schon mal …? /Hast"
     ],
     [
      "move house",
@@ -666,7 +838,7 @@
      "Tour, Reise"
     ],
     [
-     "crossroads, pl crossroads",
+     "crossroads, pl crossroads Story",
      "(Straßen-)Kreuzung"
     ],
     [
@@ -706,10 +878,6 @@
      "Prinz"
     ],
     [
-     "drive , drove ,",
-     "(an)treiben (Tiere)"
-    ],
-    [
      "be good with sth.",
      "gut mit etwas umgehen können"
     ],
@@ -744,10 +912,6 @@
     [
      "dumper",
      "Umweltsünder/in (jemand, der illegal Müll entsorgt)"
-    ],
-    [
-     "suggest sth. (to sb. )",
-     "(jm.) etwas vorschlagen"
     ],
     [
      "offer",
@@ -798,7 +962,7 @@
      "parken"
     ],
     [
-     "resident Skills training",
+     "resident",
      "Anwohner/in, Bewohner/in"
     ],
     [
@@ -858,16 +1022,22 @@
      "allgemein"
     ],
     [
-     "statement",
-     "Aussage(satz)"
-    ],
-    [
      "notice",
      "Notiz, Aushang, Anzeige"
     ],
     [
      "character",
      "Figur, Person (in Roman, Film usw.)"
+    ]
+   ]
+  },
+  {
+   "num": 3,
+   "title": "Unit 3 - Liverpool ... the world in one city",
+   "words": [
+    [
+     "episode",
+     "Episode; Folge (z.B. einer TV-Serie)"
     ],
     [
      "entry",
@@ -922,10 +1092,6 @@
      "immer mehr"
     ],
     [
-     "suspend ( sb. from sth. )",
-     "(jn. von etwas) suspendieren,"
-    ],
-    [
      "confiscate",
      "konfiszieren, beschlagnahmen"
     ],
@@ -950,10 +1116,6 @@
      "Verkäufer/in"
     ],
     [
-     "serious",
-     "ernst(haft)"
-    ],
-    [
      "take part (in)",
      "teilnehmen (an), mitmachen (bei)"
     ],
@@ -964,10 +1126,6 @@
     [
      "challenge",
      "Herausforderung"
-    ],
-    [
-     "business person,",
-     "Geschäftsperson,"
     ],
     [
      "pl business people",
@@ -1010,10 +1168,6 @@
      "Referat, Präsentation"
     ],
     [
-     "euro (€) , pl euros Pounds and euros",
-     "Euro"
-    ],
-    [
      "In Britain you pay with pounds",
      "and pence In Germany ."
     ],
@@ -1022,16 +1176,8 @@
      "You write: You say:"
     ],
     [
-     "fifty p /fifty pence",
-     "50p fifty cents"
-    ],
-    [
-     "one pound/a pound",
-     "£1 one euro/a euro"
-    ],
-    [
      "two pounds fifty",
-     "£2.50 two euros fifty"
+     "zwei Pfund fünfzig"
     ],
     [
      "badge",
@@ -1042,7 +1188,7 @@
      "Ballon"
     ],
     [
-     "lend sb. sth. lent ,",
+     "lend sb. sth. lent",
      "jm. etwas leihen"
     ],
     [
@@ -1067,7 +1213,7 @@
     ],
     [
      "ourselves",
-     "wir/uns selbst"
+     "uns selbst"
     ],
     [
      "cookie",
@@ -1094,7 +1240,7 @@
      "Maus, Mäuse"
     ],
     [
-     "cucumber",
+     "cucumber Story",
      "(Salat-)Gurke"
     ],
     [
@@ -1108,18 +1254,6 @@
     [
      "flour",
      "Mehl"
-    ],
-    [
-     "break , broke ,",
-     "(zer)brechen; kaputtgehen;"
-    ],
-    [
-     "broken",
-     "kaputtmachen"
-    ],
-    [
-     "broken",
-     "zerbrochen, kaputt"
     ],
     [
      "egg",
@@ -1147,7 +1281,7 @@
     ],
     [
      "complain (about/of)",
-     "sich beschweren (über);"
+     "sich beschweren (über)"
     ],
     [
      "successful",
@@ -1170,15 +1304,7 @@
      "testen"
     ],
     [
-     "he wanted Ben to under-",
-     "er wollte, dass Ben … verstand"
-    ],
-    [
-     "throw , threw , thrown Skills training",
-     "werfen"
-    ],
-    [
-     "sportswoman women",
+     "sportswoman, pl sportswomen",
      "Sportlerin"
     ],
     [
@@ -1195,7 +1321,7 @@
     ],
     [
      "the Olympics",
-     "die olympischen Spiele"
+     "die Olympischen Spiele"
     ],
     [
      "medal",
@@ -1244,10 +1370,6 @@
     [
      "summarize",
      "zusammenfassen"
-    ],
-    [
-     "On the other hand …",
-     "Andererseits …"
     ],
     [
      "definite",
@@ -1304,7 +1426,13 @@
     [
      "skipping",
      "(das) Seilspringen"
-    ],
+    ]
+   ]
+  },
+  {
+   "num": 4,
+   "title": "Unit 4 - Bonnie Scotland",
+   "words": [
     [
      "pilates",
      "Pilates (Fitnessprogramm)"
@@ -1350,12 +1478,8 @@
      "Ausrüstung, Ausstattung"
     ],
     [
-     "out-of-town shopping",
-     "Einkaufszentrum außerhalb der"
-    ],
-    [
-     "centre",
-     "Stadt"
+     "out-of-town shopping centre",
+     "Einkaufszentrum außerhalb der Stadt"
     ],
     [
      "manager",
@@ -1370,15 +1494,11 @@
      "Arbeitnehmer/in"
     ],
     [
-     "unemployed",
-     "arbeitslos"
-    ],
-    [
      "blame sb. (for)",
      "jm. die Schuld geben (an), jm."
     ],
     [
-     "stick together , stuck",
+     "stick together, stuck, stuck",
      "zusammenhalten"
     ],
     [
@@ -1388,10 +1508,6 @@
     [
      "I’ve hurt myself.",
      "Ich habe mir wehgetan / mich"
-    ],
-    [
-     "You’ve hurt yourself.",
-     "Du … dir / dich …"
     ],
     [
      "He’s hurt himself.",
@@ -1426,11 +1542,7 @@
      "wie man etwas tut / tun kann / tun soll"
     ],
     [
-     "run a business / a hotel ,",
-     "eine Firma / ein Hotel leiten,"
-    ],
-    [
-     "ran, run",
+     "run, ran, run",
      "führen"
     ],
     [
@@ -1526,10 +1638,6 @@
      "Gast"
     ],
     [
-     "ring , rang , rung",
-     "anrufen"
-    ],
-    [
      "knife , pl knives",
      "Messer"
     ],
@@ -1555,7 +1663,7 @@
     ],
     [
      "waiter",
-     "Kellner,"
+     "Kellner"
     ],
     [
      "waitress",
@@ -1567,11 +1675,7 @@
     ],
     [
      "receptionist",
-     "Empfangschef/in"
-    ],
-    [
-     "charge",
-     "(auf)laden (Batterie, Handy, …)"
+     "Rezeptionist/in, Empfangsmitarbeiter/in"
     ],
     [
      "add (to)",
@@ -1592,10 +1696,6 @@
     [
      "driving licence",
      "Führerschein"
-    ],
-    [
-     "onto the road ,",
-     "auf die Straße"
     ],
     [
      "hoot",
@@ -1643,15 +1743,11 @@
     ],
     [
      "a haunted house/castle",
-     "ein Haus/ein Schloss, in dem"
+     "ein Haus/ein Schloss, in dem es spukt"
     ],
     [
      "such (a)",
      "so (ein/e), solch (ein/e)"
-    ],
-    [
-     "there’s no such thing as …",
-     "es gibt kein/e …"
     ],
     [
      "ghost",
@@ -1666,11 +1762,7 @@
      "Mitternacht"
     ],
     [
-     "shine , shone ,",
-     "scheinen (Sonne) ; leuchten,"
-    ],
-    [
-     "shone",
+     "shine, shone",
      "strahlen, glänzen"
     ],
     [
@@ -1696,10 +1788,6 @@
     [
      "I think so.",
      "Ich glaube ja."
-    ],
-    [
-     "I don’t think so. Skills training",
-     "Das glaube/denke ich nicht."
     ],
     [
      "imagine sth.",
@@ -1760,7 +1848,13 @@
     [
      "meal",
      "Mahlzeit, Essen"
-    ],
+    ]
+   ]
+  },
+  {
+   "num": 5,
+   "title": "Unit 5 - A stay in Dublin",
+   "words": [
     [
      "perhaps",
      "vielleicht"
@@ -1770,16 +1864,12 @@
      "(Schüler-)Austausch"
     ],
     [
-     "improve",
-     "(sich) verbessern"
-    ],
-    [
      "experience",
      "Erfahrung; Erlebnis"
     ],
     [
      "prefer sth. to sth.",
-     "etwas einer Sache vorziehen, etwas"
+     "etwas einer Sache vorziehen"
     ],
     [
      "probably",
@@ -1798,16 +1888,8 @@
      "teilweise, teils"
     ],
     [
-     "likes and dislikes (pl) Theme",
-     "Vorlieben und Abneigungen"
-    ],
-    [
      "belt",
      "(Gepäck-)Band"
-    ],
-    [
-     "EU (= European Union )",
-     "EU (Europäische Union)"
     ],
     [
      "non-",
@@ -1850,16 +1932,12 @@
      "üblich, gewöhnlich"
     ],
     [
-     "Anyway, …",
+     "Anyway, … Story",
      "Also,… / So, … / Gut, …"
     ],
     [
      "line",
      "Reihe; Zeile"
-    ],
-    [
-     "shake , shook ,",
-     "schütteln"
     ],
     [
      "giggle",
@@ -1931,7 +2009,7 @@
     ],
     [
      "introduce sb. to sb./sth.",
-     "jm. jn./etwas vorstellen, jn. mit"
+     "jm. jn./etwas vorstellen"
     ],
     [
      "put up your hand",
@@ -1950,12 +2028,160 @@
      "Es macht mir nichts aus."
     ],
     [
+     "She can take a joke.",
+     "Sie versteht Spaß."
+    ],
+    [
      "actually",
      "eigentlich; tatsächlich"
     ],
     [
-     "lie , lay , lain",
-     "liegen"
+     "pot",
+     "Topf"
+    ],
+    [
+     "cooker",
+     "Herd"
+    ],
+    [
+     "shocked",
+     "schockiert"
+    ],
+    [
+     "tomato , pl tomatoes",
+     "Tomate"
+    ],
+    [
+     "bean",
+     "Bohne"
+    ],
+    [
+     "appetite",
+     "Appetit"
+    ],
+    [
+     "an underage disco",
+     "eine Disco für Minderjährige"
+    ],
+    [
+     "alcohol",
+     "Alkohol"
+    ],
+    [
+     "get dressed up",
+     "sich schick anziehen"
+    ],
+    [
+     "high heels (pl) (oft auch kurz: heels )",
+     "hochhackige Schuhe"
+    ],
+    [
+     "nail",
+     "Nagel"
+    ],
+    [
+     "pedestrian",
+     "Fußgänger/in, Fußgänger-"
+    ],
+    [
+     "artist",
+     "Künstler/in"
+    ],
+    [
+     "busker",
+     "Straßenmusiker/in"
+    ],
+    [
+     "order",
+     "bestellen"
+    ],
+    [
+     "vinegar",
+     "Essig"
+    ],
+    [
+     "love",
+     "freundliche Anrede, auch bei Unbekannten"
+    ],
+    [
+     "pretty",
+     "hübsch"
+    ],
+    [
+     "mayonnaise",
+     "Majonäse"
+    ],
+    [
+     "Yuck!",
+     "Igitt!"
+    ],
+    [
+     "you can’t wait",
+     "du kannst es kaum erwarten"
+    ],
+    [
+     "mam",
+     "Mama, Mutti"
+    ],
+    [
+     "look into sth.",
+     "etwas prüfen"
+    ],
+    [
+     "weird",
+     "seltsam, komisch"
+    ],
+    [
+     "curry",
+     "Curry(gericht), Curry-"
+    ],
+    [
+     "Give her my love.",
+     "Grüß sie von mir."
+    ],
+    [
+     "weekday",
+     "Werktag, Wochentag"
+    ],
+    [
+     "rubbish (infml)",
+     "Unsinn, Quatsch"
+    ],
+    [
+     "disagree",
+     "nicht zustimmen, widersprechen"
+    ],
+    [
+     "foot , pl feet",
+     "Fuß"
+    ],
+    [
+     "on foot",
+     "zu Fuß"
+    ],
+    [
+     "it was built English sounds",
+     "es wurde gebaut"
+    ],
+    [
+     "a g",
+     "m [em] s [es]"
+    ],
+    [
+     "b h",
+     "n [en] t [tiː]"
+    ],
+    [
+     "c i",
+     "o [əʊ] u [juː]"
+    ],
+    [
+     "d j",
+     "p [piː] v [viː]"
+    ],
+    [
+     "e k",
+     "q [kjuː] w"
     ]
    ]
   }

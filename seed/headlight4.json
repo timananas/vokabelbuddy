@@ -2,8 +2,8 @@
  "version": 1,
  "chapters": [
   {
-   "num": 1,
-   "title": "English G Headlight 4 – Vocabulary",
+   "num": 0,
+   "title": "USA – Here we come (Vorspann)",
    "words": [
     [
      "adjective",
@@ -19,7 +19,7 @@
     ],
     [
      "comparative",
-     "Komparativ"
+     "Komparativ, 1. Steigerungsform"
     ],
     [
      "comparison",
@@ -27,7 +27,7 @@
     ],
     [
      "conditional sentence",
-     "[kənˈdɪʃənl ˈsentəns] Bedingungssatz"
+     "Bedingungssatz"
     ],
     [
      "contact clause",
@@ -47,23 +47,23 @@
     ],
     [
      "gerund",
-     "Gerundium, -ing ­Form"
+     "Gerundium, -ing Form"
     ],
     [
-     "going to -future",
+     "going to-future",
      "Futur mit going to"
     ],
     [
-     "if -clause",
-     "if ­Satz, Nebensatz mit"
+     "if-clause",
+     "if-Satz, Nebensatz mit if"
     ],
     [
      "infinitive",
      "Grundform des Verbs, Infinitiv"
     ],
     [
-     "-ing form",
-     "Gerundium, -ing ­Form"
+     "ing form",
+     "Gerundium, -ing Form"
     ],
     [
      "indirect speech",
@@ -95,7 +95,7 @@
     ],
     [
      "past perfect",
-     "Vorvergangenheit, Plusquamperfekt"
+     "past perfect (Vorvergangenheit, Plusquamperfekt)"
     ],
     [
      "past progressive",
@@ -120,10 +120,6 @@
     [
      "preposition",
      "Präposition"
-    ],
-    [
-     "present perfect",
-     "present perfect"
     ],
     [
      "present progressive",
@@ -179,18 +175,18 @@
     ],
     [
      "superlative",
-     "Superlativ"
+     "Superlativ, höchste Steigerungsform"
     ],
     [
      "time word/phrase",
      "Zeitangabe"
     ],
     [
-     "will -future",
+     "will-future",
      "Futur mit will"
     ],
     [
-     "yes / no -question",
+     "yes/no-question",
      "Entscheidungsfrage"
     ],
     [
@@ -200,10 +196,6 @@
     [
      "Das rote Ausrufezeichen",
      "bedeutet:"
-    ],
-    [
-     "infml = informal AE = American English BE = British English",
-     "(umgangssprachlich)"
     ],
     [
      "ausspricht, dann solltest du das",
@@ -218,7 +210,7 @@
      "golden, aus Gold"
     ],
     [
-     "nature (die)",
+     "nature",
      "Natur"
     ],
     [
@@ -227,7 +219,7 @@
     ],
     [
      "state",
-     "(Bundes­)Staat"
+     "(Bundes-)Staat"
     ],
     [
      "president",
@@ -235,11 +227,11 @@
     ],
     [
      "Native American",
-     "amerikanischer Ureinwohner,"
+     "amerikanischer Ureinwohner"
     ],
     [
      "native",
-     "einheimisch, Heimat­; Einheimische/r"
+     "einheimisch, Heimat-; Einheimische/r"
     ],
     [
      "slave",
@@ -264,14 +256,16 @@
     [
      "soccer",
      "Fußball"
-    ],
+    ]
+   ]
+  },
+  {
+   "num": 1,
+   "title": "Unit 1 – In New York City",
+   "words": [
     [
      "freedom",
      "Freiheit"
-    ],
-    [
-     "pp. 12/13 awesome (AE, infml)",
-     "klasse, stark, großartig"
     ],
     [
      "shopper",
@@ -287,7 +281,7 @@
     ],
     [
      "western",
-     "westlich, West­"
+     "westlich, West-"
     ],
     [
      "crown",
@@ -310,22 +304,6 @@
      "Einwanderung"
     ],
     [
-     "BE: -tre AE: -ter",
-     "BE: -our AE:"
-    ],
-    [
-     "centre center",
-     "colour color"
-    ],
-    [
-     "metre meter",
-     "favourite favorite"
-    ],
-    [
-     "theatre theater",
-     "harbour harbor neighbour"
-    ],
-    [
      "a piece of …",
      "ein Stück (von) …"
     ],
@@ -338,28 +316,20 @@
      "Hängebrücke"
     ],
     [
-     "hang (from) , hung , hung",
-     "hängen (an)"
-    ],
-    [
      "cable",
      "Kabel; Seil (aus Draht/Stahl)"
     ],
     [
      "borough (AE)",
-     "(Stadt­)Bezirk"
+     "(Stadt-)Bezirk"
     ],
     [
      "populate",
      "bevölkern, besiedeln"
     ],
     [
-     "2.5 million Numbers",
+     "2.5 million",
      "2,5 Millionen"
-    ],
-    [
-     "ein Komma .",
-     "German:"
     ],
     [
      "altogether",
@@ -411,7 +381,7 @@
     ],
     [
      "subway (AE)",
-     "U­Bahn"
+     "U-Bahn"
     ],
     [
      "fall asleep",
@@ -423,19 +393,19 @@
     ],
     [
      "block",
-     "(Häuser­)Block"
+     "(Häuser-)Block"
     ],
     [
      "check sb./sth. out (infml)",
-     "sich etwas anschauen, anhören;"
+     "sich etwas anschauen, anhören"
     ],
     [
      "diner (AE)",
-     "(kleines, preiswertes) Restaurant (USA)"
+     "(kleines, preiswertes)"
     ],
     [
      "choice",
-     "(Aus­)Wahl"
+     "(Aus-)Wahl"
     ],
     [
      "way cooler (infml)",
@@ -462,14 +432,6 @@
      "obdachlos"
     ],
     [
-     "ask",
-     "new [njuː]"
-    ],
-    [
-     "can’t",
-     "Tuesday [ˈtjuːzdeɪ]"
-    ],
-    [
      "– In American English",
      ", you can usually hear the r in words like"
     ],
@@ -478,43 +440,47 @@
      ", the t between two vowels often sounds more like a"
     ],
     [
-     "flat apartment",
-     "Wohnung rubbish"
+     "flat (BE) / apartment (AE)",
+     "Wohnung"
     ],
     [
-     "toilet bathroom",
-     "Toilette ( privat )"
+     "toilet (BE) / bathroom (AE)",
+     "Toilette (privat)"
     ],
     [
-     "sweets candy",
-     "Süßigkeiten maths"
+     "canteen cafeteria",
+     "Kantine, Mensa jam"
     ],
     [
-     "mobile (phone) cell phone",
-     "Handy cinema"
+     "sweets (BE) / candy (AE)",
+     "Süßigkeiten"
     ],
     [
-     "crisps",
-     "(potato) chips Kartoffelchips"
+     "mobile phone (BE) / cell phone (AE)",
+     "Handy"
     ],
     [
-     "driving licence",
-     "driver’s license Führerschein trousers"
+     "crisps (BE) / (potato) chips (AE)",
+     "Kartoffelchips"
     ],
     [
-     "rubber eraser",
-     "Radiergummi toilet"
+     "driving licence (BE) / driver’s license (AE)",
+     "Führerschein"
     ],
     [
-     "autumn fall",
+     "rubber (BE) / eraser (AE)",
+     "Radiergummi"
+    ],
+    [
+     "autumn (BE) / fall (AE)",
      "Herbst"
     ],
     [
-     "torch flashlight",
-     "Taschenlampe trainers"
+     "torch (BE) / flashlight (AE)",
+     "Taschenlampe"
     ],
     [
-     "chips French fries",
+     "chips (BE) / French fries (AE)",
      "Pommes frites"
     ],
     [
@@ -524,10 +490,6 @@
     [
      "cruise",
      "Kreuzfahrt, Schiffsreise"
-    ],
-    [
-     "restroom (AE)",
-     "Toilette (in öffentlichen Gebäuden)"
     ],
     [
      "introduction (to)",
@@ -586,6 +548,10 @@
      "nach, auf … zu, in Richtung"
     ],
     [
+     "(AE)",
+     "(von)"
+    ],
+    [
      "sweat",
      "Schweiß"
     ],
@@ -635,7 +601,7 @@
     ],
     [
      "check",
-     "(Über­)Prüfung, Kontrolle"
+     "(Über-)Prüfung, Kontrolle"
     ],
     [
      "mutter",
@@ -659,7 +625,7 @@
     ],
     [
      "Whatever. (infml)",
-     "Ach, egal. / Was soll‘s."
+     "Was soll’s."
     ],
     [
      "mind",
@@ -682,20 +648,12 @@
      "überraschen"
     ],
     [
-     "step closer",
-     "näher treten, näher (heran) kommen"
-    ],
-    [
      "close (to)",
      "nahe (bei, an)"
     ],
     [
      "stare (at)",
      "(an)starren"
-    ],
-    [
-     "swing (swung)",
-     "schwingen; (zum Schlag) ausholen"
     ],
     [
      "swung",
@@ -707,27 +665,23 @@
     ],
     [
      "clear",
-     "(auf­/ab­/weg)räumen; (Augen z.B. von Tränen) frei machen"
+     "(auf/ab/weg)räumen; (Augen z.B. von Tränen) frei machen"
     ],
     [
      "fight",
      "Kampf; Schlägerei"
     ],
     [
-     "decide (to do sth. )",
-     "beschließen, (sich) entscheiden (etwas zu tun)"
-    ],
-    [
-     "you do have … Skills training",
-     "du hast (ja/wohl) doch …"
-    ],
-    [
      "polite",
      "höflich"
     ],
     [
-     "floor floor („Stock“, „Stockwerk“)",
+     "floor",
      "Etage, Stock(werk)"
+    ],
+    [
+     "Die Stockwerke eines Gebäudes werden in britischem und amerika­",
+     "British English: second floor"
     ],
     [
      "the gist",
@@ -735,7 +689,7 @@
     ],
     [
      "booth",
-     "Nische, (Sitz­)Ecke (im Restaurant)"
+     "Nische, (Sitz-)Ecke (im Restaurant)"
     ],
     [
      "order",
@@ -750,28 +704,26 @@
      "Spiegelei"
     ],
     [
-     "scan ( a text for)",
-     "(einen Text) überfliegen (nach), absuchen (nach)"
-    ],
-    [
      "professional",
-     "professionell, Profi­; Profi"
+     "professionell, Profi-; Profi"
     ],
     [
      "tough",
-     "(knall­)hart; zäh, robust"
+     "(knall-)hart; zäh, robust"
     ],
     [
      "stick",
      "Stock"
-    ],
+    ]
+   ]
+  },
+  {
+   "num": 2,
+   "title": "Unit 2 – The best days of your life?",
+   "words": [
     [
      "rubber",
-     "Gummi Unit 2: The best days of your life"
-    ],
-    [
-     "freshman ,",
-     "Studienanfänger/in;"
+     "Gummi"
     ],
     [
      "pl freshmen",
@@ -787,7 +739,7 @@
     ],
     [
      "position",
-     "Position, (Arbeits­)Stelle, Platz"
+     "Position, (Arbeits-)Stelle, Platz"
     ],
     [
      "available",
@@ -802,16 +754,12 @@
      "Teller"
     ],
     [
-     "any",
-     "jegliche/r/s, jede/r beliebige"
-    ],
-    [
      "seem (to be/do)",
      "erscheinen; (zu sein/zu tun) scheinen"
     ],
     [
      "grade (AE)",
-     "(Schul­)Note; Klasse, Jahrgang"
+     "(Schul-)Note; Klasse, Jahrgang"
     ],
     [
      "intimidate",
@@ -831,27 +779,19 @@
     ],
     [
      "period",
-     "(Unterrichts­)Stunde"
+     "(Unterrichts-)Stunde"
     ],
     [
      "change change",
      "(ver)ändern; wechseln"
     ],
     [
-     "„ändern“ They had to",
-     "change their plans."
-    ],
-    [
-     "„sich verändern“ He",
-     "has changed a lot recently."
-    ],
-    [
-     "„wechseln“ American kids",
-     "change rooms between classes."
-    ],
-    [
      "Can you",
      "change your clothes before we go?"
+    ],
+    [
+     "„sich umziehen“",
+     "Give me five minutes. I’d like to change first."
     ],
     [
      "library",
@@ -879,11 +819,11 @@
     ],
     [
      "anyone",
-     "(beliebige)"
+     "jede/r (beliebige); (irgend)jemand"
     ],
     [
      "while",
-     "Weile"
+     "während; (a while) Weile"
     ],
     [
      "disability",
@@ -947,7 +887,7 @@
     ],
     [
      "fund-raising",
-     "Spendenaktion; Spenden­"
+     "Spendenaktion; Spenden-"
     ],
     [
      "so that",
@@ -955,15 +895,19 @@
     ],
     [
      "rent",
-     "mieten, leihen"
+     "mieten; vermieten"
     ],
     [
-     "the only one (pl: ones)",
+     "the only one one/ones",
      "der/die Einzige"
     ],
     [
      "Wenn du ein schon einmal genanntes",
      "Nomen nicht wiederholen willst,"
+    ],
+    [
+     "kannst du one (Singular) bzw.",
+     "ones (Plural) verwenden:"
     ],
     [
      "date",
@@ -999,7 +943,11 @@
     ],
     [
      "flute",
-     "(Quer­)Flöte"
+     "(Quer-)Flöte"
+    ],
+    [
+     "look forward to doing sth.",
+     "sich darauf freuen, etwas zu"
     ],
     [
      "get used to",
@@ -1007,7 +955,7 @@
     ],
     [
      "bump into",
-     "zusammenstoßen mit; zufäl­ lig treffen"
+     "zusammenstoßen mit; zufällig treffen"
     ],
     [
      "dream (of/about sth. )",
@@ -1027,11 +975,7 @@
     ],
     [
      "volunteer",
-     "freiwillig/ehrenamtlich arbei­"
-    ],
-    [
-     "ten",
-     "(unbezahlt)"
+     "freiwillig/ehrenamtlich arbeiten"
     ],
     [
      "To start with, …",
@@ -1050,20 +994,12 @@
      "Risiko"
     ],
     [
-     "a piece of advice",
-     "ein Rat(schlag)"
-    ],
-    [
      "community service",
-     "gemeinnützige Arbeit,"
+     "gemeinnützige Arbeit"
     ],
     [
      "community",
      "Gemeinschaft, Gemeinde"
-    ],
-    [
-     "pound",
-     "hämmern, schlagen, pochen"
     ],
     [
      "go off",
@@ -1122,7 +1058,7 @@
      "Wange"
     ],
     [
-     "burst , burst, burst",
+     "burst, burst, burst",
      "brechen, bersten, platzen"
     ],
     [
@@ -1142,8 +1078,8 @@
      "ich wurde verhaftet/ festgenommen"
     ],
     [
-     "thumb",
-     "Daumen"
+     "look down your nose at sb.",
+     "herabblicken auf jn."
     ],
     [
      "lobby",
@@ -1155,7 +1091,7 @@
     ],
     [
      "responsible (for)",
-     "verantwortlich (für);"
+     "verantwortlich (für)"
     ],
     [
      "tap sth.",
@@ -1186,12 +1122,8 @@
      "etwas in Ordnung bringen; reparieren"
     ],
     [
-     "tooth , pl teeth",
+     "tooth, pl: teeth",
      "Zahn, Zähne"
-    ],
-    [
-     "Are you kidding? (infml)",
-     "Machst du Witze? / Willst du"
     ],
     [
      "title",
@@ -1202,12 +1134,12 @@
      "es eilig haben"
     ],
     [
-     "image Skills training",
+     "image",
      "Image; Bild"
     ],
     [
      "announcement",
-     "Durchsage, Ansage;"
+     "Durchsage, Ansage"
     ],
     [
      "possible",
@@ -1219,7 +1151,7 @@
     ],
     [
      "memorial (to sb./sth. )",
-     "Denkmal (für jn./etwas),"
+     "Denkmal (für jn./etwas)"
     ],
     [
      "visitor pass",
@@ -1239,11 +1171,7 @@
     ],
     [
      "dress",
-     "sich kleiden, sich anziehen"
-    ],
-    [
-     "dress",
-     "Kleidung"
+     "Kleidung; (sich) kleiden"
     ],
     [
      "spirit",
@@ -1252,18 +1180,6 @@
     [
      "aggressive",
      "aggressiv"
-    ],
-    [
-     "while German „während“",
-     "während"
-    ],
-    [
-     "vor einem Nomen:",
-     "during Jack phoned during Jack rief während"
-    ],
-    [
-     "vor einem Nebensatz:",
-     "while Jack phoned while Jack rief an, während"
     ],
     [
      "ban",
@@ -1275,7 +1191,7 @@
     ],
     [
      "main",
-     "hauptsächlich, Haupt­"
+     "hauptsächlich, Haupt"
     ],
     [
      "compare",
@@ -1300,11 +1216,13 @@
     [
      "advantage",
      "Vorteil"
-    ],
-    [
-     "when it comes to …",
-     "wenn es um … geht"
-    ],
+    ]
+   ]
+  },
+  {
+   "num": 3,
+   "title": "Unit 3 – On the road in California",
+   "words": [
     [
      "hike",
      "wandern"
@@ -1330,10 +1248,6 @@
      "benachbart"
     ],
     [
-     "grow , grew , grown",
-     "anbauen, anpflanzen"
-    ],
-    [
      "ocean",
      "Ozean"
     ],
@@ -1351,7 +1265,7 @@
     ],
     [
      "pottery",
-     "Töpferware(n), Töpferei, Töpfer­"
+     "Töpferware(n), Töpferei, Töpfer"
     ],
     [
      "it doesn’t pay very well",
@@ -1407,7 +1321,7 @@
     ],
     [
      "freak sb. out (infml)",
-     "jn. ausflippen lassen,"
+     "jn. ausflippen lassen"
     ],
     [
      "warning (of/against)",
@@ -1426,7 +1340,7 @@
      "Wal"
     ],
     [
-     "calf , pl calves",
+     "calf, pl: calves",
      "Kalb"
     ],
     [
@@ -1448,10 +1362,6 @@
     [
      "disappoint sb.",
      "jn. enttäuschen"
-    ],
-    [
-     "among",
-     "unter, zwischen (mehreren Personen oder Dingen)"
     ],
     [
      "giant",
@@ -1491,7 +1401,7 @@
     ],
     [
      "cart",
-     "Wagen (Einkaufswagen, Golf- wagen etc.)"
+     "Wagen (Einkaufswagen, Golfwagen etc.)"
     ],
     [
      "carry",
@@ -1511,7 +1421,7 @@
     ],
     [
      "(film) set",
-     "Bühnenbild, (Film­)Kulisse"
+     "Bühnenbild, (Film-)Kulisse"
     ],
     [
      "cloak",
@@ -1534,7 +1444,7 @@
      "entdecken"
     ],
     [
-     "hit sb./sth. , hit,",
+     "hit sb./sth. , hit, hit",
      "jn./etwas treffen"
     ],
     [
@@ -1543,7 +1453,7 @@
     ],
     [
      "African American",
-     "afroamerikanisch;"
+     "afroamerikanisch; US-Amerikaner/in african American"
     ],
     [
      "nod (to sb. )",
@@ -1560,10 +1470,6 @@
     [
      "grow up, grew up, grown",
      "aufwachsen; erwachsen"
-    ],
-    [
-     "up",
-     "werden"
     ],
     [
      "baggy",
@@ -1590,12 +1496,8 @@
      "Zunge; Sprache"
     ],
     [
-     "hit sb./sth.",
+     "hit sb./sth. hit",
      "jn./etwas schlagen; prallen, stoßen gegen/auf"
-    ],
-    [
-     "„schlagen“",
-     "Stop hitting your brother."
     ],
     [
      "„treffen“",
@@ -1614,47 +1516,19 @@
      "Blut"
     ],
     [
-     "where his dad used to play I used to …",
-     "wo sein Vater früher (immer)"
-    ],
-    [
-     "I used to do a lot of sport, but I don",
-     "’ t have the"
-    ],
-    [
-     "My grandfather used to smoke",
-     ", but on his 60th"
-    ],
-    [
-     "My brother used to cry",
-     "a lot when he was little."
-    ],
-    [
      "all right",
      "gut; in Ordnung; OK"
-    ],
-    [
-     "after that",
-     "danach"
-    ],
-    [
-     "dare",
-     "Mutprobe"
     ],
     [
      "second",
      "Sekunde"
     ],
     [
-     "I wish I could tell you …",
-     "Ich wünschte, ich könnte dir"
-    ],
-    [
      "silence",
      "Stille"
     ],
     [
-     "let , let, let",
+     "let, let, let",
      "lassen"
     ],
     [
@@ -1662,7 +1536,7 @@
      "Angst haben (vor)"
     ],
     [
-     "disadvantage Skills training",
+     "disadvantage",
      "Nachteil"
     ],
     [
@@ -1703,7 +1577,7 @@
     ],
     [
      "government",
-     "Regierung; Regierungs­"
+     "Regierung; Regierungs-"
     ],
     [
      "commercial",
@@ -1712,10 +1586,6 @@
     [
      "complete",
      "vollständig, komplett"
-    ],
-    [
-     "volunteer",
-     "Freiwillige/r, Ehrenamtliche/r"
     ],
     [
      "search",
@@ -1739,15 +1609,21 @@
     ],
     [
      "skewer",
-     "(Grill­)Spieß"
+     "(Grill-)Spieß"
     ],
     [
      "twig",
      "(kleiner) Zweig"
-    ],
+    ]
+   ]
+  },
+  {
+   "num": 4,
+   "title": "Unit 4 – Stories from the Deep South",
+   "words": [
     [
      "recommendation",
-     "Empfehlung Unit 4: Stories from the Deep South"
+     "Empfehlung"
     ],
     [
      "cotton",
@@ -1802,10 +1678,6 @@
      "langweilig, trist, öde"
     ],
     [
-     "nosey ( auch : nosy)",
-     "neugierig"
-    ],
-    [
      "downtown (AE)",
      "(im/ins) Stadtzentrum"
     ],
@@ -1816,6 +1688,10 @@
     [
      "iced tea",
      "Eistee"
+    ],
+    [
+     "People don’t care.",
+     "Es ist den Leuten egal. / Den Leuten ist alles egal."
     ],
     [
      "hunt",
@@ -1830,20 +1706,12 @@
      "Maisbrot"
     ],
     [
-     "lemon",
-     "Zitrone"
-    ],
-    [
      "raise (money)",
      "(Geld für gute Zwecke) sammeln"
     ],
     [
      "get around",
      "sich fortbewegen (mobil sein)"
-    ],
-    [
-     "test ( kurz für: driving",
-     "Fahrprüfung,"
     ],
     [
      "test)",
@@ -1863,27 +1731,39 @@
     ],
     [
      "tribe",
-     "(Volks­)Stamm"
+     "(Volks)Stamm"
     ],
     [
      "territory",
      "Gebiet, Territorium"
     ],
     [
-     "wife , pl wives",
-     "(Ehe­)Frau"
+     "wife, pl: wives",
+     "(Ehe-)Frau"
     ],
     [
      "husband",
-     "(Ehe­)Mann"
+     "(Ehe-)Mann"
     ],
     [
      "settler",
      "Siedler/in"
     ],
     [
-     "land p.83 large groß big – large – huge – tall",
-     "Land (Grund und Boden)"
+     "Texten besser",
+     "large schreiben."
+    ],
+    [
+     "big Wenn man einen Menschen",
+     "big nennt, a meint man „schwer“ oder „dick“."
+    ],
+    [
+     "tall",
+     "Ein großer Mensch ist im Englischen tall a ."
+    ],
+    [
+     "huge huge",
+     "bedeutet „riesig“, „sehr groß“. a"
     ],
     [
      "peaceful",
@@ -1923,11 +1803,11 @@
     ],
     [
      "graduation",
-     "(Schul­/Studien­)Abschluss; (Schul­/Studien­)Abschlussfeier"
+     "(Schul-/Studien-)Abschluss; (Schul-/Studien-)Abschlussfeier"
     ],
     [
      "gown",
-     "Robe; (Fest­)Kleid"
+     "Robe; (Fest-)Kleid"
     ],
     [
      "heritage",
@@ -1959,35 +1839,23 @@
     ],
     [
      "legal",
-     "legal"
-    ],
-    [
-     "movement 222 two hundred and twenty­two",
-     "Bewegung"
+     "legal, rechtmäßig"
     ],
     [
      "finish the milk",
      "die Milch alle machen, aufbrauchen"
     ],
     [
-     "email sb./sth.",
+     "email sb./sth. Story",
      "jn. anmailen/etwas mailen"
-    ],
-    [
-     "rise (by) , rose , risen",
-     "(an)steigen (um)"
-    ],
-    [
-     "per cent (%) ( AE usually: percent)",
-     "Prozent"
     ],
     [
      "flood",
      "überfluten, überschwemmen"
     ],
     [
-     "escape (from) aus)",
-     "entkommen (aus), fliehen (vor/"
+     "escape (from)",
+     "entkommen (aus), fliehen (vor)"
     ],
     [
      "journalist",
@@ -2015,10 +1883,10 @@
     ],
     [
      "drive/run/go/… on",
-     "weiterfahren/­laufen/­gehen"
+     "weiterfahren/-laufen/-gehen"
     ],
     [
-     "gas (AE) /",
+     "gas (AE) / petrol (BE)",
      "Benzin"
     ],
     [
@@ -2047,7 +1915,7 @@
     ],
     [
      "uptown (AE)",
-     "außerhalb des (Stadt­)Zen­ trums, am Stadtrand"
+     "außerhalb des (Stadt)Zen trums, am Stadtrand"
     ],
     [
      "fancy",
@@ -2094,10 +1962,6 @@
      "Sonnenlicht"
     ],
     [
-     "stink , stank , stunk",
-     "stinken"
-    ],
-    [
      "pass sb./sth.",
      "an jm./etwas vorbeigehen, vorbeifahren"
     ],
@@ -2118,14 +1982,6 @@
      "Rettung(sdienst)"
     ],
     [
-     "get married (to sb. ) Skills training",
-     "(jn.) heiraten"
-    ],
-    [
-     "work sth. out 224 two hundred and twenty­four",
-     "etwas herausfinden,etwas herausarbeiten"
-    ],
-    [
      "exact",
      "genau, exakt"
     ],
@@ -2138,10 +1994,6 @@
      "Besprechung, Rezension, Kritik"
     ],
     [
-     "draw , drew ,",
-     "zeichnen; ziehen"
-    ],
-    [
      "conclusion",
      "Schluss(folgerung)"
     ],
@@ -2151,7 +2003,7 @@
     ],
     [
      "tag line",
-     "(Werbe­)Slogan"
+     "(Werbe-)Slogan"
     ],
     [
      "be born",
@@ -2159,7 +2011,7 @@
     ],
     [
      "divorce",
-     "(Ehe­)Scheidung"
+     "(Ehe-)Scheidung"
     ],
     [
      "relationship",
@@ -2231,8 +2083,14 @@
     ],
     [
      "volunteering",
-     "Freiwilligentätigkeit, ehren­ amtliches Arbeiten"
-    ],
+     "Freiwilligentätigkeit, ehrenamtliches Arbeiten"
+    ]
+   ]
+  },
+  {
+   "num": 5,
+   "title": "Unit 5 – Family secrets",
+   "words": [
     [
      "drawing",
      "Zeichnung"
@@ -2243,7 +2101,7 @@
     ],
     [
      "necklace",
-     "(Hals­)Kette"
+     "(Hals-)Kette"
     ],
     [
      "harmonica",
@@ -2254,12 +2112,12 @@
      "jm. gehören, zu etwas gehören"
     ],
     [
-     "journal",
+     "journal Story Part 1",
      "Tagebuch, Journal"
     ],
     [
      "voyage",
-     "(See­)Reise"
+     "(See-)Reise"
     ],
     [
      "deck",
@@ -2267,7 +2125,7 @@
     ],
     [
      "wooden",
-     "hölzern, Holz­"
+     "hölzern, Holz-"
     ],
     [
      "seasick",
@@ -2283,7 +2141,7 @@
     ],
     [
      "backyard (AE)",
-     "(Hinter­)Hof; Garten hinter dem Haus"
+     "(Hinter-)Hof; Garten hinter dem Haus"
     ],
     [
      "roof",
@@ -2306,16 +2164,260 @@
      "Armee"
     ],
     [
-     "go off (to a place)",
-     "(los)gehen, (los)fahren (nach/zu)"
-    ],
-    [
      "battle",
      "Schlacht; Kampf"
     ],
     [
      "baker",
      "Bäcker/in"
+    ],
+    [
+     "little",
+     "wenig"
+    ],
+    [
+     "wagon",
+     "Planwagen, (Pferde)Fuhrwerk"
+    ],
+    [
+     "gun",
+     "Schusswaffe"
+    ],
+    [
+     "woodwork(ing)",
+     "Holzbearbeitung"
+    ],
+    [
+     "tool",
+     "Werkzeug"
+    ],
+    [
+     "doll",
+     "Puppe"
+    ],
+    [
+     "milk",
+     "melken"
+    ],
+    [
+     "illness",
+     "Krankheit"
+    ],
+    [
+     "grave",
+     "Grab"
+    ],
+    [
+     "by the trail",
+     "am Weg, neben dem Weg"
+    ],
+    [
+     "halfway",
+     "auf halbem Wege, halb(wegs)"
+    ],
+    [
+     "frying pan",
+     "Bratpfanne"
+    ],
+    [
+     "comb (your hair)",
+     "(sich die Haare) kämmen"
+    ],
+    [
+     "modest",
+     "bescheiden; anständig, sittsam"
+    ],
+    [
+     "chip",
+     "Stück(chen), Splitter"
+    ],
+    [
+     "dung",
+     "Dung, Mist"
+    ],
+    [
+     "meadow",
+     "Wiese"
+    ],
+    [
+     "burn",
+     "brennen; verbrennen"
+    ],
+    [
+     "as",
+     "da, weil"
+    ],
+    [
+     "disgusting",
+     "ekelhaft, widerlich"
+    ],
+    [
+     "dry",
+     "trocken"
+    ],
+    [
+     "get friendly with sb.",
+     "sich mit jm. anfreunden"
+    ],
+    [
+     "spot",
+     "Fleck, Pickel"
+    ],
+    [
+     "measles (pl)",
+     "Masern"
+    ],
+    [
+     "skin",
+     "häuten"
+    ],
+    [
+     "ladylike Story Part 3",
+     "damenhaft"
+    ],
+    [
+     "almost",
+     "fast, nahezu, beinahe"
+    ],
+    [
+     "worth",
+     "wert"
+    ],
+    [
+     "mining",
+     "Bergbau"
+    ],
+    [
+     "cut down trees",
+     "Bäume abholzen"
+    ],
+    [
+     "plough (BE) / plow (AE)",
+     "pflügen"
+    ],
+    [
+     "cattle (pl)",
+     "Vieh, Rinder"
+    ],
+    [
+     "corn",
+     "(BE) Korn, Getreide; (AE) Mais"
+    ],
+    [
+     "twin sister/brother",
+     "Zwillingsschwester/bruder"
+    ],
+    [
+     "twins (pl)",
+     "Zwillinge"
+    ],
+    [
+     "cougar (bes. AE)",
+     "Puma"
+    ],
+    [
+     "rustler",
+     "Viehdieb/in"
+    ],
+    [
+     "deputy",
+     "Stellvertreter/in; stellvertretende/r"
+    ],
+    [
+     "outlaw",
+     "Bandit/in, Geächtete/r"
+    ],
+    [
+     "wedding",
+     "Hochzeit"
+    ],
+    [
+     "grandson",
+     "Enkel"
+    ],
+    [
+     "granddaughter",
+     "Enkelin"
+    ],
+    [
+     "perspective",
+     "Perspektive"
+    ],
+    [
+     "meaning",
+     "Bedeutung"
+    ],
+    [
+     "optimistic",
+     "optimistisch"
+    ],
+    [
+     "timeline",
+     "Zeitstrahl, Zeitachse, Chronik"
+    ],
+    [
+     "link",
+     "Verbindung; Link"
+    ],
+    [
+     "journey",
+     "reisen"
+    ],
+    [
+     "supplies (pl)",
+     "Verbrauchsgüter, Vorrat/ Vorräte"
+    ],
+    [
+     "furniture",
+     "Möbel(stücke)"
+    ],
+    [
+     "own sth.",
+     "etwas besitzen"
+    ],
+    [
+     "bacon",
+     "Speck"
+    ],
+    [
+     "repair",
+     "reparieren"
+    ],
+    [
+     "protect (from)",
+     "(be)schützen (vor)"
+    ],
+    [
+     "swap (for)",
+     "(aus, um)tauschen (gegen)"
+    ],
+    [
+     "continent",
+     "Kontinent; europäisches Festland"
+    ],
+    [
+     "several",
+     "mehrere, einige"
+    ],
+    [
+     "… shall we …?",
+     "… sollen wir …?"
+    ],
+    [
+     "kilogram , kilo Project",
+     "Kilo(gramm)"
+    ],
+    [
+     "continue to …",
+     "weitergehen, weiterfahren, weiterreisen nach …"
+    ],
+    [
+     "map",
+     "kartografieren, (Entwicklung) verfolgen"
+    ],
+    [
+     "relative",
+     "Verwandte/r"
     ]
    ]
   }

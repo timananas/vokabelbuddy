@@ -1130,7 +1130,7 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
                 kid_choice = kid_map.get(target_kid) if target_kid else ''
                 fallback_user = user_map.get(me['id'], '') if me else ''
                 chosen = kid_choice or fallback_user or 'access'
-                if chosen not in ('access', 'greenline'):
+                if chosen not in ('access', 'greenline', 'headlight'):
                     chosen = 'access'
                 books = [b for b in BOOKS if b.get('series', 'access') == chosen]
                 self._json({'version': VERSION,
@@ -1616,7 +1616,7 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
                     return
                 kid = _norm(body.get('kid'))
                 want = _norm(body.get('series'))
-                if want not in ('access', 'greenline'):
+                if want not in ('access', 'greenline', 'headlight'):
                     self._json({'error': 'Unbekannte Reihe'}, 400)
                     return
                 if not _kid_ok(kid):
@@ -1641,7 +1641,7 @@ class Handler(_AuthGateMixin, BaseHTTPRequestHandler):
                     self._json({'auth': True}, 401)
                     return
                 want = _norm(body.get('series'))
-                if want not in ('access', 'greenline'):
+                if want not in ('access', 'greenline', 'headlight'):
                     self._json({'error': 'Unbekannte Reihe'}, 400)
                     return
                 AUTH_MEM.setdefault('user_series', {})[me['id']] = want
