@@ -433,7 +433,13 @@ _AUTH_CSS = ('body{font-family:Nunito,system-ui,sans-serif;background:#0B1B30;co
              '.biglogo{max-width:88%;width:auto;max-height:64px;object-fit:contain;filter:drop-shadow(0 6px 16px rgba(4,12,24,.5))}')
 _AUTH_WRAP = ('<!DOCTYPE html><html lang="de"><head><meta charset="utf-8">'
               '<meta name="viewport" content="width=device-width, initial-scale=1">'
+              '<meta name="theme-color" content="#2E8BFF">'
               '<link rel="icon" type="image/png" sizes="32x32" href="/assets/mascot-32.png">'
+              '<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon2.png">'
+              '<link rel="apple-touch-icon" sizes="152x152" href="/assets/apple-touch-icon2.png">'
+              '<link rel="apple-touch-icon" sizes="167x167" href="/assets/apple-touch-icon2.png">'
+              '<link rel="apple-touch-icon" href="/assets/apple-touch-icon2.png">'
+              '<link rel="manifest" href="/manifest.json">'
               '<title>{t}</title><style>' + _AUTH_CSS + '</style></head><body>'
               '<div class="authcol"><div class="card">{b}</div></div></body></html>')
 
