@@ -44,10 +44,17 @@ BOOKS = [
     {'id': 'greenline4', 'name': 'Green Line 4', 'desc': 'Klett G9 · Klasse 8', 'series': 'greenline'},
     {'id': 'greenline5', 'name': 'Green Line 5', 'desc': 'Klett G9 · Klasse 9', 'series': 'greenline'},
     {'id': 'greenline6', 'name': 'Green Line 6', 'desc': 'Klett G9 · Klasse 10', 'series': 'greenline'},
+    {'id': 'headlight1', 'name': 'Headlight 1', 'desc': 'Cornelsen · Klasse 5', 'series': 'headlight'},
+    {'id': 'headlight2', 'name': 'Headlight 2', 'desc': 'Cornelsen · Klasse 6', 'series': 'headlight'},
+    {'id': 'headlight3', 'name': 'Headlight 3', 'desc': 'Cornelsen · Klasse 7', 'series': 'headlight'},
+    {'id': 'headlight4', 'name': 'Headlight 4', 'desc': 'Cornelsen · Klasse 8', 'series': 'headlight'},
+    {'id': 'headlight5', 'name': 'Headlight 5', 'desc': 'Cornelsen · Klasse 9', 'series': 'headlight'},
+    {'id': 'headlight6', 'name': 'Headlight 6', 'desc': 'Cornelsen · Klasse 10', 'series': 'headlight'},
 ]
 SERIES = [
     {'id': 'access', 'name': 'Access (Cornelsen)'},
     {'id': 'greenline', 'name': 'Green Line (Klett G9)'},
+    {'id': 'headlight', 'name': 'Headlight (Cornelsen)'},
 ]
 KIDS = [
     {'id': 'luis', 'name': 'Luis', 'color': '#5b8def'},
