@@ -548,12 +548,20 @@
      "Frau Ford"
     ],
     [
-     "15 fifteen",
-     "20 twenty [ˈtwenti]"
+     "fifteen",
+     "fünfzehn"
     ],
     [
-     "16 sixteen",
-     "21 twenty-one [twentiˈwʌn]"
+     "twenty",
+     "zwanzig"
+    ],
+    [
+     "sixteen",
+     "sechzehn"
+    ],
+    [
+     "twenty-one",
+     "einundzwanzig"
     ],
     [
      "seventeen; eighteen",
@@ -1576,16 +1584,28 @@
      "hassen"
     ],
     [
-     "40 forty",
-     "80 eighty [ˈeɪti]"
+     "forty",
+     "vierzig"
     ],
     [
-     "50 fifty",
-     "90 ninety [ˈnaɪnti]"
+     "eighty",
+     "achtzig"
     ],
     [
-     "60 sixty",
-     "100 a hundred/one hundred [əˈhʌndrəd], [wʌnˈhʌndrəd]"
+     "fifty",
+     "fünfzig"
+    ],
+    [
+     "ninety",
+     "neunzig"
+    ],
+    [
+     "sixty",
+     "sechzig"
+    ],
+    [
+     "a hundred/one hundred",
+     "hundert"
     ],
     [
      "go swimming",
