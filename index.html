@@ -1190,12 +1190,18 @@ async function startQuiz(){
     if(full===window._wdFinger){
       if(!window._wdSince) window._wdSince=Date.now();
       if(Date.now()-window._wdSince>14000){
-        // 14 s IDENTISCHER Zustand = echtes Hängen → answered-Klemme lösen (re-show aktuelle Frage)
+        if(!answered){
+          // Kind tippt/überlegt (z. B. Write-Input füllt sich langsam) → NIEMALS neu aufbauen,
+          // sonst wird die getippte Eingabe gelöscht. Watchdog-Zustand zurücksetzen und warten.
+          window._wdFinger=''; window._wdSince=0;
+          return;
+        }
+        // 14 s IDENTISCHER Zustand + Frage bereits beantwortet = echtes Übergangs-Hängen → re-show
         console.warn('VB-Watchdog: Stillstand >14 s, Frage neu aufbauen');
         window._wdFinger=''; window._wdSince=0;
         try{
           if(window._isCards){ renderCard(); }
-          else if(inWrite){ renderWrite(); }
+          else if(inWrite){ renderWrite(true); }
           else { renderQ(); }
         }catch(e){}
       }
@@ -1430,6 +1436,33 @@ async function retryWrong(){
 }
 
 // ---------- Schreib-Modus ----------
+// 🛟 vbRescue: iOS-Hintergrund-Timer-Freeze — beim Rückkehr/Sichtbarwerden hängende
+// Übergänge SOFORT nachziehen, statt auf eingefrorene setTimeout zu warten:
+function vbRescue(){
+  try{
+    if(mode!=='quiz') return;
+    const finaleOn = (!$('result').classList.contains('hidden'))
+      || (!$('writeResult').classList.contains('hidden'))
+      || (!$('cardResult').classList.contains('hidden'));
+    if(finaleOn) return;
+    if(window._isCards){
+      if(qix>=(window._cards||[]).length){ cardFinish(); }
+      return;
+    }
+    const inWrite = !$('writebox').classList.contains('hidden');
+    if(inWrite){
+      const wi=(window._wItems||[]).length;
+      if(window._wItems && wi && qix>=wi){ if(answered) writeFinish(); return; }
+      if(answered) renderWrite(true);
+      return;
+    }
+    const n=((typeof quiz!=='undefined') && quiz && quiz.questions || []).length;
+    if(n && qix>=n){ if(answered) finishQuiz(); }
+  }catch(e){ console.warn('vbRescue', e); }
+}
+document.addEventListener('visibilitychange', ()=>{ if(!document.hidden){ setTimeout(vbRescue, 150); setTimeout(vbRescue, 900); } });
+window.addEventListener('pageshow', ()=>{ setTimeout(vbRescue, 150); });
+window.addEventListener('focus', ()=>{ setTimeout(vbRescue, 120); });
 async function startWrite(){
   window._isCards=false;
   $('qbox').classList.add('hidden');
@@ -1459,18 +1492,21 @@ async function startWrite(){
   }catch(e){ $('wMeta').textContent='Server nicht erreichbar.'; return; }
   renderWrite();
 }
-function renderWrite(){
+function renderWrite(preserve){
   const items=window._wItems||[];
   if(qix>=items.length){ writeFinish(); return; }
   const it=items[qix];
+  const same=preserve && $('wPrompt').textContent===it.prompt;
   answered=false; window._qStart=Date.now();
-  $('wInput').value=''; $('wInput').className=''; $('wInput').disabled=false;
+  if(!same){ $('wInput').value=''; } // gleiches Wort (Watchdog-re-show) → getippten Text BEHALTEN
+  $('wInput').className=''; $('wInput').disabled=false;
   $('wFeedback').textContent=''; $('wFeedback').className='wfb';
   $('wPrompt').textContent=it.prompt;
   $('wMeta').textContent=`Schreiben ${qix+1} / ${items.length} · Ch. ${it.chapter} · ${score} richtig`;
   $('wHint').innerHTML=it.direction==='de2en'?'Wie sagt man das auf <b>Englisch</b>?':'Was heißt das auf <b>Deutsch</b>?';
   $('pfill').style.width=`${(qix/items.length)*100}%`;
   setTimeout(()=>$('wInput').focus(), 60);
+  if(same){ try{ const L=$('wInput').value.length; $('wInput').setSelectionRange(L,L); }catch(e){} }
 }
 async function checkWrite(){
   if(answered) return; answered=true;
@@ -1497,7 +1533,7 @@ async function checkWrite(){
   setTimeout(()=>{
     qix++;
     if(qix<(window._wItems||[]).length) renderWrite();
-    else writeFinish();
+    else writeFinish(); // (iOS-Timer-Freeze: Retter = vbRescue beim Rückkehr-Sichtbarwerden)
   }, good?900:2200);
 }
 function writeFinish(){
@@ -1599,7 +1635,8 @@ async function cardVerdict(knew){
   try{ apiFetch('/api/card/answer',{method:'POST',headers:{'Content-Type':'application/json'},
     body:JSON.stringify({kid,qid:c.id,direction:c.direction,nonce:window._nonce,verdict:knew?'knew':'forgot'})}).catch(()=>{}); }catch(e){}
   qix++;
-  setTimeout(()=>{ if(qix<(window._cards||[]).length){ renderCard(); } else { cardFinish(); } }, 250);
+  if(qix<(window._cards||[]).length){ setTimeout(()=>{ if(qix<(window._cards||[]).length){ renderCard(); } }, 250); }
+  else { cardFinish(); } // Finale SOFORT synchron — kein setTimeout (iOS friert Timer im Hintergrund-Tab ein)
 }
 function cardFinish(){
   const cards=window._cards||[], n=cards.length;
