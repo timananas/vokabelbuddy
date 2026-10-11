@@ -630,6 +630,7 @@ def _pool(book, chapters, from_n=None, to_n=None):
                       key=lambda c: int(c.get('num')) if str(c.get('num', 0)).isdigit() else 999)
     pool = []
     seen = set()
+    en_count = {}
     gpos = 0
     # EIN Durchlauf über das GANZE Buch in Reihenfolge: Jedes (en,de)-Paar zählt beim
     # ERSTEN Vorkommen (buchweit, == Badge-Dedup), aber nur GEWÄHLTE Kapitel liefern
@@ -648,6 +649,13 @@ def _pool(book, chapters, from_n=None, to_n=None):
             if key in seen:
                 continue
             seen.add(key)
+            # QID-Disambiguierung: gleiche EN-Formen (anderes Gloss) bekommen '#k'.
+            # Vorkommen 1 behält das Legacy-qid (kid_seen-Keys bleiben stabil!), nur
+            # spätere Vorkommen werden unterscheidbar — sonst überschreibt die zweite
+            # Frage die Antwort der ersten in der Session → unbeantwortbarer MC.
+            cfk = en.casefold()
+            en_count[cfk] = en_count.get(cfk, 0) + 1
+            qid = f'{book}|{chnum}|{cfk}' + (f'#{en_count[cfk]}' if en_count[cfk] > 1 else '')
             gpos += 1
             if not in_sel:
                 continue
@@ -656,8 +664,7 @@ def _pool(book, chapters, from_n=None, to_n=None):
             if to_n and gpos > to_n:
                 continue
             pool.append({'ch_ix': data['chapters'].index(ch), 'num': chnum, 'pos': pos,
-                         'gpos': gpos, 'en': en, 'de': de,
-                         'qid': f'{book}|{chnum}|{en.casefold()}'})
+                         'gpos': gpos, 'en': en, 'de': de, 'qid': qid})
     return pool
 
 
