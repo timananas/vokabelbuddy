@@ -1,0 +1,134 @@
+{
+ "access1": {
+  "pool": 789,
+  "serviert": 788,
+  "verpasst": 1,
+  "fehler": {},
+  "ex": []
+ },
+ "access2": {
+  "pool": 787,
+  "serviert": 786,
+  "verpasst": 1,
+  "fehler": {},
+  "ex": []
+ },
+ "access3": {
+  "pool": 506,
+  "serviert": 506,
+  "verpasst": 0,
+  "fehler": {},
+  "ex": []
+ },
+ "access4": {
+  "pool": 475,
+  "serviert": 475,
+  "verpasst": 0,
+  "fehler": {},
+  "ex": []
+ },
+ "access5": {
+  "pool": 801,
+  "serviert": 800,
+  "verpasst": 1,
+  "fehler": {},
+  "ex": []
+ },
+ "access6": {
+  "pool": 559,
+  "serviert": 559,
+  "verpasst": 0,
+  "fehler": {},
+  "ex": []
+ },
+ "greenline1": {
+  "pool": 832,
+  "serviert": 832,
+  "verpasst": 0,
+  "fehler": {},
+  "ex": []
+ },
+ "greenline2": {
+  "pool": 1132,
+  "serviert": 1127,
+  "verpasst": 5,
+  "fehler": {},
+  "ex": []
+ },
+ "greenline3": {
+  "pool": 821,
+  "serviert": 818,
+  "verpasst": 3,
+  "fehler": {},
+  "ex": []
+ },
+ "greenline4": {
+  "pool": 768,
+  "serviert": 768,
+  "verpasst": 0,
+  "fehler": {},
+  "ex": []
+ },
+ "greenline5": {
+  "pool": 801,
+  "serviert": 801,
+  "verpasst": 0,
+  "fehler": {},
+  "ex": []
+ },
+ "greenline6": {
+  "pool": 853,
+  "serviert": 812,
+  "verpasst": 41,
+  "fehler": {},
+  "ex": []
+ },
+ "headlight1": {
+  "pool": 840,
+  "serviert": 840,
+  "verpasst": 0,
+  "fehler": {},
+  "ex": []
+ },
+ "headlight2": {
+  "pool": 701,
+  "serviert": 697,
+  "verpasst": 4,
+  "fehler": {},
+  "ex": []
+ },
+ "headlight3": {
+  "pool": 566,
+  "serviert": 566,
+  "verpasst": 0,
+  "fehler": {},
+  "ex": []
+ },
+ "headlight4": {
+  "pool": 616,
+  "serviert": 615,
+  "verpasst": 1,
+  "fehler": {},
+  "ex": []
+ },
+ "headlight5": {
+  "pool": 624,
+  "serviert": 624,
+  "verpasst": 0,
+  "fehler": {},
+  "ex": []
+ },
+ "headlight6": {
+  "pool": 548,
+  "serviert": 548,
+  "verpasst": 0,
+  "fehler": {},
+  "ex": []
+ },
+ "_gesamt": {
+  "pool": 13019,
+  "serviert": 12962,
+  "verpasst": 57,
+  "mc_fehler": 0
+ }
+}

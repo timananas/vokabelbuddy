@@ -1,0 +1,466 @@
+{
+ "access1": {
+  "entries": 789,
+  "hygiene": {},
+  "collisions": {},
+  "examples": {}
+ },
+ "access2": {
+  "entries": 787,
+  "hygiene": {},
+  "collisions": {
+   "In the summer holidays": 2
+  },
+  "examples": {
+   "In the summer holidays": [
+    [
+     "(mit-, her)bringen",
+     [
+      "(to) bring",
+      "(to) bring brought"
+     ]
+    ],
+    [
+     "vergangenheitsform von „be“",
+     [
+      "(i/he/she/it) was",
+      "(we/you/they) were"
+     ]
+    ]
+   ]
+  }
+ },
+ "access3": {
+  "entries": 506,
+  "hygiene": {},
+  "collisions": {
+   "This is London": 1,
+   "Edinburgh and the Highlands": 1
+  },
+  "examples": {
+   "This is London": [
+    [
+     "während",
+     [
+      "during",
+      "while"
+     ]
+    ]
+   ],
+   "Edinburgh and the Highlands": [
+    [
+     "portemonnaie, geldbörse",
+     [
+      "purse",
+      "wallet"
+     ]
+    ]
+   ]
+  }
+ },
+ "access4": {
+  "entries": 475,
+  "hygiene": {
+   "double_space": 2
+  },
+  "collisions": {},
+  "examples": {}
+ },
+ "access5": {
+  "entries": 801,
+  "hygiene": {},
+  "collisions": {
+   "The Southwest of the USA": 2,
+   "New Zealand": 2
+  },
+  "examples": {
+   "The Southwest of the USA": [
+    [
+     "benzin",
+     [
+      "gas (ae)",
+      "petrol (be)"
+     ]
+    ],
+    [
+     "lebenslauf",
+     [
+      "cv (curriculum vitae)",
+      "résumé"
+     ]
+    ]
+   ],
+   "New Zealand": [
+    [
+     "kanone, geschütz",
+     [
+      "cannon",
+      "cannon (pl cannon, cannons)"
+     ]
+    ],
+    [
+     "turnier, wettkampf",
+     [
+      "competition",
+      "tournament"
+     ]
+    ]
+   ]
+  }
+ },
+ "access6": {
+  "entries": 559,
+  "hygiene": {},
+  "collisions": {
+   "Who are you?": 1,
+   "How is the world changing?": 2
+  },
+  "examples": {
+   "Who are you?": [
+    [
+     "genau, präzise",
+     [
+      "accurate",
+      "precise"
+     ]
+    ]
+   ],
+   "How is the world changing?": [
+    [
+     "irgendwo(hin)",
+     [
+      "anywhere",
+      "somewhere"
+     ]
+    ],
+    [
+     "einfach, klar (ausgedrückt)",
+     [
+      "(to) put it simply",
+      "straightforward"
+     ]
+    ]
+   ]
+  }
+ },
+ "greenline1": {
+  "entries": 832,
+  "hygiene": {},
+  "collisions": {
+   "Pre-Unit": 1,
+   "Unit 1": 1
+  },
+  "examples": {
+   "Pre-Unit": [
+    [
+     "lesen",
+     [
+      "reading",
+      "to read"
+     ]
+    ]
+   ],
+   "Unit 1": [
+    [
+     "klein",
+     [
+      "little",
+      "small"
+     ]
+    ]
+   ]
+  }
+ },
+ "greenline2": {
+  "entries": 1132,
+  "hygiene": {},
+  "collisions": {
+   "Unit 2": 1,
+   "Unit 3": 2,
+   "Unit 6": 2
+  },
+  "examples": {
+   "Unit 2": [
+    [
+     "schlafen",
+     [
+      "to be asleep",
+      "to sleep, slept"
+     ]
+    ]
+   ],
+   "Unit 3": [
+    [
+     "jeder (beliebige); irgendjemand",
+     [
+      "anybody",
+      "anyone"
+     ]
+    ],
+    [
+     "flut",
+     [
+      "high tide",
+      "tide"
+     ]
+    ]
+   ],
+   "Unit 6": [
+    [
+     "versprechen",
+     [
+      "promise",
+      "to promise"
+     ]
+    ],
+    [
+     "einfache fahrkarte",
+     [
+      "one-way ticket",
+      "single ticket"
+     ]
+    ]
+   ]
+  }
+ },
+ "greenline3": {
+  "entries": 821,
+  "hygiene": {},
+  "collisions": {
+   "Check-in": 1
+  },
+  "examples": {
+   "Check-in": [
+    [
+     "herrschaft; regierungszeit",
+     [
+      "reign",
+      "rule"
+     ]
+    ]
+   ]
+  }
+ },
+ "greenline4": {
+  "entries": 768,
+  "hygiene": {},
+  "collisions": {},
+  "examples": {}
+ },
+ "greenline5": {
+  "entries": 801,
+  "hygiene": {},
+  "collisions": {
+   "Unit 1": 1,
+   "Unit 3": 1
+  },
+  "examples": {
+   "Unit 1": [
+    [
+     "kaum",
+     [
+      "hardly",
+      "no sooner"
+     ]
+    ]
+   ],
+   "Unit 3": [
+    [
+     "überdies; außerdem",
+     [
+      "furthermore",
+      "moreover"
+     ]
+    ]
+   ]
+  }
+ },
+ "greenline6": {
+  "entries": 853,
+  "hygiene": {},
+  "collisions": {
+   "Unit 2": 1
+  },
+  "examples": {
+   "Unit 2": [
+    [
+     "verändert",
+     [
+      "altered",
+      "modified"
+     ]
+    ]
+   ]
+  }
+ },
+ "headlight1": {
+  "entries": 840,
+  "hygiene": {},
+  "collisions": {
+   "Nice to meet you! (Vorspann)": 2,
+   "Unit 1 Welcome to our school": 3
+  },
+  "examples": {
+   "Nice to meet you! (Vorspann)": [
+    [
+     "wild",
+     [
+      "wild",
+      "wild 192 one hundred and ninety-two"
+     ]
+    ],
+    [
+     "hallo.",
+     [
+      "hello.",
+      "hi."
+     ]
+    ]
+   ],
+   "Unit 1 Welcome to our school": [
+    [
+     "schwester",
+     [
+      "sister",
+      "sister 194 one hundred and ninety-four"
+     ]
+    ],
+    [
+     "positiv",
+     [
+      "positive",
+      "positive 196 one hundred and ninety-six"
+     ]
+    ],
+    [
+     "laden, geschäft",
+     [
+      "shop",
+      "shop 198 one hundred and ninety-eight"
+     ]
+    ]
+   ]
+  }
+ },
+ "headlight2": {
+  "entries": 701,
+  "hygiene": {},
+  "collisions": {},
+  "examples": {}
+ },
+ "headlight3": {
+  "entries": 566,
+  "hygiene": {},
+  "collisions": {
+   "Unit 4 - Bonnie Scotland": 1
+  },
+  "examples": {
+   "Unit 4 - Bonnie Scotland": [
+    [
+     "sie … sich / sich …",
+     [
+      "she’s hurt herself.",
+      "they’ve hurt themselves."
+     ]
+    ]
+   ]
+  }
+ },
+ "headlight4": {
+  "entries": 616,
+  "hygiene": {
+   "softhyphen": 1
+  },
+  "collisions": {
+   "USA – Here we come (Vorspann)": 1
+  },
+  "examples": {
+   "USA – Here we come (Vorspann)": [
+    [
+     "gerundium, -ing form",
+     [
+      "gerund",
+      "ing form"
+     ]
+    ]
+   ]
+  }
+ },
+ "headlight5": {
+  "entries": 624,
+  "hygiene": {
+   "ascii:fuer": 2,
+   "ascii:ueber": 1,
+   "ascii:schluessel": 1
+  },
+  "collisions": {
+   "Vorspann / Warm-up": 1,
+   "Unit 1 Life down under": 2,
+   "Unit 4 Generation like": 1
+  },
+  "examples": {
+   "Vorspann / Warm-up": [
+    [
+     "gerundium, -ing",
+     [
+      "gerund",
+      "ing -form"
+     ]
+    ]
+   ],
+   "Unit 1 Life down under": [
+    [
+     "schatten",
+     [
+      "shade",
+      "shadow"
+     ]
+    ],
+    [
+     "ihrer, ihre, ihrs",
+     [
+      "hers",
+      "theirs"
+     ]
+    ]
+   ],
+   "Unit 4 Generation like": [
+    [
+     "badewanne",
+     [
+      "bath",
+      "bathtub"
+     ]
+    ]
+   ]
+  }
+ },
+ "headlight6": {
+  "entries": 548,
+  "hygiene": {},
+  "collisions": {
+   "English connects (Vorspann)": 1,
+   "Unit 3 Future visions": 1
+  },
+  "examples": {
+   "English connects (Vorspann)": [
+    [
+     "gerundium, -ing -form",
+     [
+      "gerund",
+      "ing -form"
+     ]
+    ]
+   ],
+   "Unit 3 Future visions": [
+    [
+     "trotz",
+     [
+      "despite",
+      "in spite of"
+     ]
+    ]
+   ]
+  }
+ }
+}
