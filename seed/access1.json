@@ -1146,6 +1146,226 @@
     [
      "friendly",
      "freundlich"
+    ],
+    [
+     "now",
+     "nun, jetzt"
+    ],
+    [
+     "Simon says …",
+     "Simon sagt …"
+    ],
+    [
+     "teacher",
+     "Lehrer/in"
+    ],
+    [
+     "they’re …",
+     "sie sind …"
+    ],
+    [
+     "their first day",
+     "ihr erster Tag"
+    ],
+    [
+     "he/she/it isn’t …",
+     "er/sie/es ist nicht …; er/sie/es ist kein/e …"
+    ],
+    [
+     "mum",
+     "Mama, Mutti"
+    ],
+    [
+     "dad",
+     "Papa, Vati"
+    ],
+    [
+     "without",
+     "ohne"
+    ],
+    [
+     "minute",
+     "Minute"
+    ],
+    [
+     "time",
+     "Zeit; Uhrzeit"
+    ],
+    [
+     "See you.",
+     "Bis gleich./Bis bald."
+    ],
+    [
+     "home",
+     "Heim, Zuhause"
+    ],
+    [
+     "you aren’t …",
+     "du bist nicht …; du bist kein/e …; ihr seid nicht …; ihr seid kein/e …"
+    ],
+    [
+     "there",
+     "da, dort; dahin, dorthin"
+    ],
+    [
+     "Nice to meet you.",
+     "Freut mich, dich/euch/Sie kennen zu lernen."
+    ],
+    [
+     "I don’t like green.",
+     "Ich mag Grün nicht./Ich mag kein Grün."
+    ],
+    [
+     "Have a go.",
+     "Versuch’s mal."
+    ],
+    [
+     "form (of)",
+     "Form (von)"
+    ],
+    [
+     "thing",
+     "Sache, Ding"
+    ],
+    [
+     "at 1 o’clock",
+     "um 1 Uhr/um 13 Uhr"
+    ],
+    [
+     "o",
+     "Null (in Telefonnummern)"
+    ],
+    [
+     "double",
+     "Doppel-"
+    ],
+    [
+     "in English/in German",
+     "auf Englisch/auf Deutsch"
+    ],
+    [
+     "Miss Bell",
+     "Frau Bell"
+    ],
+    [
+     "Good morning.",
+     "Guten Morgen."
+    ],
+    [
+     "so",
+     "also; deshalb, daher"
+    ],
+    [
+     "(to) come in",
+     "hereinkommen"
+    ],
+    [
+     "ball",
+     "Ball"
+    ],
+    [
+     "(to) catch",
+     "fangen"
+    ],
+    [
+     "when?",
+     "wann?"
+    ],
+    [
+     "Mr Brown",
+     "Herr Brown"
+    ],
+    [
+     "Mrs Brown",
+     "Frau Brown"
+    ],
+    [
+     "September",
+     "September"
+    ],
+    [
+     "PE",
+     "Sportunterricht, Turnen"
+    ],
+    [
+     "religion",
+     "Religion"
+    ],
+    [
+     "January",
+     "Januar"
+    ],
+    [
+     "February",
+     "Februar"
+    ],
+    [
+     "April",
+     "April"
+    ],
+    [
+     "May",
+     "Mai"
+    ],
+    [
+     "June",
+     "Juni"
+    ],
+    [
+     "July",
+     "Juli"
+    ],
+    [
+     "August",
+     "August"
+    ],
+    [
+     "October",
+     "Oktober"
+    ],
+    [
+     "November",
+     "November"
+    ],
+    [
+     "December",
+     "Dezember"
+    ],
+    [
+     "second",
+     "zweite(r,s)"
+    ],
+    [
+     "fourth",
+     "vierte(r,s)"
+    ],
+    [
+     "fifth",
+     "fünfte(r,s)"
+    ],
+    [
+     "I don’t know.",
+     "Ich weiß (es) nicht."
+    ],
+    [
+     "What colour is/are …?",
+     "Welche Farbe hat/haben …?"
+    ],
+    [
+     "canteen",
+     "Kantine, (Schul-)Mensa"
+    ],
+    [
+     "We’re finished.",
+     "Wir sind fertig."
+    ],
+    [
+     "What’s for homework?",
+     "Was haben wir als Hausaufgabe auf?"
+    ],
+    [
+     "chaos",
+     "Chaos"
     ]
    ]
   },
@@ -1588,6 +1808,126 @@
     [
      "onto the boat",
      "auf das Boot (hinauf)"
+    ],
+    [
+     "man, pl men",
+     "Mann"
+    ],
+    [
+     "woman, pl women",
+     "Frau"
+    ],
+    [
+     "(to) be good at kung fu",
+     "gut sein in Kung-Fu; gut Kung-Fu können"
+    ],
+    [
+     "(to) act out",
+     "vorspielen"
+    ],
+    [
+     "family, pl families",
+     "Familie"
+    ],
+    [
+     "house",
+     "Haus"
+    ],
+    [
+     "shelf, pl shelves",
+     "Regal"
+    ],
+    [
+     "sofa",
+     "Sofa"
+    ],
+    [
+     "TV",
+     "Fernsehen, Fernsehgerät"
+    ],
+    [
+     "(to) watch TV",
+     "fernsehen"
+    ],
+    [
+     "in the evening",
+     "abends, am Abend"
+    ],
+    [
+     "fish, pl fish",
+     "Fisch"
+    ],
+    [
+     "us",
+     "uns"
+    ],
+    [
+     "no …",
+     "kein …, keine …"
+    ],
+    [
+     "tea",
+     "Tee"
+    ],
+    [
+     "floor",
+     "Fußboden"
+    ],
+    [
+     "pronunciation",
+     "Aussprache"
+    ],
+    [
+     "sport",
+     "Sport; Sportart"
+    ],
+    [
+     "(to) do sport",
+     "Sport treiben"
+    ],
+    [
+     "near here",
+     "(hier) in der Nähe"
+    ],
+    [
+     "often",
+     "oft"
+    ],
+    [
+     "cousin",
+     "Cousin, Cousine"
+    ],
+    [
+     "person",
+     "Person"
+    ],
+    [
+     "in the middle",
+     "in der Mitte"
+    ],
+    [
+     "potato, pl potatoes",
+     "Kartoffel"
+    ],
+    [
+     "soup",
+     "Suppe"
+    ],
+    [
+     "present",
+     "Geschenk"
+    ],
+    [
+     "café",
+     "Café"
+    ],
+    [
+     "up",
+     "hinauf, herauf; (nach) oben"
+    ],
+    [
+     "sandwich",
+     "Sandwich, (zusammengeklapptes) belegtes Brot"
     ]
    ]
   },
@@ -2070,6 +2410,134 @@
     [
      "Me too.",
      "Ich auch."
+    ],
+    [
+     "hair",
+     "Haar, Haare"
+    ],
+    [
+     "why?",
+     "warum?"
+    ],
+    [
+     "information (about)",
+     "Information(en) (über)"
+    ],
+    [
+     "4 pm",
+     "4 Uhr nachmittags/16 Uhr"
+    ],
+    [
+     "4 am",
+     "4 Uhr morgens"
+    ],
+    [
+     "instrument",
+     "Instrument"
+    ],
+    [
+     "from … to …",
+     "von … bis …"
+    ],
+    [
+     "umbrella",
+     "Schirm, Regenschirm"
+    ],
+    [
+     "Which clubs/jokes/…?",
+     "Welche Klubs/Witze/…?"
+    ],
+    [
+     "piano",
+     "Klavier, Piano"
+    ],
+    [
+     "(to) want to do",
+     "tun wollen"
+    ],
+    [
+     "(to) make friends",
+     "Freunde finden"
+    ],
+    [
+     "(to) ask sb. to do sth.",
+     "jemanden bitten, etwas zu tun"
+    ],
+    [
+     "Listen, Justin.",
+     "Hör zu, Justin."
+    ],
+    [
+     "Come on, Dad.",
+     "Na los, Dad!/Komm, Dad!"
+    ],
+    [
+     "job",
+     "Job, (Arbeits-)Stelle"
+    ],
+    [
+     "studio",
+     "Studio"
+    ],
+    [
+     "What programmes …?",
+     "Welche Sendungen ...?/Welche Art von Sendungen …?"
+    ],
+    [
+     "(to) hear",
+     "hören"
+    ],
+    [
+     "on Saturday afternoon",
+     "am Samstagnachmittag"
+    ],
+    [
+     "in front of",
+     "vor"
+    ],
+    [
+     "(to) turn around",
+     "sich umdrehen"
+    ],
+    [
+     "fifty p/fifty pence",
+     "50p"
+    ],
+    [
+     "child, pl children",
+     "Kind"
+    ],
+    [
+     "life, pl lives",
+     "Leben"
+    ],
+    [
+     "in 1580",
+     "im Jahr 1580"
+    ],
+    [
+     "museum",
+     "Museum"
+    ],
+    [
+     "mouth",
+     "Mund; Maul"
+    ],
+    [
+     "diary, pl diaries",
+     "Tagebuch; Kalender"
+    ],
+    [
+     "address",
+     "Adresse, Anschrift"
+    ],
+    [
+     "gymnastics",
+     "Gymnastik, Turnen"
+    ],
+    [
+     "judo",
+     "Judo"
     ]
    ]
   },
@@ -2596,6 +3064,126 @@
     [
      "(to) sneeze",
      "niesen"
+    ],
+    [
+     "moon",
+     "Mond"
+    ],
+    [
+     "thief, pl thieves",
+     "Dieb/in"
+    ],
+    [
+     "hand",
+     "Hand"
+    ],
+    [
+     "end",
+     "Ende, Schluss"
+    ],
+    [
+     "sand",
+     "Sand"
+    ],
+    [
+     "along the street/the river/…",
+     "die Straße/den Fluss/… entlang"
+    ],
+    [
+     "sun",
+     "Sonne"
+    ],
+    [
+     "trip",
+     "Ausflug; Reise"
+    ],
+    [
+     "rucksack",
+     "Rucksack"
+    ],
+    [
+     "kilogram, kilo (kg)",
+     "Kilogramm, Kilo"
+    ],
+    [
+     "kilometre (km)",
+     "Kilometer"
+    ],
+    [
+     "spot",
+     "Fleck, Punkt"
+    ],
+    [
+     "(to) get off (the boat)",
+     "(aus dem Boot) aussteigen"
+    ],
+    [
+     "(to) agree on sth.",
+     "sich auf etwas einigen"
+    ],
+    [
+     "someone is right",
+     "jemand hat Recht"
+    ],
+    [
+     "someone is wrong",
+     "jemand irrt sich; jemand hat Unrecht"
+    ],
+    [
+     "talk",
+     "Vortrag, Referat, Rede"
+    ],
+    [
+     "blond",
+     "blond"
+    ],
+    [
+     "line",
+     "Zeile"
+    ],
+    [
+     "the UK",
+     "das Vereinigte Königreich"
+    ],
+    [
+     "centre",
+     "Zentrum; Mitte"
+    ],
+    [
+     "snack",
+     "Snack, Imbiss"
+    ],
+    [
+     "the last …",
+     "der/die/das letzte …"
+    ],
+    [
+     "caption",
+     "Bildunterschrift"
+    ],
+    [
+     "character",
+     "Figur, Person"
+    ],
+    [
+     "likes and dislikes (pl)",
+     "Vorlieben und Abneigungen"
+    ],
+    [
+     "(to) smuggle",
+     "schmuggeln"
+    ],
+    [
+     "soon",
+     "bald"
+    ],
+    [
+     "no one",
+     "niemand"
+    ],
+    [
+     "plan",
+     "Plan"
     ]
    ]
   }
