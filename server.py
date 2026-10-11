@@ -661,6 +661,19 @@ def _pool(book, chapters, from_n=None, to_n=None):
     return pool
 
 
+def _variant_set(v):
+    # Gloss-Varianten: ';'-Segmente, Klammerzusätze raus, casefold/Whitespace-Kollaps.
+    # Distraktoren, die eine Variante exakt spiegeln, sind untauglich — ein MC-Knopf,
+    # der semantisch identisch zur Lösung ist, ist für Kinder ein doppelrichtiger Knopf.
+    out = set()
+    for part in re.split(r'[;]', str(v)):
+        p = re.sub(r'\([^)]*\)', ' ', part)
+        p = re.sub(r'\s+', ' ', p).strip().casefold().strip('.,~–-')
+        if p:
+            out.add(p)
+    return out or {str(v).strip().casefold()}
+
+
 def _build_question(item, dpool, direction, rng):
     en, de = item['en'], item['de']
     if direction == 'de2en':
@@ -669,12 +682,15 @@ def _build_question(item, dpool, direction, rng):
         prompt, answer, kind = en, de, 'de'
 
     cf = answer.casefold()
+    sol_vars = _variant_set(answer)
     cands = []
     for other in dpool:
         if other is item:
             continue
         v = other[kind]
         if not v or v.casefold() == cf:
+            continue
+        if sol_vars & _variant_set(v):
             continue
         cands.append((other['ch_ix'] == item['ch_ix'], v))
     # gleiches Kapitel bevorzugt (stable sort über zufällige Reihenfolge)
