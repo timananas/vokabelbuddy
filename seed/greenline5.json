@@ -208,6 +208,10 @@
     [
      "mixture",
      "Mischung"
+    ],
+    [
+     "ecological footprint",
+     "ökologischer Fußabdruck"
     ]
    ]
   },
@@ -1464,16 +1468,16 @@
      "muss/müssen"
     ],
     [
-     "What rock have you been living",
-     "under?"
+     "What rock have you been living under?",
+     "Auf welchem Planeten lebst du?"
     ],
     [
      "Get real.",
      "Wach auf!"
     ],
     [
-     "If you can't stand the heat, get out",
-     "of the kitchen. Ev DE *kItSIn? Wenn du keine Kritik ertragen kannst, dann hör auf/geh."
+     "If you can't stand the heat, get out of the kitchen.",
+     "Wenn du keine Kritik ertragen kannst, dann hör auf/geh."
     ],
     [
      "commenter",
@@ -1551,7 +1555,7 @@
     ],
     [
      "territory",
-     "Territorium; Gebiet; Revier; - territorium"
+     "Territorium; Gebiet; Revier"
     ],
     [
      "Australian",
@@ -1667,7 +1671,7 @@
     ],
     [
      "marine stinger (Aus)",
-     "Seewespe (giftige Würfelquallen- Art)"
+     "Seewespe (giftige Würfelquallen-Art)"
     ],
     [
      "thongs (pl) (Aus)",
@@ -1768,6 +1772,10 @@
     [
      "beginner",
      "Anfänger/-in"
+    ],
+    [
+     "G'day! (= Good day!) (Aus)",
+     "Guten Tag.; Hallo.; Hi. (Begrüßung in Australien)"
     ]
    ]
   },
@@ -2738,8 +2746,8 @@
      "Gesamtschule"
     ],
     [
-     "GCSE (= General Certificate of",
-     "Secondary Education) +sekEndri-edZU*keISn)? allg. Abschluss der weiterführenden Schulen in"
+     "GCSE (= General Certificate of Secondary Education)",
+     "allg. Abschluss der weiterführenden Schulen in England"
     ],
     [
      "primary school",
