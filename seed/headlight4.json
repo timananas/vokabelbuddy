@@ -424,8 +424,12 @@
      "Toilette (privat)"
     ],
     [
-     "canteen cafeteria",
-     "Kantine, Mensa jam"
+     "canteen (BE) / cafeteria (AE)",
+     "Kantine, Mensa"
+    ],
+    [
+     "jam (BE) / jelly (AE)",
+     "Marmelade"
     ],
     [
      "sweets (BE) / candy (AE)",
@@ -650,10 +654,6 @@
     [
      "floor",
      "Etage, Stock(werk)"
-    ],
-    [
-     "Die Stockwerke eines Gebäudes werden in britischem und amerika­",
-     "British English: second floor"
     ],
     [
      "the gist",
