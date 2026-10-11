@@ -2,6 +2,592 @@
  "version": 1,
  "chapters": [
   {
+   "num": 0,
+   "title": "Here we go (Vorspann)",
+   "words": [
+    [
+     "Here we go.",
+     "Los geht's./Jetzt geht's los."
+    ],
+    [
+     "Hello.",
+     "Hallo./Guten Tag."
+    ],
+    [
+     "My name is Justin.",
+     "Ich heiße Justin. (wörtlich: Mein Name ist Justin.)"
+    ],
+    [
+     "I'm from Plymouth.",
+     "Ich bin aus Plymouth./Ich komme aus Plymouth."
+    ],
+    [
+     "I'm twelve years old.",
+     "Ich bin zwölf Jahre alt."
+    ],
+    [
+     "I like …",
+     "Ich mag …"
+    ],
+    [
+     "the",
+     "der, die, das; die"
+    ],
+    [
+     "colour",
+     "Farbe"
+    ],
+    [
+     "red",
+     "rot"
+    ],
+    [
+     "What about you?",
+     "Und du?/Und was ist mit dir?/Und ihr?/Und was ist mit euch?"
+    ],
+    [
+     "what?",
+     "was?"
+    ],
+    [
+     "Justin's questions",
+     "Justins Fragen"
+    ],
+    [
+     "What's your name?",
+     "Wie heißt du?/Wie heißt ihr?"
+    ],
+    [
+     "your",
+     "dein/e; euer/eure; Ihr/e"
+    ],
+    [
+     "How old are you?",
+     "Wie alt bist du?"
+    ],
+    [
+     "Are you …?",
+     "Bist du …?"
+    ],
+    [
+     "Where are you from?",
+     "Woher kommst du?"
+    ],
+    [
+     "where?",
+     "wo?/wohin?"
+    ],
+    [
+     "Meet your classmates.",
+     "Triff deine Mitschüler/innen./Lerne deine Mitschüler/innen kennen."
+    ],
+    [
+     "classmate",
+     "Mitschüler/in, Klassenkamerad/in"
+    ],
+    [
+     "my favourite colour",
+     "meine Lieblingsfarbe"
+    ],
+    [
+     "and",
+     "und"
+    ],
+    [
+     "Yes, that's right.",
+     "Ja, das ist richtig./Ja, das stimmt."
+    ],
+    [
+     "No, that's wrong.",
+     "Nein, das ist falsch./Nein, das stimmt nicht."
+    ],
+    [
+     "wrong",
+     "falsch"
+    ],
+    [
+     "yellow",
+     "gelb"
+    ],
+    [
+     "blue",
+     "blau"
+    ],
+    [
+     "green",
+     "grün"
+    ],
+    [
+     "brown",
+     "braun"
+    ],
+    [
+     "orange",
+     "orange"
+    ],
+    [
+     "grey",
+     "grau"
+    ],
+    [
+     "pink",
+     "pink, rosa"
+    ],
+    [
+     "purple",
+     "violett, lila"
+    ],
+    [
+     "white",
+     "weiß"
+    ],
+    [
+     "black",
+     "schwarz"
+    ],
+    [
+     "a card (to)",
+     "eine Karte (an)"
+    ],
+    [
+     "seal",
+     "Robbe"
+    ],
+    [
+     "Let's go.",
+     "Auf geht's."
+    ],
+    [
+     "(to) go",
+     "gehen; fahren"
+    ],
+    [
+     "Welcome to Plymouth.",
+     "Willkommen in Plymouth."
+    ],
+    [
+     "to",
+     "in; an; zu, nach"
+    ],
+    [
+     "(to) look at",
+     "anschauen, ansehen"
+    ],
+    [
+     "map",
+     "Landkarte; Stadtplan"
+    ],
+    [
+     "of",
+     "von"
+    ],
+    [
+     "hometown",
+     "Heimatstadt"
+    ],
+    [
+     "town",
+     "Stadt"
+    ],
+    [
+     "too",
+     "auch"
+    ],
+    [
+     "on the map",
+     "auf der Landkarte/dem Stadtplan"
+    ],
+    [
+     "boy",
+     "Junge"
+    ],
+    [
+     "girl",
+     "Mädchen"
+    ],
+    [
+     "sea",
+     "Meer"
+    ],
+    [
+     "river",
+     "Fluss"
+    ],
+    [
+     "harbour",
+     "Hafen"
+    ],
+    [
+     "boat",
+     "Boot"
+    ],
+    [
+     "castle",
+     "Burg, Schloss"
+    ],
+    [
+     "tower",
+     "Turm"
+    ],
+    [
+     "(swimming) pool",
+     "Schwimmbad, Schwimmbecken"
+    ],
+    [
+     "big wheel",
+     "Riesenrad"
+    ],
+    [
+     "big",
+     "groß"
+    ],
+    [
+     "(to) see",
+     "sehen; besuchen"
+    ],
+    [
+     "can",
+     "können"
+    ],
+    [
+     "picture",
+     "Bild"
+    ],
+    [
+     "tip",
+     "Tipp"
+    ],
+    [
+     "place",
+     "Ort, Platz, Stelle"
+    ],
+    [
+     "Silky's song",
+     "Silkys Lied, Silkys Song"
+    ],
+    [
+     "who?",
+     "wer?"
+    ],
+    [
+     "Is it Monday?",
+     "Ist es Montag?"
+    ],
+    [
+     "the days of the week",
+     "die Wochentage"
+    ],
+    [
+     "Monday",
+     "Montag"
+    ],
+    [
+     "Tuesday",
+     "Dienstag"
+    ],
+    [
+     "Wednesday",
+     "Mittwoch"
+    ],
+    [
+     "Thursday",
+     "Donnerstag"
+    ],
+    [
+     "Friday",
+     "Freitag"
+    ],
+    [
+     "Saturday",
+     "Samstag, Sonnabend"
+    ],
+    [
+     "Sunday",
+     "Sonntag"
+    ],
+    [
+     "every day/colour/boat",
+     "jeder Tag/jede Farbe/jedes Boot"
+    ],
+    [
+     "great",
+     "großartig"
+    ],
+    [
+     "for",
+     "für"
+    ],
+    [
+     "kid",
+     "(infml) Kind; Jugendliche(r)"
+    ],
+    [
+     "photo",
+     "Foto"
+    ],
+    [
+     "Here's …/Here are …",
+     "Hier ist …/Hier sind …"
+    ],
+    [
+     "here",
+     "hier; hierher"
+    ],
+    [
+     "it's …",
+     "er/sie/es ist …"
+    ],
+    [
+     "on Monday/Tuesday/…",
+     "am Montag/Dienstag/…"
+    ],
+    [
+     "she's …",
+     "sie ist …"
+    ],
+    [
+     "at",
+     "an, bei, in (in Ortsangaben)"
+    ],
+    [
+     "near",
+     "in der Nähe von, nahe (bei)"
+    ],
+    [
+     "rhyme",
+     "Reim, Vers"
+    ],
+    [
+     "There are …",
+     "Es sind …/Es gibt …"
+    ],
+    [
+     "There's …",
+     "Es ist …/Es gibt …"
+    ],
+    [
+     "lots of …/a lot of …",
+     "viel …, viele …"
+    ],
+    [
+     "animal",
+     "Tier"
+    ],
+    [
+     "Follow me.",
+     "Folg mir./Folgt mir."
+    ],
+    [
+     "zoo",
+     "Zoo"
+    ],
+    [
+     "bear",
+     "Bär"
+    ],
+    [
+     "elephant",
+     "Elefant"
+    ],
+    [
+     "giraffe",
+     "Giraffe"
+    ],
+    [
+     "lion",
+     "Löwe"
+    ],
+    [
+     "monkey",
+     "Affe"
+    ],
+    [
+     "pig",
+     "Schwein"
+    ],
+    [
+     "snake",
+     "Schlange"
+    ],
+    [
+     "whale",
+     "Wal"
+    ],
+    [
+     "good",
+     "gut"
+    ],
+    [
+     "pet",
+     "Haustier"
+    ],
+    [
+     "ant",
+     "Ameise"
+    ],
+    [
+     "bird",
+     "Vogel"
+    ],
+    [
+     "butterfly",
+     "Schmetterling"
+    ],
+    [
+     "cat",
+     "Katze"
+    ],
+    [
+     "dog",
+     "Hund"
+    ],
+    [
+     "frog",
+     "Frosch"
+    ],
+    [
+     "guinea pig",
+     "Meerschweinchen"
+    ],
+    [
+     "horse",
+     "Pferd"
+    ],
+    [
+     "rabbit",
+     "Kaninchen"
+    ],
+    [
+     "rat",
+     "Ratte"
+    ],
+    [
+     "an elephant",
+     "ein Elefant"
+    ],
+    [
+     "(to) think",
+     "denken, glauben"
+    ],
+    [
+     "or",
+     "oder"
+    ],
+    [
+     "but",
+     "aber"
+    ],
+    [
+     "… isn't a good pet",
+     "… ist kein gutes Haustier."
+    ],
+    [
+     "strange",
+     "seltsam, komisch"
+    ],
+    [
+     "game",
+     "Spiel"
+    ],
+    [
+     "(to) say",
+     "sagen"
+    ],
+    [
+     "new",
+     "neu"
+    ],
+    [
+     "school",
+     "Schule"
+    ],
+    [
+     "class",
+     "(Schul-)Klasse"
+    ],
+    [
+     "Let me show you …",
+     "Lass mich dir … zeigen."
+    ],
+    [
+     "me",
+     "mich; mir"
+    ],
+    [
+     "(to) show",
+     "zeigen"
+    ],
+    [
+     "our",
+     "unser/e"
+    ],
+    [
+     "classroom",
+     "Klassenzimmer"
+    ],
+    [
+     "board",
+     "Tafel"
+    ],
+    [
+     "cupboard",
+     "Schrank"
+    ],
+    [
+     "chair",
+     "Stuhl"
+    ],
+    [
+     "clock",
+     "(Wand-, Stand-, Turm-)Uhr"
+    ],
+    [
+     "watch",
+     "Armbanduhr"
+    ],
+    [
+     "door",
+     "Tür"
+    ],
+    [
+     "desk",
+     "Schreibtisch"
+    ],
+    [
+     "window",
+     "Fenster"
+    ],
+    [
+     "This is …",
+     "Dies ist …/Das ist …"
+    ],
+    [
+     "(to) come",
+     "kommen"
+    ],
+    [
+     "English",
+     "Englisch; englisch"
+    ],
+    [
+     "lesson",
+     "(Unterrichts-)Stunde"
+    ],
+    [
+     "school bag",
+     "Schultasche"
+    ],
+    [
+     "book",
+     "Buch"
+    ],
+    [
+     "exercise book",
+     "Schulheft, Übungsheft"
+    ]
+   ]
+  },
+  {
    "num": 1,
    "title": "The first day at school",
    "words": [

@@ -166,6 +166,10 @@ def _trim_de(de):
     de = re.split(r'\sstress:\s|\sadj:\s|\snoun:\s|\sverb:\s|\sadv:\s|\sopp:\s|\s+:(?=\s)', de)[0]
     # 3) OCR-Leerzeichen kollabieren
     de = re.sub(r'\s{2,}', ' ', de).strip()
+    # 3a) Aussprache-Hinweis-Tail: ' [s] ist ein hartes…' / ' [ŋ] ist wie „ng“…' —
+    #     IPA-Hinweise im de-Feld sind KEINE Übersetzungsteile (sonst greift der
+    #     >8-Wörter-Guard und der GANZE Entry wurde verworfen — Access-1-Here-we-go-Lücke!)
+    de = re.sub(r'\s*\[[^\]]{1,4}\]\s*(?:ist|klingt|steht|wird|kommt)\b.*$', '', de).strip()
     # 4) AE/BE-/F/L-Herkunft, ~-Sätze, '( auch:'-Ergänzungen
     de = re.split(r'\s=\s|\sF\s+|\sL\s+', de)[0]
     de = re.split(r'(?<![\wäöüß])~\S*\s*|(?<![\wäöüß])~\s', de)[0].rstrip()
@@ -351,7 +355,11 @@ def _sanitize_pair(en, de):
     # Satzförmige EN-Seite + nicht-deutsche DE-Seite = Beispielsatz-Leiche → verwerfen
     en_sentence = (en.rstrip().endswith(('?', '!', '.')) and not en.rstrip().endswith('…')) \
         or '. ' in en or len(en.split()) > 4
-    if en_sentence and not _de_has_german(de):
+    # Frage-/Kurz-Vokabeln („who?“/„what?“/„Is it Monday?“): de endet ebenfalls mit '?'
+    # und ist kurz → LEGAL, auch ohne Umlaut (_de_has_german schlägt bei 'wer?' fehl)
+    de_is_short_q = de.rstrip().endswith('?') and 1 <= len(de.split()) <= 6
+    en_is_short_q = en.rstrip().endswith('?') and 1 <= len(en.split()) <= 6
+    if en_sentence and not _de_has_german(de) and not (en_is_short_q and de_is_short_q):
         return None
     # Verwerfen: smashed Compound ('leichte Nachmittagsoder'), leere Übersetzung,
     # reine Marker-Übersetzung, en wie invertierter deutscher Satz, Seiten-/Header-Leichen
@@ -435,13 +443,16 @@ def parse_band(txt_path):
     for _page, start, end in vocab:
         # Unit für diese Seite: erst Seitenkopf-Muster (Unit N ...), sonst weiterführen
         hdr_unit = None
-        head_txt = [re.sub(r'\s{2,}', ' ', x.strip()) for x in lines[start + 1:start + 8]]
+        head_txt = [re.sub(r'\s{2,}', ' ', x.strip()) for x in lines[start + 1:start + 14]]
         for h in head_txt:
             umh = re.match(r'^Unit (\d+)\b', h)
             if umh:
                 hdr_unit = int(umh.group(1))
                 break
-            if re.search(r'Here we go', h) and 'Vocabulary' in h:
+            # 'Here we go' steht als EIGENE Kopfzeile (nach 'Vocabulary'/Seitenzahl) —
+            # die alte 'Vocabulary'-in-der-selben-Zeile-Bedingung konnte nie treffen
+            # (OCR bricht Kopf in getrennte Zeilen) → Here-we-go-Vokabeln wurden verworfen.
+            if re.fullmatch(r'Here\s*we\s*go\.?', h):
                 hdr_unit = 0
                 break
         if hdr_unit is not None:
@@ -484,6 +495,36 @@ def parse_band(txt_path):
                     en2 = re.sub(r'^(.*?\S)\s*\[[^\]]*\].*$', r'\1', l).strip()
                     en = re.sub(r'\s+', ' ', en2).strip()
                     de_raw = l[last_close + 1:]
+                    # Aussprache-Hinweis-Klammer NACH der Übersetzung ('und [ æ ] kennst du…'):
+                    # Die echte Übersetzung ist das Text-Segment VOR der Hinweis-Klammer.
+                    # Vollanalyse: alle Brackets im l — Hinweis-Brackets (≤4 Zeichen-Inhalt)
+                    # stehen NACH der Übersetzung; de = letztes Text-Segment dazwischen.
+                    full_spans = [(m.start(0), m.end(0)) for m in re.finditer(r'\[[^\]]+\]', l)]
+                    if len(full_spans) >= 2:
+                        segs = []
+                        pos = 0
+                        for s0, e0 in full_spans:
+                            if s0 > pos:
+                                segs.append(l[pos:s0].strip())
+                            pos = e0
+                        if pos < len(l):
+                            segs.append(l[pos:].strip())
+                        # de = letztes Segment mit Umlauten/deutsch, das VOR einem Kurz-Bracket liegt
+                        cand = None
+                        for s0, e0 in full_spans:
+                            if e0 - s0 <= 6:  # Hinweis-Bracket ('[ æ ]', '[s]', '[ŋ]')
+                                between = l[full_spans[max(0, full_spans.index((s0, e0)) - 1)][1]:s0].strip() if full_spans.index((s0, e0)) else ''
+                                if between and any(c in between for c in 'äöüßÄÖÜ'):
+                                    cand = between
+                        if cand:
+                            de_raw = cand
+                        else:
+                            # Segment-NACH-letztem-Bracket ohne Umlaute = Erklärtext → de aus
+                            # den Segmenten VOR dem letzten Kurz-Bracket nehmen
+                            tail = de_raw if not de_raw.startswith((']', ', [', '], [', ',  [')) else ''
+                            if tail and not any(c in tail for c in 'äöüßÄÖÜ'):
+                                de_raw = [s for s in segs if any(c in s for c in 'äöüßÄÖÜ')]
+                                de_raw = de_raw[-1].strip(' ,;') if de_raw else de_raw
                 pair = _sanitize_pair(en, _trim_de(de_raw))
                 if pair and _final_ok(*pair) and len(pair[0].split()) <= 6 and len(pair[1].split()) <= 8:
                     ch['words'].append(list(pair))
