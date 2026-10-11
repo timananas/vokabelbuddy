@@ -47,7 +47,7 @@
     ],
     [
      "(to) suggest sth.",
-     "auf etwas hindeuten"
+     "1. etwas vorschlagen; 2. auf etwas hindeuten, etwas nahelegen"
     ],
     [
      "conservative",
@@ -55,7 +55,7 @@
     ],
     [
      "original",
-     "originell"
+     "1. Original-, ursprüngliche(r,s); 2. originell"
     ],
     [
      "award-winning",
@@ -95,7 +95,7 @@
     ],
     [
      "alarm",
-     "Alarm (kurz für: alarm clock)"
+     "Wecker"
     ],
     [
      "(to) wink (at sb. )",
@@ -119,7 +119,7 @@
     ],
     [
      "record",
-     "Schallplatte"
+     "1. Schallplatte; 2. Rekord; 3. Aufzeichnung(en)"
     ],
     [
      "(to) make sb. do sth.",
@@ -644,6 +644,202 @@
     [
      "equal",
      "gleich"
+    ],
+    [
+     "in their (late) teens",
+     "im (späten) Teenageralter"
+    ],
+    [
+     "paint",
+     "Farbe, Lack"
+    ],
+    [
+     "headscarf (pl: headscarves)",
+     "Kopftuch"
+    ],
+    [
+     "tie",
+     "Krawatte, Schlips"
+    ],
+    [
+     "(to) prefer sb. to do sth.",
+     "(es) vorziehen, wenn jd. etwas täte/tun würde"
+    ],
+    [
+     "pain",
+     "Schmerz(en)"
+    ],
+    [
+     "painful",
+     "schmerzhaft, qualvoll"
+    ],
+    [
+     "headphones (pl)",
+     "Kopfhörer"
+    ],
+    [
+     "branch",
+     "Ast, Zweig; Zweigstelle, Filiale"
+    ],
+    [
+     "(to) let sb. do sth.",
+     "jn. etwas tun lassen; jm. erlauben, etwas zu tun; zulassen, dass jemand etwas tut"
+    ],
+    [
+     "perspective",
+     "Perspektive, Blickwinkel"
+    ],
+    [
+     "aggressive",
+     "aggressiv"
+    ],
+    [
+     "poetry",
+     "Gedichte, Lyrik"
+    ],
+    [
+     "dove",
+     "Taube"
+    ],
+    [
+     "(to) be considered sth.",
+     "als etwas betrachtet werden; für etwas gehalten werden"
+    ],
+    [
+     "blind",
+     "blind"
+    ],
+    [
+     "athletic",
+     "athletisch, sportlich"
+    ],
+    [
+     "liberal",
+     "liberal"
+    ],
+    [
+     "African-American",
+     "Afroamerikaner/in; afroamerikanisch"
+    ],
+    [
+     "margin",
+     "Rand"
+    ],
+    [
+     "in relation to",
+     "im Verhältnis zu"
+    ],
+    [
+     "font",
+     "Schrift(art)"
+    ],
+    [
+     "pt (Abkürzung für point)",
+     "Punkt (Maßeinheit f. Schriftgrad, Zeilenabstände u.Ä.)"
+    ],
+    [
+     "opinion piece",
+     "Stellungnahme, Meinungsartikel"
+    ],
+    [
+     "(to) make sth. up",
+     "etwas bilden"
+    ],
+    [
+     "nonexistent (BE meist: non-existent)",
+     "nicht vorhanden, nicht existierend"
+    ],
+    [
+     "when it comes to ...",
+     "was … betrifft/anbelangt, …"
+    ],
+    [
+     "percent (AE) / per cent (BE)",
+     "Prozent"
+    ],
+    [
+     "representation",
+     "Vertretung, Repräsentanz"
+    ],
+    [
+     "contribution",
+     "Beitrag"
+    ],
+    [
+     "(to) have sth. done",
+     "etwas machen/erledigen lassen"
+    ],
+    [
+     "counselor (BE: counsellor)",
+     "Berater/in; Betreuer/in"
+    ],
+    [
+     "in the meantime",
+     "in der Zwischenzeit; inzwischen"
+    ],
+    [
+     "(to) back sth. up",
+     "etwas untermauern (Argument)"
+    ],
+    [
+     "marriage",
+     "Ehe; Heirat"
+    ],
+    [
+     "(to) discriminate against sb.",
+     "jn. diskriminieren, jn. benachteiligen"
+    ],
+    [
+     "(to) discriminate on pay",
+     "beim Lohn diskriminieren"
+    ],
+    [
+     "sad",
+     "(traurig)"
+    ],
+    [
+     "(to) take sth./sb. seriously",
+     "etwas/jn. ernst nehmen"
+    ],
+    [
+     "paragraph break",
+     "Absatzumbruch"
+    ],
+    [
+     "species (pl: species)",
+     "Art, Spezies"
+    ],
+    [
+     "skeleton",
+     "Skelett"
+    ],
+    [
+     "the ups and downs",
+     "die Höhen und Tiefen"
+    ],
+    [
+     "(to) record",
+     "1. aufzeichnen (Musik, Daten); 2. dokumentieren (Daten)"
+    ],
+    [
+     "high winds (pl)",
+     "starker Wind, starke Winde"
+    ],
+    [
+     "(to) be located (in …)",
+     "(in …) liegen, sich (in …) befinden"
+    ],
+    [
+     "pill",
+     "Pille, Tablette"
+    ],
+    [
+     "fear (of)",
+     "Angst (vor)"
+    ],
+    [
+     "First Aid",
+     "Erste Hilfe"
     ]
    ]
   },
@@ -793,7 +989,7 @@
     ],
     [
      "review",
-     "Rezension, Besprechung"
+     "Rezension, Besprechung, Kritik"
     ],
     [
      "(to) review",
@@ -909,7 +1105,7 @@
     ],
     [
      "account",
-     "Bericht, Schilderung, Darstellung"
+     "1. Konto; 2. Bericht, Schilderung, Darstellung"
     ],
     [
      "emphasis",
@@ -1070,6 +1266,106 @@
     [
      "memorable",
      "einprägsam; unvergesslich"
+    ],
+    [
+     "applause",
+     "Beifall, Applaus"
+    ],
+    [
+     "no matter if/whether",
+     "ganz gleich, ob"
+    ],
+    [
+     "no matter what/who/how/…",
+     "ganz gleich, was/wer/wie/…"
+    ],
+    [
+     "(to) observe",
+     "beobachten"
+    ],
+    [
+     "cream",
+     "Creme; Salbe"
+    ],
+    [
+     "the other day",
+     "neulich"
+    ],
+    [
+     "pole",
+     "Stange, Pfahl, Mast"
+    ],
+    [
+     "flagpole",
+     "(Flaggenmast, Fahnenmast)"
+    ],
+    [
+     "(to) indicate sth./sb.",
+     "auf etwas/jn. zeigen, deuten, hinweisen"
+    ],
+    [
+     "first-person narrative",
+     "Ich-Erzählung"
+    ],
+    [
+     "fiction",
+     "Belletristik, Prosa(literatur); Märchen, Fiktion"
+    ],
+    [
+     "graphic novel",
+     "Bildroman, Comicroman"
+    ],
+    [
+     "footage",
+     "Bildmaterial, Film(material)"
+    ],
+    [
+     "misunderstanding",
+     "Missverständnis"
+    ],
+    [
+     "(to) put sth. off",
+     "etwas aufschieben"
+    ],
+    [
+     "(to) grow smaller/old/… (grew, grown)",
+     "(allmählich) kleiner/alt/… werden"
+    ],
+    [
+     "(to) grow",
+     "1. wachsen; 2. anbauen, anpflanzen; 3. (allmählich) werden"
+    ],
+    [
+     "engaging",
+     "fesselnd (Literatur, Film u.Ä.)"
+    ],
+    [
+     "semi-",
+     "halb-; Halb-"
+    ],
+    [
+     "autobiographical",
+     "autobiografisch"
+    ],
+    [
+     "(to) title",
+     "betiteln, benennen"
+    ],
+    [
+     "harmony",
+     "Harmonie, Eintracht"
+    ],
+    [
+     "(to) take a stand (on sth. / against sth.)",
+     "Stellung beziehen (zu etwas); ein Zeichen setzen"
+    ],
+    [
+     "social disruption",
+     "soziale Spannungen, sozialer Zerfall"
+    ],
+    [
+     "(to) be committed to sth.",
+     "sich für etwas verpflichten, sich zu etwas bekennen"
     ]
    ]
   },
@@ -1323,7 +1619,7 @@
     ],
     [
      "menu",
-     "(Computer) Menü"
+     "1. Speisekarte; 2. (Computer) Menü"
     ],
     [
      "(to) navigate",
@@ -1335,7 +1631,7 @@
     ],
     [
      "memory",
-     "(Computer) Speicher"
+     "1. Erinnerung; Gedächtnis; 2. (Computer) Speicher"
     ],
     [
      "(to) run (ran, run)",
@@ -1375,7 +1671,7 @@
     ],
     [
      "pesticide",
-     "Schädlingsbekämpfungsmittel"
+     "Schädlingsbekämpfungsmittel, Pestizid"
     ],
     [
      "varied",
@@ -1623,7 +1919,7 @@
     ],
     [
      "bright",
-     "klug, gescheit, „hell“"
+     "1. strahlend, leuchtend, hell; 2. klug, gescheit, „hell“"
     ],
     [
      "beneath",
@@ -1736,6 +2032,226 @@
     [
      "(to) rank sth.",
      "etwas einstufen, etwas anordnen"
+    ],
+    [
+     "carbon",
+     "Kohlenstoff"
+    ],
+    [
+     "(to) release a prisoner",
+     "(eine/n Gefangene/n freilassen)"
+    ],
+    [
+     "breakdown",
+     "Zusammenbruch"
+    ],
+    [
+     "nervous breakdown",
+     "Nervenzusammenbruch"
+    ],
+    [
+     "social networking",
+     "Kommunikation über Online-Plattformen"
+    ],
+    [
+     "fluency",
+     "(Flüssigkeit, Gewandtheit)"
+    ],
+    [
+     "basis (pl: bases)",
+     "Basis, Grundlage"
+    ],
+    [
+     "misinformation (no pl)",
+     "Fehlinformation(en), Falschinformation(en)"
+    ],
+    [
+     "unqualified",
+     "unqualifiziert"
+    ],
+    [
+     "tight",
+     "fest, eng; knapp, eng anliegend (Kleidung)"
+    ],
+    [
+     "consequence",
+     "Folge, Konsequenz"
+    ],
+    [
+     "think tank",
+     "Expertenkommission, Denkfabrik"
+    ],
+    [
+     "(to) have sb’s. best interests at heart",
+     "jds. Bestes wollen"
+    ],
+    [
+     "(to) go on strike",
+     "streiken, in den Streik treten"
+    ],
+    [
+     "(to) be on strike",
+     "streiken, sich im Streik befinden"
+    ],
+    [
+     "sequence",
+     "Abfolge, Reihenfolge"
+    ],
+    [
+     "button",
+     "Knopf; Taste"
+    ],
+    [
+     "icon",
+     "Symbol, Icon"
+    ],
+    [
+     "search bar",
+     "(Computer) Suchfeld, Suchleiste"
+    ],
+    [
+     "tab",
+     "Tab, Reiter (Karteikarte, Browser)"
+    ],
+    [
+     "(to) download sth.",
+     "etwas herunterladen"
+    ],
+    [
+     "friend request",
+     "Freundschaftsanfrage"
+    ],
+    [
+     "feature article",
+     "Sonderbericht, Sonderbeitrag"
+    ],
+    [
+     "(to) buzz off",
+     "abschwirren, einen Abflug machen"
+    ],
+    [
+     "trap",
+     "Falle"
+    ],
+    [
+     "(to) sting (stung, stung)",
+     "stechen; brennen"
+    ],
+    [
+     "immune system",
+     "Immunsystem"
+    ],
+    [
+     "hibernation",
+     "Winterschlaf"
+    ],
+    [
+     "(to) compensate",
+     "kompensieren, ausgleichen; entschädigen"
+    ],
+    [
+     "(to) lay (laid, laid)",
+     "legen"
+    ],
+    [
+     "(to) lie (lay, lain)",
+     "liegen"
+    ],
+    [
+     "alternative",
+     "Alternative"
+    ],
+    [
+     "horizontal",
+     "(horizontal, waagerecht)"
+    ],
+    [
+     "programme (BE) / program (AE)",
+     "1. Programm; 2. (Fernseh-/Radio-)Sendung"
+    ],
+    [
+     "program (BE, AE)",
+     "(Computer-)Programm"
+    ],
+    [
+     "band",
+     "Gruppe, Bande, Gang"
+    ],
+    [
+     "(to) put sth. politely/simply/…",
+     "(etwas höflich/einfach/… ausdrücken)"
+    ],
+    [
+     "(to) accomplish sth.",
+     "etwas erreichen, vollbringen, bewirken"
+    ],
+    [
+     "(to) straighten one’s body/legs/shoulders",
+     "(aufrichten/ausstrecken/straffen)"
+    ],
+    [
+     "analogy",
+     "Analogie, Vergleich"
+    ],
+    [
+     "romance",
+     "Romantik, romantische Liebe"
+    ],
+    [
+     "familiar (to sb. / with sth.)",
+     "(jm. / mit etwas) vertraut"
+    ],
+    [
+     "dozen",
+     "Dutzend"
+    ],
+    [
+     "addict",
+     "Abhängige/r, Süchtige/r"
+    ],
+    [
+     "straightforward",
+     "einfach, klar (ausgedrückt)"
+    ],
+    [
+     "(to) lose one’s temper",
+     "die Beherrschung verlieren"
+    ],
+    [
+     "motivation",
+     "Motivation"
+    ],
+    [
+     "evidence (no pl)",
+     "Nachweis, Beleg, Beweis"
+    ],
+    [
+     "sensible",
+     "vernünftig; praktisch"
+    ],
+    [
+     "survey",
+     "Umfrage, Studie"
+    ],
+    [
+     "(to) be concerned about sth.",
+     "über/um/wegen etw. besorgt sein"
+    ],
+    [
+     "(to) take sides",
+     "Partei ergreifen"
+    ],
+    [
+     "thorough",
+     "gründlich, sorgfältig"
+    ],
+    [
+     "counter-argument",
+     "Gegenargument"
+    ],
+    [
+     "imagination",
+     "Fantasie, Vorstellung(skraft)"
     ]
    ]
   }
