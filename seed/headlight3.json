@@ -594,6 +594,58 @@
     [
      "cathedral",
      "Kathedrale, Dom"
+    ],
+    [
+     "around …",
+     "um … (herum); in … umher"
+    ],
+    [
+     "be able to do sth.",
+     "etwas tun können, in der Lage sein etwas zu tun"
+    ],
+    [
+     "be allowed to do sth.",
+     "etwas tun dürfen"
+    ],
+    [
+     "big",
+     "groß"
+    ],
+    [
+     "caption",
+     "Bildunterschrift"
+    ],
+    [
+     "catch, caught",
+     "(ein)fangen, erwischen"
+    ],
+    [
+     "guard",
+     "Wärter/in; Wache"
+    ],
+    [
+     "huge",
+     "riesig, Riesen-"
+    ],
+    [
+     "pay (for sth.)",
+     "(etwas be)zahlen"
+    ],
+    [
+     "per hour/person",
+     "pro Stunde/Person"
+    ],
+    [
+     "point of view",
+     "Standpunkt"
+    ],
+    [
+     "sell, sold, sold",
+     "verkaufen"
+    ],
+    [
+     "tall",
+     "groß (gewachsen) (bei Personen)"
     ]
    ]
   },
@@ -759,7 +811,7 @@
     ],
     [
      "Have you ever been …?",
-     "Hast du schon mal …? /Hast"
+     "Hast du schon mal …? Hast du schon mal in … gewesen?"
     ],
     [
      "move house",
@@ -1008,6 +1060,30 @@
     [
      "character",
      "Figur, Person (in Roman, Film usw.)"
+    ],
+    [
+     "chase",
+     "verfolgen, jagen"
+    ],
+    [
+     "do a great/good/bad job",
+     "großartige/gute/schlechte Arbeit leisten, es großartig/gut/schlecht machen"
+    ],
+    [
+     "drive, drove",
+     "(an)treiben (Tiere)"
+    ],
+    [
+     "in the middle of nowhere",
+     "am Ende der Welt"
+    ],
+    [
+     "keep, kept",
+     "aufbewahren; (be)halten"
+    ],
+    [
+     "suggest sth. (to sb.)",
+     "(jm.) etwas vorschlagen"
     ]
    ]
   },
@@ -1406,6 +1482,42 @@
     [
      "skipping",
      "(das) Seilspringen"
+    ],
+    [
+     "break, broke, broken",
+     "(zer)brechen; kaputtgehen; kaputtmachen"
+    ],
+    [
+     "broken",
+     "zerbrochen, kaputt"
+    ],
+    [
+     "business person",
+     "Geschäftsperson"
+    ],
+    [
+     "euro (€), pl euros",
+     "Euro"
+    ],
+    [
+     "On the one hand …",
+     "Einerseits …"
+    ],
+    [
+     "On the other hand …",
+     "Andererseits …"
+    ],
+    [
+     "serious",
+     "ernst(haft)"
+    ],
+    [
+     "suspend (sb. from sth.)",
+     "(jn. von etwas) suspendieren"
+    ],
+    [
+     "throw, threw, thrown",
+     "werfen"
     ]
    ]
   },
@@ -1527,7 +1639,7 @@
     ],
     [
      "teach sb. sth. , taught",
-     "jn. unterrichten; jm. etwas"
+     "jn. unterrichten; jm. etwas (beibringen)"
     ],
     [
      "Help yourselves.",
@@ -1739,7 +1851,7 @@
     ],
     [
      "shine, shone",
-     "strahlen, glänzen"
+     "strahlen, glänzen; scheinen (Sonne); leuchten"
     ],
     [
      "bagpipes (pl)",
@@ -1824,6 +1936,34 @@
     [
      "meal",
      "Mahlzeit, Essen"
+    ],
+    [
+     "charge",
+     "(auf)laden (Batterie, Handy, …)"
+    ],
+    [
+     "I don’t think so.",
+     "Das glaube/denke ich nicht."
+    ],
+    [
+     "onto the road",
+     "auf die Straße"
+    ],
+    [
+     "ring, rang, rung",
+     "anrufen"
+    ],
+    [
+     "run a business / a hotel, ran, run",
+     "eine Firma / ein Hotel leiten, führen"
+    ],
+    [
+     "there’s no such thing as …",
+     "es gibt kein/e …"
+    ],
+    [
+     "unemployed",
+     "arbeitslos"
     ]
    ]
   },
@@ -2138,6 +2278,26 @@
     [
      "it was built English sounds",
      "es wurde gebaut"
+    ],
+    [
+     "EU (= European Union)",
+     "EU (Europäische Union)"
+    ],
+    [
+     "improve",
+     "(sich) verbessern"
+    ],
+    [
+     "lie, lay, lain",
+     "liegen"
+    ],
+    [
+     "likes and dislikes (pl)",
+     "Vorlieben und Abneigungen"
+    ],
+    [
+     "shake, shook",
+     "schütteln"
     ]
    ]
   }

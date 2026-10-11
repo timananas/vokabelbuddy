@@ -628,8 +628,8 @@
      "(an)starren"
     ],
     [
-     "swung",
-     "ausholen"
+     "swing, swung, swung",
+     "schwingen"
     ],
     [
      "nose",
@@ -686,6 +686,42 @@
     [
      "stick",
      "Stock"
+    ],
+    [
+     "awesome (AE, infml)",
+     "klasse, stark, großartig"
+    ],
+    [
+     "make sb./sth. sth.",
+     "jn./etwas zu etwas machen"
+    ],
+    [
+     "hang (from), hung, hung",
+     "hängen (an)"
+    ],
+    [
+     "similar (to sb./sth.)",
+     "(jm./einer Sache) ähnlich"
+    ],
+    [
+     "restroom (AE)",
+     "Toilette (in öffentlichen Gebäuden)"
+    ],
+    [
+     "swing, swung, swung",
+     "schwingen"
+    ],
+    [
+     "decide (to do sth.)",
+     "beschließen, (sich) entscheiden (etwas zu tun)"
+    ],
+    [
+     "you do have …",
+     "du hast (ja/wohl) doch …"
+    ],
+    [
+     "scan (a text for)",
+     "(einen Text) überfliegen (nach), absuchen (nach)"
     ]
    ]
   },
@@ -1176,6 +1212,30 @@
     [
      "advantage",
      "Vorteil"
+    ],
+    [
+     "any",
+     "jegliche/r/s, jede/r beliebige"
+    ],
+    [
+     "a piece of advice",
+     "ein Rat(schlag)"
+    ],
+    [
+     "pound",
+     "Pfund (brit. Währung); hämmern, schlagen, pochen"
+    ],
+    [
+     "thumb",
+     "Daumen"
+    ],
+    [
+     "Are you kidding? (infml)",
+     "Machst du Witze?"
+    ],
+    [
+     "when it comes to …",
+     "wenn es um … geht"
     ]
    ]
   },
@@ -1566,6 +1626,34 @@
     [
      "twig",
      "(kleiner) Zweig"
+    ],
+    [
+     "grow, grew, grown",
+     "wachsen; anbauen, anpflanzen"
+    ],
+    [
+     "get to do sth.",
+     "etwas tun können/dürfen; die Möglichkeit haben/bekommen, etwas zu tun"
+    ],
+    [
+     "among",
+     "unter, zwischen (mehreren Personen oder Dingen)"
+    ],
+    [
+     "I used to …",
+     "ich habe früher (immer) …"
+    ],
+    [
+     "after that",
+     "danach"
+    ],
+    [
+     "dare",
+     "Mutprobe"
+    ],
+    [
+     "dare sb. to do sth.",
+     "jn. herausfordern, etwas zu tun"
     ]
    ]
   },
@@ -2024,6 +2112,54 @@
     [
      "volunteering",
      "Freiwilligentätigkeit, ehrenamtliches Arbeiten"
+    ],
+    [
+     "nosey (auch: nosy)",
+     "neugierig"
+    ],
+    [
+     "lemon",
+     "Zitrone"
+    ],
+    [
+     "land",
+     "Land (Grund und Boden)"
+    ],
+    [
+     "force sb. to do sth.",
+     "jn. zwingen, etwas zu tun"
+    ],
+    [
+     "movement",
+     "Bewegung"
+    ],
+    [
+     "rise (by), rose, risen",
+     "(an)steigen (um)"
+    ],
+    [
+     "per cent (%)",
+     "Prozent"
+    ],
+    [
+     "tell sb. (not) to do sth.",
+     "jn. auffordern, etwas (nicht) zu tun; jm. sagen, dass er/sie etwas (nicht) tun soll"
+    ],
+    [
+     "stink, stank, stunk",
+     "stinken"
+    ],
+    [
+     "get married (to sb.)",
+     "(jn.) heiraten"
+    ],
+    [
+     "work sth. out",
+     "etwas herausfinden, etwas herausarbeiten"
+    ],
+    [
+     "draw, drew, drawn",
+     "zeichnen; ziehen"
     ]
    ]
   },
@@ -2354,6 +2490,14 @@
     [
      "relative",
      "Verwandte/r"
+    ],
+    [
+     "I hope you are well.",
+     "Ich hoffe, es geht euch gut. / Ich hoffe, ihr seid gesund/wohlauf."
+    ],
+    [
+     "go off (to a place)",
+     "(los)gehen, (los)fahren (nach/zu)"
     ]
    ]
   }

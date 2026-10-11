@@ -398,6 +398,50 @@
     [
      "eat (ate)",
      "essen"
+    ],
+    [
+     "they weren’t (= were not)",
+     "sie waren nicht"
+    ],
+    [
+     "Give me five!",
+     "Gib mir fünf! (Aufforderung, gegen die erhobene Hand des Gegenübers zu klatschen, Geste der Freude/Begrüßung)"
+    ],
+    [
+     "I didn’t want to … (= did not)",
+     "ich wollte nicht …"
+    ],
+    [
+     "act",
+     "Theater spielen, schauspielern"
+    ],
+    [
+     "past",
+     "Vergangenheit"
+    ],
+    [
+     "sentence",
+     "Satz"
+    ],
+    [
+     "cry",
+     "weinen"
+    ],
+    [
+     "tip",
+     "Tipp"
+    ],
+    [
+     "scarf, pl scarves",
+     "Schal"
+    ],
+    [
+     "shy",
+     "scheu, schüchtern"
+    ],
+    [
+     "sit (sat)",
+     "sitzen"
     ]
    ]
   },
@@ -848,6 +892,66 @@
     [
      "lose lost",
      "verlieren"
+    ],
+    [
+     "understand (understood)",
+     "verstehen"
+    ],
+    [
+     "we don’t have any …",
+     "wir haben kein/e …"
+    ],
+    [
+     "run (ran)",
+     "rennen, laufen"
+    ],
+    [
+     "as fast as he could",
+     "so schnell (wie) er konnte"
+    ],
+    [
+     "We’ll (= we will) find him.",
+     "Wir werden ihn finden."
+    ],
+    [
+     "a dog that could be Buster",
+     "ein Hund, der Buster sein könnte"
+    ],
+    [
+     "ask sb. to do sth.",
+     "jn. bitten, etwas zu tun"
+    ],
+    [
+     "ear",
+     "Ohr"
+    ],
+    [
+     "smile",
+     "lächeln"
+    ],
+    [
+     "text",
+     "1. eine SMS schicken; 2. SMS; Text"
+    ],
+    [
+     "help",
+     "1. helfen; 2. Hilfe"
+    ],
+    [
+     "walk",
+     "1. (zu Fuß) gehen; 2. Spaziergang"
+    ],
+    [
+     "work",
+     "1. arbeiten; 2. Arbeit"
+    ],
+    [
+     "mummy",
+     "Mumie"
+    ],
+    [
+     "sing (sang)",
+     "singen"
     ]
    ]
   },
@@ -1266,6 +1370,42 @@
     [
      "leave (left)",
      "weggehen, abfahren"
+    ],
+    [
+     "win (won)",
+     "gewinnen"
+    ],
+    [
+     "stuff (infml)",
+     "Zeug, Kram"
+    ],
+    [
+     "How much?",
+     "Wie viel?"
+    ],
+    [
+     "boot",
+     "Stiefel"
+    ],
+    [
+     "worst",
+     "der/die/das schlechteste, schlimmste; am schlechtesten, am schlimmsten"
+    ],
+    [
+     "grow (grew)",
+     "wachsen"
+    ],
+    [
+     "charity shop",
+     "Geschäft, das gespendete Waren für wohltätige Zwecke verkauft"
+    ],
+    [
+     "relax",
+     "sich entspannen"
+    ],
+    [
+     "ticket office",
+     "Kartenschalter"
     ]
    ]
   },
@@ -1696,6 +1836,70 @@
     [
      "forget (forgot, forgotten)",
      "vergessen"
+    ],
+    [
+     "think (thought)",
+     "denken"
+    ],
+    [
+     "how many?",
+     "wie viele?"
+    ],
+    [
+     "chance",
+     "Chance, Gelegenheit"
+    ],
+    [
+     "the good news is that …",
+     "die gute Nachricht ist, dass …"
+    ],
+    [
+     "I have a sore throat.",
+     "Ich habe Halsschmerzen."
+    ],
+    [
+     "throat",
+     "Hals"
+    ],
+    [
+     "already",
+     "schon"
+    ],
+    [
+     "never",
+     "(noch) nie"
+    ],
+    [
+     "situation",
+     "Situation"
+    ],
+    [
+     "choose (chose, chosen)",
+     "(aus)wählen"
+    ],
+    [
+     "embarrassed",
+     "verlegen"
+    ],
+    [
+     "make (made, made)",
+     "machen"
+    ],
+    [
+     "feed (fed)",
+     "füttern"
+    ],
+    [
+     "ring (rang, rung)",
+     "läuten, klingeln"
+    ],
+    [
+     "see (saw, seen)",
+     "sehen"
+    ],
+    [
+     "send (sent, sent)",
+     "schicken, senden"
     ]
    ]
   },
@@ -2114,6 +2318,70 @@
     [
      "read (read, read)",
      "lesen"
+    ],
+    [
+     "speak (spoke, spoken)",
+     "sprechen"
+    ],
+    [
+     "bite (bit, bitten)",
+     "beißen"
+    ],
+    [
+     "it won’t rain (= it will not rain)",
+     "es wird nicht regnen"
+    ],
+    [
+     "fog",
+     "Nebel"
+    ],
+    [
+     "take (took)",
+     "(mit)nehmen; bringen"
+    ],
+    [
+     "tent",
+     "Zelt"
+    ],
+    [
+     "pyjamas (pl)",
+     "(ein) Schlafanzug"
+    ],
+    [
+     "put sth. on",
+     "etwas anziehen (Kleidung) ; etwas aufsetzen (Hut)"
+    ],
+    [
+     "freeze (froze, frozen)",
+     "(ge)frieren"
+    ],
+    [
+     "minus",
+     "minus"
+    ],
+    [
+     "flag",
+     "Fahne, Flagge"
+    ],
+    [
+     "say (said, said)",
+     "sagen"
+    ],
+    [
+     "shut up (shut up, shut up)",
+     "den Mund halten"
+    ],
+    [
+     "sleep (slept, slept)",
+     "schlafen"
+    ],
+    [
+     "swim (swam, swum)",
+     "schwimmen"
+    ],
+    [
+     "wear (wore, worn)",
+     "tragen (Kleidung)"
     ]
    ]
   },
@@ -2564,6 +2832,18 @@
     [
      "Africa",
      "Afrika"
+    ],
+    [
+     "write (wrote, written)",
+     "schreiben"
+    ],
+    [
+     "Protestant",
+     "Protestant/in; protestantisch, evangelisch"
+    ],
+    [
+     "whisper",
+     "flüstern"
     ]
    ]
   }

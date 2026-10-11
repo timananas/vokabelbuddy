@@ -232,6 +232,250 @@
     [
      "Yippee!",
      "Hurra!"
+    ],
+    [
+     "Nice to meet you.",
+     "Freut mich, dich/euch/Sie kennenzulernen."
+    ],
+    [
+     "nice",
+     "nett, schön"
+    ],
+    [
+     "meet",
+     "kennenlernen; treffen"
+    ],
+    [
+     "you",
+     "du; dich; dir; ihr; euch; Sie; Ihnen"
+    ],
+    [
+     "Hi.",
+     "Hallo."
+    ],
+    [
+     "I’m (= I am)",
+     "ich bin"
+    ],
+    [
+     "the crab",
+     "der Krebs"
+    ],
+    [
+     "What’s your name?",
+     "Wie heißt du?"
+    ],
+    [
+     "what?",
+     "was?"
+    ],
+    [
+     "your",
+     "dein/e; euer/eure; Ihr/e"
+    ],
+    [
+     "name",
+     "Name"
+    ],
+    [
+     "How old are you?",
+     "Wie alt bist du?"
+    ],
+    [
+     "you’re (= you are)",
+     "du bist; ihr seid; Sie sind"
+    ],
+    [
+     "from Plymouth",
+     "aus Plymouth"
+    ],
+    [
+     "in England",
+     "in England"
+    ],
+    [
+     "Where are you from?",
+     "Wo kommst du her?"
+    ],
+    [
+     "where?",
+     "wo? / wohin?"
+    ],
+    [
+     "Germany",
+     "Deutschland"
+    ],
+    [
+     "class",
+     "Klasse"
+    ],
+    [
+     "game",
+     "Spiel"
+    ],
+    [
+     "I can see …",
+     "ich kann … sehen"
+    ],
+    [
+     "can",
+     "können"
+    ],
+    [
+     "and",
+     "und"
+    ],
+    [
+     "a beach",
+     "ein Strand"
+    ],
+    [
+     "Cyril’s song",
+     "Cyrils Lied"
+    ],
+    [
+     "my",
+     "mein/e"
+    ],
+    [
+     "favourite colour",
+     "Lieblingsfarbe"
+    ],
+    [
+     "colour",
+     "Farbe"
+    ],
+    [
+     "place",
+     "Ort, Platz"
+    ],
+    [
+     "love",
+     "lieben, sehr mögen"
+    ],
+    [
+     "aquarium",
+     "Aquarium"
+    ],
+    [
+     "fish, pl fish",
+     "Fisch; Fische"
+    ],
+    [
+     "great",
+     "toll, großartig"
+    ],
+    [
+     "Look at the sweets!",
+     "Sieh/Schau dir die Süßigkeiten."
+    ],
+    [
+     "all",
+     "alle(s)"
+    ],
+    [
+     "sweets (pl)",
+     "Bonbons, Süßigkeiten"
+    ],
+    [
+     "Welcome to Plymouth.",
+     "Willkommen in Plymouth."
+    ],
+    [
+     "red",
+     "rot"
+    ],
+    [
+     "brown",
+     "braun"
+    ],
+    [
+     "purple",
+     "violett, lila"
+    ],
+    [
+     "yellow",
+     "gelb"
+    ],
+    [
+     "white",
+     "weiß"
+    ],
+    [
+     "blue",
+     "blau"
+    ],
+    [
+     "grey",
+     "grau"
+    ],
+    [
+     "black",
+     "schwarz"
+    ],
+    [
+     "green",
+     "grün"
+    ],
+    [
+     "pink",
+     "pink, rosa"
+    ],
+    [
+     "like",
+     "mögen"
+    ],
+    [
+     "I don’t like …",
+     "ich mag … nicht"
+    ],
+    [
+     "My favourite colour is …",
+     "Meine Lieblingsfarbe ist …"
+    ],
+    [
+     "sport",
+     "Sport; Sportart"
+    ],
+    [
+     "hobby",
+     "Hobby"
+    ],
+    [
+     "football",
+     "Fußball"
+    ],
+    [
+     "music",
+     "Musik"
+    ],
+    [
+     "I like watching TV.",
+     "Ich sehe gern fern."
+    ],
+    [
+     "TV",
+     "Fernseher"
+    ],
+    [
+     "too",
+     "auch"
+    ],
+    [
+     "wild",
+     "wild"
+    ],
+    [
+     "wheel",
+     "Rad"
+    ],
+    [
+     "on",
+     "auf"
+    ],
+    [
+     "with",
+     "mit"
     ]
    ]
   },
@@ -910,6 +1154,66 @@
     [
      "sure",
      "sicher"
+    ],
+    [
+     "sister",
+     "Schwester"
+    ],
+    [
+     "they aren’t …",
+     "sie sind nicht …; sie sind keine"
+    ],
+    [
+     "he/she/it isn’t …",
+     "er/sie/es ist nicht …"
+    ],
+    [
+     "a tour of the school",
+     "ein Rundgang durch die Schule"
+    ],
+    [
+     "Monday",
+     "Montag"
+    ],
+    [
+     "Friday",
+     "Freitag"
+    ],
+    [
+     "Tuesday",
+     "Dienstag"
+    ],
+    [
+     "Saturday",
+     "Samstag"
+    ],
+    [
+     "Wednesday",
+     "Mittwoch"
+    ],
+    [
+     "Sunday",
+     "Sonntag"
+    ],
+    [
+     "Thursday",
+     "Donnerstag"
+    ],
+    [
+     "registration",
+     "(etwa) Anwesenheitskontrolle und Ankündigung aktueller Ereignisse vor dem Unterricht"
+    ],
+    [
+     "positive",
+     "positiv"
+    ],
+    [
+     "Mr Brown",
+     "Herr Brown"
+    ],
+    [
+     "shop",
+     "Laden, Geschäft"
     ]
    ]
   },
@@ -1408,6 +1712,30 @@
     [
      "phone number",
      "Telefonnummer"
+    ],
+    [
+     "sofa",
+     "Sofa"
+    ],
+    [
+     "Ellie’s family",
+     "Ellies Familie"
+    ],
+    [
+     "share a room with …",
+     "sich ein Zimmer mit … teilen"
+    ],
+    [
+     "I can’t (= cannot) do my homework.",
+     "Ich kann meine Hausaufgaben nicht machen."
+    ],
+    [
+     "dream",
+     "Traum"
+    ],
+    [
+     "alphabet",
+     "Alphabet"
     ]
    ]
   },
@@ -1866,6 +2194,62 @@
     [
      "advert",
      "Anzeige, Werbung"
+    ],
+    [
+     "in the morning",
+     "morgens, am Morgen"
+    ],
+    [
+     "have breakfast",
+     "frühstücken"
+    ],
+    [
+     "have lunch",
+     "(zu) Mittag essen"
+    ],
+    [
+     "have a party",
+     "eine Party feiern"
+    ],
+    [
+     "December",
+     "Dezember"
+    ],
+    [
+     "October",
+     "Oktober"
+    ],
+    [
+     "April",
+     "April"
+    ],
+    [
+     "June",
+     "Juni"
+    ],
+    [
+     "August",
+     "August"
+    ],
+    [
+     "July",
+     "Juli"
+    ],
+    [
+     "concert",
+     "Konzert"
+    ],
+    [
+     "I have a sore leg.",
+     "Mein Bein tut weh."
+    ],
+    [
+     "The calculator is £ 1.",
+     "Der Taschenrechner kostet 1 Pfund."
+    ],
+    [
+     "How much are …?",
+     "Was (Wie viel) kosten …?"
     ]
    ]
   },
@@ -2288,6 +2672,26 @@
     [
      "dictionary",
      "Wörterbuch, (alphabetisches) Wörterverzeichnis"
+    ],
+    [
+     "sheep, pl sheep",
+     "Schaf, Schafe"
+    ],
+    [
+     "find",
+     "finden"
+    ],
+    [
+     "wet",
+     "nass"
+    ],
+    [
+     "time to eat",
+     "Zeit zu essen"
+    ],
+    [
+     "I’d love to come. (= I would love to come.)",
+     "Ich komme sehr gern. / Ich würde sehr gern kommen."
     ]
    ]
   },
@@ -2694,6 +3098,38 @@
     [
      "jam",
      "Marmelade"
+    ],
+    [
+     "woman, pl women",
+     "Frau, Frauen"
+    ],
+    [
+     "I’d like … (= I would like)",
+     "Ich hätte gern …"
+    ],
+    [
+     "Say hi to everybody.",
+     "Grüß alle."
+    ],
+    [
+     "join a club",
+     "sich einem Klub anschließen; in einen Klub eintreten"
+    ],
+    [
+     "on the way to …",
+     "auf dem Weg zu/nach …"
+    ],
+    [
+     "he thought",
+     "er dachte; er hat gedacht"
+    ],
+    [
+     "he wasn’t (= was not)",
+     "er war nicht"
+    ],
+    [
+     "apple",
+     "Apfel"
     ]
    ]
   },
@@ -2944,6 +3380,26 @@
     [
      "Turkey",
      "(die) Türkei"
+    ],
+    [
+     "theme park",
+     "Themenpark (Freizeitpark mit Attraktionen zu einem bestimmten Thema)"
+    ],
+    [
+     "I’m going to bring …",
+     "ich werde … mitbringen"
+    ],
+    [
+     "bodyboard",
+     "Bodyboard (kurzes Surfbrett, mit dem man auf dem Bauch liegend surft)"
+    ],
+    [
+     "take me to the theatre",
+     "mit mir ins Theater gehen"
+    ],
+    [
+     "aboard",
+     "an Bord"
     ]
    ]
   }

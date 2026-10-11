@@ -256,6 +256,10 @@
     [
      "word order",
      "Wortstellung (im Satz)"
+    ],
+    [
+     "yes/no-question",
+     "Entscheidungsfrage/Frage ohne Fragewort/Ja-/Nein-Frage"
     ]
    ]
   },
@@ -766,6 +770,50 @@
     [
      "presenter",
      "Referent/in"
+    ],
+    [
+     "face sth.",
+     "vor etwas stehen (Problem); einer Sache ins Auge sehen, sich einer Sache stellen; einer Sache entgegentreten"
+    ],
+    [
+     "dig, dug, dug",
+     "graben"
+    ],
+    [
+     "panic",
+     "in Panik geraten"
+    ],
+    [
+     "be familiar (to sb./with sth.)",
+     "(jm.) vertraut sein / (mit etwas)"
+    ],
+    [
+     "be up for sth. (infml)",
+     "bei etwas dabei sein, mitmachen"
+    ],
+    [
+     "sink",
+     "sinken"
+    ],
+    [
+     "visuals (pl)",
+     "visuelle Materialien/Hilfsmittel"
+    ],
+    [
+     "friendliness",
+     "Freundlichkeit"
+    ],
+    [
+     "sadness",
+     "Traurigkeit"
+    ],
+    [
+     "ours",
+     "unserer, unsere, unseres"
+    ],
+    [
+     "theirs",
+     "ihrer, ihre, ihrs"
     ]
    ]
   },
@@ -1100,6 +1148,34 @@
     [
      "sometime",
      "irgendwann"
+    ],
+    [
+     "peer",
+     "Gleichaltrige/r, Ebenbürtige/r, jemand aus derselben sozialen Gruppe"
+    ],
+    [
+     "tease sb.",
+     "jn. hänseln, sich über jn. lustig machen"
+    ],
+    [
+     "skating",
+     "(= ice skating) Schlittschuhlaufen; (= roller skating) Rollschuhlaufen"
+    ],
+    [
+     "copy",
+     "kopieren, abschreiben"
+    ],
+    [
+     "have every right to do sth.",
+     "guten Grund / das Recht haben, etwas zu tun"
+    ],
+    [
+     "keep an eye on sb./sth.",
+     "jn./etwas im Auge behalten, ein (wachsames) Auge haben auf jn./etwas"
+    ],
+    [
+     "blow",
+     "blasen (in); wehen (Wind)"
     ]
    ]
   },
@@ -1618,6 +1694,38 @@
     [
      "greet",
      "begrüßen"
+    ],
+    [
+     "iron",
+     "bügeln"
+    ],
+    [
+     "I often run out of money.",
+     "Mir geht oft das Geld aus. / Bei mir wird oft das Geld knapp."
+    ],
+    [
+     "up to now / so far",
+     "bis jetzt"
+    ],
+    [
+     "from … to …",
+     "von … bis …"
+    ],
+    [
+     "CV (= curriculum vitae) (BE)",
+     "Lebenslauf"
+    ],
+    [
+     "interviewer",
+     "Interviewer/in"
+    ],
+    [
+     "pretend (to be sth.)",
+     "so tun, als ob"
+    ],
+    [
+     "a friend of Cindy’s / of hers / of mine",
+     "ein/e Freund/in von Cindy / von ihr / von mir"
     ]
    ]
   },
@@ -2380,6 +2488,42 @@
     [
      "regret",
      "bedauern, bereuen"
+    ],
+    [
+     "put sth. up (on social media)",
+     "etwas (in soziale Medien) (ein)stellen"
+    ],
+    [
+     "target sb.",
+     "auf jn. zielen (jn. als Zielgruppe haben/wählen), jn. ins Visier nehmen"
+    ],
+    [
+     "crash (into)",
+     "einen Unfall haben, zusammenstoßen (mit)"
+    ],
+    [
+     "I haven’t eaten in days.",
+     "Ich habe tagelang nichts gegessen."
+    ],
+    [
+     "creep up (on sb.)",
+     "sich heranschleichen (an jn.)"
+    ],
+    [
+     "no need for … / no need to do sth.",
+     "kein Grund für … / kein Grund, etwas zu tun"
+    ],
+    [
+     "point a knife/gun at sb.",
+     "ein Messer/eine Waffe auf jn. richten"
+    ],
+    [
+     "vamping",
+     "spät in der Nacht noch aktiv"
+    ],
+    [
+     "gap",
+     "Lücke; Kluft"
     ]
    ]
   }
